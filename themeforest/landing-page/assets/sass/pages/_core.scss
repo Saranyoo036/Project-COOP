@@ -1,0 +1,183 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size:50px;
+  line-height:60px;
+}
+
+h2 {
+  font-size:40px;
+  line-height:40px;
+  margin-bottom: 64px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
+  margin-bottom: 46px;
+}
+
+h4 {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+p.subtitle {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: #8f78db;
+  text-decoration: underline;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a:focus {
+  outline: none;
+}
+
+.f-w-300 {
+  font-weight: 300;
+}
+
+.f-w-400 {
+  font-weight: 400;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+ul > li {
+  list-style: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mt-20{
+    margin-top:20px;
+}
+
+.mb-30{
+    margin-bottom:30px;
+}
+.mb-40{
+    margin-bottom:40px;
+}
+.section-title{
+    font-weight:700;
+    font-size:30px;
+    margin:0 0 20px 0;
+    color:#30373e;
+}
+.medium-title{
+    font-weight:500;
+    font-size:24px;
+    margin:0 0 20px 0;
+    color:#30373e;
+    text-transform:uppercase;
+}
+.section-subtitle{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    color:#666;
+}
+
+.section-grey{
+    background:#eef0f1;
+}
+
+/*****************************************************
+*** Buttons ***
+*****************************************************/
+.btn {
+  font-weight: 400;
+  text-decoration: none;
+  color: #26272d;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+
+.btn-blue {
+  background-color: #267df4;
+  color: white;
+}
+
+.btn-green {
+  background-color: #8bc43f;
+  color: white;
+}
+
+.btn-dark {
+  background-color: #131315;
+  color: white;
+}
+
+/*****************************************************
+*** Inputs ***
+*****************************************************/
+#subscribe input[type="text"],
+#subscribe input[type="email"],
+#ready-to-buy input[type="text"],
+#ready-to-buy input[type="email"] {
+  width: 502px;
+  height: 50px;
+  max-width: 100%;
+  border: 1px solid rgba(38, 39, 45, 0.2);
+  padding: 16px 26px;
+  font-size: 16px;
+  background-color: transparent;
+  padding-right: 148px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none !important;
+  color: #30373e;
+  box-shadow:none !important;
+  
+}
+
+/*****************************************************
+*** Forms ***
+*****************************************************/
+#ready-to-buy .form-group,
+#subscribe .form-group {
+  position: relative;
+  width: 502px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#ready-to-buy .form-group .btn,
+#subscribe .form-group .btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}

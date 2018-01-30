@@ -1,0 +1,84 @@
+{
+  "project": {
+    "version": "1.0.0-beta.28.3",
+    "name": "ng-adminX"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "styles": [
+        "./assets/plugins/morrisjs/morris.css",
+        "./assets/plugins/sweetalert/sweetalert.css",
+		"./assets/css/themes/all-themes.css"
+      ],
+      "scripts": [
+	    "./assets/bundles/libscripts.bundle.js",
+	    "./assets/bundles/vendorscripts.bundle.js",
+	    "./assets/bundles/mainscripts.bundle.js",
+        "./assets/plugins/bootstrap-notify/bootstrap-notify.js",
+        "./assets/plugins/sweetalert/sweetalert.min.js",
+        "./assets/js/pages/ui/modals.js",
+        "./assets/js/pages/ui/notifications.js",
+        "./assets/js/pages/ui/sortable-nestable.js",
+        "./assets/plugins/jquery-sparkline/jquery.sparkline.js",
+        "./assets/js/pages/charts/sparkline.js",
+        "./assets/js/pages/ui/tooltips-popovers.js",
+        "./assets/plugins/sketch/sketch.min.js",
+        "./assets/js/pages/authentication/sketch.js",
+	    "./assets/js/pages/index.js"
+	  ],
+      "environments": {
+        "source": "environments/environment.ts",
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
+    },
+    {
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
+  }
+}
