@@ -58,4 +58,16 @@ class Fun_sidebar_admin extends CI_Controller {
 			$this->load->view('script');
 	
 	}
+
+	public function show_setting()
+	{
+		$data = array(
+			'nameMaj' => $this->input->get('subname_major'),
+			'type' => $this->input->get('type_major')
+		);
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('show_setting_view',$data);
+			$this->load->view('script');
+	}
 }

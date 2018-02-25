@@ -50,7 +50,9 @@
                                                     <li><a href="<?php
                                                         echo(base_url()."/Fun_sidebar_admin/show_company?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Organization</a></li>
-                                                    <li><a href="">Time Setting</a></li>
+                                                    <li><a href="<?php
+                                                        echo(base_url()."/Fun_sidebar_admin/show_setting?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                    ?>">Time Setting</a></li>
                                                     <li><a href="">Export Summarize</a></li>
                                                     <li><a href="">Import</a></li>
                                                 </ul>
@@ -75,7 +77,9 @@
                                                     <li><a href="<?php
                                                         echo(base_url()."/Fun_sidebar_admin/show_company?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Organization</a></li>
-                                                    <li><a href="">Time Setting</a></li>
+                                                    <li><a href="<?php
+                                                        echo(base_url()."/Fun_sidebar_admin/show_setting?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                    ?>">Time Setting</a></li>
                                                     <li><a href="">Export Summarize</a></li>
                                                     <li><a href="">Import</a></li>
                                                 </ul>
