@@ -14,6 +14,7 @@
 						<td>COOP 103</td>
 						<td>COOP 202</td>
 						<td>View</td>
+						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
 
@@ -35,6 +36,7 @@
 						echo "<td>$key->Faculty_name</td>";
 						echo "<td>$key->Major_name</td>";
 						echo "<td>$key->status</td>";
+						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";
