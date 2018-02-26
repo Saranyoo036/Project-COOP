@@ -1,13 +1,13 @@
 <!--Side menu and right menu -->
 <!-- Left Sidebar -->
-<aside id="leftsidebar" class="sidebar"> 
+<aside id="leftsidebar" class="sidebar">
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
-            <li> 
+            <li>
                 <!-- User Info -->
                 <div class="user-info">
-                    <div class="admin-image"> <img src="<?php echo base_url();?>assets/images/sm/avatar1.jpg" alt="profile img"> </div>
+                    <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
                         <h3>John Smith</h3>
                         <ul>
@@ -17,35 +17,35 @@
                         </ul>
                     </div>
                 </div>
-                <!-- #User Info --> 
+                <!-- #User Info -->
             </li>
             <li class="header">เมนูหลัก</li>
             <li class="active open"><a href="<?php echo base_url(); ?>"><i class="zmdi zmdi-home"></i><span>หน้าแรก</span> </a></li>
 
             <li ><a href="<?php echo base_url(); ?>/news/news/new_s"><i class="material-icons">event_note</i> <span class="icon-name">ข่าวสารใหม่</span> </a></li>
-            
+
             <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">account_balance</i> <span class="icon-name">ข้อมูลนักศึกษา</span> </a>
                 <ul class="ml-menu">
-                    
-                
+
+
                     <li><a href="">COC</a></li>
                     <li><a href="">FHT</a></li>
                     <li><a href="">FIS</a></li>
                     <li><a href="">FTE</a></li>
                 </ul>
             </li>
-            
-            
+
+
             <li ><a href="<?php echo base_url(); ?>TipsTricks/TipsTricks/Tips_Tricks"><i class="material-icons">highlight</i> <span class="icon-name">ทิปการใช้งาน</span> </a></li>
 
             <li ><a href="<?php echo base_url(); ?>contact/contact/Support"><i class="material-icons">contact_phone</i> <span class="icon-name">ติดต่อเรา</span> </a></li>
 
-                  
+
         </ul>
     </div>
-    <!-- #Menu --> 
+    <!-- #Menu -->
 </aside>
-<!-- #END# Left Sidebar --> 
+<!-- #END# Left Sidebar -->
 <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
     <ul class="nav nav-tabs tab-nav-right">
@@ -293,4 +293,4 @@
         </div>
     </div>
 </aside>
-<!-- #END# Right Sidebar --> 
+<!-- #END# Right Sidebar -->

@@ -24,13 +24,13 @@
                         <h4 class="position">Welcome</h4>
                         <h1 class="position">COOP</h1>
                         <h3 class="position">Application System</h3>
-                        <p class="position"></p> 
+                        <p class="position"></p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-12 p-r-0">
                     <div class="card position">
-                        
-                        <form method="POST" action="/index.php/Authentication/authen_login">
+
+                        <form method="POST" action="index.php/Authentication/authen_login">
                         <h4 class="l-login">Login</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
@@ -47,14 +47,14 @@
                     </div>
                 </div>
                 </form>>
-            </div> 
+            </div>
         </div>
     </div>
 
-<!-- Jquery Core Js --> 
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
-<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="assets/js/pages/authentication/sketch.js"></script><!-- sketch Js -->
 </body>
 </html>

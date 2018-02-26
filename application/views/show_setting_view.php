@@ -2,42 +2,52 @@
 <section class="content home">
 	<div class="container-fluid">
 		<div class="block-header">
-			<h2>Time Setting</h2>
-			<ul class="breadcrumb">
-				<?php
-					$sql = "SELECT * FROM `major_setting`,`major` 
-							WHERE major_setting.major_id = major.Major_ID
-							AND major.NameMajor_sub = '$nameMaj'
-							AND major_setting.SETTING_TYPE ='$type'
-							LIMIT 1 ;";
+			<h2>student <?php echo $nameMaj; ?></h2>
+			<ul class=" breadcrumb">
+				<table border = "0"  style="width:100%">
+					<tr align='center'>
+						<td>Student ID</td>
+						<td>Student Name</td>
+						<td>Faculty</td>
+						<td>Major</td>
+						<td>Status</td>
+						<td>COOP 103</td>
+						<td>COOP 202</td>
+						<td>View</td>
+						<td>Delete</td>
+					</tr>
 
-					$query = $this->db->query($sql);
-					$row = $query->row();
-					
 
-				?>
 				<?php
-					if($row==null){
-						?>
-						<form action="" method="">
-							1.Requesting<br>
-							<input type="date" name="ReqBg"> to <input type="date" name="ReqEnd"><br>
-							2.Choosing<br>
-							<input type="date" name="choosBg"> to <input type="date" name="choosEnd"><br>
-					</form>
-						<?php
-					}else{
+				$que = "SELECT * FROM `student_form_103`,`student`,`major`,`student_staus` ,`faculty`
+						WHERE major.Major_ID = student.major_id
+						AND major.Fac_ID = faculty.Fac_ID
+						AND	student_form_103.STD_ID = student.STD_ID
+						AND student_staus.std_form_103_id = student_form_103.std_form_103_id
+						AND major.NameMajor_sub = '$nameMaj'
+						AND student_staus.std_type = '$type';";
+
+					$res = $this->db->query($que);
+					foreach ($res->result() as $key ) {
+						echo "<tr class = 'table' align='center'>";
+						echo "<td>$key->std_psuid</td>";
+						echo "<td>$key->std_name</td>";
+						echo "<td>$key->Faculty_name</td>";
+						echo "<td>$key->Major_name</td>";
+						echo "<td>$key->status</td>";
+						echo "<td></td>";
+						echo "<td></td>"; ?>
+						<td> <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25' onclick="alert('fsdfsdf')"> </td>
+						<td> <img src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25' onclick=''> </td>
+					<?php	echo "</tr>";
+					}
 				?>
-				<form action="" method="">
-					
-					1.Requesting<br>
-					<input type="date" name="ReqBg" value="<?php echo $row->start_date_Req;?>"> to <input type="date" name="ReqEnd" value="<?php echo $row->end_date_Req;?>"><br>
-					2.Choosing<br>
-					<input type="date" name="choosBg" value="<?php echo $row->start_date_choosing;?>" > to <input type="date" name="choosEnd" value="<?php echo $row->end_date_choosing;?>"><br>
-				</form>
-				<?php } 
-				?>
+			</table>
 			</ul>
 		</div>
-	</div>
+
+
+
+		</div>
+
 </section>
