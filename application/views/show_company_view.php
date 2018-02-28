@@ -45,6 +45,8 @@
 								 </a>
 					</td>
 						<td> <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25' > </a> </td>
+							<img title=<?php echo $key->company_id; ?> src = <?php echo base_url("assets/images/trash.png");?> height='25' 
+							onclick="return confirm('ต้องการลบข้อมูลใช่หรือไม่??');"> </a> </td>
 
 						<?php echo "</tr>";
 					}
