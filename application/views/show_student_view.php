@@ -4,7 +4,11 @@
 		<div class="block-header">
 			<h2>student <?php echo $nameMaj; ?></h2>
 			<ul class="breadcrumb">
-				<table border = "1" style="width:100%">
+				<table id="example" border = "0" style="width:100%">
+					<thead>
+						<tr>
+							<td>dgdfg</td>
+						</tr>
 					<tr>
 						<td>Student ID</td>
 						<td>Student Name</td>
@@ -17,8 +21,9 @@
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
+					</thead>
 
-				
+
 				<?php
 				$que = "SELECT * FROM `student_form_103`,`student`,`major`,`student_staus` ,`faculty`
 						WHERE major.Major_ID = student.major_id
@@ -47,9 +52,21 @@
 			</table>
 			</ul>
 		</div>
-	
-		
-		
+
+
+
 		</div>
-	
+
 </section>
+
+<script type="text/javascript">
+
+var teacher =[];
+var table;
+$(document).ready(function() {
+	table = $('#example').DataTable({
+
+	});
+});
+
+</script>

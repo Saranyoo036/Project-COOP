@@ -22,10 +22,9 @@ class Authentication extends CI_Controller{
 			$query = $this->db->get();
 
 			if ($query->result()) {
-						print_r($query->result());
+						//print_r($query->result());
 						$session_data= array(
 							'username'=>$this->input->post('txtUsername'),
-
 						);
 						$this->session->set_userdata('logged_in',$session_data);
 						$this->load->view('top-bar');

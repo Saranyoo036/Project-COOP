@@ -11,9 +11,6 @@ class Fun_sidebar_admin extends CI_Controller {
 			'type' => $this->input->get('type_major')
 		);
 
-
-
-
 		$this->load->view('top-bar');
 		$this->load->view('sidebar-admin');
 		$this->load->view('show_student_view',$data);

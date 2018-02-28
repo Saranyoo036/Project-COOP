@@ -8,6 +8,10 @@
 <link rel="icon" href=<?php echo base_url("Project-COOP/favicon.ico");?> type="image/x-icon">
 <link href=<?php echo base_url("Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css");?> rel="stylesheet" />
 <link href=<?php echo base_url("Project-COOP/assets/plugins/morrisjs/morris.css");?> rel="stylesheet" />
+
+<link href=<?php echo base_url("Project-COOP/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"); ?> rel="stylesheet" />
+
+
 <link rel="stylesheet" href="//cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <!-- Custom Css -->
@@ -49,7 +53,7 @@
 			<li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="zmdi zmdi-search"></i></a></li>
 
 
-			<li><a href="<?php echo(base_url()."/authentication/log_out")?>" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
+			<li><a href="<?php echo(base_url()."Project-COOP/authentication/log_out")?>" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
 
 			<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-sort-amount-desc"></i></a></li>
 

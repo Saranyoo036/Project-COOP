@@ -41,10 +41,10 @@
 						 ?>
 						<td>
 							 <a href= <?php echo base_url("Project-COOP/index.php/company/viewcompany?company_viewid=".$key->company_id."&subname_major=$nameMaj&type_major=$type") ?> >
-								  <img src = <?php echo base_url("Project-COOP/htdocs/assets/images/view.png");?> height='25'>
+								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>
-						<td> <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/htdocs/assets/images/trash.png");?> height='25' > </a> </td>
+						<td> <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25' > </a> </td>
 
 						<?php echo "</tr>";
 					}
