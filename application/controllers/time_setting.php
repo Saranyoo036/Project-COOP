@@ -22,27 +22,39 @@ class time_setting extends CI_Controller {
     // 	'type' => $this->input->get('type_major')
     // );
     $data['data'] = $this->time_model->showdate($_GET['subname_major'],$_GET['type_major']);
+    // echo '<pre>';
+    // print_r($data);
+    // echo '</pre>';
+
+
 
     if ($data['data'] == array() ) {
 
       $this->load->view('show_setting_view',$data);
     }
     else{
-      for ($i=0; $i < 2; $i++) {
-        if ($data['data'][$i]['start_date'] == '0000-00-00') {
-          $data['data'][$i]['start_date'] = '';
+
+        if ($data['data'][0]['start_date_Req'] == '0000-00-00') {
+          $data['data'][0]['start_date_Req'] = '';
+        } 
+        if ($data['data'][0]['end_date_Req'] == '0000-00-00') {
+          $data['data'][0]['end_date_Req'] = '';
         }
-        if ($data['data'][$i]['end_date'] == '0000-00-00') {
-          $data['data'][$i]['end_date'] = '';
+      
+        if ($data['data'][0]['start_date_choosing'] == '0000-00-00') {
+          $data['data'][0]['start_date_choosing'] = '';
         }
-      }
+        if ($data['data'][0]['end_date_choosing'] == '0000-00-00') {
+          $data['data'][0]['end_date_choosing'] = '';
+        }
+      
         $this->load->view('show_setting_view',$data);
 
     }
 
     $this->load->view('top-bar');
     $this->load->view('sidebar-admin');
-    //$this->load->view('show_setting_view');
+   // $this->load->view('show_setting_view',$data);
     $this->load->view('script');
   }
 

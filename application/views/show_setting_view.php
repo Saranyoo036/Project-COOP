@@ -1,6 +1,9 @@
 <section class="content home">
 
 <?php
+    // echo '<pre>';
+    // print_r($data);
+    // echo '</pre>';
 
 $date = '';
 //print_r($data);
@@ -29,7 +32,7 @@ else {
                                      <div class="form-line">
                                       FROM
                                       <?php if ($date =='true') {?>
-                                        <input type="text" id='requestfrom' name="requestfrom" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['start_date']; ?>>
+                                        <input type="text" id='requestfrom' name="requestfrom" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['start_date_Req']; ?>>
                                     <?php  }
                                     else { ?>
                                       <input type="text" id='requestfrom' name="requestfrom" class="datepicker form-control" placeholder="Please choose a date..." value=''>
@@ -42,7 +45,7 @@ else {
 																		 <div class="form-line">
 																				TO
                                         <?php if ($date =='true') {?>
-                                          <input type="text" id='requestto' name="requestto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date']; ?>>
+                                          <input type="text" id='requestto' name="requestto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date_Req']; ?>>
                                       <?php  }
                                       else { ?>
                                         <input type="text" id='requestto' name="requestto" class="datepicker form-control" placeholder="Please choose a date..." value=''>
@@ -58,7 +61,7 @@ else {
                                      <div class="form-line">
                                       FROM
                                       <?php if ($date =='true') {?>
-                                        <input type="text" id='choosingfrom' name="choosingfrom" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[1]['start_date']; ?>>
+                                        <input type="text" id='choosingfrom' name="choosingfrom" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['start_date_choosing']; ?>>
                                     <?php  }
                                     else { ?>
                                       <input type="text" id='choosingfrom' name="choosingfrom" class="datepicker form-control" placeholder="Please choose a date..." value=''>
@@ -71,7 +74,7 @@ else {
 																		 <div class="form-line">
 																				TO
                                         <?php if ($date =='true') {?>
-                                          <input type="text" id='choosingto' name="choosingto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[1]['end_date']; ?>>
+                                          <input type="text" id='choosingto' name="choosingto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date_choosing']; ?>>
                                       <?php  }
                                       else { ?>
                                         <input type="text" id='choosingto' name="choosingto" class="datepicker form-control" placeholder="Please choose a date..." value=''>
@@ -84,7 +87,13 @@ else {
                          <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
                          <input type="hidden" name="type" value=<?php echo $_GET['type_major']; ?>>
                          <input type="hidden" id="date" name="date" value=<?php echo $date; ?>>
-                         <a href="#" class="btn" onclick="document.getElementById('settimeform').submit()">save</a>
+                         <table align="right">
+                           <tr>
+                             <td>
+                              <a href="#" class="btn btn-raised btn-primary waves-effect" onclick="document.getElementById('settimeform').submit()">save</a></td>
+                           </tr>
+                         </table>
+                         
                          </form>
                      </div>
                  </div>

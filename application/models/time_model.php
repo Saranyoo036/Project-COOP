@@ -21,7 +21,7 @@ class time_model extends CI_Model
     public function showdate($major,$type)
     {
       $mid = $this->getmajorid($major);
-      $query = $this->db->query("SELECT * FROM major_setting WHERE `major_id`= '".$mid."'");
+      $query = $this->db->query("SELECT * FROM major_setting WHERE `SETTING_TYPE` ='".$type."'AND `major_id`= '".$mid."'");
       $row = $query->result_array();
       return $row;
     }
@@ -31,9 +31,11 @@ class time_model extends CI_Model
       $date = date('Y-m-d H:i:s');
       $mid = $this->getmajorid($data['major']);
       //echo $mid;
-      //print_r($data);
+      print_r($data);
       // echo $date.'<br>';
       // echo $majorid.'<br>';
+
+
 
       $this->db->select('*');
       $this->db->from('major_setting');
@@ -54,9 +56,13 @@ class time_model extends CI_Model
       //print_r($data);
       $type = array('0'=>'Request','1'=>'Choosing');
 
-      $this->db->where('setting_id', 3);
-      $this->db->update('major_setting', array('start_date' => $data['requestfrom']
-      ,'end_date'=>$data['requestto']
+      $where = "SETTING_TYPE ='".$data['type']."' AND major_ID = '".$mid."'";
+
+      $this->db->where($where);
+      $this->db->update('major_setting', array('start_date_Req' => $data['requestfrom']
+      ,'end_date_Req'=>$data['requestto']
+      ,'start_date_choosing'=>$data['choosingto'] 
+      ,'end_date_choosing'=>$data['choosingto'] 
       
       ));
       return true;
@@ -70,19 +76,19 @@ class time_model extends CI_Model
       $from = array('0' => $data['requestfrom'],'1'=> $data['choosingfrom'] );
       $to = array('0' => $data['requestto'] ,'1'=>$data['choosingto'] );
       $type = array('0'=>'Request','1'=>'Choosing');
-
-      for ($i=0; $i <count($from) ; $i++) {
-        $this->setting_id = '';
+       
         $this->major_ID = $majorid;
-        $this->SETTING_TYPE = $type[$i];
-        $this->start_date = $from[$i];
-        $this->end_date = $to[$i];
+        $this->SETTING_TYPE = $data['type'];
+        $this->start_date_choosing = $data['choosingfrom'];
+        $this->end_date_choosing = $data['choosingfrom'];
         $this->create_at = $date;
         $this->update_at = '';
-        $this->type =$data['type'];
+        $this->setting_id = '';
+        $this->start_date_Req =$data['requestfrom'];
+        $this->end_date_Req = $data['requestto'];
         $this->db->insert('major_setting', $this);
 
-      }
+      
     }
 
 		}
