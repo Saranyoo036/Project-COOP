@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2018 at 11:48 PM
+-- Generation Time: Mar 01, 2018 at 08:24 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -113,10 +113,10 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`company_id`, `Major_ID`, `address`, `provice`, `contract`, `Tel`, `Note`, `company_type`, `company_name`) VALUES
 (16, 3, 'เลขที่อยู่ rty กอก เมือง ภก 83000', 'ภก', '-,adasd@sd.com', '-', 'gfnfgh', 'Internship', 'eiei'),
-(19, 3, '555/55 - ในเมือง เมือง NST(nakhon si thammarat) 55555', 'NST(nakhon si thammarat)', '-email.cas@ff.com', 'Tel:000-0000000', ' --- ', 'COOP', 'x.ltd.;'),
+(19, 3, '555/55 - ในเมือง เมือง NST(nakhon-si-thammarat) 80000', 'NST(nakhon-si-thammarat)', '555,dsfsdfsdf', '0777777777', 'fghfhfghfghfghfghfgh', 'COOP', 'x.ltd.;'),
 (21, 1, 'address_num street kwang sub_district district postcode', 'district', 'fax,mail', 'tel', 'about', 'COOP', 'test_name'),
-(22, 3, 'เลขที่อยู่ ถนน/ตรอก/ซอย แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์', 'จังหวัด', 'Fax:Fax:Fax:หมายเลขโทรสาร(แฟกซ์), EMAIL:test@t.com', 'Tel:Tel:Tel:หมายเลขโทรศัพท์', 'รายละเอียด', 'COOP', 'บริษัท'),
-(23, 3, '222/22 - ตำบล เมือง อะไรไม่รู้ 55555', 'อะไรไม่รู้', '-,email.m@mail.com', '0777777777', 'asdasd', 'COOP', 'ก.จำกัด');
+(22, 3, 'เลขที่อยู่ ถนน/ตรอก/ซอย แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์', 'จังหวัด', 'dsds,ertert', 'หมายเลขโทรศัพท์', '     รายละเอียด     ', 'COOP', 'บริษัท'),
+(23, 3, '222/22 - ตำบล เมือง อะไรไม่รู้ 55555', 'อะไรไม่รู้', '-email.m@mail.com', '0777777777', ' asdasd ', 'COOP', 'ก.จำกัด');
 
 -- --------------------------------------------------------
 
@@ -197,9 +197,24 @@ CREATE TABLE `major_setting` (
   `SETTING_TYPE` varchar(11) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `create_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `type` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `major_setting`
+--
+
+INSERT INTO `major_setting` (`setting_id`, `major_id`, `SETTING_TYPE`, `start_date`, `end_date`, `create_at`, `update_at`, `type`) VALUES
+(3, 3, 'Request', '2018-03-03', '2018-03-30', '2018-03-01 03:01:54', '2018-03-01 06:23:00', 'internship'),
+(4, 3, 'Choosing', '0000-00-00', '0000-00-00', '2018-03-01 03:01:54', '0000-00-00 00:00:00', 'internship'),
+(5, 14, 'Request', '2018-03-01', '2018-03-23', '2018-03-01 06:12:01', '0000-00-00 00:00:00', 'internship'),
+(6, 14, 'Choosing', '0000-00-00', '0000-00-00', '2018-03-01 06:12:01', '0000-00-00 00:00:00', 'internship'),
+(7, 1, 'Request', '2018-03-09', '2018-03-24', '2018-03-01 06:16:25', '0000-00-00 00:00:00', 'internship'),
+(8, 1, 'Choosing', '2018-03-14', '2018-03-31', '2018-03-01 06:16:25', '0000-00-00 00:00:00', 'internship'),
+(9, 2, 'Request', '2018-03-03', '2018-03-31', '2018-03-01 06:21:00', '0000-00-00 00:00:00', 'COOP'),
+(10, 2, 'Choosing', '0000-00-00', '0000-00-00', '2018-03-01 06:21:00', '0000-00-00 00:00:00', 'COOP');
 
 -- --------------------------------------------------------
 
@@ -365,6 +380,7 @@ ALTER TABLE `major_news`
 -- Indexes for table `major_setting`
 --
 ALTER TABLE `major_setting`
+  ADD PRIMARY KEY (`setting_id`),
   ADD KEY `major_id` (`major_id`);
 
 --
@@ -434,7 +450,7 @@ ALTER TABLE `authentication`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -453,6 +469,12 @@ ALTER TABLE `major`
 --
 ALTER TABLE `major_news`
   MODIFY `Major_news_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `major_setting`
+--
+ALTER TABLE `major_setting`
+  MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student`
