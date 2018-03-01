@@ -46,7 +46,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	public function show_news()
 	{
 		$data = array(
-			'nameFac'=> $this->input->get('subname_Fac'),
+			'nameMaj'=> $this->input->get('subname_major'),
 			'type' => $this->input->get('type_major')
 		);
 			$this->load->view('top-bar');

@@ -31,7 +31,7 @@ class time_model extends CI_Model
       $date = date('Y-m-d H:i:s');
       $mid = $this->getmajorid($data['major']);
       //echo $mid;
-      print_r($data);
+      //print_r($data);
       // echo $date.'<br>';
       // echo $majorid.'<br>';
 
@@ -39,14 +39,15 @@ class time_model extends CI_Model
 
       $this->db->select('*');
       $this->db->from('major_setting');
-      $this->db->where('major_ID = '.$mid);
+      $this->db->where('major_ID = '.$mid.' AND SETTING_TYPE ="'.$data['type'].'"');
       $query = $this->db->get();
       if ($query->result()) {
-
+       // print_r($query->result());
         $this->update($data,$date,$mid);
       }
       else{
         //echo $mid;
+        //echo 'insert';
         $this->insert($data,$date,$mid);
       }
     }
@@ -61,7 +62,7 @@ class time_model extends CI_Model
       $this->db->where($where);
       $this->db->update('major_setting', array('start_date_Req' => $data['requestfrom']
       ,'end_date_Req'=>$data['requestto']
-      ,'start_date_choosing'=>$data['choosingto'] 
+      ,'start_date_choosing'=>$data['choosingfrom'] 
       ,'end_date_choosing'=>$data['choosingto'] 
       
       ));
@@ -80,7 +81,7 @@ class time_model extends CI_Model
         $this->major_ID = $majorid;
         $this->SETTING_TYPE = $data['type'];
         $this->start_date_choosing = $data['choosingfrom'];
-        $this->end_date_choosing = $data['choosingfrom'];
+        $this->end_date_choosing = $data['choosingto'];
         $this->create_at = $date;
         $this->update_at = '';
         $this->setting_id = '';
