@@ -9,7 +9,9 @@
                 <div class="user-info">
                     <div class="admin-image"> <img src=<?php echo base_url("Project-COOP/assets/images/sm/avatar1.jpg");?> alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
-                        <h3> <?php echo $_SESSION['logged_in']['username']; ?> </h3>
+                        <h3> <?php echo $_SESSION['logged_in']['username'];
+                        $uname = $_SESSION['logged_in']['username'];
+                         ?> </h3>
                         <ul>
 
                             <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
@@ -19,7 +21,8 @@
                 </div>
                 <!-- #User Info -->
             </li>
-            <li class="active open"><a href="/" onclick="return false;"><i class="zmdi zmdi-home"></i><span>HOME</span> </a>
+
+            <li class="active open"><a href=<?php echo base_url("Project-COOP/index.php/Authentication/logedin/$uname"); ?> onclick="return true;"><i class="zmdi zmdi-home"></i><span>HOME</span> </a>
            <?php
                 $query = $this->db->query("SELECT * FROM faculty;");
                 foreach ($query->result() as $row) { ?>
@@ -29,6 +32,7 @@
                          <ul class="ml-menu">
                             <?php
                                     $queryMaj =$this->db->query("SELECT * FROM major WHERE Fac_ID =".$row->Fac_ID.";");
+
                                         foreach ($queryMaj->result() as $rowMaj) { ?>
                                           <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">home</i> <span class="icon-name">
                                           <?php echo $rowMaj->NameMajor_sub; ?>

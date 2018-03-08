@@ -3,6 +3,7 @@ class Authentication extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('home_model');
 
 
 	}
@@ -23,34 +24,13 @@ class Authentication extends CI_Controller{
 
 			if ($query->result()) {
 						//print_r($query->result());
-						$session_data= array(
-							'username'=>$this->input->post('txtUsername'),
-						);
-						$this->session->set_userdata('logged_in',$session_data);
-						$this->load->view('top-bar');
-						$this->load->view('sidebar-admin');
-						$this->load->view('home');
-						$this->load->view('script');
+
+						$this->logedin($session_data);
+
+
 
 						//echo base_url();
-
 					}
-					// if ($query->num_rows() == 1) {
-					// 	$result= $query->result();
-					// } else {
-					// 	$result = false;
-					// }
-					//
-					// if($result!=false){
-						// $session_data= array(
-						// 	'username'=>$this->input->post('txtUsername'),
-						//
-						// );
-						// $this->session->set_userdata('logged_in',$session_data);
-						// $this->load->view('top-bar');
-						// $this->load->view('sidebar-admin');
-						// $this->load->view('home');
-						// $this->load->view('script');
 
 			else{
 				$this->session->set_flashdata('error','Invalid Username or Password');
@@ -63,6 +43,18 @@ class Authentication extends CI_Controller{
 			$this->session->unset_userdata('logged_in',$sess_array);
 			$data['message_display'] = 'Successfully Logout';
 			redirect(base_url("Project-COOP"));
+		}
+		public function logedin()
+		{
+			$session_data= array(
+				'username'=>$this->input->post('txtUsername'),
+			);
+			$data['fac'] =  $this->home_model->showfac();
+			$this->session->set_userdata('logged_in',$session_data);
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('home',$data);
+			$this->load->view('script');
 		}
 
 
