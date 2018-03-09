@@ -1,50 +1,51 @@
 <!--Side menu and right menu -->
 <!-- Left Sidebar -->
-<aside id="leftsidebar" class="sidebar"> 
+<aside id="leftsidebar" class="sidebar">
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
-            <li> 
+            <li>
+              
                 <!-- User Info -->
                 <div class="user-info">
-                    <div class="admin-image"> <img src="<?php echo base_url();?>assets/images/sm/avatar1.jpg" alt="profile img"> </div>
+                    <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
                         <h3>John Smith</h3>
                         <ul>
                             <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>
                             <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
-                            <li><a data-placement="bottom" title="Full Screen" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                            <li><a data-placement="bottom" title="Full Screen" href=<?php echo base_url("Project-COOP/authentication/log_out") ?> ><i class="zmdi zmdi-sign-in"></i></a></li>
                         </ul>
                     </div>
                 </div>
-                <!-- #User Info --> 
+                <!-- #User Info -->
             </li>
             <li class="header">เมนูหลัก</li>
-            <li class="active open"><a href="<?php echo base_url(); ?>Welcome_std_Pass/index"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
+            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Welcome_std/pass"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
 
-            
+
             <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">account_balance</i> <span class="icon-name">Application</span> </a>
                 <ul class="ml-menu">
-                    
-                
-                    <li><a href="<?php echo base_url(); ?>STDPage/cooppageform/cooppage_form">COOP0103</a></li>
-                    <li><a href="<?php echo base_url(); ?>STDPage/viewselectorganization/viewselect_organization">COOP0202-1</a></li>
-                    <li><a href="<?php echo base_url(); ?>STDPage/viewselectorganizationII/viewselect_organizationII">COOP0202-2</a></li>
-                  
+
+
+                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/cooppageform/cooppage_form">COOP0103</a></li>
+                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganization/viewselect_organization">COOP0202-1</a></li>
+                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganizationII/viewselect_organizationII">COOP0202-2</a></li>
+
                 </ul>
             </li>
-            
-            
-            <li ><a href="<?php echo base_url(); ?>STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Status</span> </a></li>
 
-            <li ><a href="<?php echo base_url(); ?>STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li>
 
-                  
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Status</span> </a></li>
+
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li>
+
+
         </ul>
     </div>
-    <!-- #Menu --> 
+    <!-- #Menu -->
 </aside>
-<!-- #END# Left Sidebar --> 
+<!-- #END# Left Sidebar -->
 <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
     <ul class="nav nav-tabs tab-nav-right">
@@ -165,26 +166,26 @@
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar3.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar3.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar1.jpg" alt=""> </a>
                                 <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar2.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar3.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar3.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
@@ -194,19 +195,19 @@
                     <h6>Offline</h6>
                     <ul>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar4.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar4.jpg" alt=""> </a>
                                 <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                             </div>
                         </li>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar2.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the you share the</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOP/assets/images/xs/avatar1.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
@@ -292,4 +293,4 @@
         </div>
     </div>
 </aside>
-<!-- #END# Right Sidebar --> 
+<!-- #END# Right Sidebar -->

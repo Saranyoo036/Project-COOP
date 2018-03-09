@@ -44,8 +44,18 @@
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>
-						<td> <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> 							<img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
-							onclick="return confirm('ต้องการลบข้อมูลใช่หรือไม่??');"> </a> </td>
+						<td>
+							<div class="row clearfix js-sweetalert">
+
+								<input type="hidden" id="todel" name="" value=<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type"); ?>>
+								<a data-type="confirm"  href="#"><img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
+								onclick="confirmanddel(document.getElementById('todel').value)"> </a> </td>
+								<!-- <a  class="btn btn-raised btn-default waves-effect" name="button" onclick="showConfirmMessage(), window.location.href =<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <i class="material-icons">delete</i> </a> -->
+							</div>
+
+
+							<!-- <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> 							<img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
+							onclick="return confirm('ต้องการลบข้อมูลใช่หรือไม่??');"> </a> </td> -->
 
 						<?php echo "</tr>";
 					}
@@ -69,5 +79,15 @@ $(document).ready(function() {
 
 	});
 });
+
+function confirmanddel(url) {
+	setTimeout(function()
+	{
+		 window.location = url }
+		 , 3800);
+		 showConfirmMessage()
+
+	//showConfirmMessage()
+}
 
 </script>

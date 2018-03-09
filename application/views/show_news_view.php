@@ -15,7 +15,7 @@
 					</tr>
 					</thead>
 
-				
+
 				<?php
 				$que = " SELECT * FROM `major`,`major_news`,`news`
 						WHERE major.Major_ID = major_news.Major_ID
@@ -24,7 +24,7 @@
 						AND major_news.news_type = '$type';
 				";
 
-				
+
 				$num = 0;
 					$res = $this->db->query($que);
 					foreach ($res->result() as $key ) {
@@ -39,14 +39,14 @@
 					}
 				?>
 			</table>
-			<a href=<?php echo base_url("Project-COOP/news/addnews") ?> class="btn btn-raise">Add news</a>
+			<a href=<?php echo base_url("Project-COOP/news/toaddform"); ?> class="btn  btn-raised btn-info waves-effect">Add news</a>
 			</ul>
 		</div>
-	
-		
-		
+
+
+
 		</div>
-	
+
 </section>
 <script type="text/javascript">
 
