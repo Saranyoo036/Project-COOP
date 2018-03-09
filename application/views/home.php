@@ -2,9 +2,9 @@
 <section class="content home">
 	<div class="container-fluid">
 		<div class="block-header">
-			<h2>หน้าแรก</h2>
+			<h2>COOP APPLICATION SYSTEM</h2>
 			<ul class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>
+				<li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
 				<li class="breadcrumb-item active">หน้าแรก</li>
 			</ul>
 		</div>
@@ -42,13 +42,13 @@
 										</div>
 										<div class="" id="menuwrapper" style="display:none">
 											<div id="menu" class="button-demo " align='center'  >
-											<a id="stdbtn" class="btn  btn-raised bg-deep-purple waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">student</a>
-											<a id="assignbtn" class="btn  btn-raised bg-deep-purple waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">Assign lacturer</a>
-											<a id="newsbtn" class="btn  btn-raised bg-deep-purple waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">news</a>
-											<a id="orgbtn" class="btn  btn-raised bg-deep-orange waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">Organization</a>
-											<a id="timebtn" class="btn  btn-raised bg-deep-orange waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">time Setting</a>
-											<a id="exportbtn" class="btn  btn-raised bg-deep-orange waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">export Summarize</a>
-											<a id="importbtn" class="btn  btn-raised bg-blue  btn-md waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">import</a>
+											<a id="stdbtn" class="btn  btn-raised bg-red waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">student</a>
+											<a id="assignbtn" class="btn  btn-raised bg-pink waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">Assign lacturer</a>
+											<a id="newsbtn" class="btn  btn-raised bg-purple waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">news</a>
+											<a id="orgbtn" class="btn  btn-raised bg-deep-purple waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">Organization</a>
+											<a id="timebtn" class="btn  btn-raised bg-indigo waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">time Setting</a>
+											<a id="exportbtn" class="btn  btn-raised bg-orange waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">export Summarize</a>
+											<a id="importbtn" class="btn  btn-raised bg-deep-orange  btn-md waves-effect" onclick="goto(document.getElementById('major').value,document.getElementById('selection').value,this.id)">import</a>
 									</div>
 
 										</div>

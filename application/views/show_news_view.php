@@ -39,6 +39,7 @@
 					}
 				?>
 			</table>
+			<a href=<?php echo base_url("Project-COOP/news/addnews") ?> class="btn btn-raise">Add news</a>
 			</ul>
 		</div>
 	
