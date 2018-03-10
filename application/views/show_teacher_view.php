@@ -7,7 +7,9 @@
 			<ul class="breadcrumb">
 				<a id="btnSelectedRows" class='btn btn-raised btn-info waves-effect' href="#">Assign teacher</a>
 				<table  id="example" border = "0" style="width:100%">
-
+				<input type = "hidden" id = "type"  value="<?php echo $type;?>">
+ 				<input type = "hidden" id = "major"  value="<?php echo $nameMaj;?>">
+ 
 					<thead>
 					 <tr>
 							 <td></td>
@@ -17,7 +19,7 @@
 							 <td>Name</td>
 							 <td>Surname</td>
 							 <td>Faculty</td>
-							 <td>Status</td>
+							 
 
 					 </tr>
 			 </thead>
@@ -40,7 +42,6 @@
 						echo "<td>$key->TeacherName</td>";
 						echo "<td>$key->TeacherSName</td>";
 						echo "<td>$key->Faculty_name</td>";
-						echo "<td> ($key->Status) </td>";
 						//echo "<td> <button type='button' class='btn  btn-raised btn-info waves-effect'>Save</button> </td> " ;
 						echo "</tr>";
 
@@ -58,6 +59,8 @@
 
 		var teacher =[];
 		var table;
+		var type = document.getElementById("type").value;
+ 		var major = document.getElementById("major").value;
 		$(document).ready(function() {
 		  table = $('#example').DataTable({
 		    columnDefs: [{
@@ -87,7 +90,8 @@
 		    teacher.push(tblData[i]) ;
 				//alert(tblData[i])
 
-				window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher
+				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher+"&type="+type+"&major="+major
+ 
 
 		  });
 

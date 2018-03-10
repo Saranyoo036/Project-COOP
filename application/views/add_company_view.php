@@ -28,7 +28,7 @@
                         <h2 class="card-inside-title">Company information</h2>
                           <div class="form-group form-float form-group-lg">
                               <div class="form-line">
-                                  <input name="name" type="text" class="form-control"/>
+                                  <input name="name" type="text" class="form-control" required/>
                                   <label class="form-label">ชื่อบริษัท</label>
                               </div>
                           </div>
@@ -37,7 +37,7 @@
                             <div class="col-sm-6">
                                 <div class=" form-float form-group">
                                     <div class="form-line">
-                                        <input name="num" type="text" class="form-control"  />
+                                        <input name="num" type="text" class="form-control"  required/>
                                         <label class="form-label">เลขที่อยู่</label>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                             <div class="col-sm-3">
                                 <div class="form-float form-group">
                                     <div class="form-line">
-                                        <input name="tumbol" type="text" class="form-control"/>
+                                        <input name="tumbol" type="text" class="form-control" required/>
                                         <label class="form-label">แขวง/ตำบล</label>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                             <div class="col-sm-3">
                                 <div class="form-float form-group">
                                     <div class="form-line">
-                                        <input name="aumpure" type="text" class="form-control"/>
+                                        <input name="aumpure" type="text" class="form-control" required/>
                                         <label class="form-label">เขต/อำเภอ</label>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                             <div class="col-sm-3">
                                 <div class="form-float form-group">
                                     <div class="form-line">
-                                        <input name="district" type="text" class="form-control"  />
+                                        <input name="district" type="text" class="form-control" required />
                                         <label class="form-label">จังหวัด</label>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                             <div class="col-sm-3">
                                 <div class="form-float form-group">
                                     <div class="form-line">
-                                        <input name="postcode" type="text" class="form-control"/>
+                                        <input name="postcode" type="text" class="form-control" required/>
                                         <label class="form-label">รหัสไปรษณีย์</label>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                             <div class="col-sm-4">
                                 <div class="form-float form-group">
                                     <div class="form-line">
-                                        <input name="tel" type="text" class="form-control" />
+                                        <input name="tel" type="text" class="form-control" required/>
                                         <label class="form-label">หมายเลขโทรศัพท์</label>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="col-sm-4">
                               <div class="form-float form-group">
                                   <div class="form-line">
-                                      <input name="mail" type="text" class="form-control" />
+                                      <input name="mail" type="email" class="form-control" required/>
                                       <label class="form-label">อีเมลล์</label>
                                   </div>
                               </div>
@@ -121,7 +121,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <textarea name="about" rows="4" class="form-control no-resize" placeholder="รายละเอียดเกี่ยวกับบริษัท"></textarea>
+                                                    <textarea name="about" rows="4" class="form-control no-resize" placeholder="รายละเอียดเกี่ยวกับบริษัท" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
