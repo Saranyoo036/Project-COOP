@@ -28,7 +28,7 @@ else {
                        <form class="" name="settimeform" id="settimeform" action=<?php echo base_url("Project-COOP/index.php/time_setting/updatetime") ?> method="post">
                          <div class="row clearfix">
                              <div class="col-sm-12 col-md-6">
-                                 <div class="form-group">
+                                 <div class="form-group"><h2 class="card-inside-title">Request</h2> 
                                      <div class="form-line">
                                       FROM
                                       <?php if ($date =='true') {?>
@@ -43,7 +43,7 @@ else {
 														 <div class="col-sm-12 col-md-6" >
 																 <div class="form-group">
 																		 <div class="form-line">
-																				TO
+																				<br><br>TO
                                         <?php if ($date =='true') {?>
                                           <input type="text" id='requestto' name="requestto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date_Req']; ?>>
                                       <?php  }
@@ -57,6 +57,7 @@ else {
                          </div>
 												 <div class="row clearfix">
                              <div class="col-sm-12 col-md-6">
+                              <h2 class="card-inside-title">Choosing</h2> 
                                  <div class="form-group">
                                      <div class="form-line">
                                       FROM
@@ -72,7 +73,7 @@ else {
 														 <div class="col-sm-12 col-md-6" >
 																 <div class="form-group">
 																		 <div class="form-line">
-																				TO
+																				<br>TO
                                         <?php if ($date =='true') {?>
                                           <input type="text" id='choosingto' name="choosingto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date_choosing']; ?>>
                                       <?php  }

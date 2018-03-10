@@ -25,14 +25,12 @@
 
 
 				<?php
-				$que = "SELECT * FROM `student_form_103`,`student`,`major`,`student_staus` ,`faculty`
+				$que = "SELECT * FROM `student`,`major`,`student_staus` ,`faculty`
 						WHERE major.Major_ID = student.major_id
 						AND major.Fac_ID = faculty.Fac_ID
-						AND	student_form_103.STD_ID = student.STD_ID
 						AND student_staus.STD_ID = student.STD_ID
 						AND major.NameMajor_sub = '$nameMaj'
 						AND student_staus.std_type = '$type';";
-
 					$res = $this->db->query($que);
 					foreach ($res->result() as $key ) {
 						echo "<tr>";
