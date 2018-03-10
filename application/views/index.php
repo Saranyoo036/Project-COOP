@@ -42,7 +42,8 @@
                                     <?php echo form_password(['name'=>'txtPassword','class'=>'form-control','placeholder'=>'Password'])?>
                                 </div>
                             </div>
-                            <?php echo "<br>".$this->session->flashdata("error"); ?>
+                            <a href="javascript:void(0);" class="alert-link"><?php echo $this->session->flashdata("error") ?></a>
+                            
                             <?php echo form_submit(['name'=>'btnlogin','class'=>'btn btn-raised g-bg-blue waves-effect','value'=>'SING IN'])?>
                     </div>
                 </div>

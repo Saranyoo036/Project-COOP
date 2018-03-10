@@ -15,6 +15,12 @@
 <script src=<?php echo base_url("Project-COOP/assets/js/pages/maps/jvectormap.js");?>></script>
 <script src=<?php echo base_url("Project-COOP/assets/js/pages/charts/jquery-knob.js");?>></script>
 
+<script src= <?php echo base_url("Project-COOP/assets/plugins/bootstrap-notify/bootstrap-notify.js") ?> ></script> <!-- Bootstrap Notify Plugin Js -->
+<script src=<?php echo base_url("Project-COOP/assets/plugins/sweetalert/sweetalert.min.js") ?>></script> <!-- SweetAlert Plugin Js -->
+
+<script src=<?php echo base_url("Project-COOP/assets/js/pages/ui/dialogs.js") ?>></script>
+
+
 <script src=<?php echo base_url("Project-COOP/assets/plugins/autosize/autosize.js"); ?>></script> <!-- Autosize Plugin Js -->
 <script src=<?php echo base_url("Project-COOP/assets/plugins/momentjs/moment.js"); ?>></script> <!-- Moment Plugin Js -->
 <!-- Bootstrap Material Datetime Picker Plugin Js -->

@@ -3,9 +3,13 @@ class Authentication extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
+<<<<<<< HEAD
 		$this->load->model('Authentication_model');
  		$this->load->model('home_model');
 
+=======
+		$this->load->model('home_model');
+>>>>>>> master
 
 
 	}
@@ -23,27 +27,32 @@ class Authentication extends CI_Controller{
 			$this->db->where($condition);
 			$this->db->limit(1);
 			$query = $this->db->get();
+			$result = $query->result();
+			if ($result) {
+					//print_r($result);
+					$type_id;
+					$authid;
+					foreach ($result as $arr ) {
+						$type_id = $arr->auth_type_id;
+						$authid = $arr->auth_id;
 
-			if ($query->result()) {
-						//print_r($query->result_array());
-						//echo $query->result_array()[0]['auth_type_id'];
-						switch ($query->result_array()[0]['auth_type_id']) {
-							case '1':
-								$this->adminlogedin();
-								break;
+						//echo $arr->auth_type_id;
+					}
+					switch ($type_id) {
+						case '1':
+							$this->logedin();
+							break;
 							case '2':
-								$this->stdlogedin();
-								break;
-							case '0':
-								break;
-							default:
-								
-								break;
+								redirect(base_url("Project-COOP/welcome_std?authid=".$authid));
+							break;
 
-						}
-						//$this->logedin();
+						default:
+							# code...
+							break;
+					}
+					//$this->logedin();
 
-						//echo base_url();
+					//echo base_url();
 					}
 
 			else{
@@ -58,7 +67,7 @@ class Authentication extends CI_Controller{
 			$data['message_display'] = 'Successfully Logout';
 			redirect(base_url("Project-COOP"));
 		}
-		public function adminlogedin()
+		public function logedin()
 		{
 			$session_data= array(
 				'username'=>$this->input->post('txtUsername'),
@@ -69,11 +78,6 @@ class Authentication extends CI_Controller{
 			$this->load->view('sidebar-admin');
 			$this->load->view('home',$data);
 			$this->load->view('script');
-		}
-
-		public function stdlogedin()
-		{
-			echo 'kuy';
 		}
 
 

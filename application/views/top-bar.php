@@ -8,9 +8,9 @@
 <link rel="icon" href=<?php echo base_url("Project-COOP/favicon.ico");?> type="image/x-icon">
 <link href=<?php echo base_url("Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css");?> rel="stylesheet" />
 <link href=<?php echo base_url("Project-COOP/assets/plugins/morrisjs/morris.css");?> rel="stylesheet" />
+<link href=<?php echo base_url("Project-COOP/assets/plugins/sweetalert/sweetalert.css"); ?> rel="stylesheet" />
 
 <link href=<?php echo base_url("Project-COOP/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"); ?> rel="stylesheet" />
-
 
 <link rel="stylesheet" href="//cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">

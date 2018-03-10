@@ -7,29 +7,33 @@
 <title>COOP
 </title>
 <link rel="icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon">
-<link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="<?php echo base_url();?>assets/plugins/morrisjs/morris.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/morrisjs/morris.css" rel="stylesheet" />
 <!-- Custom Css -->
-<link href="<?php echo base_url();?>assets/css/main.css" rel="stylesheet">
-<link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
+<link href="<?php echo base_url();?>Project-COOP/assets/css/main.css" rel="stylesheet">
+<link href="<?php echo base_url();?>Project-COOP/assets/css/custom.css" rel="stylesheet">
 <!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
-<link href="<?php echo base_url();?>assets/css/themes/all-themes.css" rel="stylesheet" />
-<link rel="icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon">
-<link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/css/themes/all-themes.css" rel="stylesheet" />
+<link rel="icon" href="<?php echo base_url();?>Project-COOP/favicon.ico" type="image/x-icon">
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Animation Css -->
-<link href="<?php echo base_url();?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/animate-css/animate.css" rel="stylesheet" />
 <!-- Custom Css -->
-<link href="<?php echo base_url();?>assets/css/main.css" rel="stylesheet">
+<link href="<?php echo base_url();?>Project-COOP/assets/css/main.css" rel="stylesheet">
 <!-- choose a theme from css/themes instead of get all themes -->
-<link href="<?php echo base_url();?>assets/css/themes/all-themes.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/css/themes/all-themes.css" rel="stylesheet" />
 
-<link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="<?php echo base_url();?>assets/css/blog.css" rel="stylesheet">
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/css/blog.css" rel="stylesheet">
 <!-- Custom Css -->
-<link href="<?php echo base_url();?>assets/css/main.css" rel="stylesheet">
+
+<link href="<?php echo base_url();?>Project-COOP/assets/css/main.css" rel="stylesheet">
 <!-- choose a theme from css/themes instead of get all themes -->
-<link href="<?php echo base_url();?>assets/css/themes/all-themes.css" rel="stylesheet" />
-<link href="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/css/themes/all-themes.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css">
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="//code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
 
 </head>
 </head>
@@ -59,17 +63,17 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
 	<div class="col-12">
-		<div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">STUDENT<img class="logo" src="assets/images/logo.svg" alt="profile img"></a> </div>
+		<div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">STUDENT<img class="logo" src=<?php echo base_url("Project-COOP/assets/images/logo.svg"); ?> alt="profile img"></a> </div>
 		<ul class="nav navbar-nav navbar-right">
 
 			<li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="zmdi zmdi-search"></i></a></li>
-			
-			
-			<li><a href="sign-in2.html" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
+
+
+			<li><a href=<?php echo base_url("Project-COOP/authentication/log_out") ?> class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
 
 			<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-sort-amount-desc"></i></a></li>
 
 		</ul>
 	</div>
 </nav>
-<!-- #Top Bar --> 
+<!-- #Top Bar -->

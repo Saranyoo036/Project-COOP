@@ -8,7 +8,7 @@ class company_model extends CI_Model
 
        	$major = $data['major'];
       	$query2 = $this->db->query("SELECT * FROM major WHERE `NameMajor_sub`= '".$major."'");
-      	$row = $query2->result_array()['0'];
+      	$row = $query2->result_array()[0];
        	$this->company_id = '';
        	$this->Major_ID = $row['Major_ID'];
        	$this->address = $data['num']." ".$data['street']." ".$data['tumbol']." ".$data['aumpure']." ".$data['district']." ".$data['postcode'];

@@ -1,13 +1,13 @@
 <!--Side menu and right menu -->
 <!-- Left Sidebar -->
-<aside id="leftsidebar" class="sidebar"> 
+<aside id="leftsidebar" class="sidebar">
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
-            <li> 
+            <li>
                 <!-- User Info -->
                 <div class="user-info">
-                    <div class="admin-image"> <img src="<?php echo base_url();?>assets/images/sm/avatar1.jpg" alt="profile img"> </div>
+                    <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
                         <h3>John Smith</h3>
                         <ul>
@@ -17,19 +17,19 @@
                         </ul>
                     </div>
                 </div>
-                <!-- #User Info --> 
+                <!-- #User Info -->
             </li>
             <li class="header">เมนูหลัก</li>
             <li class="active open"><a href="<?php echo base_url(); ?>"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
 
-        
 
-                  
+
+
         </ul>
     </div>
-    <!-- #Menu --> 
+    <!-- #Menu -->
 </aside>
-<!-- #END# Left Sidebar --> 
+<!-- #END# Left Sidebar -->
 <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
     <ul class="nav nav-tabs tab-nav-right">
@@ -138,38 +138,38 @@
                     <h6>Online</h6>
                     <ul>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar1.jpg" alt=""> </a>
                                 <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar2.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar3.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar3.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar1.jpg" alt=""> </a>
                                 <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar2.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="online">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar3.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar3.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
@@ -179,19 +179,19 @@
                     <h6>Offline</h6>
                     <ul>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar4.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar4.jpg" alt=""> </a>
                                 <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the simply dummy text</span> <span class="badge badge-outline status"></span> </div>
                             </div>
                         </li>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar2.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the you share the</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
                             </div>
                         </li>
                         <li class="offline">
-                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="Project-COOPassets/images/xs/avatar1.jpg" alt=""> </a>
                                 <div class="media-body">
                                     <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti</span> <span class="badge badge-outline status"></span> </div>
                                 </div>
@@ -277,4 +277,4 @@
         </div>
     </div>
 </aside>
-<!-- #END# Right Sidebar --> 
+<!-- #END# Right Sidebar -->
