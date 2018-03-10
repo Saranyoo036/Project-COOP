@@ -105,7 +105,7 @@ class Fun_sidebar_admin extends CI_Controller {
 			
 		
 
-		//$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac);
-		//header('Location:'.$back);
+		$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac);
+		header('Location:'.$back);
 	}
 }

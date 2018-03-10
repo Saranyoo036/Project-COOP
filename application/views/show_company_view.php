@@ -47,9 +47,9 @@
 						<td>
 							<div class="row clearfix js-sweetalert">
 
-								<input type="hidden" id="todel" name="" value=<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type"); ?>>
+								<input type="hidden" id="todel<?php echo $no;?>" name="" value=<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type"); ?>>
 								<a data-type="confirm"  href="#"><img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
-								onclick="confirmanddel(document.getElementById('todel').value)"> </a> </td>
+								onclick="confirmanddel(document.getElementById('todel<?php echo $no;?>').value)"> </a> </td>
 								<!-- <a  class="btn btn-raised btn-default waves-effect" name="button" onclick="showConfirmMessage(), window.location.href =<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <i class="material-icons">delete</i> </a> -->
 							</div>
 
