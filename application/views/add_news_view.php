@@ -52,7 +52,32 @@
                             </div>
                         </div>
                     </div>
- 
+                    <h2 class="card-inside-title">Choose Type</h2>
+                    <div class="row clearfix">
+                        <div class ="col-md-6">
+                            <input type="checkbox" id="checkbox_1" class="filled-in" >
+                            <label for="checkbox_1">Internship</label>
+                        </div>
+                        <div class ="col-md-6">
+                            <input type="checkbox" id="checkbox_2" class="filled-in" >
+                            <label for="checkbox_2">COOP</label>
+                        </div>
+                    </div>
+                    <h2 class="card-inside-title">Choose Major</h2>
+                    <div class="row clearfix">
+                    <?php
+                        $que = "select * from major;";
+                        $res = $this->db->query($que);
+                        $num=0 ; 
+                        foreach ($res->result() as $key ) {
+                            $num++;
+                            echo '<div class ="col-md-4">';
+                            echo '<input type="checkbox" id="checkbox_'.$key->NameMajor_sub.'" class="filled-in" >';
+                            echo '<label for="checkbox_'.$key->NameMajor_sub.'">'.$key->NameMajor_sub.'</label>';
+                            echo "</div>";
+                        }
+                    ?>
+                </div>
                 </div>
             </div>
         </div>

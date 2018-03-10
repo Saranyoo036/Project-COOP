@@ -35,7 +35,10 @@ class Fun_sidebar_admin extends CI_Controller {
 	public function show_teacher()
 	{
 		$data = array(
-			'nameFac' => $this->input->get('subname_Fac')
+			'nameFac' => $this->input->get('subname_Fac'),
+			'nameMaj'=> $this->input->get('subname_major'),
+			'type' => $this->input->get('type_major')
+
 		);
 		$this->load->view('top-bar');
 		$this->load->view('sidebar-admin');
@@ -55,6 +58,15 @@ class Fun_sidebar_admin extends CI_Controller {
 			$this->load->view('script');
 
 	}
+	public function home()
+	{
+		$this->load->model('home_model');
+		$data['fac'] =  $this->home_model->showfac();
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('home',$data);
+			$this->load->view('script');
+	}
 
 	public function show_setting()
 	{
@@ -72,28 +84,28 @@ class Fun_sidebar_admin extends CI_Controller {
 		$fac="";
 		$id =  $this->input->get('id');
 		$id = ','.$id;
-		print_r($id);
-		$arr = explode(")",$id);
+		
+		$hel = explode(',,',$id);
 		$fac = explode(',',$id);
-		print_r($fac);
-
+		print_r($hel);
+		
 		 if ($fac[6] =="College of Computing" or '"College of Computing"') {
 			$fac = 'COC';
 		}
 		echo $fac;
-		unset($arr[count($arr)-1]);
-		// echo '<pre>';
-		// print_r($arr);
-		// echo '</pre>';
-
-		//echo $arr[5];
+		
+		
 		$Fac= $this->input->get('subname_Fac');
-		$this->load->model('Teacher_model');
-		for ($i=0; $i <count($arr); $i++) {
-			$this->Teacher_model->assignteacher($arr[$i]);
-		}
 
-		$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac);
-		header('Location:'.$back);
+		$this->load->model('Teacher_model');
+		
+		 for ($i=1; $i<count($hel);$i++) { 
+		 	$this->Teacher_model->assignteacher($hel[$i],$this->input->get('type'),$this->input->get('major'));
+		 }
+			
+		
+
+		//$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac);
+		//header('Location:'.$back);
 	}
 }
