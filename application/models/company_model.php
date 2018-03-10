@@ -3,6 +3,14 @@
 class company_model extends CI_Model
 	{
 
+    public function showallcompany()
+    {
+      $query = $this->db->query('SELECT * FROM company');
+      $row = $query->result();
+      //print_r($row);
+      return $row;
+    }
+
 		 public function addnewcompany($data)
      {
 

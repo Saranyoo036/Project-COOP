@@ -22,7 +22,7 @@
                 <!-- #User Info -->
             </li>
 
-            <li class="active open"><a href=<?php echo base_url("Project-COOP/index.php/Fun_sidebar_admin/home"); ?> onclick="return true;"><i class="zmdi zmdi-home"></i><span>HOME</span> </a>
+            <li class="active open"><a href=<?php echo base_url("Project-COOP/index.php/Authentication/logedin/$uname"); ?> onclick="return true;"><i class="zmdi zmdi-home"></i><span>HOME</span> </a>
            <?php
                 $query = $this->db->query("SELECT * FROM faculty;");
                 foreach ($query->result() as $row) { ?>
@@ -43,16 +43,20 @@
                                              </span></a>
                                                 <ul class="ml-menu">
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
-                                                    ?>">Time Setting</a></li>
+                                                            echo(base_url()."Project-COOP/Fun_sidebar_admin/show_student?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                        ?>">Student</a></li>
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub);
                                                     ?>">Assign Lecturer</a></li>
-                                                   
+                                                    <li ><a href="<?php
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_news?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                    ?>"> News </a></li>
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Organization</a></li>
-                                                    
+                                                    <li><a href="<?php
+                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                    ?>">Time Setting</a></li>
                                                     <li><a href="">Export Summarize</a></li>
                                                     <li><a href="">Import</a></li>
                                                 </ul>
@@ -61,17 +65,25 @@
                                                 COOP
                                              </span></a>
                                                 <ul class="ml-menu">
+                                                    <li><a href="
+                                                        <?php
+                                                            echo(base_url()."Project-COOP/Fun_sidebar_admin/show_student?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                        ?>
+                                                    ">
+                                                Student
+                                            </a></li>
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
-                                                    ?>">Time Setting</a></li>
-                                                    
-                                                    <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub);
                                                     ?>">Assign Lecturer</a></li>
+                                                    <li ><a href="<?php
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_news?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                    ?>"> News </a></li>
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Organization</a></li>
-                                                    
+                                                    <li><a href="<?php
+                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                    ?>">Time Setting</a></li>
                                                     <li><a href="">Export Summarize</a></li>
                                                     <li><a href="">Import</a></li>
                                                 </ul>
@@ -82,9 +94,6 @@
                       </ul>
                    </li>
             <?php } ?>
-            <li ><a href="<?php
-            echo(base_url()."Project-COOP/Fun_sidebar_admin/show_news");
-            ?>"> News </a></li>
         </li>
     </div>
     <!-- #Menu -->

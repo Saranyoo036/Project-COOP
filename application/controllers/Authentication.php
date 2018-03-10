@@ -3,8 +3,8 @@ class Authentication extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('home_model');
 
- 		$this->load->model('home_model');
 
 	}
 
@@ -22,6 +22,7 @@ class Authentication extends CI_Controller{
 			$this->db->limit(1);
 			$query = $this->db->get();
 			$result = $query->result();
+			//print_r($result);
 			if ($result) {
 					//print_r($result);
 					$type_id;
@@ -41,9 +42,12 @@ class Authentication extends CI_Controller{
 							break;
 
 						default:
+							# code...
 							break;
 					}
-					
+					//$this->logedin();
+
+					//echo base_url();
 					}
 
 			else{

@@ -2,7 +2,7 @@
 <section class="content home">
 	<div class="container-fluid">
 		<div class="block-header">
-			<h2>NEWS</h2>
+			<h2>NEWS <?php echo $nameMaj; echo $type; ?></h2>
 			<ul class="breadcrumb">
 				<table border = "0" id="example" style="width:100%">
 					<thead>
@@ -17,7 +17,12 @@
 
 
 				<?php
-				$que = " SELECT * FROM `news`;";
+				$que = " SELECT * FROM `major`,`major_news`,`news`
+						WHERE major.Major_ID = major_news.Major_ID
+						AND major_news.new_id = news.new_id
+						AND major.NameMajor_sub = '$nameMaj '
+						AND major_news.news_type = '$type';
+				";
 
 
 				$num = 0;
@@ -25,8 +30,8 @@
 					foreach ($res->result() as $key ) {
 						$num++;
 						echo "<tr>";
-						echo "<td>$num</td>";
-						echo "<td>$key->Topic</td>";
+						echo "$num";
+						echo "<td>$key->topic_news</td>";
 						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";

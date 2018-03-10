@@ -11,32 +11,18 @@ class Teacher_model extends CI_Model
       return $query->result_array();
 
 		}
-	public function assignteacher($id,$type,$major)
+		public function assignteacher($id)
 		{
-			print_r($id);
+			//echo 'id ='.$id.'<br/>';
 			$arraytoset = explode(",",$id);
-			print_r($arraytoset);
-			$que = "SELECT * FROM major_setting,major 
-					where major_setting.major_id = major.major_id 
-					AND major_setting.SETTING_TYPE ='$type' 
-					AND major.NameMajor_sub = '$major'
-					Limit 1;";
-			
-			$query = $this->db->query($que);
-			$row = $query->row();
+			//echo count($id);
+			print_r($arraytoset[3]);
 
-			$data = array(
-				'TeacherID'=>$arraytoset[1],
-				'setting_id'=> $row->setting_id,
-				'permission' => 'appove'
-			);
-
-			$this->db->insert('approve',$data);
+			$this->db->where('TeacherID', $arraytoset[3]);
+    	$this->db->update('teacher', array('Status' => 'Assign'));
     	return true;
 
 		}
-
-
 
 
 

@@ -33,30 +33,31 @@
 														<th>Subsidiary</th>
 														<th>Province</th>
 														<th>Contact</th>
+														<td>View</td>
+
 													</tr>
 												</thead>
 												<?php
-												$que = "SELECT * FROM `major`,`company` ,`faculty`
-														WHERE major.Major_ID = company.Major_ID
-														AND faculty.Fac_ID = major.Fac_ID
-														AND major.NameMajor_sub = '$nameMaj'
-														AND company.company_type = '$type';";
 
-													$res = $this->db->query($que);
 													$no = 0;
-													foreach ($res->result() as $key ) {
+													foreach ($data as $company ) {
 														$no++;
 														echo "<tr>";
 														echo "<td>$no</td>";
-														echo "<td>$key->company_name</td>";
-														echo "<td>$key->address</td>";
-														echo "<td>$key->provice</td>";
-														echo "<td>$key->contract $key->Tel</td>";
+														echo "<td>$company->company_name</td>";
+														echo "<td>$company->address</td>";
+														echo "<td>$company->provice</td>";
+														echo "<td>$company->contract $company->Tel</td>";
 
 														 ?>
+														 	<td>
+							 <a href= <?php echo base_url("Project-COOP/STDPage/viewselectorganization/showview/".$company->company_id) ?> >
+								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
+								 </a>
+					</td>
 
-														<td>
-															<div class="row clearfix js-sweetalert">
+														
+															
 
 														<?php echo "</tr>";
 													}
@@ -79,14 +80,5 @@
 									});
 								});
 
-								function confirmanddel(url) {
-									setTimeout(function()
-									{
-										 window.location = url }
-										 , 3800);
-										 showConfirmMessage()
-
-									//showConfirmMessage()
-								}
 
 								</script>

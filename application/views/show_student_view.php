@@ -29,7 +29,7 @@
 						WHERE major.Major_ID = student.major_id
 						AND major.Fac_ID = faculty.Fac_ID
 						AND	student_form_103.STD_ID = student.STD_ID
-						AND student_staus.STD_ID = student.STD_ID
+						AND student_staus.std_form_103_id = student_form_103.std_form_103_id
 						AND major.NameMajor_sub = '$nameMaj'
 						AND student_staus.std_type = '$type';";
 

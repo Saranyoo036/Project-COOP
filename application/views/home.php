@@ -36,8 +36,8 @@
 														</div>
                         </div>
 												<div id="select" class="button-demo" align='center' style="display:none" >
-												<button onclick = "document.getElementById('selection').value=this.value,$('#select').hide(500),$('#menuwrapper').show(500),document.getElementById('stdbtn').click()"  value='COOP' type="button" class="btn  btn-raised bg-teal  btn-md waves-effect">COOP</button>
-												<button type="button" onclick = "document.getElementById('selection').value=this.value,$('#select').hide(500),$('#menuwrapper').show(500),document.getElementById('stdbtn').click()" class="btn  btn-raised bg-orange  btn-md waves-effect"  value="internship">Internship</button>
+												<button onclick = "document.getElementById('selection').value=this.value,$('#select').hide(500),$('#menuwrapper').show(500)"  value='COOP' type="button" class="btn  btn-raised bg-teal  btn-md waves-effect">COOP</button>
+												<button type="button" onclick = "document.getElementById('selection').value=this.value,$('#select').hide(500),$('#menuwrapper').show(500)" class="btn  btn-raised bg-orange  btn-md waves-effect"  value="internship">Internship</button>
 												<input id="selection" type="hidden" name="selection" value="">
 										</div>
 										<div class="" id="menuwrapper" style="display:none">

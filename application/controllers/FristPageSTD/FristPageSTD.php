@@ -21,6 +21,10 @@
 		{
 			//print_r($_POST);
 			$this->student_model->sendrequest($_POST);
+			$this->load->view('top-bar');
+			$this->load->view('std-page/Fristsidebar-std');
+			$this->load->view('std-page/frist-page/Internship_Con_form');
+			$this->load->view('script');
 		}
 
 }
