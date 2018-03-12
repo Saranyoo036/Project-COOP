@@ -60,10 +60,14 @@ class time_model extends CI_Model
       $where = "SETTING_TYPE ='".$data['type']."' AND major_ID = '".$mid."'";
 
       $this->db->where($where);
-      $this->db->update('major_setting', array('start_date_Req' => $data['requestfrom']
+      $this->db->update('major_setting'
+      ,array('start_date_Req' => $data['requestfrom']
       ,'end_date_Req'=>$data['requestto']
       ,'start_date_choosing'=>$data['choosingfrom'] 
-      ,'end_date_choosing'=>$data['choosingto'] 
+      ,'end_date_choosing'=>$data['choosingto']
+      ,'start_date_Rechoosing'=>$data['rechoosingfrom']
+      ,'end_date_Rechoosing'=>$data['rechoosingto']
+
       
       ));
       return true;
@@ -87,6 +91,8 @@ class time_model extends CI_Model
         $this->setting_id = '';
         $this->start_date_Req =$data['requestfrom'];
         $this->end_date_Req = $data['requestto'];
+        $this->start_date_Rechoosing = $data['rechoosingfrom'];
+        $this->end_date_Rechoosing = $data['rechoosingto'];
         $this->db->insert('major_setting', $this);
 
       

@@ -16,7 +16,14 @@
 						<td>Major</td>
 						<td>Status</td>
 						<td>COOP 103</td>
-						<td>COOP 202</td>
+						<?php 
+							if($type=="COOP"){
+								echo "<td>COOP 202-01</td>";
+								echo "<td>COOP 202-02</td>";
+							}else{
+								echo "<td>COOP 202</td>";
+							}
+						?>
 						<td>View</td>
 						<td>Edit</td>
 						<td>Delete</td>
@@ -39,6 +46,9 @@
 						echo "<td>$key->Faculty_name</td>";
 						echo "<td>$key->Major_name</td>";
 						echo "<td>$key->status</td>";
+						if($type=="COOP"){
+							echo "<td></td>";
+						}
 						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";

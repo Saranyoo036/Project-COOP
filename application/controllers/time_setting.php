@@ -47,6 +47,12 @@ class time_setting extends CI_Controller {
         if ($data['data'][0]['end_date_choosing'] == '0000-00-00') {
           $data['data'][0]['end_date_choosing'] = '';
         }
+        if ($data['data'][0]['start_date_Rechoosing'] == '0000-00-00') {
+          $data['data'][0]['start_date_Rechoosing'] = '';
+        }
+        if ($data['data'][0]['end_date_Rechoosing'] == '0000-00-00') {
+          $data['data'][0]['end_date_Rechoosing'] = '';
+        } 
       
         $this->load->view('show_setting_view',$data);
 

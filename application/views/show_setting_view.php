@@ -22,7 +22,7 @@ else {
              <div class="col-lg-12 col-md-12 col-sm-12">
                  <div class="card">
                      <div class="header">
-                         <h2> Time Setting  </h2>
+                         <h2 class="card-inside-title"> Time Setting  </h2>
                      </div>
                      <div class="body">
                        <form class="" name="settimeform" id="settimeform" action=<?php echo base_url("Project-COOP/index.php/time_setting/updatetime") ?> method="post">
@@ -53,8 +53,7 @@ else {
 																		 </div>
 																 </div>
 														 </div>
-
-                         </div>
+                        </div>
 												 <div class="row clearfix">
                              <div class="col-sm-12 col-md-6">
                               <h2 class="card-inside-title">Choosing</h2> 
@@ -83,8 +82,35 @@ else {
 																		 </div>
 																 </div>
 														 </div>
-
-                         </div>
+                          </div>
+                          <div class="row clearfix">
+                             <div class="col-sm-12 col-md-6">
+                                 <div class="form-group"><h2 class="card-inside-title">Rechoosing and Repair</h2> 
+                                     <div class="form-line">
+                                      FROM
+                                      <?php if ($date =='true') {?>
+                                        <input type="text" id='requestfrom' name="rechoosingfrom" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['start_date_Rechoosing']; ?>>
+                                    <?php  }
+                                    else { ?>
+                                      <input type="text" id='requestfrom' name="rechoosingfrom" class="datepicker form-control" placeholder="Please choose a date..." value=''>
+                                    <?php } ?>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-sm-12 col-md-6" >
+                                 <div class="form-group">
+                                     <div class="form-line">
+                                        <br><br>TO
+                                        <?php if ($date =='true') {?>
+                                          <input type="text" id='requestto' name="rechoosingto" class="datepicker form-control" placeholder="Please choose a date..." value=<?php echo $data[0]['end_date_Rechoosing']; ?>>
+                                      <?php  }
+                                      else { ?>
+                                        <input type="text" id='requestto' name="rechoosingto" class="datepicker form-control" placeholder="Please choose a date..." value=''>
+                                      <?php } ?>
+                                     </div>
+                                 </div>
+                             </div>
+                          </div>
                          <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
                          <input type="hidden" name="type" value=<?php echo $_GET['type_major']; ?>>
                          <input type="hidden" id="date" name="date" value=<?php echo $date; ?>>
