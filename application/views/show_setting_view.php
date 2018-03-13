@@ -26,6 +26,12 @@ else {
                      </div>
                      <div class="body">
                        <form class="" name="settimeform" id="settimeform" action=<?php echo base_url("Project-COOP/index.php/time_setting/updatetime") ?> method="post">
+                        <h2 class="card-inside-title">Status</h2>
+                        <div class="switch">
+                                <label>Inactive
+                                    <input type="checkbox" name="status_chk" <?php if($data[0]['status']=="active"){echo "checked";}?> >
+                                    <span class="lever"></span>Active</label>
+                            </div>
                          <div class="row clearfix">
                              <div class="col-sm-12 col-md-6">
                                  <div class="form-group"><h2 class="card-inside-title">Request</h2> 

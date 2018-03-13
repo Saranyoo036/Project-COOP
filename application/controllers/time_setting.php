@@ -10,6 +10,13 @@ class time_setting extends CI_Controller {
   public function updatetime()
   {
     //print_r($_POST);
+    if(empty($_POST['status_chk'])){
+      $_POST['status_chk']="inactive";
+      echo $_POST['status_chk'];
+    }else{
+      $_POST['status_chk']="active";
+      echo $_POST['status_chk'];
+    }
     $this->time_model->settime($_POST);
     $back = $back =  base_url("project-coop/index.php/time_setting/loadpage?subname_major=".$_POST['major']."&type_major=".$_POST['type']);
     header('Location:'.$back);

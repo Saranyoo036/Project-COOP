@@ -67,7 +67,7 @@ class time_model extends CI_Model
       ,'end_date_choosing'=>$data['choosingto']
       ,'start_date_Rechoosing'=>$data['rechoosingfrom']
       ,'end_date_Rechoosing'=>$data['rechoosingto']
-
+      ,'status'=>$data['status_chk']
       
       ));
       return true;
