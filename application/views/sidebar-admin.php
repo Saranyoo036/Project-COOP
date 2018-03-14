@@ -47,11 +47,11 @@
                                                         echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Time Setting</a></li>
                                                     <li><a href="<?php
-                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
+                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship"); 
                                                     ?>">Assign Lecturer</a></li>
                                                     
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Organization</a></li>
                                                     
                                                     <li><a href="">Export Summarize</a></li>
@@ -73,10 +73,10 @@
                                                         echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Time Setting</a></li>
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub);
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Assign Lecturer</a></li>
                                                     <li><a href="<?php
-                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
+                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
                                                     ?>">Organization</a></li>
                                                     
                                                     <li><a href="">Export Summarize</a></li>

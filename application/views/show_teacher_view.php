@@ -18,17 +18,17 @@
 							 <td>Title</td>
 							 <td>Name</td>
 							 <td>Surname</td>
-							 <td>Faculty</td>
+							 <td>Major</td>
 							 
 
 					 </tr>
 			 </thead>
 
 				<?php
-				$que = "SELECT * FROM `teacher` ,`faculty`
-						WHERE faculty.Fac_ID = teacher.Fac_ID
-						AND faculty.NameFac_sub = '$nameFac';";
-
+				$que = "SELECT * FROM `teacher` ,`major`
+						WHERE major.Major_ID = teacher.Major_ID
+						AND major.NameMajor_sub = '$nameMaj';";
+						
 					$res = $this->db->query($que);
 					$no = 0;
 					foreach ($res->result() as $key ) {
@@ -41,7 +41,7 @@
 						echo "<td>$key->title</td>";
 						echo "<td>$key->TeacherName</td>";
 						echo "<td>$key->TeacherSName</td>";
-						echo "<td>$key->Faculty_name</td>";
+						echo "<td>$key->Major_name</td>";
 						//echo "<td> <button type='button' class='btn  btn-raised btn-info waves-effect'>Save</button> </td> " ;
 						echo "</tr>";
 
@@ -66,7 +66,7 @@
 		    columnDefs: [{
 		      orderable: false,
 		      className: 'select-checkbox',
-		      targets: 0
+		      targets: 0,
 		    }, {
 		      "targets": [2],
 		      "visible": false,

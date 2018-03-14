@@ -99,7 +99,7 @@ class Fun_sidebar_admin extends CI_Controller {
        		$this->Teacher_model->assignteacher($hel[$i],$this->input->get('type'),$this->input->get('major')); 
      	} 
 
-		$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac);
+		$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
 		header('Location:'.$back);
 	}
 }
