@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <title>COOP
 </title>
-<link rel="icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?php echo base_url();?>Project-COOP/favicon.ico" type="image/x-icon">
 <link href="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>Project-COOP/assets/plugins/morrisjs/morris.css" rel="stylesheet" />
 <!-- Custom Css -->
@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="//cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <script src="//code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
+
 
 </head>
 </head>

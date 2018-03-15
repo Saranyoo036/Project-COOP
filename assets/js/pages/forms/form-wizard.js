@@ -13,6 +13,7 @@ $(function () {
     });
 
     //Vertical form basic
+
     $('#wizard_vertical').steps({
         headerTag: 'h2',
         bodyTag: 'section',
@@ -23,6 +24,10 @@ $(function () {
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
             setButtonWavesEffect(event);
+        },
+        onFinished: function (event, currentIndex) {
+            alert('Submit!!!');
+            $('#wizard_vertical').submit()
         }
     });
 

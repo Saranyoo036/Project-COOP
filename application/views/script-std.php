@@ -16,19 +16,17 @@
 <script src="<?php echo base_url();?>Project-COOP/assets/js/pages/charts/jquery-knob.js"></script>
 
 
-
-<script src="<?php echo base_url();?>Project-COOP/assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css -->
 <script src="<?php echo base_url();?>Project-COOP/assets/plugins/jquery-steps/jquery.steps.js"></script> <!-- JQuery Steps Plugin Js -->
-
+<script src="<?php echo base_url();?>Project-COOP/assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css -->
 <script src="<?php echo base_url();?>Project-COOP/assets/js/pages/forms/form-wizard.js"></script>
 
 
-<script src="<?php echo base_url();?>assets/plugins/autosize/autosize.js"></script> <!-- Autosize Plugin Js -->
-<script src="<?php echo base_url();?>assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js -->
+<script src="<?php echo base_url();?>Project-COOP/assets/plugins/autosize/autosize.js"></script> <!-- Autosize Plugin Js -->
+<script src="<?php echo base_url();?>Project-COOP/assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js -->
 <!-- Bootstrap Material Datetime Picker Plugin Js -->
-<script src="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="<?php echo base_url();?>Project-COOP/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
-<script src="<?php echo base_url();?>assets/js/pages/forms/basic-form-elements.js"></script>
+<script src="<?php echo base_url();?>Project-COOP/assets/js/pages/forms/basic-form-elements.js"></script>
 
 <script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
