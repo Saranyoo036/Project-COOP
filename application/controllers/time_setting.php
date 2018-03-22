@@ -33,42 +33,34 @@ class time_setting extends CI_Controller {
     // print_r($data);
     // echo '</pre>';
 
-
-
-    if ($data['data'] == array() ) {
-
-      $this->load->view('show_setting_view',$data);
-    }
-    else{
-
-        if ($data['data'][0]['start_date_Req'] == '0000-00-00') {
-          $data['data'][0]['start_date_Req'] = '';
-        } 
-        if ($data['data'][0]['end_date_Req'] == '0000-00-00') {
-          $data['data'][0]['end_date_Req'] = '';
-        }
+   //      if ($data['data'][0]['start_date_Req'] == '0000-00-00') {
+   //        $data['data'][0]['start_date_Req'] = '';
+   //      } 
+   //      if ($data['data'][0]['end_date_Req'] == '0000-00-00') {
+   //        $data['data'][0]['end_date_Req'] = '';
+   //      }
       
-        if ($data['data'][0]['start_date_choosing'] == '0000-00-00') {
-          $data['data'][0]['start_date_choosing'] = '';
-        }
-        if ($data['data'][0]['end_date_choosing'] == '0000-00-00') {
-          $data['data'][0]['end_date_choosing'] = '';
-        }
-        if ($data['data'][0]['start_date_Rechoosing'] == '0000-00-00') {
-          $data['data'][0]['start_date_Rechoosing'] = '';
-        }
-        if ($data['data'][0]['end_date_Rechoosing'] == '0000-00-00') {
-          $data['data'][0]['end_date_Rechoosing'] = '';
-        } 
+   //      if ($data['data'][0]['start_date_choosing'] == '0000-00-00') {
+   //        $data['data'][0]['start_date_choosing'] = '';
+   //      }
+   //      if ($data['data'][0]['end_date_choosing'] == '0000-00-00') {
+   //        $data['data'][0]['end_date_choosing'] = '';
+   //      }
+   //      if ($data['data'][0]['start_date_Rechoosing'] == '0000-00-00') {
+   //        $data['data'][0]['start_date_Rechoosing'] = '';
+   //      }
+   //      if ($data['data'][0]['end_date_Rechoosing'] == '0000-00-00') {
+   //        $data['data'][0]['end_date_Rechoosing'] = '';
+   //      } 
       
-        $this->load->view('show_setting_view',$data);
+   //      $this->load->view('show_setting_view',$data);
 
-    }
+   //  }
 
-    $this->load->view('top-bar');
-    $this->load->view('sidebar-admin');
-   // $this->load->view('show_setting_view',$data);
-    $this->load->view('script');
+     $this->load->view('top-bar');
+     $this->load->view('sidebar-admin');
+     $this->load->view('show_setting_view',$data);
+     $this->load->view('script');
   }
 
 }
@@ -78,3 +70,4 @@ class time_setting extends CI_Controller {
 
 
  ?>
+  

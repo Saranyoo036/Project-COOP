@@ -62,13 +62,7 @@
                                                 COOP
                                              </span></a>
                                                 <ul class="ml-menu">
-                                                    <li><a href="
-                                                        <?php
-                                                            echo(base_url()."Project-COOP/Fun_sidebar_admin/show_student?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
-                                                        ?>
-                                                    ">
-                                                Student
-                                            </a></li>
+                                                    
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Time Setting</a></li>

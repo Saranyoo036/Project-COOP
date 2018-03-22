@@ -21,8 +21,15 @@ class time_model extends CI_Model
     public function showdate($major,$type)
     {
       $mid = $this->getmajorid($major);
-      $query = $this->db->query("SELECT * FROM major_setting WHERE `SETTING_TYPE` ='".$type."'AND `major_id`= '".$mid."'");
+      $query = $this->db->query("
+        SELECT * FROM `major_setting`,`major`,`status` 
+        where major_setting.major_id = major.Major_ID 
+        AND major_setting.status_id = status.status_id 
+        AND major.NameMajor_sub = '$major'
+        AND major_setting.major_type = '$type' 
+        AND (major_setting.status_id = 1 OR major_setting.status_id = 2 OR major_setting.status_id = 5)");
       $row = $query->result_array();
+      
       return $row;
     }
 

@@ -22,9 +22,7 @@ class  home_model extends CI_Model
     }
 		public function checktostdhome()
 		{
-			$query =$this->db->query('SELECT STD_ID FROM student WHERE auth_id ='.$_GET['authid']);
-			$row = $query->result_array();
-			$stdid = $row[0]['STD_ID'];
+			$stdid = $_GET['std_id'];
 			$query =$this->db->query('SELECT status FROM student_staus WHERE std_id ='.$stdid);
 			$row = $query->result_array();
 			if (isset($row[0])) {

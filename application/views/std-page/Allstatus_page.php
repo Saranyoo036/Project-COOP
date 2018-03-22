@@ -46,7 +46,7 @@
                             $no++;
                             echo "<tr>";
                             echo "<td>$no</td>";
-                            echo "<td>$std->std_psuid</td>";
+                            echo "<td>$std->STD_ID</td>";
                             echo "<td>$std->std_name $std->std_sname</td>";
                             echo "<td>$std->major_id </td>";
                             echo "<td>- </td>";

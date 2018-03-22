@@ -15,44 +15,55 @@ class Authentication extends CI_Controller{
 				'password' => $this->input->post('txtPassword')
 			);
 			$result = false;
-			$condition = "Username ='".$data_login['username']."' AND Password ='".$data_login['password']."'";
+			$condition = "STD_ID ='".$data_login['username']."' AND password ='".$data_login['password']."'";
 			$this->db->select('*');
-			$this->db->from('authentication');
+			$this->db->from('student');
 			$this->db->where($condition);
 			$this->db->limit(1);
 			$query = $this->db->get();
 			$result = $query->result();
 			//print_r($result);
 			if ($result) {
-					//print_r($result);
-					$type_id;
-					$authid;
+					$std_id;
 					foreach ($result as $arr ) {
-						$type_id = $arr->auth_type_id;
-						$authid = $arr->auth_id;
-
-						//echo $arr->auth_type_id;
+					 	$std_id = $arr->STD_ID;
 					}
-					switch ($type_id) {
-						case '1':
-							$this->logedin();
-							break;
-							case '2':
-								redirect(base_url("Project-COOP/welcome_std?authid=".$authid));
-							break;
+					redirect(base_url("Project-COOP/welcome_std?std_id=".$std_id));
+					// switch ($type_id) {
+					// 	case '1':
+					// 		$this->logedin();
+					// 		break;
+					// 		case '2':
+					// 			redirect(base_url("Project-COOP/welcome_std?authid=".$authid));
+					// 		break;
 
-						default:
-							# code...
-							break;
-					}
-					//$this->logedin();
+					// 	default:
+					// 		# code...
+					// 		break;
+					// }
+					// //$this->logedin();
 
-					//echo base_url();
+					// //echo base_url();
 					}
 
 			else{
-				$this->session->set_flashdata('error','Invalid Username or Password');
-				redirect(base_url("Project-COOP"));
+				$condition = "personnelID='".$data_login['username']."' AND password='".$data_login['password']."'";
+				$this->db->select('*');
+				$this->db->from('personnel');
+				$this->db->where($condition);
+				$this->db->limit(1);
+				$query = $this->db->get();
+				$result = $query->result();
+				$admin;
+				foreach ($result as $arr ) {
+					 	$position = $arr->Position;
+					}
+				if($position=='admin'){
+					$this->logedin();
+				}
+				
+				// $this->session->set_flashdata('error','Invalid Username or Password');
+				// redirect(base_url("Project-COOP"));
 			}
 	}
 		public function log_out()

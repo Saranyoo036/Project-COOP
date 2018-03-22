@@ -39,7 +39,7 @@ class student_model extends CI_Model
 
      public function allstatus()
      {
-       $query = $this->db->query('SELECT student.STD_ID, student.std_name,student.std_sname,student.major_id,student.std_psuid,student_staus.std_type,student_staus.status FROM student INNER JOIN student_staus ON student.STD_ID=student_staus.STD_ID
+       $query = $this->db->query('SELECT student.STD_ID, student.std_name,student.std_sname,student.major_id,student.std_type,student_staus.status FROM student INNER JOIN student_staus ON student.STD_ID=student_staus.STD_ID
 ');
        $row = $query->result();
        //print_r($row);

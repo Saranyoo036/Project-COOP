@@ -32,16 +32,16 @@
 
 
 				<?php
-				$que = "SELECT * FROM `student`,`major`,`student_staus` ,`faculty`
+				$que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
 						WHERE major.Major_ID = student.major_id
 						AND major.Fac_ID = faculty.Fac_ID
-						AND student_staus.STD_ID = student.STD_ID
+						AND student_status.STD_ID = student.STD_ID
 						AND major.NameMajor_sub = '$nameMaj'
-						AND student_staus.std_type = '$type';";
+						AND student.std_type = '$type';";
 					$res = $this->db->query($que);
 					foreach ($res->result() as $key ) {
 						echo "<tr>";
-						echo "<td>$key->std_psuid</td>";
+						echo "<td>$key->STD_ID</td>";
 						echo "<td>$key->std_name</td>";
 						echo "<td>$key->Faculty_name</td>";
 						echo "<td>$key->Major_name</td>";
