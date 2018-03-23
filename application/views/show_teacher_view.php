@@ -25,10 +25,11 @@
 			 </thead>
 
 				<?php
-				$que = "SELECT * FROM `teacher` ,`major`
-						WHERE major.Major_ID = teacher.Major_ID
-						AND major.NameMajor_sub = '$nameMaj';";
-						
+				$que = "SELECT * FROM `personnel`,`faculty`
+						WHERE faculty.Fac_ID = personnel.Fac_ID
+						AND faculty.NameFac_sub = '$nameFac'
+						AND personnel.Position='lecture'";
+					
 					$res = $this->db->query($que);
 					$no = 0;
 					foreach ($res->result() as $key ) {
@@ -37,11 +38,11 @@
 						echo "<tr>";
 						echo "<td></td>";
 						echo "<td>$no</td>";
-						echo "<td>$key->TeacherID</td>";
+						echo "<td>$key->personnelID</td>";
 						echo "<td>$key->title</td>";
-						echo "<td>$key->TeacherName</td>";
-						echo "<td>$key->TeacherSName</td>";
-						echo "<td>$key->Major_name</td>";
+						echo "<td>$key->personnelName</td>";
+						echo "<td>$key->personnelSName</td>";
+						echo "<td>$key->NameFac_sub</td>";
 						//echo "<td> <button type='button' class='btn  btn-raised btn-info waves-effect'>Save</button> </td> " ;
 						echo "</tr>";
 
