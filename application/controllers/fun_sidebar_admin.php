@@ -80,26 +80,30 @@ class Fun_sidebar_admin extends CI_Controller {
 	}
 	public function assign()
 	{
-		$fac="";
-		$id =  $this->input->get('id');
-		$id = ','.$id;
-		$hel = explode(',,',$id); 
 		
-		$fac = explode(',',$id);
-		$Fac= $this->input->get('subname_Fac'); 
-
-		 if ($fac[6] =="College of Computing" or '"College of Computing"') {
-			$fac = 'COC';
-		}
-		
-		$Fac= $this->input->get('subname_Fac');
+		// $fac="";
+		$id =  explode(',', $this->input->get('id'));
 		$this->load->model('Teacher_model');
-		
-		for ($i=1; $i<count($hel);$i++) {  
-       		$this->Teacher_model->assignteacher($hel[$i],$this->input->get('type'),$this->input->get('major')); 
-     	} 
+		$this->Teacher_model->assignteacher($id[1],$this->input->get('type'),$this->input->get('major')); 
 
-		$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
-		header('Location:'.$back);
+		// $id = ','.$id;
+		// $hel = explode(',,',$id); 
+		
+		// $fac = explode(',',$id);
+		// $Fac= $this->input->get('subname_Fac'); 
+
+		//  if ($fac[6] =="College of Computing" or '"College of Computing"') {
+		// 	$fac = 'COC';
+		// }
+		
+		// $Fac= $this->input->get('subname_Fac');
+		// $this->load->model('Teacher_model');
+		
+		// for ($i=1; $i<count($hel);$i++) {  
+  //      		$this->Teacher_model->assignteacher($hel[$i],$this->input->get('type'),$this->input->get('major')); 
+  //    	} 
+
+		 //$back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$fac."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
+		 //header('Location:'.$back);
 	}
 }
