@@ -3,14 +3,14 @@
 	<div class="container-fluid">
 		<div class="block-header">
 			<h2>Status</h2>
-			<ul class="breadcrumb">			
-				
+			<ul class="breadcrumb">
+
 			</ul>
 		</div>
-
+<!-- <?php print_r($mystatus);  ?> -->
 
                   <div class="alert alert-info" role="alert">
-            <strong>สถานะ Choosing </strong>
+            <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
             : นักศึกษากรอกข้อมูลส่วนตัว และเลือกสถานประกอบการ
         </div>
                 <div class="">
@@ -25,7 +25,7 @@
                                 <center><i class="fa fa-user fa-5x"></i></center>
                             </div>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <table class="table table-hover table-bordered  table-striped">
                                 <thead>
                                     <tr>
@@ -38,22 +38,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>5730213028</td>
-                                        <td>นาย รัฐกิตติ์ ธนาศักดิ์กุลศิริ</td>
-                                        <td>วิทยาลัยการคอมพิวเตอร์</td>
-                                        <td>วิศวกรรมซอฟต์แวร์ 4</td>
-                                        <td>Choosing</td>
+                                        <td><?php echo $mystatus[0]['STD_ID'] ?></td>
+                                        <td><?php echo $mystatus[0]['std_name'].' '.$mystatus[0]['std_sname'] ?></td>
+                                        <td><?php echo $mystatus[0]['faculty'] ?></td>
+                                        <td><?php echo $mystatus[0]['major'] ?></td>
+                                        <td><?php echo $mystatus[0]['status'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
         </div>
     </div>
     <div class="container">
-        
+
                                                     <a href="#" class="btn btn-default btn-block btn-lg disabled">
             เอกสารยังไม่ครบ
         </a>

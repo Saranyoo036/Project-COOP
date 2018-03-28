@@ -14,58 +14,47 @@ class Authentication extends CI_Controller{
 				'username' => $this->input->post('txtUsername'),
 				'password' => $this->input->post('txtPassword')
 			);
-			$result = false;
-			$condition = "STD_ID ='".$data_login['username']."' AND password ='".$data_login['password']."'";
+			$condition = "personnelID='".$data_login['username']."' AND password='".$data_login['password']."'";
 			$this->db->select('*');
-			$this->db->from('student');
+			$this->db->from('personnel');
 			$this->db->where($condition);
 			$this->db->limit(1);
 			$query = $this->db->get();
 			$result = $query->result();
-			//print_r($result);
+			$position;
+
 			if ($result) {
-					$std_id;
-					foreach ($result as $arr ) {
-					 	$std_id = $arr->STD_ID;
-					}
-					redirect(base_url("Project-COOP/welcome_std?std_id=".$std_id));
-					// switch ($type_id) {
-					// 	case '1':
-					// 		$this->logedin();
-					// 		break;
-					// 		case '2':
-					// 			redirect(base_url("Project-COOP/welcome_std?authid=".$authid));
-					// 		break;
-
-					// 	default:
-					// 		# code...
-					// 		break;
-					// }
-					// //$this->logedin();
-
-					// //echo base_url();
-					}
-
-			else{
-				$condition = "personnelID='".$data_login['username']."' AND password='".$data_login['password']."'";
-				$this->db->select('*');
-				$this->db->from('personnel');
-				$this->db->where($condition);
-				$this->db->limit(1);
-				$query = $this->db->get();
-				$result = $query->result();
-				$admin;
 				foreach ($result as $arr ) {
 					 	$position = $arr->Position;
+						echo $position;
 					}
-				if($position=='admin'){
-					$this->logedin();
+					switch ($position) { //check position and redirect
+						case 'admin':
+							$this->logedin();
+							break;
+						case 'student':
+							$query =$this->db->query('SELECT STD_ID FROM student WHERE STD_ID ='.$data_login['username']);
+      				$row = $query->result_array();
+							$_SESSION['stdid'] = $row[0]['STD_ID'];
+							//print_r($row);
+							//echo $row[0]['STD_ID'];
+							redirect(base_url("Project-COOP/welcome_std?std_id=".$_SESSION['stdid']));
+							break;
+
+						default:
+							# code...
+							break;
+					}
+
+					}
+
+			else{ // fail authen
+				$this->session->set_flashdata('error','Invalid Username or Password');
+				redirect(base_url("Project-COOP"));
+
 				}
-				
-				// $this->session->set_flashdata('error','Invalid Username or Password');
-				// redirect(base_url("Project-COOP"));
 			}
-	}
+
 		public function log_out()
 		{
 			$sess_array = array('username'=>'');

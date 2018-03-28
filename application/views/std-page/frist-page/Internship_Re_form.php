@@ -22,13 +22,13 @@
                     <div class="body">
 
 
-                      <li>Student ID 5730213036</li>
+                      <li>Student ID <?php echo $_SESSION['stdid']; ?></li>
 
                        <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name='tel'>
+                                        <input type="text" class="form-control" name='tel' required>
                                         <label class="form-label">Telephone</label>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group ">
                                     <div class="form-line">
-                                        <input type="text" name='mail' class="form-control" placeholder="Email" value=<?php echo $data['mail'] ?>>
+                                        <input type="Email" name='mail' class="form-control" placeholder="Email" value="" required>
 
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                         </div>
                         <center>
 
-													<input type="hidden" name="authid" value=<?php echo $_GET['authid']; ?>>
+													<input type="hidden" name="authid" value=<?php echo $_SESSION['stdid']; ?>>
 													<input type="hidden" name="type" value=<?php echo $_GET['type']; ?>>
                           <a href='#' onclick="document.getElementById('sendrequestform').submit()" class="btn btn-raised btn-success waves-effect" >SEND</a>
 

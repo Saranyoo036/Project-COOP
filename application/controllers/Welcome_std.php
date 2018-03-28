@@ -11,7 +11,7 @@ class Welcome_std extends CI_Controller {
 	public function index()
 	{
 		$data['check'] = $this->home_model->checktostdhome();
-		//print_r($data);
+		print_r($data);
 		if ($data['check']) {
 			$this->pass();
 		}
@@ -32,7 +32,7 @@ class Welcome_std extends CI_Controller {
 
 	public function pass()
 	{
-		
+
 		$this->load->view('css');
 		$this->load->view('top-bar-std');
 		$this->load->view('std-page/rightsidebar-std');

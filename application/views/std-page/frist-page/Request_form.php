@@ -19,10 +19,10 @@
                     <div class="body">
                       <center>
 
-                      <li>Student ID 5730213036</li>
+                      <li>Student ID <?php echo $_SESSION['stdid']; ?> </li>
 
-                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=Internship&authid=").$_GET['authid']; ?> class="btn btn-raised btn-success waves-effect" >INTERNSHIP</a>
-                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=COOP&authid=").$_GET['authid']; ?> class="btn btn-raised btn-primary waves-effect" >COOPERETIVE</a>
+                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=Internship&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-success waves-effect" >INTERNSHIP</a>
+                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=COOP&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-primary waves-effect" >COOPERETIVE</a>
 
                           <!--
                             <button class="btn btn-raised btn-success waves-effect"  type="button"><a href="<?php echo base_url(); ?>TipsTricks/TipsTricks/Tips_Tricks" >INTERNSHIP</a></button>
