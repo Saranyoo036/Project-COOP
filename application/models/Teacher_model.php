@@ -27,18 +27,18 @@ class Teacher_model extends CI_Model
 			$res = $this->db->get();
 			if($res->result()){
 				$update = "UPDATE major_setting 
-				 			SET approve_teacher_id = '$id'
-				 			WHERE major_id = '$maj'
+				 			SET personnelID = $id
+				 			WHERE major_id = $maj
 				 			AND major_type ='$type'
-				 			AND status_id = '3' ;";
+				 			AND status_id = 3 ;";
 				 echo $update;
 				 $this->db->query($update);
 
 			}else{
-					$insert = "INSERT INTO `major_setting` (`major_id`, `major_type`, `status_id`, `approve_teacher_id`) 
-					 VALUES ('$maj', '$type', '3','$id');";
-					 echo $insert;
-					 $this->db->query($insert);
+					$insert = "INSERT INTO major_setting (major_id, major_type,status_id, personnelID) VALUES (".$maj.", '".$type."', 3, ".$id.")";
+					echo $insert;
+					$this->db->query($insert);
+					 
 			}
 
 

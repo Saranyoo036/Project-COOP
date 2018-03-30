@@ -9,26 +9,29 @@
 				<a id="btnSelectedRows" class='btn btn-raised btn-info waves-effect' href="#">Assign teacher</a>
 				<input type = "hidden" id = "type"  value="<?php echo $type;?>">
  				<input type = "hidden" id = "major"  value="<?php echo $nameMaj;?>">
+ 				<input type = "hidden" id = "fac"  value="<?php echo $nameFac;?>">
 				<?php
-					$checkMaj = "SELECT * from `major_setting` 
-								WHERE major_type='$type'
+					$this->db->select('*');
+					$this->db->from('major_setting');
+					$this->db->where("major_type='$type'
 								AND major_id = (SELECT major_id from `major`
 												WHERE NameMajor_sub = '$nameMaj')
 								AND status_id = '3'
-								LIMIT 1;";
-					$MajRes = $this->db->query($checkMaj);
-					$check = $MajRes->row();
-
-					if(isset($check)){
+								AND personnelID!='NULL'");
+					$MajRes = $this->db->get();
+					
+					if($MajRes->result()){
+						
 						$aprover = "SELECT *
     						FROM `major_setting`,`personnel`
     						WHERE major_id=(
         						SELECT major_id 
         						from major 
         						where NameMajor_sub = '$nameMaj') 
-        					AND major_setting.approve_teacher_id = personnel.personnelID
+        					AND major_setting.personnelID = personnel.personnelID
     						AND major_type = '$type' 
     						AND status_id = '3' LIMIT 1";
+    						
     						$sum = $this->db->query($aprover);
     						$aprove = $sum->row();
 						?>
@@ -58,7 +61,7 @@
 						AND faculty.NameFac_sub = '$nameFac'
 						AND personnel.Position='lecture'
 						AND personnel.personnelID!=(
-							SELECT approve_teacher_id 
+							SELECT personnelID 
     						FROM `major_setting` 
     						WHERE major_id=(
         						SELECT major_id 
@@ -67,6 +70,7 @@
     						AND major_type = '$type' 
     						AND status_id = '3' LIMIT 1)";
 					}else{
+						
 						$que = "SELECT * FROM `personnel`,`faculty` 
 						WHERE faculty.Fac_ID = personnel.Fac_ID 
 						AND faculty.NameFac_sub = '$nameFac' 
@@ -92,16 +96,13 @@
 			 </thead>
 
 				<?php
-
 					$res = $this->db->query($que);
 					$no = 0;
 					foreach ($res->result() as $key ) {
 						$no++;
-
 						echo "<tr>";
-						
 						echo "<td></td>";
-						echo "<td><a>$key->personnelID</a></td>";
+						echo "<td>$key->personnelID</td>";
 						echo "<td></td>";
 						echo "<td>$key->title</td>";
 						echo "<td>$key->personnelName</td>";
@@ -126,6 +127,7 @@
 		var table;
 		var type = document.getElementById("type").value;
  		var major = document.getElementById("major").value;
+ 		var fac = document.getElementById("fac").value;
 		$(document).ready(function() {
 		  table = $('#example').DataTable({
 		    columnDefs: [{
@@ -155,7 +157,7 @@
 		    teacher.push(tblData[i]) ;
 				//alert(tblData[i])
 
-				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher+"&type="+type+"&major="+major
+				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher+"&type="+type+"&major="+major+"&fac="+fac
  
 
 		  });
