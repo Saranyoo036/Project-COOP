@@ -26,6 +26,8 @@ class company_model extends CI_Model
        	$this->Note = $data['about'];
        	$this->company_type = $data['group4'];
        	$this->company_name = $data['name'];
+        $this->company_contract_name = $data['company_con_name'];
+        $this->company_contract_sname = $data['company_con_sname'];
        	//echo $this->address;
 
        	$this->db->insert('company', $this);

@@ -125,6 +125,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="company_con_name" type="text" class="form-control" required/>
+                                                    <label class="form-label">ชื่อผู้ติดต่อ</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input name="company_con_sname" type="text" class="form-control" required/>
+                                                    <label class="form-label">นามสกุลผู้ติดต่อ</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -56,12 +56,12 @@ class time_model extends CI_Model
     public function update($status_id,$mid,$type,$start,$end)
     {
       $update = "UPDATE major_setting
-                SET start_date = $start ,
-                    end_date = $end
+                SET start_date = '$start' ,
+                    end_date = '$end'
                 WHERE major_id = $mid
                 AND   major_type = '$type'
                 AND   status_id = $status_id";
-                
+                echo "<br>$update<br>";
         $this->db->query($update);
       
     }
@@ -70,7 +70,7 @@ class time_model extends CI_Model
     {
       $insert = "INSERT INTO major_setting(major_id,major_type,status_id,start_date,end_date)
                   VALUES($mid,'$type','$status_id','$start','$end')";
-                   
+                 echo "<br>$insert<br>";  
       $this->db->query($insert);
     }
 
