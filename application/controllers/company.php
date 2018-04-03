@@ -58,6 +58,27 @@ class company extends CI_Controller {
 		header('Location:'.$back);
   }
 
+  public function viewPosition()
+  {
+    $data = array(
+      'company_ID' => $this->input->get('company_id')
+      // ,'nameMaj'=>$this->input->get('subname_major'),
+      // '$type'=>$this->input->get('type_major')
+    );
+    $this->load->view('top-bar');
+    $this->load->view('sidebar-admin');
+    $this->load->view('Add/Add_Po',$data);
+    $this->load->view('script'); 
+  }
+
+  public function insertPosition()
+  {
+    $this->load->model('company_model');
+    $this->company_model->addPosition($_POST);
+    $back = base_url("Project-COOP/index.php/Fun_sidebar_admin/home");
+    header('Location:'.$back);
+  }
+
 }
 
 
