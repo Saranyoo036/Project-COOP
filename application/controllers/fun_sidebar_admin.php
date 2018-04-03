@@ -92,4 +92,35 @@ class Fun_sidebar_admin extends CI_Controller {
 		 
 		 header('Location:'.$back);
 	}
+	public function Add_Fac_view()
+		{
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('Add/Add_Fac');
+			$this->load->view('script');
+		}
+		
+	public function Add_Ma_view()
+		{
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('Add/Add_Ma');
+			$this->load->view('script');
+		}
+
+	public function addmaj()
+	{
+		$this->load->model('Faculty_major_model');
+		$this->Faculty_major_model->add_major($_POST['majname_eng'],$_POST['majname_thai'],$_POST['majname_sub'],$_POST['FacSelect']);
+		$back = base_url("Project-COOP/index.php/Fun_sidebar_admin/home");
+		header('Location:'.$back);
+	}
+
+	public function addFac()
+	{
+		$this->load->model('Faculty_major_model');
+		$this->Faculty_major_model->add_faculty($_POST['namefac_eng'],$_POST['namefac_thai'],$_POST['namefac_sub']);
+		$back = base_url("Project-COOP/index.php/Fun_sidebar_admin/home");
+		header('Location:'.$back);
+	}
 }
