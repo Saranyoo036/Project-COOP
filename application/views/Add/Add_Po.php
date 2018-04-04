@@ -13,7 +13,6 @@
 			<div class="col-md-12 col-lg-12">
 				<div class="card visitors-map">
 					<div class="header">
-<<<<<<< HEAD
 						<h2>Add Job position</h2>
 					</div>
 					<div class="body">
@@ -70,7 +69,6 @@
 						
 
 
-=======
 								<h2>ชื่อผู้ติดต่อประสานงานกรณีจะต้องทำหนังสือถึง (Coordinator)</h2>
 							</div>
 
@@ -117,17 +115,12 @@
 		                    <input type="hidden" name="company_id" value="<?php echo $company_ID; ?>">    
 		                    <input type="submit" class="btn  btn-raised btn-success waves-effect" value="Save Information">		                            
 		                    
->>>>>>> cc9f72a6c14dfaf4936d7bacbacb9aa8f03b9a53
+
 					</div>
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
 
-=======
-		
-	
->>>>>>> cc9f72a6c14dfaf4936d7bacbacb9aa8f03b9a53
 		</div>
 	</div>
 </section>
