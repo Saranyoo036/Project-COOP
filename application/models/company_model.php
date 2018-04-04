@@ -63,6 +63,16 @@ class company_model extends CI_Model
      	 return true;
 		 }
 
+     public function addPosition($data)
+     {
+      $company_id = $data['company_id'];
+      $Position_name = $data['Position_name']; 
+      $Position_skill = $data['Position_skill'];
+      $Position_desc =$data['Position_desc'];
+      $Position_num=$data['Position_num'];
+       $insert = "INSERT INTO company_position(company_id,Position_name,Position_skill,Position_desc,Position_num) VALUES ($company_id,'$Position_name','$Position_skill','$Position_desc',$Position_num)";
+       $this->db->query($insert);
+     }
 
 }
 ?>

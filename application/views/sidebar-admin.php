@@ -85,7 +85,13 @@
             <?php } ?>
             <li ><a href="<?php 
                                 echo(base_url()."Project-COOP/Fun_sidebar_admin/show_news"); 
-                            ?>"> News </a></li> 
+                            ?>"> News </a></li>
+            <li ><a href="<?php 
+                                echo(base_url()."Project-COOP/Fun_sidebar_admin/Add_Fac_view"); 
+                            ?>">Add Faculty</a></li>
+             <li ><a href="<?php 
+                                echo(base_url()."Project-COOP/Fun_sidebar_admin/Add_ma_view"); 
+                            ?>">Add Major</a></li>    
         </li>
     </div>
     <!-- #Menu -->

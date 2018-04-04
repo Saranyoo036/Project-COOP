@@ -13,7 +13,7 @@
 						<td>Address</td>
 						<td>Provice</td>
 						<td>Contract</td>
-						<td>Note</td>
+						<td>Position</td>
 						<td>View/Edit</td>
 						<td>Delete</td>
 					</tr>
@@ -37,8 +37,13 @@
 						echo "<td>$key->address</td>";
 						echo "<td>$key->provice</td>";
 						echo "<td>$key->contract $key->Tel</td>";
-						echo "<td>$key->Note</td>";
-						 ?>
+						?>
+						<td>
+							 <a href= <?php echo base_url("Project-COOP/index.php/company/viewPosition?company_id=".$key->company_id."&subname_major=$nameMaj&type_major=$type") ?> >
+								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
+								 </a>
+					</td>
+
 						<td>
 							 <a href= <?php echo base_url("Project-COOP/index.php/company/viewcompany?company_viewid=".$key->company_id."&subname_major=$nameMaj&type_major=$type") ?> >
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
@@ -50,12 +55,8 @@
 								<input type="hidden" id="todel<?php echo $no;?>" name="" value=<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type"); ?>>
  								<a data-type="confirm"  href="#"><img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
 								onclick="confirmanddel(document.getElementById('todel<?php echo $no;?>').value)"> </a> </td>
- 								<!-- <a  class="btn btn-raised btn-default waves-effect" name="button" onclick="showConfirmMessage(), window.location.href =<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <i class="material-icons">delete</i> </a> -->
+ 								
 							</div>
-
-
-							<!-- <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> 							<img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
-							onclick="return confirm('ต้องการลบข้อมูลใช่หรือไม่??');"> </a> </td> -->
 
 						<?php echo "</tr>";
 					}
