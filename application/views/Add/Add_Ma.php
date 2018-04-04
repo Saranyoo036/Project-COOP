@@ -5,8 +5,8 @@
 		<div class="block-header">
 			<h2>หน้าแรก</h2>
 			<ul class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">หน้าแรก</a></li>			
-				<li class="breadcrumb-item active">หน้าแรก</li>
+				<li class="breadcrumb-item"><a href="index.html">Add</a></li>			
+				<li class="breadcrumb-item active">Add Major</li>
 			</ul>
 		</div>
 		<div class="row clearfix">
