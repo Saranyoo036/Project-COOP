@@ -48,8 +48,10 @@
                                                     ?>">Time Setting</a></li>
                                                     <li><a href="<?php
                                                          echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship"); 
-                                                    ?>">Assign Lecturer</a></li>
-                                                    
+                                                    ?>">Assign Aprove Lecturer</a></li>
+                                                    <li><a href="<?php
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher_monitor?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
+                                                    ?>">Assign Monitor Lecturer</a></li>
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Organization</a></li>
@@ -68,7 +70,10 @@
                                                     ?>">Time Setting</a></li>
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
-                                                    ?>">Assign Lecturer</a></li>
+                                                    ?>">Assign Aprove Lecturer</a></li>
+                                                    <li><a href="<?php
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher_monitor?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
+                                                    ?>">Assign Monitor Lecturer</a></li>
                                                     <li><a href="<?php
                                                          echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
                                                     ?>">Organization</a></li>

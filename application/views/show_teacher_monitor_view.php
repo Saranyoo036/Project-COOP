@@ -6,7 +6,7 @@
 
 			<ul class="breadcrumb">
 
-				<a id="btnSelectedRows" class='btn btn-raised btn-info waves-effect' href="#">Assign Aprove teacher</a>
+				<a id="btnSelectedRows" class='btn btn-raised btn-info waves-effect' href="#">Assign monitor teacher</a>
 				<input type = "hidden" id = "type"  value="<?php echo $type;?>">
  				<input type = "hidden" id = "major"  value="<?php echo $nameMaj;?>">
  				<input type = "hidden" id = "fac"  value="<?php echo $nameFac;?>">
@@ -18,7 +18,7 @@
 								AND major_id = (SELECT major_id from `major`
 												WHERE NameMajor_sub = '$nameMaj')
 								AND status_id = '3'
-								AND personnelID!='NULL'");
+								AND personnelID_monitor!='NULL'");
 					$MajRes = $this->db->get();
 					
 					if($MajRes->result()){
@@ -29,14 +29,14 @@
         						SELECT major_id 
         						from major 
         						where NameMajor_sub = '$nameMaj') 
-        					AND major_setting.personnelID = personnel.personnelID
+        					AND major_setting.personnelID_monitor = personnel.personnelID
     						AND major_type = '$type' 
     						AND status_id = '3' LIMIT 1";
     						
     						$sum = $this->db->query($aprover);
     						$aprove = $sum->row();
 						?>
-						<h2>approvers</h2>
+						<h2>Monitor</h2>
 						<table class="table table-hover table-bordered  table-striped">
                                 <thead>
                                     <tr>
@@ -159,7 +159,7 @@
 		    teacher.push(tblData[i]) ;
 				//alert(tblData[i])
 
-				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher+"&type="+type+"&major="+major+"&fac="+fac
+				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign_monitor?id="+teacher+"&type="+type+"&major="+major+"&fac="+fac
  
 
 		  });

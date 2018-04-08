@@ -44,6 +44,18 @@ class Fun_sidebar_admin extends CI_Controller {
 		$this->load->view('show_teacher_view',$data);
 		$this->load->view('script');
 	}
+	public function show_teacher_monitor()
+	{
+		$data = array(
+			 'nameFac' => $this->input->get('subname_Fac'), 
+      		'nameMaj'=> $this->input->get('subname_major'), 
+      		'type' => $this->input->get('type_major') 
+		);
+		$this->load->view('top-bar');
+		$this->load->view('sidebar-admin');
+		$this->load->view('show_teacher_monitor_view',$data);
+		$this->load->view('script');
+	}
 
 	public function show_news()
 	{
@@ -89,6 +101,20 @@ class Fun_sidebar_admin extends CI_Controller {
 		
 		
 		 $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$this->input->get('fac')."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
+		 
+		 header('Location:'.$back);
+	}
+	public function assign_monitor()
+	{
+		
+		
+		$id =  explode(',', $this->input->get('id'));
+		$this->load->model('Teacher_model');
+		$this->Teacher_model->assign_monitor_teacher($id[1],$this->input->get('type'),$this->input->get('major')); 
+
+		
+		
+		 $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher_monitor?subname_Fac=".$this->input->get('fac')."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
 		 
 		 header('Location:'.$back);
 	}
