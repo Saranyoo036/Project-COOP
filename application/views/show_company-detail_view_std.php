@@ -1,7 +1,7 @@
 <section class="content">
     <div class="container-fluid">
       <?php
-      //print_r($responsedata);
+      // print_r($responsedata);
 
         //print_r (explode(",",$responsedata[0]['contract']));
         $contact = explode(",",$responsedata['query'][0]['contract']);
@@ -40,9 +40,9 @@
                             <section>
                                 <div class="col-md-12">
                                   <p> <b>Name :</b> <?php echo $responsedata['query'][0]['company_contract_name'].' '. $responsedata['query'][0]['company_contract_sname'];  ?></p>
-                                    <p> <b>Position :</b> <?php echo $responsedata['row']['Postion_name']?></p>
-                                    <p> <b>Skill :</b> <?php echo $responsedata['row']['Posstion_skill']?></p>
-                                    <p> <b>Position description :</b> <?php echo $responsedata['row']['Postion_desc']?></p>
+                                    <p> <b>Position :</b> <?php echo $responsedata['row']['Position_name']?></p>
+                                    <p> <b>Skill :</b> <?php echo $responsedata['row']['Position_skill']?></p>
+                                    <p> <b>Position description :</b> <?php echo $responsedata['row']['Position_desc']?></p>
 
                                 </div>
                                 <!-- <div class="col-md-6"> <b>Email</b>

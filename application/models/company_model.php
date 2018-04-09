@@ -42,7 +42,7 @@ class company_model extends CI_Model
        $this->db->where('company_id='.$id);
        $query = $this->db->get();
        $query= $query->result_array();
-			 $query2 = $this->db->query("SELECT * FROM company_postion WHERE `company_id`= '".$id."'");
+			 $query2 = $this->db->query("SELECT * FROM company_position WHERE `company_id`= '".$id."'");
 			 $row = $query2->result_array()[0];
 			 $return = array('row' =>$row ,'query'=>$query );
 			 //print_r($return);
