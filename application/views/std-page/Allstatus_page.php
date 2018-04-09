@@ -8,7 +8,7 @@
 			</ul>
 		</div>
 
-        <!-- <?php print_r($data); ?>  -->
+        <!-- <?php print_r($data); ?> -->
 
 
                    <div class = "container">
@@ -49,7 +49,7 @@
                             echo "<td>$std->STD_ID</td>";
                             echo "<td>$std->std_name $std->std_sname</td>";
                             echo "<td>$std->major </td>";
-                            echo "<td>- </td>";
+                            echo "<td>$std->company  </td>";
                             echo "<td>- </td>";
                             echo "<td>- </td>";
                             echo "<td>- </td>";

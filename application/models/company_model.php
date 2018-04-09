@@ -26,8 +26,6 @@ class company_model extends CI_Model
        	$this->Note = $data['about'];
        	$this->company_type = $data['group4'];
        	$this->company_name = $data['name'];
-        $this->company_contract_name = $data['company_con_name'];
-        $this->company_contract_sname = $data['company_con_sname'];
        	//echo $this->address;
 
        	$this->db->insert('company', $this);
@@ -44,7 +42,11 @@ class company_model extends CI_Model
        $this->db->where('company_id='.$id);
        $query = $this->db->get();
        $query= $query->result_array();
-       return $query;
+			 $query2 = $this->db->query("SELECT * FROM company_postion WHERE `company_id`= '".$id."'");
+			 $row = $query2->result_array()[0];
+			 $return = array('row' =>$row ,'query'=>$query );
+			 //print_r($return);
+       return $return;
      }
 		 public function update($data)
 		 {
@@ -63,16 +65,6 @@ class company_model extends CI_Model
      	 return true;
 		 }
 
-     public function addPosition($data)
-     {
-      $company_id = $data['company_id'];
-      $Position_name = $data['Position_name']; 
-      $Position_skill = $data['Position_skill'];
-      $Position_desc =$data['Position_desc'];
-      $Position_num=$data['Position_num'];
-       $insert = "INSERT INTO company_position(company_id,Position_name,Position_skill,Position_desc,Position_num) VALUES ($company_id,'$Position_name','$Position_skill','$Position_desc',$Position_num)";
-       $this->db->query($insert);
-     }
 
 }
 ?>

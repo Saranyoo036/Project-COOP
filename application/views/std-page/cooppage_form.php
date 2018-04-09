@@ -710,10 +710,10 @@
                                     <div class="row clearfix">
 
                                         <div class="form-group col-md-6">
-                                            <a class="btn btn-raised btn-primary waves-effect" onclick="useFatherData()">ใช้ข้อมูลบิดา (Use father's information)</a>
+                                            <a class="btn btn-raised btn-primary waves-effect" id="father" onclick="parentdata(this.id)">ใช้ข้อมูลบิดา (Use father's information)</a>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <a class="btn btn-raised btn-primary waves-effect" onclick="useMotherData()">ใช้ข้อมูลมารดา (Use mother's information)</a>
+                                            <a class="btn btn-raised btn-primary waves-effect" id="mother" onclick="parentdata(this.id)">ใช้ข้อมูลมารดา (Use mother's information)</a>
 
                                         </div>
                                         <div class="col-md-12">
@@ -891,12 +891,12 @@
 
                                     <h3>ข้อมูลพี่น้อง</h3>
 
-                                    <div class="row clearfix">
+                                    <div class="row clearfix" id='sibling'>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" >
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" name="no_of_relatives_2" id="relatives_number" placeholder="จำนวนพี่น้อง (No. of relatives)">
+                                                    <input type="number" class="form-control" name="no_of_relatives_2" id="relatives_number" placeholder="จำนวนพี่น้อง (No. of relatives)" onfocusout="sibling(this.value)">
                                                 </div>
                                             </div>
                                         </div>
@@ -1250,7 +1250,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="secondary_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
+                                                    <input type="text" class="form-control" name="high_school_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
                                                 </div>
                                             </div>
                                         </div>
@@ -1625,36 +1625,36 @@
                                         <td> อังกฤษ (English)</td>
                                         <td>
 
-                                            <input name="listen-eng" type="radio" id="listen-eng1" class="radio-col-red " >
+                                            <input name="listen-eng" type="radio" id="listen-eng1" class="radio-col-red "  value="Good">
                                             <label for="listen-eng1">Good</label>
-                                            <input name="listen-eng" type="radio" id="listen-eng2" class="radio-col-pink ">
+                                            <input name="listen-eng" type="radio" id="listen-eng2" class="radio-col-pink " value="Fair">
                                             <label for="listen-eng2">Fair</label>
-                                            <input name="listen-eng" type="radio" id="listen-eng3" class="radio-col-purple ">
+                                            <input name="listen-eng" type="radio" id="listen-eng3" class="radio-col-purple " value="Poor">
                                             <label for="listen-eng3">Poor</label>
 
                                         </td>
                                         <td>
-                                          <input name="speak-eng" type="radio" id="speak-eng1" class="radio-col-red " >
+                                          <input name="speak-eng" type="radio" id="speak-eng1" class="radio-col-red " value="Good" >
                                           <label for="speak-eng1">G</label>
-                                          <input name="speak-eng" type="radio" id="speak-eng2" class="radio-col-pink ">
+                                          <input name="speak-eng" type="radio" id="speak-eng2" class="radio-col-pink " value="Fair">
                                           <label for="speak-eng2">F</label>
-                                          <input name="speak-eng" type="radio" id="speak-eng3" class="radio-col-purple ">
+                                          <input name="speak-eng" type="radio" id="speak-eng3" class="radio-col-purple "value="Poor">
                                           <label for="speak-eng3">P</label>
                                         </td>
                                         <td>
-                                          <input name="read-eng" type="radio" id="read-eng1" class="radio-col-red " >
+                                          <input name="read-eng" type="radio" id="read-eng1" class="radio-col-red " value="Good" >
                                           <label for="read-eng1">G</label>
-                                          <input name="read-eng" type="radio" id="read-eng2" class="radio-col-pink ">
+                                          <input name="read-eng" type="radio" id="read-eng2" class="radio-col-pink " value="Fair">
                                           <label for="read-eng2">F</label>
-                                          <input name="read-eng" type="radio" id="read-eng3" class="radio-col-purple ">
+                                          <input name="read-eng" type="radio" id="read-eng3" class="radio-col-purple " value="Poor">
                                           <label for="read-eng3">P</label>
                                         </td>
                                         <td>
-                                          <input name="write-eng" type="radio" id="write-eng1" class="radio-col-red " >
+                                          <input name="write-eng" type="radio" id="write-eng1" class="radio-col-red " value="Good" >
                                           <label for="write-eng1">G</label>
-                                          <input name="write-eng" type="radio" id="write-eng2" class="radio-col-pink ">
+                                          <input name="write-eng" type="radio" id="write-eng2" class="radio-col-pink " value="Fair">
                                           <label for="write-eng2">F</label>
-                                          <input name="write-eng" type="radio" id="write-eng3" class="radio-col-purple ">
+                                          <input name="write-eng" type="radio" id="write-eng3" class="radio-col-purple " value="Poor">
                                           <label for="write-eng3">P</label>
                                         </td>
                                     </tr>
@@ -1662,197 +1662,93 @@
                                         <td>  จีน (Chinese)</td>
                                         <td>
 
-                                            <input name="listen-ch" type="radio" id="listen-ch1" class="radio-col-red " >
+                                            <input name="listen-ch" type="radio" id="listen-ch1" class="radio-col-red " value="Good">
                                             <label for="listen-ch1">Good</label>
-                                            <input name="listen-ch" type="radio" id="listen-ch2" class="radio-col-pink ">
+                                            <input name="listen-ch" type="radio" id="listen-ch2" class="radio-col-pink " value="Fair">
                                             <label for="listen-ch2">Fair</label>
-                                            <input name="listen-ch" type="radio" id="listen-ch3" class="radio-col-purple ">
+                                            <input name="listen-ch" type="radio" id="listen-ch3" class="radio-col-purple " value="Poor">
                                             <label for="listen-ch3">Poor</label>
 
                                         </td>
                                         <td>
-                                          <input name="speak-ch" type="radio" id="speak-ch1" class="radio-col-red " >
+                                          <input name="speak-ch" type="radio" id="speak-ch1" class="radio-col-red " value="Good" >
                                           <label for="speak-ch1">G</label>
-                                          <input name="speak-ch" type="radio" id="speak-ch2" class="radio-col-pink ">
+                                          <input name="speak-ch" type="radio" id="speak-ch2" class="radio-col-pink " value="Fair">
                                           <label for="speak-ch2">F</label>
-                                          <input name="speak-ch" type="radio" id="speak-ch3" class="radio-col-purple ">
+                                          <input name="speak-ch" type="radio" id="speak-ch3" class="radio-col-purple " value="Poor">
                                           <label for="speak-ch3">P</label>
                                         </td>
                                         <td>
-                                          <input name="read-ch" type="radio" id="read-ch1" class="radio-col-red " >
+                                          <input name="read-ch" type="radio" id="read-ch1" class="radio-col-red " value="Good">
                                           <label for="read-ch1">G</label>
-                                          <input name="read-ch" type="radio" id="read-ch2" class="radio-col-pink ">
+                                          <input name="read-ch" type="radio" id="read-ch2" class="radio-col-pink " value="Fair">
                                           <label for="read-ch2">F</label>
-                                          <input name="read-ch" type="radio" id="read-ch3" class="radio-col-purple ">
+                                          <input name="read-ch" type="radio" id="read-ch3" class="radio-col-purple " value="Poor">
                                           <label for="read-ch3">P</label>
                                         </td>
                                         <td>
-                                          <input name="write-ch" type="radio" id="write-ch1" class="radio-col-red " >
+                                          <input name="write-ch" type="radio" id="write-ch1" class="radio-col-red " value="Good" >
                                           <label for="write-ch1">G</label>
-                                          <input name="write-ch" type="radio" id="write-ch2" class="radio-col-pink ">
+                                          <input name="write-ch" type="radio" id="write-ch2" class="radio-col-pink " value="Fair">
                                           <label for="write-ch2">F</label>
-                                          <input name="write-ch" type="radio" id="write-ch3" class="radio-col-purple ">
+                                          <input name="write-ch" type="radio" id="write-ch3" class="radio-col-purple " value="Poor">
                                           <label for="write-ch3">P</label>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td>
-                                          <input type="checkbox" name="other_checkbox" id="other_checkbox" onclick="$('#other_lan').show(300)"> <label for="other_checkbox"> อื่นๆ(Other)</label>
+                                          <input type="checkbox" name="other_checkbox" id="other_checkbox" onclick="$('#other_lan').show(300),$('#other_lan_listen').show(300),$('#other_lan_read').show(300),$('#other_lan_write').show(300),$('#other_lan_speak').show(300)"> <label for="other_checkbox"> อื่นๆ(Other)</label>
                                             <input type="text" id="other_lan" class="form-control" name="other_lan" value = "" style="display:none" placeholder="ระบุ">
                                         </td>
                                         <td >
 
-                                            <input name="listen-oth" type="radio" id="listen-oth1" class="radio-col-red " >
+                                          <div class="" id="other_lan_listen" style="display:none">
+                                            <input name="listen-oth" type="radio" id="listen-oth1" class="radio-col-red " value="Good" >
                                             <label for="listen-oth1">Good</label>
-                                            <input name="listen-oth" type="radio" id="listen-oth2" class="radio-col-pink ">
+                                            <input name="listen-oth" type="radio" id="listen-oth2" class="radio-col-pink " value="Fair">
                                             <label for="listen-oth2">Fair</label>
-                                            <input name="listen-oth" type="radio" id="listen-oth3" class="radio-col-purple ">
+                                            <input name="listen-oth" type="radio" id="listen-oth3" class="radio-col-purple " value="Poor">
                                             <label for="listen-oth3">Poor</label>
+                                          </div>
 
                                         </td>
                                         <td>
-                                          <input name="speak-oth" type="radio" id="speak-oth1" class="radio-col-red " >
-                                          <label for="speak-oth1">G</label>
-                                          <input name="speak-oth" type="radio" id="speak-oth2" class="radio-col-pink ">
-                                          <label for="speak-oth2">F</label>
-                                          <input name="speak-oth" type="radio" id="speak-oth3" class="radio-col-purple ">
-                                          <label for="speak-oth3">P</label>
+                                          <div class="" id="other_lan_speak" style="display:none">
+                                            <input name="speak-oth" type="radio" id="speak-oth1" class="radio-col-red "value="Good" >
+                                            <label for="speak-oth1">G</label>
+                                            <input name="speak-oth" type="radio" id="speak-oth2" class="radio-col-pink "value="Fair">
+                                            <label for="speak-oth2">F</label>
+                                            <input name="speak-oth" type="radio" id="speak-oth3" class="radio-col-purple "value="Poor">
+                                            <label for="speak-oth3">P</label>
+
+                                          </div>
+
                                         </td>
                                         <td>
-                                          <input name="read-oth" type="radio" id="read-oth1" class="radio-col-red " >
-                                          <label for="read-oth1">G</label>
-                                          <input name="read-oth" type="radio" id="read-oth2" class="radio-col-pink ">
-                                          <label for="read-oth2">F</label>
-                                          <input name="read-oth" type="radio" id="read-oth3" class="radio-col-purple ">
-                                          <label for="read-oth3">P</label>
+                                          <div class="" id="other_lan_read" style="display:none">
+                                            <input name="read-oth" type="radio" id="read-oth1" class="radio-col-red " value="Good">
+                                            <label for="read-oth1">G</label>
+                                            <input name="read-oth" type="radio" id="read-oth2" class="radio-col-pink "value="Fair">
+                                            <label for="read-oth2">F</label>
+                                            <input name="read-oth" type="radio" id="read-oth3" class="radio-col-purple "value="Poor">
+                                            <label for="read-oth3">P</label>
+                                          </div>
+
                                         </td>
                                         <td>
-                                          <input name="write-oth" type="radio" id="write-oth1" class="radio-col-red " >
-                                          <label for="write-oth1">G</label>
-                                          <input name="write-oth" type="radio" id="write-oth2" class="radio-col-pink ">
-                                          <label for="write-oth2">F</label>
-                                          <input name="write-oth" type="radio" id="write-oth3" class="radio-col-purple ">
-                                          <label for="write-oth3">P</label>
+                                          <div class="" id="other_lan_write" style="display:none">
+                                            <input name="write-oth" type="radio" id="write-oth1" class="radio-col-red "value="Good" >
+                                            <label for="write-oth1">G</label>
+                                            <input name="write-oth" type="radio" id="write-oth2" class="radio-col-pink "value="Fair">
+                                            <label for="write-oth2">F</label>
+                                            <input name="write-oth" type="radio" id="write-oth3" class="radio-col-purple "value="Poor">
+                                            <label for="write-oth3">P</label>
+                                          </div>
+
                                         </td>
                                     </tr>
-                                    <script type="text/javascript">
 
-                                        var listening;
-                                        var speaking;
-                                        var reading;
-                                        var writing;
-
-                                        listening = "";
-                                        speaking = "";
-                                        reading = "";
-                                        writing = "";
-                                        if(listening !="" || speaking !="" || reading !="" || writing !="")
-                                        {
-                                            $("#english_checkbox").prop('checked', true);
-                                        }
-                                        else
-                                        {
-                                            $("[name=english_listening_4]").attr('disabled', true);
-                                            $("[name=english_speaking_4]").attr('disabled', true);
-                                            $("[name=english_reading_4]").attr('disabled', true);
-                                            $("[name=english_writing_4]").attr('disabled', true);
-                                        }
-
-
-                                        listening = "";
-                                        speaking = "";
-                                        reading = "";
-                                        writing = "";
-                                        if(listening !="" || speaking !="" || reading !="" || writing !="")
-                                        {
-                                            $("#chinese_checkbox").prop('checked', true);
-                                        }
-                                        else
-                                        {
-                                            $("[name=chinese_listening_4]").attr('disabled', true);
-                                            $("[name=chinese_speaking_4]").attr('disabled', true);
-                                            $("[name=chinese_reading_4]").attr('disabled', true);
-                                            $("[name=chinese_writing_4]").attr('disabled', true);
-                                        }
-
-
-                                        listening = "";
-                                        speaking = "";
-                                        reading = "";
-                                        writing = "";
-                                        if(listening !="" || speaking !="" || reading !="" || writing !="")
-                                        {
-                                            $("#other_checkbox").prop('checked', true);
-                                        }
-                                        else
-                                        {
-                                            $("[name=other_listening_4]").attr('disabled', true);
-                                            $("[name=other_speaking_4]").attr('disabled', true);
-                                            $("[name=other_reading_4]").attr('disabled', true);
-                                            $("[name=other_writing_4]").attr('disabled', true);
-                                        }
-
-                                        $('#english_checkbox').change(function() {
-                                            if($(this).is(":checked")) {
-                                                $("[name=english_listening_4]").attr('disabled', false);
-                                                $("[name=english_speaking_4]").attr('disabled', false);
-                                                $("[name=english_reading_4]").attr('disabled', false);
-                                                $("[name=english_writing_4]").attr('disabled', false);
-                                            }
-                                            else{
-                                                $("[name=english_listening_4]").attr('disabled', true);
-                                                $("[name=english_speaking_4]").attr('disabled', true);
-                                                $("[name=english_reading_4]").attr('disabled', true);
-                                                $("[name=english_writing_4]").attr('disabled', true);
-
-                                                $("[name=english_listening_4]").prop('checked', false);
-                                                $("[name=english_speaking_4]").prop('checked', false);
-                                                $("[name=english_reading_4]").prop('checked', false);
-                                                $("[name=english_writing_4]").prop('checked', false);
-                                            }
-                                        });
-
-                                        $('#chinese_checkbox').change(function() {
-                                            if($(this).is(":checked")) {
-                                                $("[name=chinese_listening_4]").attr('disabled', false);
-                                                $("[name=chinese_speaking_4]").attr('disabled', false);
-                                                $("[name=chinese_reading_4]").attr('disabled', false);
-                                                $("[name=chinese_writing_4]").attr('disabled', false);
-                                            }
-                                            else{
-                                                $("[name=chinese_listening_4]").attr('disabled', true);
-                                                $("[name=chinese_speaking_4]").attr('disabled', true);
-                                                $("[name=chinese_reading_4]").attr('disabled', true);
-                                                $("[name=chinese_writing_4]").attr('disabled', true);
-
-                                                $("[name=chinese_listening_4]").prop('checked', false);
-                                                $("[name=chinese_speaking_4]").prop('checked', false);
-                                                $("[name=chinese_reading_4]").prop('checked', false);
-                                                $("[name=chinese_writing_4]").prop('checked', false);
-                                            }
-                                        });
-
-                                        $('#other_checkbox').change(function() {
-                                            if($(this).is(":checked")) {
-                                                $("[name=other_listening_4]").attr('disabled', false);
-                                                $("[name=other_speaking_4]").attr('disabled', false);
-                                                $("[name=other_reading_4]").attr('disabled', false);
-                                                $("[name=other_writing_4]").attr('disabled', false);
-                                            }
-                                            else{
-                                                $("[name=other_listening_4]").attr('disabled', true);
-                                                $("[name=other_speaking_4]").attr('disabled', true);
-                                                $("[name=other_reading_4]").attr('disabled', true);
-                                                $("[name=other_writing_4]").attr('disabled', true);
-
-                                                $("[name=other_listening_4]").prop('checked', false);
-                                                $("[name=other_speaking_4]").prop('checked', false);
-                                                $("[name=other_reading_4]").prop('checked', false);
-                                                $("[name=other_writing_4]").prop('checked', false);
-                                            }
-                                        });
-                                    </script>
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -1979,3 +1875,79 @@
 
             </div>
             <!-- #END# Basic Example | Vertical Layout -->
+            <script type="text/javascript">
+
+            function parentdata(id) {
+
+              document.getElementById('parent_name_2').value = document.getElementById(id+'_name_2').value
+              document.getElementById('age_parent_2').value = document.getElementById('age_'+id+'_2').value
+              document.getElementById('occupation_parent_2').value = document.getElementById('occupation_'+id+'_2').value
+              document.getElementById('address_parent_2').value = document.getElementById('address_'+id+'_2').value
+              document.getElementById('moo_parent_2').value = document.getElementById('moo_'+id+'_2').value
+              document.getElementById('soi_patent_2').value = document.getElementById('soi_'+id+'_2').value
+              document.getElementById('sub_district_parent_2').value = document.getElementById('sub_district_'+id+'_2').value
+              document.getElementById('district_parent_2').value = document.getElementById('district_'+id+'_2').value
+              document.getElementById('province_parent_2').value = document.getElementById('province_'+id+'_2').value
+              document.getElementById('zip_cord_parent_2').value = document.getElementById('zip_cord_'+id+'_2').value
+              document.getElementById('tel_parent_2').value = document.getElementById('tel_'+id+'_2').value
+              document.getElementById('fax_parent_2').value = document.getElementById('fax_'+id+'_2').value
+              document.getElementById('email_parent_2').value = document.getElementById('email_'+id+'_2').value
+
+            }
+            function sibling(number) {
+
+              for (var i = 0; i < number; i++) {
+                let div = document.createElement('DIV')
+                div.className  = 'form-group col-md-4'
+
+                let div01 = document.createElement('DIV')
+                div01.className  = 'form-group col-md-4'
+
+                let div02 = document.createElement('DIV')
+                div02.className  = 'form-group col-md-4'
+
+                let div2 =document.createElement('DIV')
+                div2.className  = 'form-line'
+
+                let div3 =document.createElement('DIV')
+                div3.className  = 'form-line'
+
+                let div4 =document.createElement('DIV')
+                div4.className  = 'form-line'
+
+                let name = document.createElement('INPUT')
+                name.type = 'text'
+                name.id = 'name'+i
+                name.className  = 'form-control'
+                name.placeholder = 'ชื่อ'
+                name.name = 'name'+i
+
+                let sname =document.createElement('INPUT')
+                sname.type = 'text'
+                sname.id = 'sname'+i
+                sname.className  = 'form-control'
+                sname.placeholder = 'นามสกุล'
+                sname.name = 'sname'+i
+
+                let tel =document.createElement('INPUT')
+                tel.type = 'text'
+                tel.id = 'tel'+i
+                tel.className  = 'form-control'
+                tel.placeholder = 'เบอร์โทรศัพท์'
+                tel.name = 'tel'+i
+
+                div.append(div2)
+                div01.append(div3)
+                div02.append(div4)
+                div2.append(name)
+                div3.append(sname)
+                div4.append(tel)
+                // div2.append(sname)
+                // div2.append(tel)
+                document.getElementById('sibling').append(div,div01,div02)
+
+              }
+
+            }
+
+            </script>

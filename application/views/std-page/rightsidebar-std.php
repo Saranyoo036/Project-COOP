@@ -5,7 +5,7 @@
     <div class="menu">
         <ul class="list">
             <li>
-              
+
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
@@ -30,7 +30,7 @@
 
                     <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/cooppageform/cooppage_form">COOP0103</a></li>
                     <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganization/viewselect_organization">COOP0202-1</a></li>
-                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganizationII/viewselect_organizationII">COOP0202-2</a></li>
+                    <!-- <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganizationII/viewselect_organizationII">COOP0202-2</a></li> -->
 
                 </ul>
             </li>

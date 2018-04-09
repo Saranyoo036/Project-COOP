@@ -33,45 +33,76 @@ class time_model extends CI_Model
       return $row;
     }
 
-    public function settime($status_id,$major,$type,$start,$end)
+    public function settime($data)
     {
       $date = date('Y-m-d H:i:s');
-      $mid = $this->getmajorid($major);
+      $mid = $this->getmajorid($data['major']);
+      //echo $mid;
+      //print_r($data);
+      // echo $date.'<br>';
+      // echo $majorid.'<br>';
+
+
+
       $this->db->select('*');
       $this->db->from('major_setting');
-      $this->db->where("major_id = '$mid'
-                        AND status_id = '$status_id'
-                        AND major_type = '$type'");
-    
+      $this->db->where('major_ID = '.$mid.' AND SETTING_TYPE ="'.$data['type'].'"');
       $query = $this->db->get();
       if ($query->result()) {
-       
-        $this->update($status_id,$mid,$type,$start,$end);
+       // print_r($query->result());
+        $this->update($data,$date,$mid);
       }
       else{
-        $this->insert($status_id,$mid,$type,$start,$end);
+        //echo $mid;
+        //echo 'insert';
+        $this->insert($data,$date,$mid);
       }
     }
 
-    public function update($status_id,$mid,$type,$start,$end)
+    public function update($data,$date,$mid)
     {
-      $update = "UPDATE major_setting
-                SET start_date = '$start' ,
-                    end_date = '$end'
-                WHERE major_id = $mid
-                AND   major_type = '$type'
-                AND   status_id = $status_id";
-                //echo "<br>$update<br>";
-        $this->db->query($update);
+      //print_r($data);
+      $type = array('0'=>'Request','1'=>'Choosing');
+
+      $where = "SETTING_TYPE ='".$data['type']."' AND major_ID = '".$mid."'";
+
+      $this->db->where($where);
+      $this->db->update('major_setting'
+      ,array('start_date_Req' => $data['requestfrom']
+      ,'end_date_Req'=>$data['requestto']
+      ,'start_date_choosing'=>$data['choosingfrom'] 
+      ,'end_date_choosing'=>$data['choosingto']
+      ,'start_date_Rechoosing'=>$data['rechoosingfrom']
+      ,'end_date_Rechoosing'=>$data['rechoosingto']
+      ,'status'=>$data['status_chk']
       
+      ));
+      return true;
     }
 
-    public function insert($status_id,$mid,$type,$start,$end)
+    public function insert($data,$date,$majorid)
     {
-      $insert = "INSERT INTO major_setting(major_id,major_type,status_id,start_date,end_date)
-                  VALUES($mid,'$type','$status_id','$start','$end')";
-                 //echo "<br>$insert<br>";  
-      $this->db->query($insert);
+    //  print_r($data);
+      //echo $date;
+      echo $majorid;
+      $from = array('0' => $data['requestfrom'],'1'=> $data['choosingfrom'] );
+      $to = array('0' => $data['requestto'] ,'1'=>$data['choosingto'] );
+      $type = array('0'=>'Request','1'=>'Choosing');
+       
+        $this->major_ID = $majorid;
+        $this->SETTING_TYPE = $data['type'];
+        $this->start_date_choosing = $data['choosingfrom'];
+        $this->end_date_choosing = $data['choosingto'];
+        $this->create_at = $date;
+        $this->update_at = '';
+        $this->setting_id = '';
+        $this->start_date_Req =$data['requestfrom'];
+        $this->end_date_Req = $data['requestto'];
+        $this->start_date_Rechoosing = $data['rechoosingfrom'];
+        $this->end_date_Rechoosing = $data['rechoosingto'];
+        $this->db->insert('major_setting', $this);
+
+      
     }
 
 		}
