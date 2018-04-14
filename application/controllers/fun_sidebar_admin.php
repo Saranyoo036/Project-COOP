@@ -133,4 +133,27 @@ class Fun_sidebar_admin extends CI_Controller {
 		$back = base_url("Project-COOP/index.php/Fun_sidebar_admin/home");
 		header('Location:'.$back);
 	}
+
+	public function show_export_view()
+	{
+		$data = array(
+			 'nameFac' => $this->input->get('subname_Fac'),
+      		'nameMaj'=> $this->input->get('subname_major'),
+      		'type' => $this->input->get('type_major')
+		);
+		$this->load->view('top-bar');
+		$this->load->view('sidebar-admin');
+		$this->load->view('export_view',$data);
+		$this->load->view('script');
+	}
+
+	public function excel_format()
+	{
+		$data = array(
+			'nameFac' => $_POST['fac'],
+      		'nameMaj'=> $_POST['major'],
+      		'type' => $_POST['type']
+      	);
+		$this->load->view('excel_format',$data);
+	}
 }
