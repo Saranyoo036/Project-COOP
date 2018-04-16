@@ -52,7 +52,9 @@
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Organization</a></li>
 
-                                                    <li><a href="">Export Summarize</a></li>
+                                                    <li><a href="<?php 
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship"); 
+                                                        ?>">Export Summarize</a></li>
                                                     <li><a href="">Import</a></li>
                                                 </ul>
                                         </li>

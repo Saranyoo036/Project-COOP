@@ -65,20 +65,6 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="phone_number_1" placeholder="เบอร์โทรศัพท์ (Phone)" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="email" class="form-control" name="email_1" placeholder="อีเมล (Email)" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
                                                     <input type="text" class="datepicker form-control" name="working_from_1" placeholder="วันที่เริ่มฝึกงาน (From)" >
                                                 </div>
                                             </div>

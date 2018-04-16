@@ -30,7 +30,9 @@ class student_model extends CI_Model
         //print_r($data);
 				$this->db->where('STD_ID', $_SESSION['stdid']);
 				$this->db->update('student', array(
-				'std_type'=>1
+				'std_type'=>1,
+				'std_tel' =>$data['tel'],
+				'std_email' =>$data['mail']
 				));
         return true;
      }
@@ -136,8 +138,6 @@ class student_model extends CI_Model
 			 //   echo '</pre>';
 			 // }
 			 $this->Name_of_advisor  = $data['advisor_name_1'];
-			 $this->Tel = $data['phone_number_1'];
-			 //$this->E-mail  = $data['email_1'];
 			 $this->Semester_GPA  = $data['semester_gpa_1'];
 			 $this->Cumulative_GPA  = $data['cumulative_gpa_1'];
 			 $this->Iden_cardNo  = $data['identification_card_no_1'];
