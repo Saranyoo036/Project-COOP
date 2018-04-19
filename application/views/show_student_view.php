@@ -32,6 +32,7 @@
 
 
 				<?php
+
 				$que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
 						WHERE major.Major_ID = student.major_id
 						AND major.Fac_ID = faculty.Fac_ID
@@ -40,17 +41,54 @@
 						AND student.std_type = '$type';";
 					$res = $this->db->query($que);
 					foreach ($res->result() as $key ) {
+						$STD_ID = $key->STD_ID;
 						echo "<tr>";
-						echo "<td>$key->STD_ID</td>";
+						echo "<td>$STD_ID</td>";
 						echo "<td>$key->std_name</td>";
 						echo "<td>$key->Faculty_name</td>";
 						echo "<td>$key->Major_name</td>";
 						echo "<td>$key->status</td>";
-						if($type=="COOP"){
-							echo "<td></td>";
-						}
-						echo "<td></td>";
-						echo "<td></td>";
+							$sql = "SELECT count(std_form_103_id) as form_103 FROM `student_form_103` WHERE std_form_103_id =$STD_ID";
+							$form_103 = 0;
+							$re = $this->db->query($sql);
+							foreach ($re->result() as $key) {
+								$form_103 = $key->form_103;
+							}
+							if($form_103==0){
+						echo '<td><i class="material-icons">close</i></td>';
+							}else{
+						echo '<td><i class="material-icons">check</i></td>';
+							}
+							if($type=="COOP"){
+								$sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
+								$num_STD = 0; 
+								$re =$this->db->query($sql);
+								foreach ($re->result() as $key ) {
+									$num_STD=$key->num_STD;
+								}
+								if($num_STD==0){
+						echo '<td><i class="material-icons">close</i></td>';
+						echo '<td><i class="material-icons">close</i></td>';
+								}else if($num_STD==1){
+						echo '<td><i class="material-icons">check</i></td>';
+						echo '<td><i class="material-icons">close</i></td>';
+								}else if($num_STD==2){
+						echo '<td><i class="material-icons">check</i></td>';
+						echo '<td><i class="material-icons">check</i></td>';
+								}
+							}else if($type=="internship"){
+								$sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
+								$num_STD = 0; 
+								$re =$this->db->query($sql);
+								foreach ($re->result() as $key ) {
+									$num_STD=$key->num_STD;
+								}
+								if($num_STD==0){
+						echo '<td><i class="material-icons">close</i></td>';
+								}else if($num_STD==1){
+						echo '<td><i class="material-icons">check</i></td>';
+								}
+							}
 						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";

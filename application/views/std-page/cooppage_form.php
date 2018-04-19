@@ -21,10 +21,6 @@
                             <section>
                                 <h3>ข้อมูลทั่วไป</h3>
                                 <div class="form-line form-group form-float demo-radio-button">
-                                    <input name="group1" type="radio" id="radio_1" checked />
-                                    <label for="radio_1">ภาษาไทย (Thai)</label>
-                                    <input name="group1" type="radio" id="radio_2" />
-                                    <label for="radio_2">ภาษาอังกฤษ (English)</label>
 
                                     <div class="row clearfix">
                                         <div class="col-md-6">
@@ -45,13 +41,6 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" name="major_year_1" placeholder="สาขาวิชา-ชั้นปีที่ ไทย (Major-Year Thai)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control" name="faculty_1" placeholder="คณะ ไทย (Faculty Thai)" >
                                                 </div>
                                             </div>
                                         </div>

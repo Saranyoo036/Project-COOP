@@ -22,7 +22,6 @@ class student_model extends CI_Model
         // print_r($data);
 				// echo 'adasd';
         //$this->std_status_id = '';
-        $this->status = $data['type'];
         $this->status = 'request';
         $this->std_id = $_SESSION['stdid'];
 
@@ -30,7 +29,7 @@ class student_model extends CI_Model
         //print_r($data);
 				$this->db->where('STD_ID', $_SESSION['stdid']);
 				$this->db->update('student', array(
-				'std_type'=>1,
+				'std_type'=>$data['type'],
 				'std_tel' =>$data['tel'],
 				'std_email' =>$data['mail']
 				));
