@@ -5,12 +5,14 @@
     <div class="menu">
         <ul class="list">
             <li>
+<?php
 
+ ?>
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
-                    <div class="admin-action-info"> <span>Welcome</span>
-                        <h3>John Smith</h3>
+                    <div class="admin-action-info"> <span><?php echo $_SESSION['stdid'] ?></span>
+                        <h3><?php echo $_SESSION['std_name'].' '.$_SESSION['std_sname']?> </h3>
                         <ul>
                             <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>
                             <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>

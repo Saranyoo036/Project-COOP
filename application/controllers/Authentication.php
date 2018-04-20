@@ -4,8 +4,6 @@ class Authentication extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('home_model');
-
-
 	}
 
 	public function authen_login(){
@@ -34,7 +32,7 @@ class Authentication extends CI_Controller{
 							break;
 
 						default:
-							
+
 							break;
 					}
 
@@ -46,12 +44,14 @@ class Authentication extends CI_Controller{
 					$this->db->where("STD_ID='".$data_login['username']."' AND password='".$data_login['password']."'");
 					$this->db->limit(1);
 					$query = $this->db->get();
-					$result = $query->result();
+					$result = $query->result_array();
 					if($result){
-					$query =$this->db->query('SELECT STD_ID FROM student WHERE STD_ID ='.$data_login['username']);
-      				$row = $query->result_array();
-							$_SESSION['stdid'] = $row[0]['STD_ID'];
-							redirect(base_url("Project-COOP/welcome_std?std_id=".$_SESSION['stdid']));
+						$_SESSION['stdid'] = $result[0]['STD_ID'];
+						$_SESSION['std_name'] =  $result[0]['std_name'];
+						$_SESSION['std_sname'] =  $result[0]['std_sname'];
+
+						//print_r($result);
+						redirect(base_url("Project-COOP/welcome_std/pass"));
 					}else{
 						$this->session->set_flashdata('error','Invalid Username or Password');
 						redirect(base_url("Project-COOP"));

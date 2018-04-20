@@ -34,7 +34,7 @@ class Welcome_std extends CI_Controller {
 	{
 		$this->load->model('News_model');
 		$news['news'] = $this->News_model->shownews();
-		//print_r($news);
+		// print_r($info);
 		$this->load->view('css');
 		$this->load->view('top-bar-std');
 		$this->load->view('std-page/rightsidebar-std');
