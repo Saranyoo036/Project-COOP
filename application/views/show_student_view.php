@@ -6,6 +6,9 @@
 			<ul class="breadcrumb">
 				<table id="example" border = "0" style="width:100%">
 					<thead>
+						<tr>
+							<td>dgdfg</td>
+						</tr>
 					<tr>
 						<td>Student ID</td>
 						<td>Student Name</td>
@@ -29,7 +32,7 @@
 
 
 				<?php
-				$status = array('Request','Choosing','Approving','Waiting','Rechoosing','Repair','Accept');
+
 				$que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
 						WHERE major.Major_ID = student.major_id
 						AND major.Fac_ID = faculty.Fac_ID
@@ -44,20 +47,7 @@
 						echo "<td>$key->std_name</td>";
 						echo "<td>$key->Faculty_name</td>";
 						echo "<td>$key->Major_name</td>";
-						/////status//////	
-						echo "<td>";
-						echo '<select id="status-select">';
-						for ($i=0; $i<count($status);$i++) { 
-							if($status[$i]==$key->status){
-								echo '<option selected = "true" value="'.$status[$i].'-'.$STD_ID.'">'.$status[$i].'</option>';
-							}else{
-								echo '<option value="'.$status[$i].'-'.$STD_ID.'">'.$status[$i].'</option>';
-							}
-						}
-						echo "</select>";
-						echo "</td>";
-						////status//////
-						///////form103////
+						echo "<td>$key->status</td>";
 							$sql = "SELECT count(std_form_103_id) as form_103 FROM `student_form_103` WHERE std_form_103_id =$STD_ID";
 							$form_103 = 0;
 							$re = $this->db->query($sql);
@@ -69,8 +59,6 @@
 							}else{
 						echo '<td><i class="material-icons">check</i></td>';
 							}
-						///////form103////////
-						//////form202///////	
 							if($type=="COOP"){
 								$sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
 								$num_STD = 0; 
@@ -101,7 +89,6 @@
 						echo '<td><i class="material-icons">check</i></td>';
 								}
 							}
-						///////form202//////
 						echo "<td></td>";
 						echo "<td></td>";
 						echo "<td></td>";
@@ -120,21 +107,12 @@
 
 <script type="text/javascript">
 
+var teacher =[];
 var table;
 $(document).ready(function() {
 	table = $('#example').DataTable({
 
 	});
 });
-
-$("#status-select").change(function(){
-	var data = this.value ; 
-	var sp = data.split('-');
-	jQuery.ajax({
-            url: "<?php echo base_url("/project-coop/index.php/student_view_con/change_status?")?>id="+sp[1]+"&status="+sp[0],
-            type: 'GET'
-            });
-	
-})
 
 </script>

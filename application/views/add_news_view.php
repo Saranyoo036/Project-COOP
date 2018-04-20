@@ -1,7 +1,7 @@
 <section class="content">
 
     <div class="container-fluid">
-      <form class="" action="<?php echo base_url("/project-coop/index.php/company/insertcompany") ?>" method="post">
+      <form  action="<?php echo base_url("Project-COOP/news/addnews") ?>" method="post" enctype="multipart/form-data">
         <div class="block-header">
             <h2>Basic Form Elements</h2>
             <ul class="breadcrumb">
@@ -42,45 +42,51 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="card-inside-title">Choose Type</h2> 
-                    <div class="row clearfix"> 
-                        <div class ="col-md-6"> 
-                            <input type="checkbox" id="checkbox_1" class="filled-in" > 
-                            <label for="checkbox_1">Internship</label> 
-                        </div> 
-                        <div class ="col-md-6"> 
-                            <input type="checkbox" id="checkbox_2" class="filled-in" > 
-                            <label for="checkbox_2">COOP</label> 
+                    <h2 class="card-inside-title">Choose Type</h2>
+                    <div class="row clearfix">
+                        <div class ="col-md-6">
+                            <input type="checkbox" id="checkbox_1" class="filled-in" >
+                            <label for="checkbox_1">Internship</label>
                         </div>
-                        </div> 
-                    <h2 class="card-inside-title">Choose Major</h2> 
-                    <div class="row clearfix"> 
-                    <?php 
-                        $que = "select * from major;"; 
-                        $res = $this->db->query($que); 
-                        $num=0 ;  
-                        foreach ($res->result() as $key ) { 
-                            $num++; 
-                            echo '<div class ="col-md-4">'; 
-                            echo '<input type="checkbox" id="checkbox_'.$key->NameMajor_sub.'" class="filled-in" >'; 
-                            echo '<label for="checkbox_'.$key->NameMajor_sub.'">'.$key->NameMajor_sub.'</label>'; 
-                            echo "</div>"; 
-                        } 
-                    ?> 
-                </div> 
+                        <div class ="col-md-6">
+                            <input type="checkbox" id="checkbox_2" class="filled-in" >
+                            <label for="checkbox_2">COOP</label>
+                        </div>
+                        </div>
+                    <h2 class="card-inside-title">Choose Major</h2>
+                    <div class="row clearfix">
+                    <?php
+                        $que = "select * from major;";
+                        $res = $this->db->query($que);
+                        $num=0 ;
+                        foreach ($res->result() as $key ) {
+                            $num++;
+                            echo '<div class ="col-md-4">';
+                            echo '<input type="checkbox" id="checkbox_'.$key->NameMajor_sub.'" class="filled-in" >';
+                            echo '<label for="checkbox_'.$key->NameMajor_sub.'">'.$key->NameMajor_sub.'</label>';
+                            echo "</div>";
+                        }
+                    ?>
+                </div>
                 </div>
             </div>
         </div>
+                        <input type="file" name="file" >
+
         <table align="center">
           <tr>
             <td>
-              
-              <!-- <input type="hidden" name="companytype" value=<?php echo $_GET['type_major']; ?>> -->
-              <!-- <a href="#" class="btn btn-raised btn-primary waves-effect"></a> -->
-              <input class="btn btn-raised btn-primary waves-effect" type="submit" name="submit" value="Add company">
+
+
+              <input class="btn btn-raised btn-primary waves-effect" type="submit" name="submit" value="Add news">
             </td>
           </tr>
         </table>
-
+</form>
       </div>
 </section>
+<?php
+if (isset($_SESSION['compelte'])) {
+echo  "<script type='text/javascript'> alert('".$_SESSION['compelte']."') </script>";
+ }
+ ?>

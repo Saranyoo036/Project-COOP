@@ -32,11 +32,13 @@ class Welcome_std extends CI_Controller {
 
 	public function pass()
 	{
-
+		$this->load->model('News_model');
+		$news['news'] = $this->News_model->shownews();
+		//print_r($news);
 		$this->load->view('css');
 		$this->load->view('top-bar-std');
 		$this->load->view('std-page/rightsidebar-std');
-		$this->load->view('std-page/home');
-		$this->load->view('script');
+		$this->load->view('std-page/home',$news);
+		$this->load->view('script-std');
 	}
 }

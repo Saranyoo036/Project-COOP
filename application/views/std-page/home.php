@@ -3,11 +3,11 @@
 	<div class="container-fluid">
 		<div class="block-header">
 			<h2>HOME</h2>
-			<ul class="breadcrumb">			
-				
+			<ul class="breadcrumb">
+
 			</ul>
 		</div>
-
+<!-- <?php print_r($news); ?> -->
 
                   <div class="card">
                     <div class="body">
@@ -15,35 +15,23 @@
                             <h2 class="title">ข่าวสาร (News)</h2>
                             <div class="single-comment-box">
                                   <ul>
-                                    <li>
-                                        
-                                        <div class="text-box">
-                                            <i class="material-icons"><a href=''>get_app</i>
-                                            <p>ฐานข้อมูลสถานประกอบการของสาขา ICT หรือ ลิงค์ http://bit.ly/1i01IhL</p>
-                                            
-                                        </div>
-                                    </li>
+																		<?php
+																		for ($i=0; $i <count($news) ; $i++) { ?>
+																			<li>
 
-                                    <li>
-                                        
-                                        <div class="text-box">
-                                            <i class="material-icons"><a href=''>get_app</i>
-                                            <p> คู่มือการใช้งาน ระบบการยื่นใบสมัครงานสหกิจศึกษาและการฝึกงานออนไลน สำหรับนักศึกษาสหกิจศึกษา</p>
-                                            
-                                        </div>
-                                    </li>
-                                    <li>
-                                       
-                                        <div class="text-box">
-                                            <i class="material-icons"><a href=''>get_app</i>
-                                            <p> ประกาศคณะเทคโนโลยีและสิ่งแวดล้อม เรื่อง ข้อปฏิบัติในการออกปฏิบัติงานสหกิจศึกษา</p>
-                                            
-                                        </div>
-                                    </li>
+																					<div class="text-box">
+																							<i class="material-icons"><a href=<?php echo base_url("Project-COOP").'/uploaded_file/'.$news[$i]['file_name'] ?>>get_app</i>
+																							<p> <?php echo $news[$i]['Topic'] ?> ( <?php echo $news[$i]['start_date']; ?> )</p>
+
+																					</div>
+																			</li>
+
+																	<?php	}
+																		 ?>
+
+
                                   </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-		

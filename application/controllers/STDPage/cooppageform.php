@@ -14,9 +14,10 @@
 			$data = $this->student_model->checkform();
 			//print_r($data);
 			if($data == Array()){
+				$stddata['stddata'] = $this->student_model->mystatus();
 				$this->load->view('top-bar-std');
 				$this->load->view('std-page/rightsidebar-std');
-				$this->load->view('std-page/cooppage_form');
+				$this->load->view('std-page/cooppage_form',$stddata);
 				$this->load->view('script-std');
 			}
 			else{
@@ -26,13 +27,21 @@
 				$this->load->view('script-std');
 			}
 
-			//$this->load->view('css');
-			// $this->load->view('top-bar-std');
-			// $this->load->view('std-page/rightsidebar-std');
-			// $this->load->view('std-page/cooppage_form');
-			// $this->load->view('script-std');
+		}
+		public function edit103form()
+		{
+			$data['data'] = $this->student_model->checkform();
+			array_push($data['data'],$this->student_model->mystatus());
+			$this->load->view('top-bar-std');
+			$this->load->view('std-page/rightsidebar-std');
+			$this->load->view('std-page/edit103form',$data);
+			$this->load->view('script-std');
 
-
+		}
+		public function update103form()
+		{
+			$this->student_model->update103form($_POST);
+			redirect("Project-COOP/welcome_std/pass");
 		}
 
 }

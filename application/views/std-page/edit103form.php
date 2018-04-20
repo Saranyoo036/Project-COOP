@@ -7,34 +7,43 @@
             </ul>
         </div>
 
-<!-- <?php print_r($stddata); ?> -->
-
+<?php
+// echo '<pre>';
+//  print_r($data);
+//
+//  echo '</pre>';
+  ?>
         <!-- Basic Example | Vertical Layout -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
 
                     <div class="body">
-                      <form class="" id="wizard_vertical" action=<?php echo base_url("Project-COOP/coop103/showdetail"); ?> method="post">
+                      <form class="" id="wizard_vertical" action=<?php echo base_url("Project-COOP/STDPage/cooppageform/update103form"); ?> method="post">
 
                             <h2>STUDENT PERSONAL DATA</h2>
                             <section>
                                 <h3>ข้อมูลทั่วไป</h3>
                                 <div class="form-line form-group form-float demo-radio-button">
+                                    <input name="group1" type="radio" id="radio_1" checked />
+                                    <label for="radio_1">ภาษาไทย (Thai)</label>
+                                    <input name="group1" type="radio" id="radio_2" />
+                                    <label for="radio_2">ภาษาอังกฤษ (English)</label>
 
                                     <div class="row clearfix">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
                                                   <textarea class="form-control "
-                                  rows="10" name="explain_about_yourself"  name="name_and_surname_thai_1" placeholder="ชื่อ-นามสกุล ไทย (Name &amp; Surname Thai)"value=<?php echo $stddata[0]['std_name']; ?>><?php echo $stddata[0]['std_name'].' '.$stddata[0]['std_sname']; ?></textarea>
+                                  rows="10" name="explain_about_yourself"  name="name_and_surname_thai_1" placeholder="ชื่อ-นามสกุล ไทย (Name &amp; Surname Thai)"value=<?php echo $data[1][0]['std_name']; ?>><?php echo $data[1][0]['std_name'].' '.$data[1][0]['std_sname']; ?></textarea>
+                                                    <!-- <input type="text" class="form-control" name="name_and_surname_thai_1" placeholder="ชื่อ-นามสกุล ไทย (Name &amp; Surname Thai)" value=<?php echo $data[1][0]['std_name']; ?>> -->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="" placeholder="รหัสนักศึกษา (Std.ID.)" value=<?php echo $_SESSION['stdid']; ?>>
+                                                    <input type="text" class="form-control" name="" placeholder="รหัสนักศึกษา (Std.ID.)" value=<?php echo $_SESSION['stdid']; ?> >
                                                 </div>
                                             </div>
                                         </div>
@@ -42,53 +51,68 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                   <textarea class="form-control "
-                                  rows="10" name="major_year_1" placeholder="สาขาวิชา-ชั้นปีที่ ไทย (Major-Year Thai)" value=<?php echo $stddata[0]['major']; ?>><?php echo $stddata[0]['major']; ?>(4)</textarea>
+                                  rows="10" name="major_year_1" placeholder="สาขาวิชา-ชั้นปีที่ ไทย (Major-Year Thai)" value=<?php echo $data[1][0]['major']; ?>><?php echo $data[1][0]['major']; ?>(4)</textarea>
+                                                    <!-- <input type="text" class="form-control" name="major_year_1" placeholder="สาขาวิชา-ชั้นปีที่ ไทย (Major-Year Thai)" value=<?php echo $data[1][0]['major']; ?>> -->
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
                                                   <textarea class="form-control "
-                                  rows="10" name="major_year_1" placeholder="สาขาวิชา-ชั้นปีที่ ไทย (Major-Year Thai)" value=<?php echo $stddata[0]['faculty']; ?>><?php echo $stddata[0]['faculty']; ?>(4)</textarea>
+                                  rows="10" name="faculty_1" placeholder="คณะ ไทย (Faculty Thai)" value=<?php echo $data[1][0]['faculty']; ?>><?php echo $data[1][0]['faculty']; ?></textarea>
+                                                    <!-- <input type="text" class="form-control" name="faculty_1" placeholder="คณะ ไทย (Faculty Thai)"  value=<?php echo $data[1][0]['faculty']; ?>> -->
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
                                                   <textarea class="form-control "
-                                  rows="10" name="advisor_name_1" placeholder="ชื่ออาจารย์ที่ปรึกษา ไทย (Name of academic advisor Thai)" ></textarea>
+                                  rows="10" name="advisor_name_1" placeholder="ชื่ออาจารย์ที่ปรึกษา ไทย (Name of academic advisor Thai)" value=<?php echo $data[0]['Name_of_advisor']; ?>><?php echo $data[0]['Name_of_advisor']; ?></textarea>
+                                                    <!-- <input type="text" class="form-control" name="advisor_name_1" placeholder="ชื่ออาจารย์ที่ปรึกษา ไทย (Name of academic advisor Thai)" value=<?php echo $data[0]['Name_of_advisor']; ?> > -->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="datepicker form-control" name="working_from_1" placeholder="วันที่เริ่มฝึกงาน (From)" >
+                                                    <input type="text" class="form-control" name="phone_number_1" placeholder="เบอร์โทรศัพท์ (Phone)" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="datepicker form-control" name="working_until_1" placeholder="วันที่สิ้นสุดการฝึกงาน (Until)" >
+                                                    <input type="email" class="form-control" name="email_1" placeholder="อีเมล (Email)" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input  type="number" class="form-control" step = "0.01" min = "0.00" max = "4.00" name="semester_gpa_1" placeholder="** เกรดเฉลี่ยภาคการศึกษาที่ผ่านมา (Semester GPA)" >
+                                                    <input type="text" class="datepicker form-control" name="working_from_1" placeholder="วันที่เริ่มฝึกงาน (From)"  <?php echo $data[0]['Expiry_date']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input  type="number" class="form-control" step = "0.01" min = "0.00" max = "4.00" name="cumulative_gpa_1" placeholder="** เกรดเฉลี่ยรวม (Cumulative GPA)" >
+                                                    <input type="text" class="datepicker form-control" name="working_until_1" placeholder="วันที่สิ้นสุดการฝึกงาน (Until)" <?php echo $data[0]['Expiry_date']; ?>>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input  type="number" class="form-control" step = "0.01" min = "0.00" max = "4.00" name="semester_gpa_1" placeholder="** เกรดเฉลี่ยภาคการศึกษาที่ผ่านมา (Semester GPA)" value=<?php echo $data[0]['Semester_GPA']; ?>>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input  type="number" class="form-control" step = "0.01" min = "0.00" max = "4.00" name="cumulative_gpa_1" placeholder="** เกรดเฉลี่ยรวม (Cumulative GPA)" value=<?php echo $data[0]['Cumulative_GPA']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,56 +126,56 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="identification_card_no_1" placeholder="บัตรประจำตัวประชาชน (Identification card no.)">
+                                                    <input type="text" class="form-control" name="identification_card_no_1" placeholder="บัตรประจำตัวประชาชน (Identification card no.)" value=<?php echo $data[0]['Iden_cardNo']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="issued_at_1" placeholder="ออกให้ ณ (Issued at)">
+                                                    <input type="text" class="form-control" name="issued_at_1" placeholder="ออกให้ ณ (Issued at)" value=<?php echo $data[0]['Issued_at']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="datepicker form-control" name="issued_date_1" placeholder="เมื่อวันที่ (Issued date)">
+                                                    <input type="text" class="datepicker form-control" name="issued_date_1" placeholder="เมื่อวันที่ (Issued date)" value=<?php echo $data[0]['Issued_date']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="datepicker form-control" name="expiry_date_1" placeholder="หมดอายุวันที่ (Expiry date)">
+                                                    <input type="text" class="datepicker form-control" name="expiry_date_1" placeholder="หมดอายุวันที่ (Expiry date)" value=<?php echo $data[0]['Expiry_date']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="race_1" placeholder="เชื้อชาติ (Race)">
+                                                    <input type="text" class="form-control" name="race_1" placeholder="เชื้อชาติ (Race)" value=<?php echo $data[0]['Race']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="nationality_1" placeholder="สัญชาติ (Nationality)">
+                                                    <input type="text" class="form-control" name="nationality_1" placeholder="สัญชาติ (Nationality)" value=<?php echo $data[0]['Nationality']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="religion_1" placeholder="ศาสนา (Religion)">
+                                                    <input type="text" class="form-control" name="religion_1" placeholder="ศาสนา (Religion)" value=<?php echo $data[0]['Religion']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="datepicker form-control" name="date_of_birth_1" placeholder="วันเดือนปีเกิด (Date of birth)">
+                                                    <input type="text" class="datepicker form-control" name="date_of_birth_1" placeholder="วันเดือนปีเกิด (Date of birth)" value=<?php echo $data[0]['Date_of_birth']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,13 +187,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="place_of_birth_1" placeholder="สถานที่เกิด (Place of birth)">
+                                                    <input type="text" class="form-control" name="place_of_birth_1" placeholder="สถานที่เกิด (Place of birth)" value=<?php echo $data[0]['Place_of_birth']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <select name="sex_1" id="sex_1"  class="form-line form-control show-tick">
+                                                <select name="sex_1" id="sex_1"  class="form-line form-control show-tick" >
                                                     <option value=''>เพศ (Sex)</option>
                                                     <option value='m'>ชาย(Male)</option>
                                                     <option value='f'>หญิง(Female)</option>
@@ -179,21 +203,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="height_1" placeholder="ส่วนสูง (Height)">
+                                                    <input type="text" class="form-control" name="height_1" placeholder="ส่วนสูง (Height)" value=<?php echo $data[0]['Height']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="weight_1" placeholder="น้ำหนัก (Weight)">
+                                                    <input type="text" class="form-control" name="weight_1" placeholder="น้ำหนัก (Weight)" value=<?php echo $data[0]['Weight']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="chronical_disease_1" placeholder="โรคเรื้อรัง โรคประจำตัว ระบุ (Chronical disease: specify)">
+                                                    <input type="text" class="form-control" name="chronical_disease_1" placeholder="โรคเรื้อรัง โรคประจำตัว ระบุ (Chronical disease: specify)" value=<?php echo $data[0]['Chronical_disease']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,35 +229,35 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="address_this_term_2" placeholder="ที่อยู่ (Address)">
+                                                    <input type="text" class="form-control" name="address_this_term_2" placeholder="ที่อยู่ (Address)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="tel_2_1" placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control" name="tel_2_1" placeholder="โทรศัพท์ (Tel.)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="moblie_2_1" placeholder="โทรศัพท์มือถือ (Moblie)">
+                                                    <input type="text" class="form-control" name="moblie_2_1" placeholder="โทรศัพท์มือถือ (Moblie)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_2_1" placeholder="โทรสาร (Fax.)">
+                                                    <input type="text" class="form-control" name="fax_2_1" placeholder="โทรสาร (Fax.)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="email" class="form-control" name="email_2" placeholder="E-mail">
+                                                    <input type="email" class="form-control" name="email_2" placeholder="E-mail" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -246,28 +270,28 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="permanent_address_2" placeholder="ที่อยู่ (Address)">
+                                                    <input type="text" class="form-control" name="permanent_address_2" placeholder="ที่อยู่ (Address)" value=<?php echo $data[0]['Address']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="tel_2_2" placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control" name="tel_2_2" placeholder="โทรศัพท์ (Tel.)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="moblie_2_2" placeholder="โทรศัพท์มือถือ (Moblie)">
+                                                    <input type="text" class="form-control" name="moblie_2_2" placeholder="โทรศัพท์มือถือ (Moblie)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_2_2" placeholder="โทรสาร (Fax.)">
+                                                    <input type="text" class="form-control" name="fax_2_2" placeholder="โทรสาร (Fax.)" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,56 +305,56 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="name_emergency_2" placeholder="ชื่อ-สกุล (Name &amp; surname)">
+                                                    <input type="text" class="form-control" name="name_emergency_2" placeholder="ชื่อ-สกุล (Name &amp; surname)" value=<?php echo $data[0]['Emergency_name']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="relation_emergency_2" placeholder="ความเกี่ยวข้อง (Relation)">
+                                                    <input type="text" class="form-control" name="relation_emergency_2" placeholder="ความเกี่ยวข้อง (Relation)" value=<?php echo $data[0]['Emergency_relation']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="occupation_emergency_2" placeholder="อาชีพ (Occupation)">
+                                                    <input type="text" class="form-control" name="occupation_emergency_2" placeholder="อาชีพ (Occupation)" value=<?php echo $data[0]['Emergency_Occupation']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="place_of_work_emergency_2" placeholder="สถานที่ทำงาน (Place of work)">
+                                                    <input type="text" class="form-control" name="place_of_work_emergency_2" placeholder="สถานที่ทำงาน (Place of work)" value=<?php echo $data[0]['Emergency_Placework']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="address_emergency_2" placeholder="ที่อยู่ (Address)">
+                                                    <input type="text" class="form-control" name="address_emergency_2" placeholder="ที่อยู่ (Address)" value=<?php echo $data[0]['Emergency_Address']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="tel_emergency_2" placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control" name="tel_emergency_2" placeholder="โทรศัพท์ (Tel.)" value=<?php echo $data[0]['Emergency_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_emergency_2" placeholder="โทรสาร (Fax.)">
+                                                    <input type="text" class="form-control" name="fax_emergency_2" placeholder="โทรสาร (Fax.)" value=<?php echo $data[0]['Emergency_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="email_emergency_2" placeholder="E-mail">
+                                                    <input type="text" class="form-control" name="email_emergency_2" placeholder="E-mail" value=<?php echo $data[0]['Emergency_E-mail']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,62 +371,62 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="father_name_2" id = "father_name_2" placeholder="ชื่อบิดา (Father's name)">
+                                                    <input type="text" class="form-control" name="father_name_2" id = "father_name_2" placeholder="ชื่อบิดา (Father's name)" value=<?php echo $data[0]['Father_name']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" min = "0" name="age_father_2" id = "age_father_2" placeholder="อายุ (Age)">
+                                                    <input type="number" class="form-control" min = "0" name="age_father_2" id = "age_father_2" placeholder="อายุ (Age)" value=<?php echo $data[0]['Father_age']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="occupation_father_2" id = "occupation_father_2" placeholder="อาชีพ (Occupation)">
+                                                    <input type="text" class="form-control" name="occupation_father_2" id = "occupation_father_2" placeholder="อาชีพ (Occupation)" value=<?php echo $data[0]['Father_occupation']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="address_father_2" id="address_father_2" placeholder="เลขที่ (Address)">
+                                                    <input type="text" class="form-control" name="address_father_2" id="address_father_2" placeholder="เลขที่ (Address)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="moo_father_2" id="moo_father_2" placeholder="หมู่ที่ (Moo)">
+                                                    <input type="text" class="form-control" name="moo_father_2" id="moo_father_2" placeholder="หมู่ที่ (Moo)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="soi_father_2" id="soi_father_2" placeholder="ซอย (Soi)">
+                                                    <input type="text" class="form-control" name="soi_father_2" id="soi_father_2" placeholder="ซอย (Soi)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="sub_district_father_2" id="sub_district_father_2" placeholder="แขวง/ตำบล (Sub Dristrict)">
+                                                    <input type="text" class="form-control" name="sub_district_father_2" id="sub_district_father_2" placeholder="แขวง/ตำบล (Sub Dristrict)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="district_father_2" id="district_father_2" placeholder="เขต/อำเภอ (District)">
+                                                    <input type="text" class="form-control" name="district_father_2" id="district_father_2" placeholder="เขต/อำเภอ (District)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <select name = "province_father_2" id = "province_father_2" class="form-line form-control show-tick">
+                                                <select name = "province_father_2" id = "province_father_2" class="form-line form-control show-tick" value=''>
                                                     <option value =''>จังหวัด (Province)</option>
                                                     <option value ="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value ="กระบี่">กระบี่</option>
@@ -489,28 +513,28 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="zip_cord_father_2" id="zip_cord_father_2" placeholder="รหัสไปรษณีย์ (Zip code)">
+                                                    <input type="text" class="form-control" name="zip_cord_father_2" id="zip_cord_father_2" placeholder="รหัสไปรษณีย์ (Zip code)" value=<?php echo $data[0]['Father_Zipcode']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control"  name="tel_father_2" id="tel_father_2" placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control"  name="tel_father_2" id="tel_father_2" placeholder="โทรศัพท์ (Tel.)" value=<?php echo $data[0]['Father_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_father_2" id="fax_father_2" placeholder="โทรสาร (Fax)">
+                                                    <input type="text" class="form-control" name="fax_father_2" id="fax_father_2" placeholder="โทรสาร (Fax)" value=<?php echo $data[0]['Father_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="email_father_2" id="email_father_2" placeholder="E-mail">
+                                                    <input type="text" class="form-control" name="email_father_2" id="email_father_2" placeholder="E-mail" value=<?php echo $data[0]['Father_Email']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -523,56 +547,56 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="mother_name_2" id="mother_name_2" placeholder="ชื่อมารดา (Mother's name)">
+                                                    <input type="text" class="form-control" name="mother_name_2" id="mother_name_2" placeholder="ชื่อมารดา (Mother's name)" value=<?php echo $data[0]['mother_name']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" min = "0" name="age_mother_2" id="age_mother_2" placeholder="อายุ (Age)">
+                                                    <input type="number" class="form-control" min = "0" name="age_mother_2" id="age_mother_2" placeholder="อายุ (Age)" value=<?php echo $data[0]['mother_age']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="occupation_mother_2" id="occupation_mother_2" placeholder="อาชีพ (Occupation)">
+                                                    <input type="text" class="form-control" name="occupation_mother_2" id="occupation_mother_2" placeholder="อาชีพ (Occupation)" value=<?php echo $data[0]['mother_occupation']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="address_mother_2" id="address_mother_2" placeholder="เลขที่ (Address)">
+                                                    <input type="text" class="form-control" name="address_mother_2" id="address_mother_2" placeholder="เลขที่ (Address)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="moo_mother_2" id="moo_mother_2" placeholder="หมู่ที่ (Moo)">
+                                                    <input type="text" class="form-control" name="moo_mother_2" id="moo_mother_2" placeholder="หมู่ที่ (Moo)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="soi_mother_2" id="soi_mother_2" placeholder="ซอย (Soi)">
+                                                    <input type="text" class="form-control" name="soi_mother_2" id="soi_mother_2" placeholder="ซอย (Soi)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="sub_district_mother_2" id="sub_district_mother_2" placeholder="แขวง/ตำบล (Sub Dristrict)">
+                                                    <input type="text" class="form-control" name="sub_district_mother_2" id="sub_district_mother_2" placeholder="แขวง/ตำบล (Sub Dristrict)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control"  name="district_mother_2" id="district_mother_2" placeholder="เขต/อำเภอ (District)">
+                                                    <input type="text" class="form-control"  name="district_mother_2" id="district_mother_2" placeholder="เขต/อำเภอ (District)" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -665,28 +689,28 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="zip_cord_mother_2" id="zip_cord_mother_2" placeholder="รหัสไปรษณีย์ (Zip code)">
+                                                    <input type="text" class="form-control" name="zip_cord_mother_2" id="zip_cord_mother_2" placeholder="รหัสไปรษณีย์ (Zip code)" value=<?php echo $data[0]['mother_Zipcode']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control"  name="tel_mother_2" id="tel_mother_2" placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control"  name="tel_mother_2" id="tel_mother_2" placeholder="โทรศัพท์ (Tel.)" value=<?php echo $data[0]['mother_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_mother_2" id="fax_mother_2" placeholder="โทรสาร (Fax)">
+                                                    <input type="text" class="form-control" name="fax_mother_2" id="fax_mother_2" placeholder="โทรสาร (Fax)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="email_mother_2" id="email_mother_2" placeholder="E-mail">
+                                                    <input type="text" class="form-control" name="email_mother_2" id="email_mother_2" placeholder="E-mail" value=<?php echo $data[0]['mother_Email']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -707,56 +731,56 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="parent_name_2" id="parent_name_2" placeholder="ชื่อผู้ปกครอง (Parent 's name)">
+                                                    <input type="text" class="form-control" name="parent_name_2" id="parent_name_2" placeholder="ชื่อผู้ปกครอง (Parent 's name)" value=<?php echo $data[0]['Parent_name']. $data[0]['Parent_sname']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" min = "0" name="age_parent_2" id="age_parent_2" placeholder="อายุ (Age)">
+                                                    <input type="number" class="form-control" min = "0" name="age_parent_2" id="age_parent_2" placeholder="อายุ (Age)" value=<?php echo $data[0]['Parent_age']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="occupation_parent_2" id="occupation_parent_2" placeholder="อาชีพ (Occupation)">
+                                                    <input type="text" class="form-control" name="occupation_parent_2" id="occupation_parent_2" placeholder="อาชีพ (Occupation)" value=<?php echo $data[0]['Parent_occupation']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="address_parent_2" id="address_parent_2" placeholder="เลขที่ (Address)">
+                                                    <input type="text" class="form-control" name="address_parent_2" id="address_parent_2" placeholder="เลขที่ (Address)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="moo_parent_2" id="moo_parent_2" placeholder="หมู่ที่ (Moo)">
+                                                    <input type="text" class="form-control" name="moo_parent_2" id="moo_parent_2" placeholder="หมู่ที่ (Moo)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="soi_patent_2" id="soi_patent_2" placeholder="ซอย (Soi)">
+                                                    <input type="text" class="form-control" name="soi_patent_2" id="soi_patent_2" placeholder="ซอย (Soi)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="sub_district_parent_2" id="sub_district_parent_2" placeholder="แขวง/ตำบล (Sub Dristrict)">
+                                                    <input type="text" class="form-control" name="sub_district_parent_2" id="sub_district_parent_2" placeholder="แขวง/ตำบล (Sub Dristrict)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="district_parent_2" id="district_parent_2" placeholder="เขต/อำเภอ (District)">
+                                                    <input type="text" class="form-control" name="district_parent_2" id="district_parent_2" placeholder="เขต/อำเภอ (District)" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -849,28 +873,28 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="zip_cord_parent_2" id="zip_cord_parent_2" placeholder="รหัสไปรษณีย์ (Zip code)">
+                                                    <input type="text" class="form-control" name="zip_cord_parent_2" id="zip_cord_parent_2" placeholder="รหัสไปรษณีย์ (Zip code)" value=<?php echo $data[0]['Parent_Zipcode']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name='tel_parent_2' id='tel_parent_2' placeholder="โทรศัพท์ (Tel.)">
+                                                    <input type="text" class="form-control" name='tel_parent_2' id='tel_parent_2' placeholder="โทรศัพท์ (Tel.)" value=<?php echo $data[0]['Parent_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="fax_parent_2" id="fax_parent_2" placeholder="โทรสาร (Fax)">
+                                                    <input type="text" class="form-control" name="fax_parent_2" id="fax_parent_2" placeholder="โทรสาร (Fax)" value=<?php echo $data[0]['Parent_Tel']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="email_parent_2" id="email_parent_2" placeholder="E-mail">
+                                                    <input type="text" class="form-control" name="email_parent_2" id="email_parent_2" placeholder="E-mail" value=<?php echo $data[0]['Parent_Email']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -884,14 +908,14 @@
                                         <div class="col-md-6" >
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" name="no_of_relatives_2" id="relatives_number" placeholder="จำนวนพี่น้อง (No. of relatives)" onfocusout="sibling(this.value)">
+                                                    <input type="number" class="form-control" name="no_of_relatives_2" id="relatives_number" placeholder="จำนวนพี่น้อง (No. of relatives)" onfocusout="sibling(this.value)" value=''>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" name="you_are_the_2" placeholder="เป็นบุตรคนที่ (You are the)">
+                                                    <input type="number" class="form-control" name="you_are_the_2" placeholder="เป็นบุตรคนที่ (You are the)" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -908,7 +932,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="primary_name_3" placeholder="สถานศึกษา (School / College / University)">
+                                                    <input type="text" class="form-control" name="primary_name_3" placeholder="สถานศึกษา (School / College / University)" value=<?php echo $data[0]['Edu_pri_school']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1000,21 +1024,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="primary_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
+                                                    <input type="text" class="form-control" name="primary_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)" value=<?php echo $data[0]['Edu_pri_YearAttend']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="primary_year_graduated_3" placeholder="ปีที่จบ (Year graduated)">
+                                                    <input type="text" class="form-control" name="primary_year_graduated_3" placeholder="ปีที่จบ (Year graduated)" value=<?php echo $data[0]['Edu_pri_YearGraduate']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="primary_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)">
+                                                    <input type="text" class="form-control" name="primary_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)" value=<?php echo $data[0]['Edu_pri_major']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1027,7 +1051,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="secondary_name_3" placeholder="สถานศึกษา (School / College / University)">
+                                                    <input type="text" class="form-control" name="secondary_name_3" placeholder="สถานศึกษา (School / College / University)" value=<?php echo $data[0]['Edu_sec_school']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1119,21 +1143,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="secondary_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
+                                                    <input type="text" class="form-control" name="secondary_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)" value=<?php echo $data[0]['Edu_sec_YearAttend']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="secondary_year_graduated_3" placeholder="ปีที่จบ (Year graduated)">
+                                                    <input type="text" class="form-control" name="secondary_year_graduated_3" placeholder="ปีที่จบ (Year graduated)" value=<?php echo $data[0]['Edu_sec_YearGraduated']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="secondary_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)">
+                                                    <input type="text" class="form-control" name="secondary_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)" value=<?php echo $data[0]['Edu_sec_major']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1146,13 +1170,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="high_school_name_3" placeholder="สถานศึกษา (School / College / University)">
+                                                    <input type="text" class="form-control" name="high_school_name_3" placeholder="สถานศึกษา (School / College / University)" value=<?php echo $data[0]['Edu_high_school']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <select name = "high_school_province_3" id = "high_school_province_3" class="form-line form-control show-tick">
+                                                <select name = "high_school_province_3" id = "high_school_province_3" class="form-line form-control show-tick" >
                                                     <option value =''>จังหวัด (Province)</option>
                                                     <option value ="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value ="กระบี่">กระบี่</option>
@@ -1238,21 +1262,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="high_school_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
+                                                    <input type="text" class="form-control" name="high_school_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)" value=<?php echo $data[0]['Edu_high_YearAttend']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="high_school_year_graduated_3" placeholder="ปีที่จบ (Year graduated)">
+                                                    <input type="text" class="form-control" name="high_school_year_graduated_3" placeholder="ปีที่จบ (Year graduated)" value=<?php echo $data[0]['Edu_high_YearGraduated']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="high_school_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)">
+                                                    <input type="text" class="form-control" name="high_school_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)" value=<?php echo $data[0]['Edu_high_major']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1265,7 +1289,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="university_name_3" placeholder="สถานศึกษา (School / College / University)">
+                                                    <input type="text" class="form-control" name="university_name_3" placeholder="สถานศึกษา (School / College / University)" value=<?php echo $data[0]['Edu_uni']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1357,21 +1381,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="university_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)">
+                                                    <input type="text" class="form-control" name="university_year_attended_3" placeholder="ปีที่เริ่ม (Year attended)" value=<?php echo $data[0]['Edu_uni_YearAttend']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="university_year_graduated_3" placeholder="ปีที่จบ (Year graduated)">
+                                                    <input type="text" class="form-control" name="university_year_graduated_3" placeholder="ปีที่จบ (Year graduated)" value=<?php echo $data[0]['Edu_uni_Graduated']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="university_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)">
+                                                    <input type="text" class="form-control" name="university_major_3" placeholder="แผนการเรียน / สาขาวิชา (Major)" value=<?php echo $data[0]['Edu_uni_major']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1386,27 +1410,27 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" name="previous_training_year_from_3" placeholder="ระยะเวลาจาก (Year Trained From)">
+                                                    <input type="number" class="form-control" name="previous_training_year_from_3" placeholder="ระยะเวลาจาก (Year Trained From)" value=<?php echo $data[0]['Pre_trained_YearFrom']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="number" class="form-control" name="previous_training_year_to_3" placeholder="ระยะเวลาถึง (Year Trained To)">
+                                                    <input type="number" class="form-control" name="previous_training_year_to_3" placeholder="ระยะเวลาถึง (Year Trained To)" value=<?php echo $data[0]['Pre_trained_Yearto']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="previous_training_jobdescription_3" placeholder="ตำแหน่ง/หัวข้ออบรม/หน้าที่ (Position/Topics/Job title/Job description)">
+                                                    <input type="text" class="form-control" name="previous_training_jobdescription_3" placeholder="ตำแหน่ง/หัวข้ออบรม/หน้าที่ (Position/Topics/Job title/Job description)" value=<?php echo $data[0]['Pre_trained_Position']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <select name = "previous_training_province_3" id = "previous_training_province_3" class="form-line form-control show-tick">
+                                                <select name = "previous_training_province_3" id = "previous_training_province_3" class="form-line form-control show-tick" >
                                                     <option value =''>จังหวัด (Province)</option>
                                                     <option value ="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value ="กระบี่">กระบี่</option>
@@ -1492,7 +1516,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="previous_training_organization_3" placeholder="สถานที่ฝึก (Organization)">
+                                                    <input type="text" class="form-control" name="previous_training_organization_3" placeholder="สถานที่ฝึก (Organization)" value=<?php echo $data[0]['Pre_trained_Organization']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1509,28 +1533,28 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="career_objectives_3_1" placeholder="1.">
+                                                    <input type="text" class="form-control" name="career_objectives_3_1" placeholder="1." value=<?php echo $data[0]['Career_objective1']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="career_objectives_3_2" placeholder="2.">
+                                                    <input type="text" class="form-control" name="career_objectives_3_2" placeholder="2." value=<?php echo $data[0]['Career_objective2']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="career_objectives_3_3" placeholder="3.">
+                                                    <input type="text" class="form-control" name="career_objectives_3_3" placeholder="3." value=<?php echo $data[0]['Career_objective3']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="career_objectives_3_4" placeholder="4.">
+                                                    <input type="text" class="form-control" name="career_objectives_3_4" placeholder="4. " value=<?php echo $data[0]['Career_objective4']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1544,42 +1568,42 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="" placeholder="1.ระยะเวลา(Years)">
+                                            <input type="number" class="form-control" name="" placeholder="1.ระยะเวลา(Years)" value=''>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)">
+                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)" value=''>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="" placeholder="2.ระยะเวลา(Years)">
+                                            <input type="number" class="form-control" name="" placeholder="2.ระยะเวลา(Years)" value=''>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)">
+                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)" value=''>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="" placeholder="3.ระยะเวลา(Years)">
+                                            <input type="number" class="form-control" name="" placeholder="3.ระยะเวลา(Years)" value=''>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)">
+                                            <input type="text" class="form-control" name="" placeholder="ตำแหน่งและหน้าที่(Position /Responsibility)" value=''>
                                         </div>
                                     </div>
                                 </div>
@@ -1763,21 +1787,21 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="special_ability_4_1" placeholder="1.">
+                                                <input type="text" class="form-control" name="special_ability_4_1" placeholder="1." value=<?php echo $data[0]['Specail_ability_1']; ?>>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="special_ability_4_2" placeholder="2.">
+                                                <input type="text" class="form-control" name="special_ability_4_2" placeholder="2." value=<?php echo $data[0]['Specail_ability_2']; ?>>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="special_ability_4_3" placeholder="3.">
+                                                <input type="text" class="form-control" name="special_ability_4_3" placeholder="3." value=<?php echo $data[0]['Specail_ability_3']; ?>>
                                             </div>
                                         </div>
                                     </div>
@@ -1792,21 +1816,21 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="computerized_ability_4_1" placeholder="ความสามารถทางคอมพิวเตอร์ (Computerized ability)">
+                                                    <input type="text" class="form-control" name="computerized_ability_4_1" placeholder="ความสามารถทางคอมพิวเตอร์ (Computerized ability)" value=<?php echo $data[0]['Other_skill_computer']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="sport_4_1" placeholder="กีฬา (Sport)">
+                                                    <input type="text" class="form-control" name="sport_4_1" placeholder="กีฬา (Sport)" value=<?php echo $data[0]['Other_skill_sport']; ?>>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="hobbies_4_1" placeholder="งานอดิเรก (Hobbies)">
+                                                    <input type="text" class="form-control" name="hobbies_4_1" placeholder="งานอดิเรก (Hobbies)" value=<?php echo $data[0]['Other_skill_Hobbies']; ?>>
                                                 </div>
                                             </div>
                                         </div>
@@ -1821,7 +1845,7 @@
                                             <div class="col-md-6 form-group">
 
                                                 <div class="form-line">
-                                                        <input type="text" class="form-control" name="car_license_no_4_1" placeholder="ใบอนุญาติเลขที่ (Driver license no.)">
+                                                        <input type="text" class="form-control" name="car_license_no_4_1" placeholder="ใบอนุญาติเลขที่ (Driver license no.)" >
                                                 </div>
                                             </div>
                                         </div>
@@ -1848,7 +1872,7 @@
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <textarea class="form-control "
-                                    rows="10" name="explain_about_yourself"></textarea>
+                                    rows="10" name="explain_about_yourself" value=<?php echo $data[0]['Explain_yourself']; ?>><?php echo $data[0]['Explain_yourself']; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
