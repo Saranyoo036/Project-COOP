@@ -351,6 +351,12 @@ class student_model extends CI_Model
 
 		 }
 
+	public function change_status($id,$status) 
+    { 
+       $updata = "UPDATE student_status SET  status='$status' where STD_ID = $id"; 
+       $this->db->query($updata); 
+     } 
+
 
 
 }
