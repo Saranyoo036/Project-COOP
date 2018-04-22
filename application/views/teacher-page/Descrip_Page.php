@@ -31,10 +31,10 @@
                                     <tbody>
                                         <tr>
                                             
-                                            <td>5730213028</td>
-                                            <td>นาย รัฐกิตติ์ กุลศิริ</td>
-                                            <td>คณะวิทยากลัยคอมพิวเตอร์</td>
-                                            <td>วิศวกรรมซอฟต์แวร์</td>
+                                            <td><?php echo $_GET['id']; ?></td>
+                                            <td><?php echo $_GET['name']; ?></td>
+                                            <td><?php echo $_GET['fac']; ?></td>
+                                            <td><?php echo $_GET['major']; ?></td>
                                             
                                         </tr>
                                                 

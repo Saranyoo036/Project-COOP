@@ -30,7 +30,8 @@ class Authentication extends CI_Controller{
 						case 'admin':
 							$this->logedin();
 							break;
-
+						case 'lecture':
+							$this->login_teacher();
 						default:
 
 							break;
@@ -76,6 +77,18 @@ class Authentication extends CI_Controller{
 			$this->load->view('top-bar');
 			$this->load->view('sidebar-admin');
 			$this->load->view('home',$data);
+			$this->load->view('script');
+		}
+
+		public function login_teacher()
+		{
+			$session_data= array(
+				'username'=>$this->input->post('txtUsername'),
+			);
+			$this->session->set_userdata('logged_in',$session_data);
+			$this->load->view('top-bar-teacher');
+			$this->load->view('teacher-page/rightsidebar-teacher');
+			$this->load->view('teacher-page/home');
 			$this->load->view('script');
 		}
 
