@@ -34,7 +34,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                  <textarea class="form-control "
+                                                  <textarea class="form-control " 
                                   rows="10" name="explain_about_yourself"  name="name_and_surname_thai_1" placeholder="ชื่อ-นามสกุล ไทย (Name &amp; Surname Thai)"value=<?php echo $data[1][0]['std_name']; ?>><?php echo $data[1][0]['std_name'].' '.$data[1][0]['std_sname']; ?></textarea>
                                                     <!-- <input type="text" class="form-control" name="name_and_surname_thai_1" placeholder="ชื่อ-นามสกุล ไทย (Name &amp; Surname Thai)" value=<?php echo $data[1][0]['std_name']; ?>> -->
                                                 </div>
@@ -1888,8 +1888,9 @@
             </div>
             <!-- #END# Basic Example | Vertical Layout -->
             <script type="text/javascript">
-               
-
+                <script type="text/javascript">
+                
+              
             function parentdata(id) {
 
               document.getElementById('parent_name_2').value = document.getElementById(id+'_name_2').value

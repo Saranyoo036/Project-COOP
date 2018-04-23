@@ -27,9 +27,11 @@
                                         $sql = "SELECT * FROM `major_setting` WHERE `personnelID` = $TID";
                                         $res = $this->db->query($sql);
                                             foreach ($res->result() as $key) {
-                                               $que = "SELECT * FROM `student`,`major`,`faculty` 
-                                               WHERE faculty.Fac_ID = major.Fac_ID 
+                                               $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status` 
+                                               WHERE faculty.Fac_ID = major.Fac_ID
+                                               AND student_status.STD_ID = student.STD_ID 
                                                AND student.major_id = major.Major_ID
+                                               AND student_status.status = 'Approving'
                                                AND  std_type = '$key->major_type' 
                                                AND student.major_id =$key->major_id";
 
@@ -41,7 +43,7 @@
                                                         echo "<td>$name</td>";
                                                         echo "<td>$ke->Major_name</td>";
                                                         echo "<td>$ke->Faculty_name</td>";
-                                                        echo '<td><a href="'.base_url().'Project-COOP/Teacher_con/Descrip_page?id='.$ke->STD_ID.'&name='.$name.'&fac='.$ke->Faculty_name.'&major='.$ke->Major_name.'"><i class="material-icons">description</a></td></td>';
+                                                        echo '<td><a href="'.base_url().'Project-COOP/Teacher_con/Descrip_page?id='.$ke->STD_ID.'&name='.$name.'&fac='.$ke->Faculty_name.'&major='.$ke->Major_name.'&type='.$ke->std_type.'"><i class="material-icons">description</a></td></td>';
                                                     echo "</tr>";
                                                 }
                                             }
