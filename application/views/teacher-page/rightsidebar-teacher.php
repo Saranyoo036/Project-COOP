@@ -20,7 +20,7 @@
                 <!-- #User Info --> 
             </li>
             <li class="header">เมนูหลัก</li>
-            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
+            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/homeTeacher"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
 
 
             <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li>

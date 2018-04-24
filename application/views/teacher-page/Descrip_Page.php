@@ -59,7 +59,8 @@
                                         <tr >
                                             
                                             <th>COOP0103 (ใบสมัครงานสหกิจศึกษาและการฝึกงาน)</th>
-                                            <th><button type="button" class="btn  btn-raised bg-green waves-effect">View</button></th>
+                                            <th><button type="button" class="btn  btn-raised bg-green waves-effect"
+                                                onclick="window.location='<?php echo base_url('/Project-COOP/Teacher_con/view103STD?STD_ID='.$_GET['id']); ?>'">View</button></th>
                                            
                                             
                                         </tr>

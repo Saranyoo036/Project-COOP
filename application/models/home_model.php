@@ -49,7 +49,7 @@ class  home_model extends CI_Model
 
 		public function STD_data($id)
 		{
-			$query = $this->db->query("SELECT student.STD_ID,std_name,std_sname,status,
+			$query = $this->db->query("SELECT student.STD_ID,std_name,std_sname,status,std_tel,std_email,
 				(SELECT faculty.Faculty_name FROM faculty WHERE faculty.Fac_ID = (SELECT major.Fac_ID FROM major WHERE major.Major_ID = (SELECT major_id FROM student WHERE STD_ID = $id))) AS faculty ,
 				(SELECT major.Major_name FROM major WHERE major.Major_ID = (SELECT student.major_id FROM student WHERE student.STD_ID = $id)) AS major
 				FROM`student`
@@ -57,6 +57,12 @@ class  home_model extends CI_Model
 			$row = $query->result_array();
 
 			return $row;
+		}
+
+		public function delSTD($id)
+		{
+			$sql = "DELETE FROM `student` WHERE STD_ID=$id";
+			$this->db->query($sql);
 		}
 }
 ?>

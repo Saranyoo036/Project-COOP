@@ -67,7 +67,8 @@
               if($form_103==0){
             echo '<td><i class="material-icons">close</i></td>';
               }else{
-           echo '<td><a href="'.base_url('Project-COOP/fun_sidebar_admin/view103STD?STD_ID='.$STD_ID).'"><i class="material-icons">description</i></a></td>';
+           echo '<td><a href="'.base_url('Project-COOP/fun_sidebar_admin/view103STD?STD_ID='.$STD_ID).'"><i class="material-icons">description</i></a><a href="'.base_url('Project-COOP/fun_sidebar_admin/edit103STD?STD_ID='.$STD_ID).'"><i class="material-icons">build</i></a></td>';
+
               }
             ///////form103////////
             //////form202///////  
@@ -104,8 +105,9 @@
               }
             ///////form202//////
             
-           
-            echo "<td></td>";
+           ?>
+            <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
+            <?php
             echo "</tr>";
           }
         ?>
@@ -126,6 +128,7 @@ $(document).ready(function() {
   table = $('#example').DataTable({
 
   });
+ 
 });
 
 $(".status-select").change(function(){
@@ -138,6 +141,10 @@ $(".status-select").change(function(){
             });
   
 })
+
+
+
+
 
 </script>
 
