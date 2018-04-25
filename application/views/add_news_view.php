@@ -18,7 +18,7 @@
                         <h2 class="card-inside-title">News Information</h2>
                           <div class="form-group form-float form-group-lg">
                               <div class="form-line">
-                                  <input name="name" type="text" class="form-control"/>
+                                  <input name="name" type="text" class="form-control"/ required>
                                   <label class="form-label">หัวข้อข่าว</label>
                               </div>
                           </div>

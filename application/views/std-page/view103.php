@@ -19,7 +19,7 @@
                 <div class="card">
 
                     <div class="body">
-                      <form class="" id="wizard_vertical" action=<?php echo base_url("Project-COOP/STDPage/cooppageform/update103form"); ?> method="post">
+                      <!-- <form class="" id="wizard_vertical" action=<?php echo base_url("Project-COOP/STDPage/cooppageform/update103form"); ?> method="post"> -->
 
                             <h2>STUDENT PERSONAL DATA</h2>
                             <section>

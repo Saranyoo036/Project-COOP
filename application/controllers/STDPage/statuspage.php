@@ -11,7 +11,10 @@
 	    }
 		public function status_page()
 		{
+			$checkform['checkform'] =$this->student_model->checkform();
 			$data['mystatus'] =  $this->student_model->mystatus();
+			$checkcompany['company'] = $this->student_model->checkinterncompany();
+			array_push($data['mystatus'],$checkform['checkform'],$checkcompany['company']);
 			$this->load->view('css');
 			$this->load->view('top-bar-std');
 			$this->load->view('std-page/rightsidebar-std');

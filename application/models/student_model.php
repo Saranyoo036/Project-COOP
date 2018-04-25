@@ -96,7 +96,6 @@ class student_model extends CI_Model
        $row = $query->result_array();
 			 if(isset($row[0])){
 				 //print_r($row[0]);
-
 				 $this->checksecondcompany($companyid);
 			 }
 
@@ -111,14 +110,16 @@ class student_model extends CI_Model
 		 {
 			 $query = $this->db->query("SELECT * FROM student_company ");
        $row = $query->result_array();
-			 echo $row[0]['company_id'];
-			 if ($companyid!=$row[0]['company_id']) {
+			 print_r($row);
+			// echo $row[0]['company_id'];
+			 if ($companyid==$row[0]['company_id']||$companyid==$row[1]['company_id']) {
+				 echo 'asdasd';
 
-				$this->addsecondcompany($companyid);
 			 }
 			 else{
-				// echo 'asdasdasd';
+				$this->addsecondcompany($companyid);
 			 }
+
 
 		 }
 
@@ -127,6 +128,15 @@ class student_model extends CI_Model
 		 	$query = $this->db->query("SELECT * FROM student_form_103 WHERE std_form_103_id = $_SESSION[stdid]");
 			$row = $query->result_array();
 			return $row;
+		 }
+
+		 public function checkinterncompany()
+		 {
+			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] ");
+       $row = $query->result_array();
+
+			 return $row;
+
 		 }
 
 		 public function update103form($data)
@@ -351,11 +361,11 @@ class student_model extends CI_Model
 
 		 }
 
-	public function change_status($id,$status) 
-    { 
-       $updata = "UPDATE student_status SET  status='$status' where STD_ID = $id"; 
-       $this->db->query($updata); 
-     } 
+	public function change_status($id,$status)
+    {
+       $updata = "UPDATE student_status SET  status='$status' where STD_ID = $id";
+       $this->db->query($updata);
+     }
 
 
 

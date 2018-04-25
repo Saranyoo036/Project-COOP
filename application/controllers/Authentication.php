@@ -30,8 +30,7 @@ class Authentication extends CI_Controller{
 						case 'admin':
 							$this->logedin();
 							break;
-						case 'lecture':
-							$this->login_teacher();
+
 						default:
 
 							break;
@@ -51,7 +50,17 @@ class Authentication extends CI_Controller{
 						$_SESSION['std_name'] =  $result[0]['std_name'];
 						$_SESSION['std_sname'] =  $result[0]['std_sname'];
 
-						//print_r($result);
+						$querystatus = $this->db->query("SELECT status FROM student_status WHERE STD_ID = $_SESSION[stdid]");
+						$row = $querystatus->result_array();
+
+						$_SESSION['std_status'] = $row[0]['status'];
+						$_SESSION['stdmajorid'] = $result[0]['major_id'];
+						$_SESSION['std_type'] = $result[0]['std_type'];
+
+
+						//echo $_SESSION['std_status'];
+						// print_r($row);
+						 //print_r($result);
 						redirect(base_url("Project-COOP/welcome_std/pass"));
 					}else{
 						$this->session->set_flashdata('error','Invalid Username or Password');
@@ -77,18 +86,6 @@ class Authentication extends CI_Controller{
 			$this->load->view('top-bar');
 			$this->load->view('sidebar-admin');
 			$this->load->view('home',$data);
-			$this->load->view('script');
-		}
-
-		public function login_teacher()
-		{
-			$session_data= array(
-				'username'=>$this->input->post('txtUsername'),
-			);
-			$this->session->set_userdata('logged_in',$session_data);
-			$this->load->view('top-bar-teacher');
-			$this->load->view('teacher-page/rightsidebar-teacher');
-			$this->load->view('teacher-page/home');
 			$this->load->view('script');
 		}
 

@@ -23,7 +23,6 @@
                                             
                                             <th>รหัสนักศึกษา</th>
                                             <th>ชื่อ</th>
-                                            <th>ประเภท</th>
                                             <th>คณะ</th>
                                             <th>สาขา</th>
                                             
@@ -32,11 +31,10 @@
                                     <tbody>
                                         <tr>
                                             
-                                            <td><?php echo $_GET['id']; ?></td>
-                                            <td><?php echo $_GET['name']; ?></td>
-                                             <td><?php echo $_GET['type']; ?></td>
-                                            <td><?php echo $_GET['fac']; ?></td>
-                                            <td><?php echo $_GET['major']; ?></td>
+                                            <td>5730213028</td>
+                                            <td>นาย รัฐกิตติ์ กุลศิริ</td>
+                                            <td>คณะวิทยากลัยคอมพิวเตอร์</td>
+                                            <td>วิศวกรรมซอฟต์แวร์</td>
                                             
                                         </tr>
                                                 
@@ -59,9 +57,9 @@
                                         <tr >
                                             
                                             <th>COOP0103 (ใบสมัครงานสหกิจศึกษาและการฝึกงาน)</th>
-                                            <th><button type="button" class="btn  btn-raised bg-green waves-effect"
-                                                onclick="window.location='<?php echo base_url('/Project-COOP/Teacher_con/view103STD?STD_ID='.$_GET['id']); ?>'">View</button></th>
-                                           
+                                            <th><button type="button" class="btn  btn-raised bg-green waves-effect">View</button></th>
+                                            <th><button type="button" class="btn  btn-raised btn-info waves-effect">Print</button></th>
+                                            
                                             
                                         </tr>
                                     </thead>
@@ -72,32 +70,43 @@
                         </div>
                     </div>
                 </div>
-                <?php 
-                    $q = 'SELECT * FROM `student_company` 
-                            WHERE STD_ID = '.$_GET['id'].'
-                            AND status_student_company_id = 0 ';
-                    $re=$this->db->query($q);
-                    foreach ($re->result() as $key) { ?>
-                       <div class="card">
-                            <div class="body">
-                                <div class="header">
-                                    <table class="table ">
-                                        <thead>
-                                            <tr >
-                                                <th>COOP0202 (แบบเสนองาน)</th>
-                                                <th><button type="button" class="btn  btn-raised bg-green waves-effect" 
-                                                    onclick="window.location='<?php echo base_url('/Project-COOP/Teacher_con/teacherview202?comID='.$key->company_id.'&posID='.$key->Position_id.'&STD_ID='.$key->STD_ID); ?>';" >View</button></th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
+
+
+                 <div class="card">
+                    <div class="body">
+                        <div class="header">
+                            
+                            <table class="table ">
+                                    <thead>
+                                        <tr >
+                                            
+                                            <th>COOP0202 (แบบเสนองาน)</th>
+                                            <th><button type="button" class="btn  btn-raised btn-warning waves-effect">Comment</button></th>
+                                            <th><button type="button" class="btn  btn-raised bg-green waves-effect">View</button></th>
+                                            <th><button type="button" class="btn  btn-raised btn-info waves-effect">Print</button></th>
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    
+                                </table>
+
+                            
                         </div>
-                    <?php }
-                ?>
+                    </div>
+                </div>
 
 
-
+                <div class="body">
+                        <div class="button-demo">
+                            
+                            <center>
+                                <button type="button" class="btn  btn-raised btn-success waves-effect">อนุมัติ</button>
+                            
+                                <button type="button" class="btn  btn-raised btn-danger waves-effect">ไม่อนุมัติ</button>
+                            </center>
+                        </div>
+                </div>
 
 
 

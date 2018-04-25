@@ -10,7 +10,7 @@
 
 
                   <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class = "col-md-1">
                 <i class="fa fa-search fa-1x" id = "fa-search-organization"></i>
             </div>
@@ -18,14 +18,13 @@
             <a href="http://webhost.phuket.psu.ac.th/itid/internship/public/student/addcoop0202temp?t=1" class="btn btn-primary btn-block">Add</a>
           	</div>
         </div><!-- .row -->
-        <br>
+
         <div class="row" >
             <div class="table">
                 <div class="col-md-12">
-                    <div class="panel panel-default">
 
                       <div class="table-responsive">
-												<table id="example" border = "0" style="width:100%">
+												<table id="example"  style="width:100%" class="table table-bordered table-striped table-hover js-basic-example dataTable"role="grid" >
 													<thead>
 													<tr>
 														<td>NO.</td>
@@ -37,6 +36,7 @@
 
 													</tr>
 												</thead>
+												<tbody>
 												<?php
 
 													$no = 0;
@@ -48,20 +48,18 @@
 														echo "<td>$company->address</td>";
 														echo "<td>$company->provice</td>";
 														echo "<td>$company->contract $company->Tel</td>";
-
 														 ?>
 														 	<td>
 							 <a href= <?php echo base_url("Project-COOP/STDPage/viewselectorganization/showview/".$company->company_id) ?> >
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>
-
-														
-															
-
 														<?php echo "</tr>";
 													}
 												?>
+											</tbody>
+
+
 											</table>
 										</div>
 

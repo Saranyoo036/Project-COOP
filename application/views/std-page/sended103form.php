@@ -14,7 +14,7 @@
 
                 <div class="card">
                     <div class="header">
-                        <h2> Sended 103 Form </h2>
+                        <h2> Sent 103 Form </h2>
                     </div>
                     <div class="body">
                       <center>
@@ -23,7 +23,7 @@
                       <p>คุณได้ทำการส่งแบบฟอร์มนี้ไปยังระบบแล้ว</p>
 
                           <a onclick="window.history.back()" class="btn btn-raised btn-primary waves-effect" >Back</a>
-													<a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised btn-primary waves-effect" >Edit your 103 form</a>
+													
 
                           <!--
                             <button class="btn btn-raised btn-success waves-effect"  type="button"><a href="<?php echo base_url(); ?>TipsTricks/TipsTricks/Tips_Tricks" >INTERNSHIP</a></button>

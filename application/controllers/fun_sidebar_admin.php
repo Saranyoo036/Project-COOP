@@ -156,33 +156,4 @@ class Fun_sidebar_admin extends CI_Controller {
       	);
 		$this->load->view('excel_format',$data);
 	}
-
-	public function view103STD()
-	{
-			$this->load->model('home_model');
-			$data['data'] = $this->home_model->data103($_GET['STD_ID']);
-			array_push($data['data'],$this->home_model->STD_data($_GET['STD_ID']));
-			$this->load->view('top-bar');
-			$this->load->view('sidebar-admin');
-			$this->load->view('std-page/view103form',$data);
-			$this->load->view('script');
-	}
-
-	public function edit103STD()
-	{
-			$this->load->model('home_model');
-			$data['data'] = $this->home_model->data103($_GET['STD_ID']);
-			array_push($data['data'],$this->home_model->STD_data($_GET['STD_ID']));
-			$this->load->view('top-bar');
-			$this->load->view('sidebar-admin');
-			$this->load->view('std-page/edit103form',$data);
-			$this->load->view('script');
-	}
-
-	public function deleteSTD()
-	{
-		$this->load->model('home_model');
-		$this->home_model->delSTD($_GET['STD_ID']);
-		redirect(base_url('Project-COOP/Fun_sidebar_admin/show_student?subname_major='.$_GET['major'].'&type_major'.$_GET['type']));
-	}
 }

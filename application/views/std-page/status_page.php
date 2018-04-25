@@ -7,12 +7,14 @@
 
 			</ul>
 		</div>
-<!-- <?php print_r($mystatus);  ?> -->
+<!-- <?php print_r($mystatus[2]);
+ ?> -->
 
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
             : นักศึกษากรอกข้อมูลส่วนตัว และเลือกสถานประกอบการ
         </div>
+
                 <div class="">
             <div class="panel-heading">
                 <h3>ข้อมูลนักศึกษา (Student Information)</h3>
@@ -54,7 +56,402 @@
     </div>
     <div class="container">
 
-                                                    <a href="#" class="btn btn-default btn-block btn-lg disabled">
-            เอกสารยังไม่ครบ
-        </a>
+
+				<?php
+				if ($_SESSION['std_status'] == "Choosing"|| $_SESSION['std_status'] == "choosing") {
+
+					if ($_SESSION['std_type']=='COOP' ||$_SESSION['std_type']=='coop') { ?>
+						<div class="col-md-12">
+
+								<table class="table table-hover table-bordered  table-striped">
+						<tbody>
+							<tr>
+									<td><h5>COOP0103</h5></td>
+									<?php if ($mystatus[1] == Array()) { ?>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+										<td><a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+										<td><a href="#" class="btn">view</a></td>
+
+									<?php }
+									else{ ?>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?> class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+										<td><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+									<?php } ?>
+
+							</tr>
+							</tbody>
+							</table>
+						<div class="row clearfix">
+													<div class="col-md-6">
+
+													<table class="table table-hover table-bordered  table-striped">
+
+															<tbody>
+																	<tr>
+																		<?php if ($mystatus[2][0]==Array()) { ?>
+																			<td><h5>COOP0202-1</h5></td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+																			<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+																		<?php }
+																		else{ ?>
+																			<td><h5>COOP0202-1</h5></td>
+																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+																		<?php }
+																		 ?>
+
+																	</tr>
+															</tbody>
+													</table>
+
+											</div>
+
+
+
+											<div class="col-md-6">
+
+
+													<table class="table table-hover table-bordered  table-striped">
+
+															<tbody>
+																	<tr>
+																		<?php if ($mystatus[2][1]==Array()) { ?>
+																			<td><h5>COOP0202-2</h5></td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+																			<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+																		<?php }
+																		else{ ?>
+																			<td><h5>COOP0202-2</h5></td>
+																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+																		<?php }
+																		 ?>
+
+																	</tr>
+															</tbody>
+													</table>
+											</div>
+											</div>
+
+
+					<?php }
+					else{ ?>
+						<div class="col-md-12">
+
+								<table class="table table-hover table-bordered  table-striped">
+						<tbody>
+							<tr>
+									<td><h5>COOP0103</h5></td>
+									<?php if ($mystatus[1] == Array()) { ?>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+										<td><a type="button" name="button" class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+										<td><button type="button" name="button" class="btn">view</button></td>
+
+									<?php }
+									else{ ?>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?> class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
+										<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+										<td><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+									<?php } ?>
+
+							</tr>
+							</tbody>
+							</table>
+						</div>
+						<div class="col-md-12">
+
+								<table class="table table-hover table-bordered  table-striped">
+
+										<tbody>
+												<tr>
+													<?php if ($mystatus[2][0]==Array()) { ?>
+														<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+														<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+														<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+													<?php }
+													else{ ?>
+														<td><h5>COOP0202-1</h5></td>
+														<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+														<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+														<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+													<?php }
+													 ?>
+
+												</tr>
+										</tbody>
+								</table>
+						</div>
+
+				<?php	}
+			}
+			else if ($_SESSION['std_status']=='Approving'||$_SESSION['std_status']=='Waiting'||$_SESSION['std_status']=='Accept') {
+				if ($_SESSION['std_type']=='COOP' ||$_SESSION['std_type']=='coop') { ?>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<tr>
+								<td><h5>COOP0103</h5></td>
+								<?php if ($mystatus[1] == Array()) { ?>
+									<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+									<td><a type="button" name="button" class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+									<td><button type="button" name="button" class="btn">view</button></td>
+
+								<?php }
+								else{ ?>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+									<td><a href=""class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+								<?php } ?>
+
+						</tr>
+						</tbody>
+						</table>
+					</div>
+
+<div class="row clearfix">
+							<div class="col-md-6">
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][0]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-1</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+
+											</tr>
+									</tbody>
+							</table>
+
+					</div>
+
+
+
+					<div class="col-md-6">
+
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][1]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-2</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+											</tr>
+									</tbody>
+							</table>
+					</div>
+					</div>
+
+
+			<?php	}
+				else{ ?>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<tr>
+								<td><h5>COOP0103</h5></td>
+								<?php if ($mystatus[1] == Array()) { ?>
+									<td> <a href="#"  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+									<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+									<td><a type="button" name="button" class="btn">view</a></td>
+
+								<?php }
+								else{ ?>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> vdsvsdv</a> </td>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+									<td> <a href="" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+								<?php } ?>
+
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][0]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-1</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+
+											</tr>
+									</tbody>
+							</table>
+					</div>
+
+			<?php	}
+			}
+			else if ($_SESSION['std_status']=='Rechoosing'||$_SESSION['std_status']=='Repair') {
+				if ($_SESSION['std_type']=='COOP' ||$_SESSION['std_type']=='coop') { ?>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<tr>
+								<td><h5>COOP0103</h5></td>
+								<?php if ($mystatus[1] == Array()) { ?>
+									<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+									<td><a  class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+									<td><button type="button" name="button" class="btn">view</button></td>
+
+								<?php }
+								else{ ?>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+									<td><a href=""class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+								<?php } ?>
+
+						</tr>
+						</tbody>
+						</table>
+					</div>
+
+<div class="row clearfix">
+							<div class="col-md-6">
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][0]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-1</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href=""  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+
+											</tr>
+									</tbody>
+							</table>
+
+					</div>
+
+
+
+					<div class="col-md-6">
+
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][1]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-1</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+
+											</tr>
+									</tbody>
+							</table>
+					</div>
+					</div>
+
+
+			<?php	}
+				else{ ?>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<tr>
+								<td><h5>COOP0103</h5></td>
+								<?php if ($mystatus[1] == Array()) { ?>
+									<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
+									<td><a  class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
+									<td><a  class="btn btn-raised g-bg-blue waves-effect" >view</a></td>
+
+								<?php }
+								else{ ?>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
+									<td> <a href="" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+								<?php } ?>
+
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<div class="col-md-12">
+
+							<table class="table table-hover table-bordered  table-striped">
+
+									<tbody>
+											<tr>
+												<?php if ($mystatus[2][0]==Array()) {
+													// code...
+												}
+												else{ ?>
+													<td><h5>COOP0202-1</h5></td>
+													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<td><a href=""  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
+													<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+
+												<?php }
+												 ?>
+
+											</tr>
+									</tbody>
+							</table>
+					</div>
+
+			<?php	}
+			}
+
+			 ?>
+
         </div>

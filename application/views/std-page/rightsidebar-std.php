@@ -23,24 +23,11 @@
                 <!-- #User Info -->
             </li>
             <li class="header">เมนูหลัก</li>
-            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Welcome_std/pass"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
+            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Welcome_std/pass"><i class="zmdi zmdi-home"></i><span>News</span> </a></li>
 
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Home</span> </a></li>
 
-            <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">account_balance</i> <span class="icon-name">Application</span> </a>
-                <ul class="ml-menu">
-
-
-                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/cooppageform/cooppage_form">COOP0103</a></li>
-                    <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganization/viewselect_organization">COOP0202-1</a></li>
-                    <!-- <li><a href="<?php echo base_url(); ?>Project-COOP/STDPage/viewselectorganizationII/viewselect_organizationII">COOP0202-2</a></li> -->
-
-                </ul>
-            </li>
-
-
-            <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Status</span> </a></li>
-
-            <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li>
+            <!-- <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li> -->
 
 
         </ul>

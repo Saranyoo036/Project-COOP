@@ -43,6 +43,20 @@
 			$this->student_model->update103form($_POST);
 			redirect("Project-COOP/welcome_std/pass");
 		}
+		public function view($id)
+		{
+			$data['data'] = $this->student_model->checkform();
+			array_push($data['data'],$this->student_model->mystatus());
+			$this->load->view('top-bar-std');
+			$this->load->view('std-page/rightsidebar-std');
+			$this->load->view('std-page/view103',$data);
+			$this->load->view('script-std');
+
+		}
+		public function viewcompany($idea)
+		{
+			echo $idea;
+		}
 
 }
 ?>

@@ -5,7 +5,8 @@ class company_model extends CI_Model
 
     public function showallcompany()
     {
-      $query = $this->db->query('SELECT * FROM company');
+
+      $query = $this->db->query("SELECT * FROM company WHERE company_type = '".$_SESSION['std_type']."' AND Major_ID =".$_SESSION['stdmajorid']);
       $row = $query->result();
       //print_r($row);
       return $row;
