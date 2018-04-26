@@ -184,4 +184,15 @@ public function deleteSTD()
 	$this->home_model->delSTD($_GET['STD_ID']);
 	redirect(base_url('Project-COOP/Fun_sidebar_admin/show_student?subname_major='.$_GET['major'].'&type_major'.$_GET['type']));
 }
+
+public function adminView202()
+{
+	$this->load->model('company_model');
+			$responsedata['responsedata'] = $this->company_model->view($_GET['comID']);
+			//
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('admin-viewCompany',$responsedata);
+			$this->load->view('script');
+}
 }

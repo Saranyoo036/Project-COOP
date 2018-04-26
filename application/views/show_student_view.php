@@ -21,8 +21,8 @@
                 echo "<td>COOP 202</td>";
               }
             ?>
-            <td>View</td>
-            <td>Edit</td>
+           
+            
             <td>Delete</td>
           </tr>
           </thead>
@@ -46,7 +46,7 @@
             echo "<td>$key->Major_name</td>";
             /////status//////  
             echo "<td>";
-            echo '<select id="status-select">';
+            echo '<select class="status-select">';
             for ($i=0; $i<count($status);$i++) { 
               if($status[$i]==$key->status){
                 echo '<option selected = "true" value="'.$status[$i].'-'.$STD_ID.'">'.$status[$i].'</option>';
@@ -67,9 +67,10 @@
               if($form_103==0){
             echo '<td><i class="material-icons">close</i></td>';
               }else{
-            echo '<td><i class="material-icons">check</i></td>';
+           echo '<td><a href="'.base_url('Project-COOP/fun_sidebar_admin/view103STD?STD_ID='.$STD_ID).'"><i class="material-icons">description</i></a><a href="'.base_url('Project-COOP/fun_sidebar_admin/edit103STD?STD_ID='.$STD_ID).'"><i class="material-icons">build</i></a></td>';
+
               }
-            ///////form103////////
+              ///////form103////////
             //////form202///////  
               if($type=="COOP"){
                 $sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
@@ -93,8 +94,7 @@
                 $num_STD = 0; 
                 $re =$this->db->query($sql);
                 foreach ($re->result() as $key ) {
-
-            $num_STD=$key->num_STD;
+                   $num_STD=$key->num_STD;
                 }
                 if($num_STD==0){
             echo '<td><i class="material-icons">close</i></td>';
@@ -103,19 +103,17 @@
                 }
               }
             ///////form202//////
-            echo "<td></td>";
-            echo "<td></td>";
-            echo "<td></td>";
+            
+           ?>
+            <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
+            <?php
             echo "</tr>";
           }
         ?>
       </table>
       </ul>
     </div>
-
-
-
-    </div>
+     </div>
 
 </section>
 
@@ -126,11 +124,13 @@ $(document).ready(function() {
   table = $('#example').DataTable({
 
   });
+ 
 });
 
-$("#status-select").change(function(){
+$(".status-select").change(function(){
   var data = this.value ; 
   var sp = data.split('-');
+  
   jQuery.ajax({
             url: "<?php echo base_url("/project-coop/index.php/student_view_con/change_status?")?>id="+sp[1]+"&status="+sp[0],
             type: 'GET'
@@ -138,5 +138,13 @@ $("#status-select").change(function(){
   
 })
 
+
+
+
+
 </script>
+
+
+
+
 
