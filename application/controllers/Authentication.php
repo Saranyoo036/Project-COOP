@@ -64,7 +64,7 @@ class Authentication extends CI_Controller{
 						//echo $_SESSION['std_status'];
 						// print_r($row);
 						 //print_r($result);
-						redirect(base_url("Project-COOP/welcome_std/pass"));
+						 redirect(base_url("Project-COOP/welcome_std?std_id=".$_SESSION['stdid']));
 					}else{
 						$this->session->set_flashdata('error','Invalid Username or Password');
 						redirect(base_url("Project-COOP"));
