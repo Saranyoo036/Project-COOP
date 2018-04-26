@@ -59,7 +59,7 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
 	<div class="col-12">
-		<div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">TEACHER<img class="logo" src="assets/images/logo.svg" alt="profile img"></a> </div>
+		<div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">TEACHER<img class="logo" src=<?php echo base_url("Project-COOP/assets/images/logo.svg"); ?> alt="profile img"></a> </div>
 		<ul class="nav navbar-nav navbar-right">
 
 			<li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="zmdi zmdi-search"></i></a></li>

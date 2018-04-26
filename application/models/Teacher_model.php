@@ -74,5 +74,11 @@ class Teacher_model extends CI_Model
 			$this->db->query($sql2);
 			$this->db->query($sql3);
 		}
+
+		public function unApproveSTD($id,$com,$pos)
+		{
+			$sql1 ="UPDATE `student_company` SET status_student_company_id = 2 WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
+			$this->db->query($sql1);
+		}
 }
 ?>

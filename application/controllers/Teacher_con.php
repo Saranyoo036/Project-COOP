@@ -1,4 +1,4 @@
-<?php
+.<?php
 class Teacher_con extends CI_Controller {
 
 
@@ -34,9 +34,13 @@ class Teacher_con extends CI_Controller {
 
 	public function teacherview202()
 		{
+			$this->load->model('company_model');
+			$responsedata['responsedata'] = $this->company_model->view($_GET['comID']);
+			//
+			array_push($responsedata,$_GET);
 			$this->load->view('top-bar-teacher');
 			$this->load->view('teacher-page/rightsidebar-teacher');
-			$this->load->view('teacher-page/viewCompany',$_GET);
+			$this->load->view('teacher-page/viewCompany',$responsedata);
 			$this->load->view('script');
 		}
 
@@ -46,6 +50,13 @@ class Teacher_con extends CI_Controller {
 			$this->Teacher_model->approveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID']);
 			redirect(base_url('Project-COOP/Teacher_con/homeTeacher'));
 		}
+
+	public function unApproveStudent()
+	{
+		$this->load->model('Teacher_model');
+		$this->Teacher_model->unApproveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID']);
+		redirect(base_url('Project-COOP/Teacher_con/homeTeacher'));
+	}
 
 	public function view103STD()
 	{
