@@ -25,6 +25,7 @@
 			$this->load->view('std-page/Fristsidebar-std');
 			$this->load->view('std-page/frist-page/Internship_Con_form');
 			$this->load->view('script');
+			header( "refresh:5;url=".base_url("Project-COOP") );
 		}
 
 }

@@ -8,14 +8,13 @@ class student_model extends CI_Model
 
 		}
 
-		 public function requestpage($data)
+		 public function requeststudentemail($id)
      {
        //print_r($data);
-       $query = $this->db->query('SELECT Email FROM authentication WHERE auth_id = '.$data['authid']);
+       $query = $this->db->query('SELECT std_email FROM student WHERE STD_ID = '.$id);
        $row = $query->result_array();
-       $toreturn = array('type' => $data['type'],'mail' => $row[0]['Email']);
        //print_r($toreturn);
-       return $toreturn;
+       return $row;
      }
      public function sendrequest($data)
      {

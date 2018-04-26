@@ -49,7 +49,7 @@
 			array_push($data['data'],$this->student_model->mystatus());
 			$this->load->view('top-bar-std');
 			$this->load->view('std-page/rightsidebar-std');
-			$this->load->view('std-page/view103',$data);
+			$this->load->view('std-page/view103form',$data);
 			$this->load->view('script-std');
 
 		}

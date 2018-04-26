@@ -172,10 +172,10 @@ public function edit103STD()
 		$this->load->model('home_model');
 		$data['data'] = $this->home_model->data103($_GET['STD_ID']);
 		array_push($data['data'],$this->home_model->STD_data($_GET['STD_ID']));
-		$this->load->view('top-bar');
+		$this->load->view('top-bar-std');
 		$this->load->view('sidebar-admin');
 		$this->load->view('std-page/edit103form',$data);
-		$this->load->view('script');
+		$this->load->view('script-std');
 }
 
 public function deleteSTD()

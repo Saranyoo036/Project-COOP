@@ -31,7 +31,7 @@
         						where NameMajor_sub = '$nameMaj')
         					AND major_setting.personnelID = personnel.personnelID
     						AND major_type = '$type'
-    						AND status_id = '3' LIMIT 1";
+    						AND status_id = '3' ";
 
     						$sum = $this->db->query($aprover);
     						$aprove = $sum->row();
@@ -70,7 +70,7 @@
         						from major
         						where NameMajor_sub = '$nameMaj')
     						AND major_type = '$type'
-    						AND status_id = '3' LIMIT 1)";
+    						AND status_id = '3' )";
 					}else{
 
 						$que = "SELECT * FROM `personnel`,`faculty`

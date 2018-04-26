@@ -7,8 +7,8 @@
 
 			</ul>
 		</div>
-<!-- <?php print_r($mystatus[2]);
- ?> -->
+<?php print_r($mystatus[2]);
+ ?>
 
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
@@ -92,7 +92,7 @@
 																	<tr>
 																		<?php if ($mystatus[2][0]==Array()) { ?>
 																			<td><h5>COOP0202-1</h5></td>
-																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a> </td>
 																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
 																			<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 																		<?php }
@@ -122,7 +122,7 @@
 																	<tr>
 																		<?php if ($mystatus[2][1]==Array()) { ?>
 																			<td><h5>COOP0202-2</h5></td>
-																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a> </td>
 																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
 																			<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 																		<?php }
@@ -173,8 +173,9 @@
 
 										<tbody>
 												<tr>
-													<?php if ($mystatus[2][0]==Array()) { ?>
-														<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
+													<?php if ($mystatus[2]==Array()) { ?>
+														<td> <h6>COOP0202-1</h6> </td>
+														<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a> </td>
 														<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
 														<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 													<?php }
@@ -211,7 +212,7 @@
 								else{ ?>
 									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
 									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
-									<td><a href=""class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+									<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 								<?php } ?>
 
@@ -283,13 +284,13 @@
 								<?php if ($mystatus[1] == Array()) { ?>
 									<td> <a href="#"  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
 									<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
-									<td><a type="button" name="button" class="btn">view</a></td>
+									<td><a class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 								<?php }
 								else{ ?>
-									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> vdsvsdv</a> </td>
+									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
 									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
-									<td> <a href="" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+									<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 								<?php } ?>
 
@@ -333,13 +334,13 @@
 								<?php if ($mystatus[1] == Array()) { ?>
 									<td> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a> </td>
 									<td><a  class="btn btn-raised g-bg-blue waves-effect" >Edit</a> </td>
-									<td><button type="button" name="button" class="btn">view</button></td>
+									<td><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?> class="btn">view</a></td>
 
 								<?php }
 								else{ ?>
 									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect"> Sent</a> </td>
 									<td> <a href="#" class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a> </td>
-									<td><a href=""class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+									<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 								<?php } ?>
 
