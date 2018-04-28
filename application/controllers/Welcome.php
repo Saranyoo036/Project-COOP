@@ -29,4 +29,40 @@ class Welcome extends CI_Controller {
 		$this->load->view('firstpage');
 	}
 
+	public function test()
+	{
+		$coop = (object) array(
+			'organization_name'=>'a',
+			'address'=>'a',
+			'moo'=>'a',
+			'soi'=>'a',
+			'street'=>'b',
+			'sub_dristrict'=>'asd',
+			'district'=>'asd',
+			'province'=>'asd',
+			'zip_code'=>'asd',
+			'tel'=>'asd',
+			'fax'=>'asd',
+			'website'=>'asd',
+			'name'=>'asd',
+			'surname'=>'asd',
+			'position'=>'asd',
+			'phone'=>'asd',
+			'email'=>'asd',
+			'job_position'=>'asd',
+			'skill'=>'asd',
+			'number_of_student'=>'asd',
+			'job_description'=>'asd',
+			'responsibilities'=>'asd',
+			'candidate_requirements'=>'asd',
+			'allowance'=>'asd',
+			'transportation'=>'asd',
+			'accommodation'=>'asd',
+			'meal'=>'asd',
+			'other'=>'asd');
+		$data =array('coop0202'=>$coop);
+		$this->load->view('coop0202PDF',$data);
+
+	}
+
 	}

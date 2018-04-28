@@ -81,16 +81,31 @@ class Fun_sidebar_admin extends CI_Controller {
 	public function assign()
 	{
 
+		//print_r($_GET);
+		
+		 $this->load->model('Teacher_model');
+		 $this->Teacher_model->assignteacher($this->input->get('id'),$this->input->get('type'),$this->input->get('major'));
 
-		$id =  explode(',', $this->input->get('id'));
-		$this->load->model('Teacher_model');
-		$this->Teacher_model->assignteacher($id[1],$this->input->get('type'),$this->input->get('major'));
 
+		  $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$this->input->get('fac')."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
 
-		 $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$this->input->get('fac')."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
-
-		 header('Location:'.$back);
+		  header('Location:'.$back);
 	}
+
+	public function delassign()
+	{
+
+		//print_r($_GET);
+		
+		 $this->load->model('Teacher_model');
+		 $this->Teacher_model->delassignteacher($this->input->get('id'),$this->input->get('type'),$this->input->get('major'));
+
+
+		  $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_teacher?subname_Fac=".$this->input->get('fac')."&subname_major=".$this->input->get('major')."&type_major=".$this->input->get('type'));
+
+		  header('Location:'.$back);
+	}
+
 	public function assign_monitor()
 	{
 

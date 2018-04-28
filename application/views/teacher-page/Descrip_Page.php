@@ -23,7 +23,7 @@
 
                                             <th>รหัสนักศึกษา</th>
                                             <th>ชื่อ</th>
-																						<th>ประเภท</th>
+											<th>ประเภท</th>
                                             <th>คณะ</th>
                                             <th>สาขา</th>
 
@@ -32,11 +32,11 @@
                                     <tbody>
                                         <tr>
 
-																					<td><?php echo $_GET['id']; ?></td>
-																					<td><?php echo $_GET['name']; ?></td>
-																					 <td><?php echo $_GET['type']; ?></td>
-																					<td><?php echo $_GET['fac']; ?></td>
-																					<td><?php echo $_GET['major']; ?></td>
+										<td><?php echo $_GET['id']; ?></td>
+										<td><?php echo $_GET['name']; ?></td>
+										<td><?php echo $_GET['type']; ?></td>
+										<td><?php echo $_GET['fac']; ?></td>
+										<td><?php echo $_GET['major']; ?></td>
 
                                         </tr>
 

@@ -12,24 +12,24 @@
             <td>Faculty</td>
             <td>Major</td>
             <td>Status</td>
-            <td>COOP 103</td>
+            <td>COOP 0103</td>
             <?php 
               if($type=="COOP"){
-                echo "<td>COOP 202-01</td>";
-                echo "<td>COOP 202-02</td>";
+                echo "<td>COOP 0202-01</td>";
+                echo "<td>COOP 0202-02</td>";
               }else{
-                echo "<td>COOP 202</td>";
+                echo "<td>COOP 0202</td>";
               }
             ?>
            
-            
+            <td>Print</td>
             <td>Delete</td>
           </tr>
           </thead>
 
 
         <?php
-        $status = array('Request','Choosing','Approving','Waiting','Rechoosing','Repair','Accept');
+        $status = array('Choosing','Approving','Waiting','Rechoosing','Repair','Accept','Cancel');
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID
@@ -46,6 +46,7 @@
             echo "<td>$key->Major_name</td>";
             /////status//////  
             echo "<td>";
+            echo '<input type="hidden" name = "undoOption" id="undoOption" value="'.$key->status.'-'.$STD_ID.'">';
             echo '<select class="status-select">';
             for ($i=0; $i<count($status);$i++) { 
               if($status[$i]==$key->status){
@@ -105,6 +106,15 @@
             ///////form202//////
             
            ?>
+           <td><div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:void(0);">COOP 0103</a></li>
+                                        <li><a href="javascript:void(0);">COOP 0104</a></li>
+                                        <li><a href="javascript:void(0);">COOP 0202</a></li>
+                                    </ul>
+                                </div>
+            </td>
             <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
             <?php
             echo "</tr>";
@@ -128,14 +138,20 @@ $(document).ready(function() {
 });
 
 $(".status-select").change(function(){
+  var undo = $("#undoOption").val();
   var data = this.value ; 
   var sp = data.split('-');
-  
+  if(sp[0]=="Approving"){
+    alert("ไม่สามารถเปลี่ยนแปลงไปยังสถานะ Approving ได้");
+    $(this).val(undo);
+  }else{
   jQuery.ajax({
             url: "<?php echo base_url("/project-coop/index.php/student_view_con/change_status?")?>id="+sp[1]+"&status="+sp[0],
             type: 'GET'
             });
-  
+
+      $("#undoOption").val(data);
+  }
 })
 
 

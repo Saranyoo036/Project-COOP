@@ -6,35 +6,34 @@
 
 			<ul class="breadcrumb">
 
-				<a id="btnSelectedRows" class='btn btn-raised btn-info waves-effect' href="#">Assign Aprove teacher</a>
+				
 				<input type = "hidden" id = "type"  value="<?php echo $type;?>">
  				<input type = "hidden" id = "major"  value="<?php echo $nameMaj;?>">
  				<input type = "hidden" id = "fac"  value="<?php echo $nameFac;?>">
 
 				<?php
+				///check have teacher approve
 					$this->db->select('*');
-					$this->db->from('major_setting');
+					$this->db->from('major_setting_personnel');
 					$this->db->where("major_type='$type'
 								AND major_id = (SELECT major_id from `major`
 												WHERE NameMajor_sub = '$nameMaj')
-								AND status_id = '3'
-								AND personnelID!='NULL'");
+								AND personnel_id!='NULL'");
 					$MajRes = $this->db->get();
 
 					if($MajRes->result()){
 
 						$aprover = "SELECT *
-    						FROM `major_setting`,`personnel`
+    						FROM `major_setting_personnel`,`personnel`
     						WHERE major_id=(
         						SELECT major_id
         						from major
         						where NameMajor_sub = '$nameMaj')
-        					AND major_setting.personnelID = personnel.personnelID
-    						AND major_type = '$type'
-    						AND status_id = '3' LIMIT 1";
+        					AND major_setting_personnel.personnel_id = personnel.personnelID
+    						AND major_type = '$type'";
 
     						$sum = $this->db->query($aprover);
-    						$aprove = $sum->row();
+    						
 						?>
 						<h2>approvers</h2>
 						<table class="table table-hover table-bordered  table-striped">
@@ -45,32 +44,37 @@
                                         <th>Name</th>
                                         <th>Major</th>
                                         <th>TYPE</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><?php echo $aprove->personnelID;?></td>
-                                        <td><?php echo $aprove->title;?></td>
-                                        <td><?php echo $aprove->personnelName." ".$aprove->personnelSName;?></td>
-                                        <td><?php echo $nameMaj;?></td>
-                                        <td><?php echo $type;?></td>
-                                    </tr>
-                                </tbody>
+                                    <?php
+                                    		foreach ($sum->result() as $key ) {
+                                    			echo "<tr>";
+                                    			echo "<td>$key->personnel_id</td>";
+                                    			 echo "<td>$key->title</td>";
+                                    			 echo "<td>$key->personnelName $key->personnelSName</td>";
+                                    			 echo "<td>$nameMaj</td>";
+                                    			 echo "<td>$type</td>";
+                                    			 echo '<td> <center><a href="'.base_url('project-coop/index.php/Fun_sidebar_admin/delassign?id='.$key->personnel_id.'&type='.$type.'&major='.$nameMaj.'&fac='.$nameFac).'" class="btn btn-raised btn-primary waves-effect">delete</a></center></td>' ;
+                                    			 echo "</tr>";
+                                    		}
+                                    	?>
+                                    </tbody>
                             </table>
 						<?php
-						$que = "SELECT * FROM `personnel`,`faculty`
-						WHERE faculty.Fac_ID = personnel.Fac_ID
-						AND faculty.NameFac_sub = '$nameFac'
-						AND personnel.Position='lecture'
-						AND personnel.personnelID!=(
-							SELECT personnelID
-    						FROM `major_setting`
-    						WHERE major_id=(
-        						SELECT major_id
-        						from major
-        						where NameMajor_sub = '$nameMaj')
-    						AND major_type = '$type'
-    						AND status_id = '3' LIMIT 1)";
+						$que = "SELECT * FROM personnel,faculty 
+								WHERE faculty.Fac_ID = personnel.Fac_ID
+								AND faculty.NameFac_sub = '$nameFac'
+								AND personnel.Position = 'lecture'
+								AND personnel.personnelID NOT IN(
+		    							SELECT personnel_id 
+		    							FROM major_setting_personnel
+		    							WHERE major_id =(
+												SELECT major_id FROM major WHERE NameMajor_sub = '$nameMaj'
+										)
+										AND major_type = '$type'
+								);";
 					}else{
 
 						$que = "SELECT * FROM `personnel`,`faculty`
@@ -85,14 +89,13 @@
 
 					<thead>
 					 <tr>
-							 <td></td>
+							 
 							 <td>ID</td>
-							 <td>Title</td>
 							 <td>Title</td>
 							 <td>Name</td>
 							 <td>Surname</td>
-							 <td>Major</td>
-
+							 <td>Faculty</td>
+							 <td></td>
 
 					 </tr>
 			 </thead>
@@ -103,14 +106,13 @@
 					foreach ($res->result() as $key ) {
 						$no++;
 						echo "<tr>";
-						echo "<td></td>";
 						echo "<td>$key->personnelID</td>";
-						echo "<td></td>";
 						echo "<td>$key->title</td>";
 						echo "<td>$key->personnelName</td>";
 						echo "<td>$key->personnelSName</td>";
 						echo "<td>$key->NameFac_sub</td>";
-						//echo "<td> <button type='button' class='btn  btn-raised btn-info waves-effect'>Save</button> </td> " ;
+						
+						echo '<td> <center><a href="'.base_url('project-coop/index.php/Fun_sidebar_admin/assign?id='.$key->personnelID.'&type='.$type.'&major='.$nameMaj.'&fac='.$nameFac).'" class="btn btn-raised btn-primary waves-effect">set approve</a></center></td>' ;
 						echo "</tr>";
 					}
 				?>
@@ -128,36 +130,13 @@
 		var type = document.getElementById("type").value;
  		var major = document.getElementById("major").value;
  		var fac = document.getElementById("fac").value;
-		$(document).ready(function() {
+		$(document).ready(function(){
 		  table = $('#example').DataTable({
-		    columnDefs: [{
-		      orderable: false,
-		      className: 'select-checkbox',
-		      targets: 0,
-		    }, {
-		      "targets": [2],
-		      "visible": false,
-		      "searchable": false
-		    }],
-		     select: {
-		      style: 'multi',
-		      selector: 'td:first-child'
-		     },
-		     order: [
-		       [1, 'asc']
-		     ]
+		    
 		  });
 
 		});
-		$('#btnSelectedRows').on('click', function() {
-		  var tblData = table.rows('.selected').data();
-		  $.each(tblData, function(i, val) {
-		    teacher.push(tblData[i]) ;
-				//alert(tblData[i])
-				 window.location = "http://localhost/project-coop/index.php/Fun_sidebar_admin/assign?id="+teacher+"&type="+type+"&major="+major+"&fac="+fac
-
-		  });
-		})
+		
 		</script>
 
 </section>
