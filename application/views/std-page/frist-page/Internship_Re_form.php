@@ -47,7 +47,7 @@
 
 													<input type="hidden" name="authid" value=<?php echo $_SESSION['stdid']; ?>>
 													<input type="hidden" name="type" value=<?php echo $_GET['type']; ?>>
-                          <a href='#' onclick="document.getElementById('sendrequestform').submit()" class="btn btn-raised btn-success waves-effect" >SEND</a>
+                          <button href='#' onclick="document.getElementById('sendrequestform').submit()" class="btn btn-raised btn-success waves-effect" >SEND</button>
 
 
                         </center>
