@@ -21,7 +21,7 @@ class student_model extends CI_Model
         // print_r($data);
 				// echo 'adasd';
         //$this->std_status_id = '';
-        $this->status = 'request';
+        $this->status = 'Choosing';
         $this->std_id = $_SESSION['stdid'];
 
         $this->db->insert('student_status', $this);
