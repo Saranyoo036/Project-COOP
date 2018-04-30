@@ -60,6 +60,8 @@ class Authentication extends CI_Controller{
 						$_SESSION['stdmajorid'] = $result[0]['major_id'];
 						$_SESSION['std_type'] = $result[0]['std_type'];
 
+						$this->checktime();
+
 
 						//echo $_SESSION['std_status'];
 						// print_r($row);
@@ -102,6 +104,25 @@ class Authentication extends CI_Controller{
 	$this->load->view('teacher-page/home');
 	$this->load->view('script');
 }
+
+	public function checktime()
+	{
+		$query = $this->db->query("SELECT*FROM major_setting WHERE major_id =".$_SESSION['stdmajorid']." AND status_id = 2 AND major_type ='".$_SESSION['std_type']."'");
+		$row = $query->result_array();
+		$date = date_create(date('Y-m-d'));
+		$datedb = date_create('2018-04-28');
+		$diff=date_diff($datedb,$date);
+		echo  $difday = $diff->format("%R%a days"); // date_diff get value from 2nd property - 1st property
+	// sample format -> print_r($diff->format("%R%y year %R%h hours %R%i min %R%s sec"));
+		if($difday[0]=='+'){
+			//echo ' this day';
+			//$_SESSION['std_status'] = 'Request';
+		}
+		else{
+		 	//echo 'cannot go to select company';
+		 	$_SESSION['std_status'] = 'Request';
+		}
+	}
 
 
 }

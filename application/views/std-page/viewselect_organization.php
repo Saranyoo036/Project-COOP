@@ -28,11 +28,13 @@
 													<thead>
 													<tr>
 														<td>NO.</td>
+														<th>Position</th>
 														<th>Name</th>
 														<th>Subsidiary</th>
 														<th>Province</th>
 														<th>Contact</th>
 														<td>View</td>
+														
 
 													</tr>
 												</thead>
@@ -44,6 +46,7 @@
 														$no++;
 														echo "<tr>";
 														echo "<td>$no</td>";
+														echo "<td>$company->Position_name</td>";
 														echo "<td>$company->company_name</td>";
 														echo "<td>$company->address</td>";
 														echo "<td>$company->provice</td>";
@@ -54,7 +57,10 @@
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>
-														<?php echo "</tr>";
+
+														<?php
+
+														 echo "</tr>";
 													}
 												?>
 											</tbody>

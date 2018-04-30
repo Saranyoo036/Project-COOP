@@ -24,24 +24,24 @@ class student_view_con extends CI_Controller{
 
 		$this->load->library('email');
 
-		//SMTP & mail configuration
+	//SMTP & mail configuration
 		$config = array(
-    	'protocol'  => 'smtp',
-    	'smtp_host' => 'ssl://smtp.gmail.com',
-    	'smtp_port' => 465,
-    	'smtp_user' => 'sandna03@gmail.com',
-    	'smtp_pass' => 'kakz8654[]',
-    	'mailtype'  => 'html',
-    	'charset'   => 'utf-8'
+		'protocol'  => 'smtp',
+		'smtp_host' => 'ssl://smtp.gmail.com',
+		'smtp_port' => 465,
+		'smtp_user' => 'sandna03@gmail.com',
+		'smtp_pass' => 'kakz8654[]',
+		'mailtype'  => 'html',
+		'charset'   => 'utf-8'
 		);
 		$this->email->initialize($config);
 		$this->email->set_mailtype("html");
 		$this->email->set_newline("\r\n");
 
 		//Email content
-		$htmlContent = '<h1>Sending email via SMTP server</h1>';
-		$htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application.</p>';
-		$htmlContent .= "your status is $status";
+		$htmlContent = '<h1>Email from PSU COOP system via SMTP </h1>';
+		$htmlContent .= "<p>System admin has change your status to $status</p>";
+		// $htmlContent .= "your status is $status";
 
 		$this->email->to($email);
 		$this->email->from('ilchaose_kakz@live.com','PSU Coop Application');

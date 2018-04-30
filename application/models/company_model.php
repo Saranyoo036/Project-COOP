@@ -6,11 +6,24 @@ class company_model extends CI_Model
     public function showallcompany()
     {
 
-      $query = $this->db->query("SELECT * FROM company WHERE company_type = '".$_SESSION['std_type']."' AND Major_ID =".$_SESSION['stdmajorid']);
+      $query = $this->db->query("SELECT Position_name,company.*
+				 FROM company_position
+				 INNER JOIN company
+				 ON company_position.company_id = company.company_id
+				 WHERE company_type = '".$_SESSION['std_type']."' AND Major_ID =".$_SESSION['stdmajorid'].
+				 "
+				  ORDER BY company_id");
       $row = $query->result();
       //print_r($row);
       return $row;
     }
+
+		public function numberperso($companyid)
+		{
+			$query = $this->db->query("SELECT ");
+			$row = $query->result_array();
+			return $row;
+		}
 
 		 public function addnewcompany($data)
      {

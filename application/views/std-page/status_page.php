@@ -7,8 +7,8 @@
 
 			</ul>
 		</div>
-<?php print_r($mystatus[2]);
- ?>
+<!-- <?php print_r($mystatus[2]);
+ ?> -->
 
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
@@ -90,7 +90,7 @@
 
 															<tbody>
 																	<tr>
-																		<?php if ($mystatus[2][0]==Array()) { ?>
+																		<?php if ($mystatus[2]==Array()) { ?>
 																			<td><h5>COOP0202-1</h5></td>
 																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a> </td>
 																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
@@ -100,7 +100,7 @@
 																			<td><h5>COOP0202-1</h5></td>
 																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
 																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
-																			<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+																			<td><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 																		<?php }
 																		 ?>
@@ -130,7 +130,7 @@
 																			<td><h5>COOP0202-2</h5></td>
 																			<td><a href="#"  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
 																			<td><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
-																			<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+																			<td><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 																		<?php }
 																		 ?>
@@ -228,7 +228,7 @@
 
 									<tbody>
 											<tr>
-												<?php if ($mystatus[2][0]==Array()) {
+												<?php if ($mystatus[2]==Array()) {
 													// code...
 												}
 												else{ ?>
@@ -304,7 +304,7 @@
 
 									<tbody>
 											<tr>
-												<?php if ($mystatus[2][0]==Array()) {
+												<?php if ($mystatus[2]==Array()) {
 													// code...
 												}
 												else{ ?>
@@ -356,14 +356,14 @@
 
 									<tbody>
 											<tr>
-												<?php if ($mystatus[2][0]==Array()) {
+												<?php if ($mystatus[2]==Array()) {
 													// code...
 												}
 												else{ ?>
 													<td><h5>COOP0202-1</h5></td>
 													<td><a href='#'  class="btn btn-raised g-bg-blue waves-effect"> sent</a> </td>
 													<td><a href=""  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a> </td>
-													<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view</a></td>
+													<td><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></td>
 
 												<?php }
 												 ?>
@@ -433,7 +433,7 @@
 
 									<tbody>
 											<tr>
-												<?php if ($mystatus[2][0]==Array()) {
+												<?php if ($mystatus[2]==Array()) {
 													// code...
 												}
 												else{ ?>
@@ -452,6 +452,15 @@
 
 			<?php	}
 			}
+			else{ ?>
+				<div class="alert alert-danger">
+					<center>
+          <strong>ขออภัย : </strong>
+					<a  href="javascript:void(0);" class="alert-link">ขณะนี้ระบบไม่อยู่ในช่วงที่เปิดให้เลือกสถานประกอบการ</a>
+					กรุณาเข้าสู่ระบบอีกครั้งเมื่อถึงเวลา
+				</center>
+        </div>
+			<?php }
 
 			 ?>
 

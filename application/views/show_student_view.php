@@ -13,7 +13,7 @@
             <td>Major</td>
             <td>Status</td>
             <td>COOP 0103</td>
-            <?php 
+            <?php
               if($type=="COOP"){
                 echo "<td>COOP 0202-01</td>";
                 echo "<td>COOP 0202-02</td>";
@@ -21,7 +21,7 @@
                 echo "<td>COOP 0202</td>";
               }
             ?>
-           
+
             <td>Print</td>
             <td>Delete</td>
           </tr>
@@ -44,11 +44,11 @@
             echo "<td>$key->std_name</td>";
             echo "<td>$key->Faculty_name</td>";
             echo "<td>$key->Major_name</td>";
-            /////status//////  
+            /////status//////
             echo "<td>";
             echo '<input type="hidden" name = "undoOption" id="undoOption" value="'.$key->status.'-'.$STD_ID.'">';
             echo '<select class="status-select">';
-            for ($i=0; $i<count($status);$i++) { 
+            for ($i=0; $i<count($status);$i++) {
               if($status[$i]==$key->status){
                 echo '<option selected = "true" value="'.$status[$i].'-'.$STD_ID.'">'.$status[$i].'</option>';
               }else{
@@ -72,10 +72,10 @@
 
               }
               ///////form103////////
-            //////form202///////  
+            //////form202///////
               if($type=="COOP"){
                 $sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
-                $num_STD = 0; 
+                $num_STD = 0;
                 $re =$this->db->query($sql);
                 foreach ($re->result() as $key ) {
                   $num_STD=$key->num_STD;
@@ -92,7 +92,7 @@
                 }
               }else if($type=="internship"){
                 $sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
-                $num_STD = 0; 
+                $num_STD = 0;
                 $re =$this->db->query($sql);
                 foreach ($re->result() as $key ) {
                    $num_STD=$key->num_STD;
@@ -104,7 +104,7 @@
                 }
               }
             ///////form202//////
-            
+
            ?>
            <td><div class="btn-group" role="group">
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
@@ -134,12 +134,12 @@ $(document).ready(function() {
   table = $('#example').DataTable({
 
   });
- 
+
 });
 
 $(".status-select").change(function(){
   var undo = $("#undoOption").val();
-  var data = this.value ; 
+  var data = this.value ;
   var sp = data.split('-');
   if(sp[0]=="Approving"){
     alert("ไม่สามารถเปลี่ยนแปลงไปยังสถานะ Approving ได้");
@@ -148,7 +148,9 @@ $(".status-select").change(function(){
   jQuery.ajax({
             url: "<?php echo base_url("/project-coop/index.php/student_view_con/change_status?")?>id="+sp[1]+"&status="+sp[0],
             type: 'GET'
-            });
+          }).done(function(){
+            alert("send e-mail to student id = "+sp[1]+" complete")
+          });
 
       $("#undoOption").val(data);
   }
@@ -159,8 +161,3 @@ $(".status-select").change(function(){
 
 
 </script>
-
-
-
-
-

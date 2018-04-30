@@ -55,8 +55,46 @@
 		}
 		public function viewcompany($idea)
 		{
-			echo $idea;
+			//echo $idea;
+			$this->load->model('company_model');
+			$responsedata['responsedata'] = $this->company_model->view($idea);
+			echo '<pre>';
+			print_r($responsedata['responsedata']);
+			echo '</pre>';
+			$coop = (object) array(
+				'organization_name'=>$responsedata['responsedata']['query'][0]['company_name'],
+				'address'=>$responsedata['responsedata']['query'][0]['address'],
+				'moo'=>'a',
+				'soi'=>'a',
+				'street'=>'b',
+				'sub_dristrict'=>'asd',
+				'district'=>'asd',
+				'province'=>$responsedata['responsedata']['query'][0]['provice'],
+				'zip_code'=>'asd',
+				'tel'=>$responsedata['responsedata']['query'][0]['Tel'],
+				'fax'=>'asd',
+				'website'=>'asd',
+				'name'=>$responsedata['responsedata']['query'][0]['company_contract_name'],
+				'surname'=>$responsedata['responsedata']['query'][0]['company_contract_sname'],
+				'position'=>'asd',
+				'phone'=>'asd',
+				'email'=>'asd',
+				'job_position'=>'asd',
+				'skill'=>$responsedata['responsedata']['row']['Position_skill'],
+				'number_of_student'=>$responsedata['responsedata']['row']['Position_num'],
+				'job_description'=>$responsedata['responsedata']['row']['Position_desc'],
+				'responsibilities'=>'asd',
+				'candidate_requirements'=>'asd',
+				'allowance'=>'',
+				'transportation'=>'',
+				'accommodation'=>'',
+				'meal'=>'',
+				'other'=>'');
+			$data =array('coop0202'=>$coop);
+			$this->load->view('coop0202PDF',$data);
+
+		}
 		}
 
-}
+
 ?>
