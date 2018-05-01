@@ -2,6 +2,12 @@
 
 class  home_model extends CI_Model
 	{
+		
+		public function __construct(){
+			parent::__construct();
+			date_default_timezone_set("Asia/Bangkok");
+
+		}
 
     public function showmajor($facid)
     {
@@ -26,9 +32,13 @@ class  home_model extends CI_Model
 			$query =$this->db->query('SELECT status FROM student_status WHERE std_id ='.$stdid);
 			$row = $query->result_array();
 			if (isset($row[0])) {
-				$status = $row[0]['status'];
-				//echo $status;
+				if($row[0]['status']=="Request"){
+					return false;
+				}else{
+					$status = $row[0]['status'];
+				
 				return true;
+				}
 			}
 			else{
 				return false;
@@ -64,5 +74,81 @@ class  home_model extends CI_Model
 			$sql = "DELETE FROM `student` WHERE STD_ID=$id";
 			$this->db->query($sql);
 		}
+
+		public function checkReq($id){
+			$status = "";
+			$this->db->select('*');
+			$this->db->from('student_status');
+			$this->db->where("STD_ID = $id");
+			$this->db->limit(1);
+			$re = $this->db->get();
+			$res = $re->result_array();
+			if($res){
+				$this->db->select('*');
+				$this->db->from('major_setting');
+				$this->db->where("major_id =(select major_id from student where STD_ID = $id) AND status_id = 1");
+				$re1 = $this->db->get();
+				$res1 = $re1->result_array();
+				if($res1){
+					$data = array("COOP"=>false,"Internship"=>false);
+					foreach ($res1 as $key) {
+						if($key['major_type']=="COOP"){
+							$data["COOP"] = $this->checkdateBetween($key["start_date"],$key["end_date"]);
+						}
+						if($key['major_type']=="Internship"){
+							$data["Internship"] = $this->checkdateBetween($key["start_date"],$key["end_date"]);
+						}
+					}
+					return $data;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+			//$sql = "SELECT * FROM major_setting WHERE ";
+		}
+
+		public function checkdateBetween($datefrom,$dateto)
+		{
+			$now = date('Y-m-d');
+			$now = date('Y-m-d',strtotime($now));
+
+			$datefrom = date('Y-m-d',strtotime($datefrom));
+			$dateto = date('Y-m-d',strtotime($dateto));
+
+			if(($now>=$datefrom)&&($now<=$dateto)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		public function checktimestat($stat,$major,$type)
+		{
+			if(($stat=="Rechoosing")||($stat=="Repair")){
+				$stat = "RechoosingandRepair";
+			}
+			$sql = "SELECT * from major_setting where major_type = '$type' 
+												AND status_id = 
+															(select status_id 
+															from status 
+															where status_name = '$stat')
+												AND major_id = 
+															(select major_id 
+															from major 
+															where Major_name='$major')";
+			$re = $this->db->query($sql);
+			$res = $re->result_array();
+			if($res){
+				$chk = $this->checkdateBetween($res[0]["start_date"],$res[0]["end_date"]);
+				return $chk;
+				
+			}else{
+				return false;
+			}
+		}
+
+		
 }
 ?>

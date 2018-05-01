@@ -721,13 +721,7 @@
 
                                     <div class="row clearfix">
 
-                                        <div class="form-group col-md-6">
-                                            <a class="btn btn-raised btn-primary waves-effect" id="father" onclick="parentdata(this.id)">ใช้ข้อมูลบิดา (Use father's information)</a>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <a class="btn btn-raised btn-primary waves-effect" id="mother" onclick="parentdata(this.id)">ใช้ข้อมูลมารดา (Use mother's information)</a>
-
-                                        </div>
+                                       
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
@@ -1891,23 +1885,7 @@
                 <script type="text/javascript">
                 
               
-            function parentdata(id) {
-
-              document.getElementById('parent_name_2').value = document.getElementById(id+'_name_2').value
-              document.getElementById('age_parent_2').value = document.getElementById('age_'+id+'_2').value
-              document.getElementById('occupation_parent_2').value = document.getElementById('occupation_'+id+'_2').value
-              document.getElementById('address_parent_2').value = document.getElementById('address_'+id+'_2').value
-              document.getElementById('moo_parent_2').value = document.getElementById('moo_'+id+'_2').value
-              document.getElementById('soi_patent_2').value = document.getElementById('soi_'+id+'_2').value
-              document.getElementById('sub_district_parent_2').value = document.getElementById('sub_district_'+id+'_2').value
-              document.getElementById('district_parent_2').value = document.getElementById('district_'+id+'_2').value
-              document.getElementById('province_parent_2').value = document.getElementById('province_'+id+'_2').value
-              document.getElementById('zip_cord_parent_2').value = document.getElementById('zip_cord_'+id+'_2').value
-              document.getElementById('tel_parent_2').value = document.getElementById('tel_'+id+'_2').value
-              document.getElementById('fax_parent_2').value = document.getElementById('fax_'+id+'_2').value
-              document.getElementById('email_parent_2').value = document.getElementById('email_'+id+'_2').value
-
-            }
+            
             function sibling(number) {
 
               for (var i = 0; i < number; i++) {

@@ -53,7 +53,7 @@
 														echo "<td>$company->contract $company->Tel</td>";
 														 ?>
 														 	<td>
-							 <a href= <?php echo base_url("Project-COOP/STDPage/viewselectorganization/showview?position_id=".$company->Position_id."&company_id=".$company->company_id) ?> >
+							 <a href= <?php echo base_url("Project-COOP/STDPage/viewselectorganization/showedit?position_id=".$company->Position_id."&company_id=".$company->company_id."&old_posID=".$Pos_id) ?> >
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>

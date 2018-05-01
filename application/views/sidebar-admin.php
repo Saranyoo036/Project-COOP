@@ -12,11 +12,7 @@
                         <h3> <?php echo $_SESSION['logged_in']['username'];
                         $uname = $_SESSION['logged_in']['username'];
                          ?> </h3>
-                        <ul>
-
-                            <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
-
-                        </ul>
+                        
                     </div>
                 </div>
                 <!-- #User Info -->

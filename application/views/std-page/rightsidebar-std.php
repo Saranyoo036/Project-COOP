@@ -14,9 +14,7 @@
                     <div class="admin-action-info"> <span><?php echo $_SESSION['stdid'] ?></span>
                         <h3><?php echo $_SESSION['std_name'].' '.$_SESSION['std_sname']?> </h3>
                         <ul>
-                            <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>
-                            <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
-                            <li><a data-placement="bottom" title="Full Screen" href=<?php echo base_url("Project-COOP/authentication/log_out") ?> ><i class="zmdi zmdi-sign-in"></i></a></li>
+                           
                         </ul>
                     </div>
                 </div>

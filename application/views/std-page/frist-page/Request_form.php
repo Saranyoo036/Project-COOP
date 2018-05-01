@@ -21,15 +21,26 @@
 
                       <li>Student ID <?php echo $_SESSION['stdid']; ?> </li>
 
-                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=Internship&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-success waves-effect" >INTERNSHIP</a>
-                          <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=COOP&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-primary waves-effect" >COOPERETIVE</a>
+                      <?php 
+                        $this->load->model('home_model');
+                        $res = $this->home_model->checkReq( $_SESSION['stdid']);
+                        if($res){
+                              if($res["COOP"]){ ?>
+                                 <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=COOP&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-primary waves-effect" >COOPERETIVE</a>
+                              <?php }
+                              if($res["Internship"]){ ?>
+                                 <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=Internship&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-success waves-effect" >INTERNSHIP</a>
+                             <?php }
+                        }else{
+                            echo "<li>หมดช่วงเวลาในการ ขอฝึกงานหรือสหกิจแล้วโปรดติดต่อเจ้าหน้าที่ </li>";
+                        }
 
-                          <!--
-                            <button class="btn btn-raised btn-success waves-effect"  type="button"><a href="<?php echo base_url(); ?>TipsTricks/TipsTricks/Tips_Tricks" >INTERNSHIP</a></button>
-                          &nbsp; &nbsp;
-                            <button class="btn btn-raised btn-primary waves-effect"  type="button"><a href="<?php echo base_url(); ?>TipsTricks/TipsTricks/Tips_Tricks" >COOPERETIVE</a></button>
 
-                          -->
+                      ?>
+
+                         
+                         
+                        
                       </center>
 
                     </div>

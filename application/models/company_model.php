@@ -5,16 +5,22 @@ class company_model extends CI_Model
 
     public function showallcompany()
     {
+      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.company_id NOT IN (SELECT company_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." ) ORDER BY company_id";
 
-      $query = $this->db->query("SELECT Position_name,company.*
-				 FROM company_position
-				 INNER JOIN company
-				 ON company_position.company_id = company.company_id
-				 WHERE company_type = '".$_SESSION['std_type']."' AND Major_ID =".$_SESSION['stdmajorid'].
-				 "
-				  ORDER BY company_id");
+
+      $query = $this->db->query($sql);
       $row = $query->result();
       //print_r($row);
+      return $row;
+    }
+
+    public function showallcompanyedit()
+    {
+      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.Position_id NOT IN (SELECT Position_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." ) ORDER BY company_id";
+
+      $query = $this->db->query($sql);
+      $row = $query->result();
+      print_r($sql);
       return $row;
     }
 
@@ -49,14 +55,14 @@ class company_model extends CI_Model
        $this->db->where('company_id', $id);
        $this->db->delete('company');
      }
-     public function view($id)
+     public function view($id,$posid)
      {
        $this->db->select('*');
        $this->db->from('company');
        $this->db->where('company_id='.$id);
        $query = $this->db->get();
        $query= $query->result_array();
-			 $query2 = $this->db->query("SELECT * FROM company_position WHERE `company_id`= '".$id."'");
+			 $query2 = $this->db->query("SELECT * FROM company_position WHERE `Position_id`= '".$posid."'");
 			 $row = $query2->result_array()[0];
 			 $return = array('row' =>$row ,'query'=>$query );
 			 //print_r($return);

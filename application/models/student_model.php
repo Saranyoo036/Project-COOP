@@ -18,14 +18,8 @@ class student_model extends CI_Model
      }
      public function sendrequest($data)
      {
-        // print_r($data);
-				// echo 'adasd';
-        //$this->std_status_id = '';
-        $this->status = 'Choosing';
-        $this->std_id = $_SESSION['stdid'];
-
-        $this->db->insert('student_status', $this);
-        //print_r($data);
+     	$sql ="UPDATE student_status SET status ='Choosing' WHERE STD_ID = ".$_SESSION['stdid'];
+      	$this->db->query($sql);
 				$this->db->where('STD_ID', $_SESSION['stdid']);
 				$this->db->update('student', array(
 				'std_type'=>$data['type'],
@@ -36,7 +30,7 @@ class student_model extends CI_Model
      }
 		 public function mystatus()
 		 {
-		 	$query = $this->db->query("SELECT student.STD_ID,std_name,std_sname,status,
+		 	$query = $this->db->query("SELECT student.STD_ID,std_name,std_sname,status,student.std_email,student.std_tel,
 				(SELECT faculty.Faculty_name FROM faculty WHERE faculty.Fac_ID = (SELECT major.Fac_ID FROM major WHERE major.Major_ID = (SELECT major_id FROM student WHERE STD_ID = $_SESSION[stdid]))) AS faculty ,
 				(SELECT major.Major_name FROM major WHERE major.Major_ID = (SELECT student.major_id FROM student WHERE student.STD_ID = $_SESSION[stdid])) AS major
 				FROM`student`
@@ -65,12 +59,20 @@ class student_model extends CI_Model
        return $row;
      }
 
-		 public function addfirstcompany($companyid)
+		 public function addfirstcompany($data)
 		 {
 			 $date = date('Y-m-d H:i:s');
 			 $this->STD_ID = $_SESSION['stdid'];
-			 $this->company_id = $companyid;
+			 $this->company_id = $data['companyid'];
 			 $this->Time_select = $date;
+			 $this->Position_id = $data['positionid'];
+			 $this->subject_code=$data['subjectcode'];
+			 $this->subject_year=$data['subjectyear'];
+			 $this->subject_result=$data['subjectresult'];
+			 $this->certificate=$data['certificate'];
+			 $this->certificate_time=$data['time'];
+			 $this->start_cer=$data['start_cer'];
+			 $this->end_cer=$data['end_cer'];
 			 //echo $this->address;
 
 			 $this->db->insert('student_company', $this);
@@ -78,47 +80,75 @@ class student_model extends CI_Model
 
 		 }
 
-		 public function addsecondcompany($companyid)
+		 public function addsecondcompany($data)
 		 {
 			 $date = date('Y-m-d H:i:s');
 			 $this->STD_ID = $_SESSION['stdid'];
-			 $this->company_id = $companyid;
+			 $this->company_id = $data['companyid'];
 			 $this->Time_select = $date;
+			 $this->Position_id = $data['positionid'];
+			 $this->subject_code=$data['subjectcode'];
+			 $this->subject_year=$data['subjectyear'];
+			 $this->subject_result=$data['subjectresult'];
+			 $this->certificate=$data['certificate'];
+			 $this->certificate_time=$data['time'];
+			 $this->start_cer=$data['start_cer'];
+			 $this->end_cer=$data['end_cer'];
 			 //echo $this->address;
 
 			 $this->db->insert('student_company', $this);
 
 		 }
-		 public function checkfirstcompany($companyid)
+		 public function checkfirstcompany($data)
 		 {
+
 			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] ");
        $row = $query->result_array();
 			 if(isset($row[0])){
 				 //print_r($row[0]);
-				 $this->checksecondcompany($companyid);
+				 $this->checksecondcompany($data);
 			 }
 
 			 else{
-				 $this->addfirstcompany($companyid);
+				 $this->addfirstcompany($data);
 
 			 }
 
 		 }
 
-		 public function checksecondcompany($companyid)
+		 public function checksecondcompany($data)
 		 {
+		 	$companyid=$data['companyid'];
+		 	$positionid=$data['positionid'];
 			 $query = $this->db->query("SELECT * FROM student_company ");
-       $row = $query->result_array();
+       		$row = $query->result_array();
 			 print_r($row);
 			// echo $row[0]['company_id'];
-			 if ($companyid==$row[0]['company_id']||$companyid==$row[1]['company_id']) {
-				 echo 'asdasd';
-
-			 }
+			 if ($companyid==$row[0]['company_id']||$companyid==$row[1]['company_id']) {}
 			 else{
-				$this->addsecondcompany($companyid);
+				$this->addsecondcompany($data);
 			 }
 
+
+		 }
+
+		 public function edit0202($data)
+		 {
+		 	
+		 	$date = date('Y-m-d H:i:s');
+		 	$up = array('company_id'=>$data['companyid'],
+		 				'Time_select' =>$date,
+		 				'status_student_company_id' => 0 ,
+		 				'Position_id' => $data['positionid'],
+		 				'subject_code'=>$data['subjectcode'],
+		 				'subject_year'=>$data['subjectyear'],
+		 				'subject_result'=>$data['subjectresult'],
+		 				'certificate'=>$data['certificate'],
+		 				'certificate_time'=>$data['time'],
+		 				'start_cer'=>$data['start_cer'],
+		 				'end_cer'=>$data['end_cer']);
+		 	$this->db->where("STD_ID = $_SESSION[stdid] AND Position_id = $data[old_posID]");
+		 	$this->db->update('student_company',$up);
 
 		 }
 
@@ -131,8 +161,8 @@ class student_model extends CI_Model
 
 		 public function checkinterncompany()
 		 {
-			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] ");
-       $row = $query->result_array();
+			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] AND ((status_student_company_id = 1) OR (status_student_company_id = 0))");
+       		$row = $query->result_array();
 
 			 return $row;
 
@@ -370,7 +400,11 @@ class student_model extends CI_Model
        $this->db->query($updata);
      }
 
-
+     public function sent_choosing($id)
+     {
+     	$sql = "UPDATE student_status SET status='Approving' WHERE STD_ID = $id";
+     	$this->db->query($sql);
+     }
 
 }
 ?>
