@@ -7,8 +7,7 @@
 
 			</ul>
 		</div>
-  <?php print_r($mystatus);
- ?>  
+ 
  
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
@@ -84,6 +83,42 @@
 								กรุณาเข้าสู่ระบบอีกครั้งเมื่อถึงเวลา
 					</center>
         		</div>
+        		<?php  
+							if($coop0103){ ?>
+        		<div class="col-md-12">
+				<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<td><center><h5>COOP0103</h5></center></td>
+						
+								<td><center><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+						
+
+					</tbody>
+				</table>
+			</div>
+			<?php } ?>
+				<?php  if($coop0202_1){ ?>
+				<div class="col-md-12">
+				<table class="table table-hover table-bordered  table-striped">
+					<tbody>
+						<td><center><h5>COOP0202-1</h5></center></td>
+								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+						</tbody>
+				</table>
+			</div>
+			<?php } ?>
+			<?php if($_SESSION['std_type']=="COOP"){ 
+								if($coop0202_2){ ?>
+					<div class="col-md-12">
+						<table class="table table-hover table-bordered  table-striped">
+							<tbody>
+								<td><center><h5>COOP0202-2</h5></center></td>
+								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+							</tbody>
+						</table>
+					</div>
+								<?php } ?>
+								<?php } ?>
 
 			<?php }else{ ?>
 				<div class="col-md-12">
@@ -106,6 +141,7 @@
 					</tbody>
 				</table>
 			</div>
+
 			<div class="col-md-12">
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
