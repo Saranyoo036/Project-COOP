@@ -57,26 +57,42 @@ class Teacher_model extends CI_Model
 		{
 
 			$sql1 ="UPDATE `student_company` SET status_student_company_id = 1 WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
-			$sql2 = "UPDATE `student_company` SET status_student_company_id = 2 WHERE STD_ID=$id AND company_id != $com";
-			$sql3 = "UPDATE `student_status` SET status = 'Waiting' WHERE STD_ID = $id";
 			$this->db->query($sql1);
-			$this->db->query($sql2);
-			$this->db->query($sql3);
+			//$sql2 = "UPDATE `student_company` SET status_student_company_id = 2 WHERE STD_ID=$id AND company_id != $com";
+			
+			$this->db->select('*');
+			$this->db->from('student_company');
+			$this->db->where("STD_ID = $id AND status_student_company_id = 1");
+			$re1 = $this->db->get();
+			if($re1->result()){
+				$sql2 = "UPDATE `student_status` SET status = 'Printing' WHERE STD_ID = $id";
+				$this->db->query($sql2);
+			}
+
+			$this->db->select('*');
+			$this->db->from('student_company');
+			$this->db->where("STD_ID = $id AND status_student_company_id = 2");
+			$re2 = $this->db->get();
+			if($re2->result()){
+				$sql3 = "UPDATE `student_status` SET status = 'Rechoosing' WHERE STD_ID = $id";
+				$this->db->query($sql3);
+			}
+			
 		}
 
-		public function unApproveSTD($id,$com,$pos)
+		public function unApproveSTD($id,$com,$pos,$note)
 		{
-			$sql1 ="UPDATE `student_company` SET status_student_company_id = 2 WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
+			$sql1 ="UPDATE `student_company` SET status_student_company_id = 2 ,note = '$note' WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
 			$this->db->query($sql1);
 
 			$this->db->select('*');
 			$this->db->from('student_company');
-			$this->db->where("STD_ID = $id AND status_student_company_id = 0 ");
+			$this->db->where("STD_ID = $id AND ((status_student_company_id = 1) OR (status_student_company_id = 2))");
 			$re = $this->db->get();
-			if($re->result()){}else{
+			if($re->result()){
 				$sql3 = "UPDATE `student_status` SET status = 'Rechoosing' WHERE STD_ID = $id";
 				$this->db->query($sql3);
 			}
 		}
-}
+	}
 ?>

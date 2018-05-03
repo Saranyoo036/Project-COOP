@@ -6,7 +6,23 @@ class Teacher_con extends CI_Controller {
 	{
 		$this->load->view('top-bar-teacher');
 		$this->load->view('teacher-page/rightsidebar-teacher');
-		$this->load->view('teacher-page/home');
+		
+		$this->load->view('script');
+	}
+
+	public function appCOOP()
+	{
+		$this->load->view('top-bar-teacher');
+		$this->load->view('teacher-page/rightsidebar-teacher');
+		$this->load->view('teacher-page/home-intern');
+		$this->load->view('script');
+	}
+
+	public function appintern()
+	{
+		$this->load->view('top-bar-teacher');
+		$this->load->view('teacher-page/rightsidebar-teacher');
+		$this->load->view('teacher-page/home-coop');
 		$this->load->view('script');
 	}
 
@@ -54,7 +70,7 @@ class Teacher_con extends CI_Controller {
 	public function unApproveStudent()
 	{
 		$this->load->model('Teacher_model');
-		$this->Teacher_model->unApproveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID']);
+		$this->Teacher_model->unApproveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID'],$_GET['Note']);
 		redirect(base_url('Project-COOP/Teacher_con/homeTeacher'));
 	}
 
@@ -67,6 +83,19 @@ class Teacher_con extends CI_Controller {
 			$this->load->view('teacher-page/rightsidebar-teacher');
 			$this->load->view('std-page/view103form',$data);
 			$this->load->view('script');
+	}
+
+	public function NoteUnApprove()
+	{
+		$data = array(
+						'STD_ID'=>$_GET['STD_ID'],
+						'comID'=>$_GET['comID'],
+						'posID'=>$_GET['posID']
+					);
+		$this->load->view('top-bar-teacher');
+		$this->load->view('teacher-page/rightsidebar-teacher');
+		$this->load->view('teacher-page/unAppNote',$data);
+		$this->load->view('script');
 	}
 }
 

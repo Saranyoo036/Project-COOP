@@ -9,12 +9,12 @@
 	 <div class="card">
 
                         <div class="header">
-                            <h2>คำร้องขอจากนักศึกษา (Requests from students)</h2>
+                            <h2>คำร้องขอจากนักศึกษาสหกิจ (Requests from students COOP)</h2>
 
 
                             <div class="body">
                                 <div class="table-responsive">
-																	<table class="table">
+										<table class="table">
 	                                        <thead>
 	                                            <tr>
 	                                                <!-- <th>#</th> -->
@@ -28,7 +28,7 @@
 	                                        <tbody>
 	                                        <?php
 	                                        $TID = $_SESSION['logged_in']['username'];
-	                                        $sql = "SELECT * FROM `major_setting_personnel` WHERE `personnel_id` = $TID";
+	                                        $sql = "SELECT * FROM `major_setting_personnel` WHERE major_type = 'COOP' AND `personnel_id` = $TID";
 	                                        $res = $this->db->query($sql);
 	                                            foreach ($res->result() as $key) {
 	                                               $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
@@ -59,5 +59,5 @@
                             </div>
                         </div>
                     </div>
-									</div>
+				</div>
 	</section>

@@ -161,7 +161,7 @@ class student_model extends CI_Model
 
 		 public function checkinterncompany()
 		 {
-			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] AND ((status_student_company_id = 1) OR (status_student_company_id = 0))");
+			 $query = $this->db->query("SELECT * FROM student_company WHERE STD_ID = $_SESSION[stdid] ");
        		$row = $query->result_array();
 
 			 return $row;

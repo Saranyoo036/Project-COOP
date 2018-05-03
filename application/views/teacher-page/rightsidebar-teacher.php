@@ -9,19 +9,15 @@
                 <div class="user-info">
                     <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
-                        <h3>John Smith</h3>
-                        <ul>
-                            <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>
-                            <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
-                            <li><a data-placement="bottom" title="Full Screen" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
-                        </ul>
+                        <h3><?php echo $_SESSION['logged_in']['username']; ?></h3>
                     </div>
                 </div>
                 <!-- #User Info --> 
             </li>
             <li class="header">เมนูหลัก</li>
-            <li class="active open"><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/homeTeacher"><i class="zmdi zmdi-home"></i><span>Home</span> </a></li>
- 
+            <li ><a href="#"><i class="zmdi zmdi-home"></i><span>NEWS</span> </a></li>
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/appCOOP"><i class="zmdi zmdi-home"></i><span>Approve-COOP</span> </a></li>
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/appintern"><i class="zmdi zmdi-home"></i><span>Approve-Internship</span> </a></li>
  
             <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li>
  

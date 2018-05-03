@@ -16,7 +16,7 @@ class company_model extends CI_Model
 
     public function showallcompanyedit()
     {
-      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.Position_id NOT IN (SELECT Position_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." ) ORDER BY company_id";
+      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.Position_id NOT IN (SELECT Position_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." AND status_student_company_id = 1) ORDER BY company_id";
 
       $query = $this->db->query($sql);
       $row = $query->result();

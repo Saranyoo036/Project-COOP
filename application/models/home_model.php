@@ -95,7 +95,7 @@ class  home_model extends CI_Model
 						if($key['major_type']=="COOP"){
 							$data["COOP"] = $this->checkdateBetween($key["start_date"],$key["end_date"]);
 						}
-						if($key['major_type']=="Internship"){
+						if($key['major_type']=="internship"){
 							$data["Internship"] = $this->checkdateBetween($key["start_date"],$key["end_date"]);
 						}
 					}
@@ -106,7 +106,7 @@ class  home_model extends CI_Model
 			}else{
 				return false;
 			}
-			//$sql = "SELECT * FROM major_setting WHERE ";
+			
 		}
 
 		public function checkdateBetween($datefrom,$dateto)

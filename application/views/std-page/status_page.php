@@ -69,7 +69,7 @@
     			}else{
     				$coop0202_2 = false;
     			} 
-
+    				
     		?>
 
     		
@@ -132,7 +132,7 @@
 
 						<?php }
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($coop0103)&&($mystatus[3])){ ?>
-								<td><center> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit your 103 form</a></center></td>
+								<td><center> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit</a></center></td>
 						<?php } 
 							if($coop0103){ ?>
 								<td><center><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
@@ -145,12 +145,17 @@
 			<div class="col-md-12">
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
-						<td><center><h5>COOP0202-1</h5></center></td>
+						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php 
+							if($mystatus[2][0]['note']){
+    							echo '<font color="red">หมายเหตุ : '.$mystatus[2][0]['note'].'</font>';
+    						}
+						?>
+						</center></td>
 						<?php
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&!$coop0202_1){ ?>
 								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center></td>
 							<?php }
-							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1){ ?>
+							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1&&($mystatus[2][0]['status_student_company_id']!=1)){ ?>
 								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][0]['company_id']."&Position_id=".$mystatus[2][0]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center></td>
 							<?php } 
 							if($coop0202_1){ ?>
@@ -164,12 +169,19 @@
 					<div class="col-md-12">
 						<table class="table table-hover table-bordered  table-striped">
 							<tbody>
-								<td><center><h5>COOP0202-2</h5></center></td>
+								<td><center><h5>COOP0202-2</h5><?php 
+								if($coop0202_2){
+									if($mystatus[2][1]['note']){
+		    							echo '<font color="red">หมายเหตุ : '.$mystatus[2][1]['note'].'</font>';
+		    						}
+		    					}
+								?>
+						</center></td>
 								<?php
 								if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&!$coop0202_2){?>
 									<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center></td>
 								<?php } 
-								if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_2){ ?>
+								if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_2&&($mystatus[2][1]['status_student_company_id']!=1)){ ?>
 									<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][1]['company_id']."&Position_id=".$mystatus[2][1]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center></td>
 								<?php } 
 								if($coop0202_2){ ?>
@@ -179,20 +191,26 @@
 					</table>
 				</div>
 				<?php }
-				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="COOP")&&$coop0202_2&&$coop0202_1&&$coop0103){ ?>
+				$have_coop0202_2 = true ; 
+				if($coop0202_2){
+					if($mystatus[2][1]['status_student_company_id']!=2){
+						$have_coop0202_2 = false;
+					}
+				}
+				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="COOP")&&$coop0202_1&&$coop0103&&($mystatus[2][0]['status_student_company_id']!=2)&&$have_coop0202_2){?>
 						<div class="col-md-12">
 							<table class="table table-hover table-bordered  table-striped">
 								<tbody>
-									<td><center><a href="<?php echo(base_url('Project-COOP/STDPage/statuspage/sentChoosing?std_id='.$_SESSION['stdid']));?>" class="btn btn-raised g-bg-blue waves-effect">Sent</a></center></td>
+									<td><center><a href="<?php echo(base_url('Project-COOP/STDPage/statuspage/sentChoosing?std_id='.$_SESSION['stdid']));?>" class="btn btn-raised g-bg-blue waves-effect">Send</a></center></td>
 								</tbody>
 							</table>
 						</div>
 				<?php } 
-				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="Internship")&&$coop0202_2&&$coop0103){ ?>
+				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="Internship")&&$coop0202_1&&$coop0103&&($mystatus[2][0]['status_student_company_id']!=2)){ ?>
 						<div class="col-md-12">
 							<table class="table table-hover table-bordered  table-striped">
 								<tbody>
-									<td><center><a href="<?php echo(base_url('Project-COOP/STDPage/statuspage/sentChoosing?std_id='.$_SESSION['stdid']));?>" class="btn btn-raised g-bg-blue waves-effect">Sent</a></center></td>
+									<td><center><a href="<?php echo(base_url('Project-COOP/STDPage/statuspage/sentChoosing?std_id='.$_SESSION['stdid']));?>" class="btn btn-raised g-bg-blue waves-effect">Send</a></center></td>
 								</tbody>
 							</table>
 						</div>

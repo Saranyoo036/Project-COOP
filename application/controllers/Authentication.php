@@ -99,15 +99,11 @@ class Authentication extends CI_Controller{
 		'username'=>$this->input->post('txtUsername'),
 	);
 	$this->session->set_userdata('logged_in',$session_data);
-	$this->load->view('top-bar-teacher');
-	$this->load->view('teacher-page/rightsidebar-teacher');
-	$this->load->view('teacher-page/home');
-	$this->load->view('script');
-}
+	redirect(base_url("Project-COOP/Teacher_con/homeTeacher"));
 
 	
 
 
-}
+}}
 
 ?>

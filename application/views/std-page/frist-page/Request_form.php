@@ -24,6 +24,7 @@
                       <?php 
                         $this->load->model('home_model');
                         $res = $this->home_model->checkReq( $_SESSION['stdid']);
+                        
                         if($res){
                               if($res["COOP"]){ ?>
                                  <a href=<?php echo base_url("Project-COOP/FristPageSTD/FristPageSTD/Frist_PageSTD?type=COOP&authid=").$_GET['std_id']; ?> class="btn btn-raised btn-primary waves-effect" >COOPERETIVE</a>
