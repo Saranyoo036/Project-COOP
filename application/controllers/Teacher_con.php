@@ -35,7 +35,7 @@ class Teacher_con extends CI_Controller {
 	public function teacherview202()
 		{
 			$this->load->model('company_model');
-			$responsedata['responsedata'] = $this->company_model->view($_GET['comID']);
+			$responsedata['responsedata'] = $this->company_model->view($_GET['comID'],$_GET['posID']);
 			//
 			array_push($responsedata,$_GET);
 			$this->load->view('top-bar-teacher');
