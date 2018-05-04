@@ -29,7 +29,7 @@
 
 
         <?php
-        $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
+        $status = array('Choosing','Approving','Waiting','Rechoosing','Repair','Accept','Cancel');
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID
@@ -68,7 +68,7 @@
               if($form_103==0){
             echo '<td><i class="material-icons">close</i></td>';
               }else{
-           echo '<td><a href="'.base_url('Project-COOP/fun_sidebar_admin/view103STD?STD_ID='.$STD_ID).'"><i class="material-icons">description</i></a><a href="'.base_url('Project-COOP/fun_sidebar_admin/edit103STD?STD_ID='.$STD_ID).'"><i class="material-icons">build</i></a></td>';
+           echo '<td><a  href="'.base_url('Project-COOP/fun_sidebar_admin/view103STD?STD_ID='.$STD_ID).'"><i class="material-icons">description</i></a><a href="'.base_url('Project-COOP/fun_sidebar_admin/edit103STD?STD_ID='.$STD_ID).'"><i class="material-icons">build</i></a></td>';
 
               }
               ///////form103////////
@@ -109,9 +109,10 @@
            <td><div class="btn-group" role="group">
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0);">COOP 0103</a></li>
-                                        <li><a href="javascript:void(0);">COOP 0104</a></li>
-                                        <li><a href="javascript:void(0);">COOP 0202</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0104PDF/view0104/$STD_ID") ?>>COOP 0104</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/39/3") ?>>COOP 0202</a></li>
+                                        <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
                                     </ul>
                                 </div>
             </td>

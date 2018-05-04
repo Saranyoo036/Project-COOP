@@ -57,7 +57,7 @@
 		{
 			//echo $idea;
 			$this->load->model('company_model');
-			$responsedata['responsedata'] = $this->company_model->view($idea);
+			$responsedata['responsedata'] = $this->company_model->view($idea,$posid);
 			echo '<pre>';
 			print_r($responsedata['responsedata']);
 			echo '</pre>';

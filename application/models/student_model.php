@@ -134,7 +134,7 @@ class student_model extends CI_Model
 
 		 public function edit0202($data)
 		 {
-		 	
+
 		 	$date = date('Y-m-d H:i:s');
 		 	$up = array('company_id'=>$data['companyid'],
 		 				'Time_select' =>$date,
@@ -405,6 +405,28 @@ class student_model extends CI_Model
      	$sql = "UPDATE student_status SET status='Approving' WHERE STD_ID = $id";
      	$this->db->query($sql);
      }
+
+		 public function view0104company($stdid)
+		 {
+		 	$query = $this->db->query("SELECT * FROM student_company WHERE STD_ID =".$stdid);
+			$row = $query->result_array();
+			//print_r($row);
+			$result = array() ;
+			for ($i=0; $i <1 ; $i++) {
+				$query = $this->db->query("SELECT Position_name,company.company_name,company.provice
+					FROM company_position
+					INNER JOIN company
+					ON company_position.company_id = company.company_id
+					WHERE company.company_id = ".$row[$i]['company_id']
+
+				 );
+				 $row = $query->result_array();
+				 array_push($result,$row);
+			}
+			//print_r($result);
+
+			return $result;
+		 }
 
 }
 ?>

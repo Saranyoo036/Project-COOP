@@ -5,7 +5,7 @@
 
 // require('fpdf.php');
 // define('FPDF_FONTPATH','font/');
-
+$this->load->library('fpdf');
 class PDF extends Fpdf
 {
 	//Override คำสั่ง (เมธอด) Footer
@@ -24,7 +24,7 @@ class PDF extends Fpdf
 		$this->Ln(6);
 		$this->setX(25);
 		$this->Cell(0,0, iconv( 'UTF-8','cp874' , 'โทรศัพท์ 0-7627-6177-8   โทรสาร 0-7627-6179') ,0,0,'L');
- 
+
 		//ล่างขวา
 		$this->SetFont('angsa','',12);
 		$this->SetY(-18);
@@ -45,16 +45,16 @@ function FilterShowProvince($province) {
 
 $pdf= new PDF('P', 'mm', 'A4');
 
-// add font
-// $pdf->AddFont('angsa', '', 'angsa.php');
-// $pdf->AddFont('angsa', 'B', 'angsab.php');
-// $pdf->AddFont('angsa', 'I', 'angsai.php');
-// $pdf->AddFont('angsa', 'BI', 'angsaz.php');
-// $pdf->AddFont('cordia', '', 'cordia.php');
-// $pdf->AddFont('cordia', 'B', 'cordiab.php');
-// $pdf->AddFont('cordia', 'I', 'cordiai.php');
-// $pdf->AddFont('cordia', 'BI', 'cordiaz.php');
-// end add font
+//add font
+$pdf->AddFont('angsa', '', 'angsa.php');
+$pdf->AddFont('angsa', 'B', 'angsab.php');
+$pdf->AddFont('angsa', 'I', 'angsai.php');
+$pdf->AddFont('angsa', 'BI', 'angsaz.php');
+$pdf->AddFont('cordia', '', 'cordia.php');
+$pdf->AddFont('cordia', 'B', 'cordiab.php');
+$pdf->AddFont('cordia', 'I', 'cordiai.php');
+$pdf->AddFont('cordia', 'BI', 'cordiaz.php');
+//end add font
 
 // page amount
 $pdf->AliasNbPages( 'tp' );
@@ -91,8 +91,8 @@ $phone_number_1 = $coop0103->phone_number_1;
 $semester_gpa_1 = FilterShowNumber($coop0103->semester_gpa_1);
 $cumulative_gpa_1 = FilterShowNumber($coop0103->cumulative_gpa_1);
 $email_1 = $coop0103->email_1;
-$position_1_1 = $coop0202->job_position;
-$oraganization_name_1_1 = $coop0202->organization_name;
+$position_1_1 = "asdasd";  //$coop0202->job_position;
+$oraganization_name_1_1 = "dfsdfsdf";//$coop0202->organization_name;
 
 function DateThai($strDate, $lang) {
 	$strYear = date("Y",strtotime($strDate));
@@ -111,7 +111,7 @@ function DateThai($strDate, $lang) {
 		$strMonthEng =$strMonthCut[$strMonth];
 		return "$strMonthEng $strDay, $strYear";
 	}
-	
+
 	//return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
 }
 
@@ -126,7 +126,7 @@ $period_of_working_1_1 = DateThai($working_from_1, $lang)." - ".DateThai($workin
 // $oraganization_name_1_2 = $coop0103->oraganization_name_1_2;
 // $period_of_working_1_2 = $coop0103->period_of_working_1_2;
 
-if(!is_null($coop0202_2))
+if(isset($coop0202_2))
 {
 	$position_1_2 = $coop0202_2->job_position;
 	$oraganization_name_1_2 = $coop0202_2->organization_name;
@@ -221,7 +221,7 @@ $pdf->Cell(184, 46 + $shift_y, '', 'RLB', 1, 'C');
 
 $pdf->SetFont('angsa', '', 14);
 $pdf->SetXY(17, 80 + $shift_y);
-$pdf->Cell(47, 4, iconv('UTF-8', 'cp874', 'ชื่อ-นามสกุล  ไทย  (นาย/นางสาว)'), 0, 0, 'L');	
+$pdf->Cell(47, 4, iconv('UTF-8', 'cp874', 'ชื่อ-นามสกุล  ไทย  (นาย/นางสาว)'), 0, 0, 'L');
 $pdf->Cell(85, 4, iconv('UTF-8', 'cp874', $name_and_surname_1), 'B', 0, 'L');
 $pdf->Cell(20, 4, iconv('UTF-8', 'cp874', 'รหัสนักศึกษา'), 0, 0, 'L');
 $pdf->Cell(25, 4, iconv('UTF-8', 'cp874', $student_id_1), 'B', 1, 'L');
@@ -260,7 +260,7 @@ $pdf->Cell(90, 2, 'Cumulative GPA', 0, 1, 'L');
 $height_b = 5;
 $header_w = 50;
 
-$pdf->AddFont('NotoSans-Regular','');
+$pdf->AddFont('angsa','');
 $pdf->setY(121 + $shift_y);
 $pdf->SetFont('angsa', 'B', 14);
 $pdf->Cell(184, 11, iconv('UTF-8', 'cp874', 'ตำแหน่งงานที่สมัคร( Job Position)'), 'LRB', 1, 'C');
@@ -268,7 +268,7 @@ $pdf->Cell(184, 11, iconv('UTF-8', 'cp874', 'ตำแหน่งงานท�
 $pdf->Cell($header_w , 6, iconv('UTF-8', 'cp874', 'บริษัท'), 'L', 0, 'C');
 $pdf->Cell(184-$header_w , $height_b, iconv('UTF-8', 'cp874', ""), 'LR', 1, 'L');
 if(0) {
-	$pdf->SetFont('NotoSans-Regular', '', 8);
+	$pdf->SetFont('angsa', '', 8);
 	$pdf->Text($header_w + 18, 138.5 + $shift_y, iconv('UTF-8', 'cp1252', $oraganization_name_1_1));
 } else {
 	$pdf->SetFont('angsa', '', 14);
@@ -494,7 +494,7 @@ $pdf->Cell(180,0, '_____________________________________________________________
 $pdf->SetY(39.5);
 $pdf->SetX(16);
 $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'โทรศัพท์ ______________________________________ โทรศัพท์มือถือ ___________________________________________________') ,0,0,'L');
-	
+
 	$pdf->SetY(39.5);
 	$pdf->SetX(30);
 	$pdf->Cell(61,0, iconv( 'UTF-8','cp874' , $tel_2_1) ,0,0,'L');
@@ -548,7 +548,7 @@ $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'โทรศัพท์ ___________
 	$pdf->SetY(82.5);
 	$pdf->SetX(168);
 	$pdf->Cell(28,0, iconv( 'UTF-8','cp874' , $fax_2_2) ,0,0,'L');
-	
+
 $pdf->SetY(90.5);
 $pdf->SetX(16);
 $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'บุคคลที่ติดต่อได้ในกรณีฉุกเฉิน (Emergency case contact to)') ,0,0,'L');
@@ -556,7 +556,7 @@ $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'บุคคลที่ติดต
 $pdf->SetY(98.5);
 $pdf->SetX(16);
 $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'ชื่อ-นามสกุล _______________________________________ความเกี่ยวข้อง _______________________________________________') ,0,0,'L');
-	
+
 	$pdf->SetY(98.5);
 	$pdf->SetX(36);
 	$pdf->Cell(61,0, iconv( 'UTF-8','cp874' , $name_emergency_2) ,0,0,'L');
@@ -580,7 +580,7 @@ $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'อาชีพ ____________________
 $pdf->SetY(114.5);
 $pdf->SetX(16);
 $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'ที่อยู่  ________________________________________________________________________________________________________') ,0,0,'L');
-	
+
 	$pdf->SetY(114.5);
 	$pdf->SetX(25);
 	$pdf->Cell(168,0, iconv( 'UTF-8','cp874' , $address_emergency_2) ,0,0,'L');
@@ -591,10 +591,10 @@ $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'โทรศัพท์ ___________
 
 	$pdf->SetX(31);
 	$pdf->Cell(34,0, iconv( 'UTF-8','cp874' , $tel_emergency_2) ,0,0,'L');
-	
+
 	$pdf->SetX(79);
 	$pdf->Cell(31,0, iconv( 'UTF-8','cp874' , $fax_emergency_2) ,0,0,'L');
-	
+
 	$pdf->SetX(122);
 	$pdf->Cell(72,0, iconv( 'UTF-8','cp874' , $email_emergency_2) ,0,0,'L');
 
@@ -673,7 +673,7 @@ $pdf->Cell(180,0, iconv( 'UTF-8','cp874' , 'โทรศัพท์ ___________
 	$pdf->Cell(31,0, iconv( 'UTF-8','cp874' , $fax_father_2) ,0,0,'L');
 
 	$pdf->SetX(122);
-	$pdf->Cell(71,0, iconv( 'UTF-8','cp874' , $email_father_2) ,0,0,'L'); 
+	$pdf->Cell(71,0, iconv( 'UTF-8','cp874' , $email_father_2) ,0,0,'L');
 
 $pdf->SetY(177);
 $pdf->SetX(16);
@@ -1167,7 +1167,7 @@ $pdf->MultiCell(43,6.8, iconv( 'UTF-8','cp874' , $previous_training_position_top
 $pdf->SetXY(101.5, 165);
 $pdf->MultiCell(60.5,6.8, iconv( 'UTF-8','cp874' , $previous_training_organization_3) ,0,'L', false);
 $pdf->SetXY(164, 165);
-$pdf->MultiCell(21,6.8, iconv( 'UTF-8','cp874' , FilterShowProvince($previous_training_province_3)) ,0,'L', false); 
+$pdf->MultiCell(21,6.8, iconv( 'UTF-8','cp874' , FilterShowProvince($previous_training_province_3)) ,0,'L', false);
 // end data
 
 // end table 2
@@ -1649,6 +1649,6 @@ $pdf->Text(102, 179, 'Date');
 // ************************************** end page 5
 
 // I is show on brownser D is download
-$pdf->Output($faculty.'_coop0103_'.$student_id_1.'.pdf' , 'I'); // I, D
+$pdf->Output($faculty_1.'_coop0103_'.$student_id_1.'.pdf' , 'I'); // I, D
 exit;
 ?>
