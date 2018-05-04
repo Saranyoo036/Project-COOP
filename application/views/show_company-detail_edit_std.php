@@ -45,9 +45,16 @@
           <input type="hidden" name="old_posID" value=<?php echo $old_posID ?>>
           <h2>Result Subject Related to Postion</h2>
                             <section>
-                                    <p> <b>รหัสวิชา-ชื่อ : </b> <input type="text" name="subjectcode" required></p>
-                                    <p> <b>ภาคการศึกษาที่เรียน : </b> <input type="text" name="subjectyear" required></p>
-                                    <p> <b>เกรดที่ได้ : </b><input type="text" name="subjectresult" required></p>
+                                    <p> <b>รหัสวิชา-ชื่อ : </b> <select id="selectSubject"><?php
+                                                                  $query = "SELECT *  FROM subject,student_register WHERE subject.subject_id = student_register.subject_id AND STD_ID = $_SESSION[stdid]";
+                                                                  $res  = $this->db->query($query);
+                                                                  foreach ($res->result() as $key ) { ?>
+                                                                     <option value="<?php echo $key->Grade.'|'.$key->semester.'|'.$key->subject_id;?>"><?php echo $key->subject_id.' '.$key->subject_name_en ;?></option>   
+                                                                <?php }
+                                                              ?></select></p>
+                                                              <input type="hidden" name="subjectcode" id="subjectcode" value="">
+                                    <p> <b>ภาคการศึกษาที่เรียน : </b> <input type="text" id="subjectyear" name="subjectyear" required ></p>
+                                    <p> <b>เกรดที่ได้ : </b><input type="text"  id="subjectresult" name="subjectresult" required ></p>
                                     <p> <b>ใบประกาศนีย์บัตร-หัวข้อที่อบรม : </b> <input type="text" name="certificate"></p>
                                     <p> <b>ช่วงเวลาอบรม : </b> <input type="text" name="time"></p>
                                     <p> <b>เริ่ม : </b> <input type="date" name="start_cer"></p>
@@ -79,6 +86,15 @@
 </html>
 
 <script type="text/javascript">
+
+$("#selectSubject").change(function(){
+  
+      var str = $("#selectSubject").val().split("|");
+     // alert(str[1]);
+     $("#subjectyear").val(str[1]);
+     $("#subjectresult").val(str[0]);
+     $("#subjectcode").val(str[2]);
+});
 
   function showprop() {
 
