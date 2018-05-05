@@ -7,7 +7,7 @@
             <li> 
                 <!-- User Info -->
                 <div class="user-info">
-                    <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar1.jpg" alt="profile img"> </div>
+                    <div class="admin-image"> <img src="<?php echo base_url();?>Project-COOP/assets/images/sm/avatar7.png" alt="profile img"> </div>
                     <div class="admin-action-info"> <span>Welcome</span>
                         <h3><?php echo $_SESSION['logged_in']['username']; ?></h3>
                     </div>
