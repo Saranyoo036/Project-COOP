@@ -15,7 +15,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	public function show_company()
 	{
 		$data = array(
-			'nameMaj' => $this->input->get('subname_major'),
+			'nameFac' => $this->input->get('subname_Fac'),
 			'type' => $this->input->get('type_major')
 		);
 		$this->load->view('top-bar');
@@ -50,8 +50,8 @@ class Fun_sidebar_admin extends CI_Controller {
 	public function show_news()
 	{
 		$data = array(
-			'nameMaj'=> $this->input->get('subname_major'),
-			'type' => $this->input->get('type_major')
+			'nameFac'=> $this->input->get('namefac_sub')
+			
 		);
 			$this->load->view('top-bar');
 			$this->load->view('sidebar-admin');

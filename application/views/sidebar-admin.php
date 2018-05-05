@@ -23,10 +23,137 @@
            <?php
                 $query = $this->db->query("SELECT * FROM faculty;");
                 foreach ($query->result() as $row) { ?>
-                        <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">account_balance</i><span class="icon-name">
-                        <?php echo $row->NameFac_sub; ?>
-                        </span> </a>
+                        <li >
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">account_balance</i>
+                                <span class="icon-name">
+                                    <?php echo $row->NameFac_sub; ?>
+                                </span>
+                            </a>
                          <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo(base_url().'Project-COOP/Fun_sidebar_admin/show_news?namefac_sub='.$row->NameFac_sub); ?>">
+                                    <i class="material-icons">home</i>
+                                    <span class="icon-name">
+                                        NEWS
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">home</i>
+                                    <span class="icon-name">
+                                        Time Setting
+                                    </span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="<?php echo(base_url()."Project-COOP/time_setting/loadpage?subname_Fac=".$row->NameFac_sub."&type_major=COOP");?>"> 
+                                            <i class="material-icons">home</i>
+                                            <span class="icon-name">
+                                                COOP
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo(base_url()."Project-COOP/time_setting/loadpage?subname_Fac=".$row->NameFac_sub."&type_major=internship");?>"> 
+                                            <i class="material-icons">home</i>
+                                            <span class="icon-name">
+                                                Internship
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">home</i>
+                                    <span class="icon-name">
+                                        Organization
+                                    </span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="<?php echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&type_major=COOP"); ?>" > 
+                                            <i class="material-icons">home</i>
+                                            <span class="icon-name">
+                                                COOP
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&type_major=internship"); ?>" > 
+                                            <i class="material-icons">home</i>
+                                            <span class="icon-name">
+                                                Internship
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">home</i>
+                                    <span class="icon-name">
+                                        Export Summarize
+                                    </span>
+                                </a>
+                                <ul class="ml-menu">
+                                            <li>
+                                                <a href="javascript:void(0);" class="menu-toggle"> 
+                                                    <i class="material-icons">home</i>
+                                                        <span class="icon-name">
+                                                            COOP
+                                                        </span>
+                                                </a>
+                                                <ul class="ml-menu">
+                                                    <li>
+                                                        <a href="javascript:void(0);" >
+                                                            <i class="material-icons">home</i>
+                                                            <span class="icon-name">
+                                                                Printing
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">
+                                                            <i class="material-icons">home</i>
+                                                            <span class="icon-name">
+                                                                Waitng
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li >
+                                                <a href="javascript:void(0);" class="menu-toggle">
+                                                    <i class="material-icons">home</i> 
+                                                    <span class="icon-name">
+                                                        Internship
+                                                    </span>
+                                                </a>
+                                                <ul class="ml-menu">
+                                                    <li>
+                                                        <a href="javascript:void(0);" >
+                                                            <i class="material-icons">home</i>
+                                                            <span class="icon-name">
+                                                                Printing
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);">
+                                                            <i class="material-icons">home</i>
+                                                            <span class="icon-name">
+                                                                Waitng
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                     </ul>
+                            </li>
+
                             <?php
                                     $queryMaj =$this->db->query("SELECT * FROM major WHERE Fac_ID =".$row->Fac_ID.";");
                                         foreach ($queryMaj->result() as $rowMaj) { ?>
@@ -51,7 +178,7 @@
                                                     <li><a href="<?php 
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship"); 
                                                         ?>">Export Summarize</a></li>
-                                                    <li><a href="">Import</a></li>
+                                                    
                                                 </ul>
                                         </li>
                                         <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">home</i> <span class="icon-name">
@@ -75,7 +202,7 @@
                                                     <li><a href="<?php 
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
                                                         ?>">Export Summarize</a></li>
-                                                    <li><a href="">Import</a></li>
+                                                    
                                                 </ul>
                                         </li>
                                     </ul>
@@ -84,9 +211,6 @@
                       </ul>
                    </li>
             <?php } ?>
-            <li ><a href="<?php
-                                echo(base_url()."Project-COOP/Fun_sidebar_admin/show_news");
-                            ?>"> News </a></li>
             <li ><a href="<?php
                                 echo(base_url()."Project-COOP/Fun_sidebar_admin/Add_Fac_view");
                             ?>">Add Faculty</a></li>

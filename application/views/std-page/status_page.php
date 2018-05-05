@@ -146,9 +146,10 @@
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
 						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php 
+						if($coop0202_1){
 							if($mystatus[2][0]['note']){
     							echo '<font color="red">หมายเหตุ : '.$mystatus[2][0]['note'].'</font>';
-    						}
+    						}}
 						?>
 						</center></td>
 						<?php
@@ -197,7 +198,7 @@
 						$have_coop0202_2 = false;
 					}
 				}
-				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="COOP")&&$coop0202_1&&$coop0103&&($mystatus[2][0]['status_student_company_id']!=2)&&$have_coop0202_2||$coop0202_2){?>
+				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="COOP")&&$coop0202_1&&$coop0103&&($mystatus[2][0]['status_student_company_id']!=2)&&$have_coop0202_2){?>
 						<div class="col-md-12">
 							<table class="table table-hover table-bordered  table-striped">
 								<tbody>

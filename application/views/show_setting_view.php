@@ -147,7 +147,7 @@
                                 </div>
                                 <?php } ?>
 
-                         <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
+                         <input type="hidden" name="fac" value=<?php echo $_GET['subname_Fac']; ?>>
                          <input type="hidden" name="type" value=<?php echo $_GET['type_major']; ?>>
                          
                          <table align="right">

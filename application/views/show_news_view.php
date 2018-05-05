@@ -17,7 +17,7 @@
 
 
 				<?php
-				$que = " SELECT * FROM `news`;";
+				$que = " SELECT * FROM `news` where Fac_ID = (SELECT Fac_ID from faculty Where NameFac_sub = '$nameFac');";
  
 
 

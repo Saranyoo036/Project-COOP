@@ -2,7 +2,7 @@
 <section class="content home">
 	<div class="container-fluid">
 		<div class="block-header">
-			<h2>Company<?php echo $nameMaj; ?></h2>
+			<h2>Company<?php echo $nameFac; ?></h2>
 			<ul class="breadcrumb"> <br/>
 				<!-- <a href="#" class="btn  btn-raised btn-info waves-effect"> Add company</a> -->
 				<table id="example" border = "0" style="width:100%">
@@ -21,10 +21,9 @@
 
 
 				<?php
-				$que = "SELECT * FROM `major`,`company` ,`faculty`
-						WHERE major.Major_ID = company.Major_ID
-						AND faculty.Fac_ID = major.Fac_ID
-						AND major.NameMajor_sub = '$nameMaj'
+				$que = "SELECT * FROM `company` ,`faculty`
+						WHERE faculty.Fac_ID = company.Fac_ID
+						AND faculty.NameFac_sub = '$nameFac'
 						AND company.company_type = '$type';";
 
 					$res = $this->db->query($que);
@@ -40,28 +39,27 @@
 						echo "<td>$key->Note</td>";
 						 ?>
 						<td>
-							 <a href= <?php echo base_url("Project-COOP/index.php/company/viewcompany?company_viewid=".$key->company_id."&subname_major=$nameMaj&type_major=$type") ?> >
+							 <a href= <?php echo base_url("Project-COOP/index.php/company/viewcompany?company_viewid=".$key->company_id."&subname_fac=$nameFac&type_major=$type") ?> >
 								  <img src = <?php echo base_url("Project-COOP/assets/images/view.png");?> height='25'>
 								 </a>
 					</td>
 						<td>
 							<div class="row clearfix js-sweetalert">
 
-								<input type="hidden" id="todel<?php echo $no;?>" name="" value=<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type"); ?>>
- 								<a data-type="confirm"  href="#"><img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
-								onclick="confirmanddel(document.getElementById('todel<?php echo $no;?>').value)"> </a> </td>
- 								<!-- <a  class="btn btn-raised btn-default waves-effect" name="button" onclick="showConfirmMessage(), window.location.href =<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> <i class="material-icons">delete</i> </a> -->
+								
+ 								<a data-type="confirm"  href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_fac=$nameFac&type_major=$type"); ?>"><img src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
+								onclick="return confirm('Are you sure you want to delete?')"> </a> </td>
+ 								
 							</div>
 
 
-							<!-- <a href="<?php echo base_url("Project-COOP/index.php/company/deletecompany?company_delid=".$key->company_id."&subname_major=$nameMaj&type_major=$type");  ?>"> 							<img title=<?php echo $key->company_id; ?> src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'
-							onclick="return confirm('ต้องการลบข้อมูลใช่หรือไม่??');"> </a> </td> -->
+							
 
 						<?php echo "</tr>";
 					}
 				?>
 			</table>
-			<a href= <?php echo base_url("Project-COOP/index.php/company/addcompany?subname_major=$nameMaj&type_major=$type"); ?> class="btn  btn-raised btn-info waves-effect"> Add company</a>
+			<a href= <?php echo base_url("Project-COOP/index.php/company/addcompany?subname_fac=$nameFac&type_major=$type"); ?> class="btn  btn-raised btn-info waves-effect"> Add company</a>
 			</ul>
 		</div>
 

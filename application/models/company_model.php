@@ -5,7 +5,7 @@ class company_model extends CI_Model
 
     public function showallcompany()
     {
-      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.company_id NOT IN (SELECT company_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." ) ORDER BY company_id";
+      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Fac_ID=(SELECT Fac_ID from major where Major_ID = ".$_SESSION['stdmajorid'].")  AND company_position.company_id NOT IN (SELECT company_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." ) ORDER BY company_id";
 
 
       $query = $this->db->query($sql);
@@ -16,7 +16,7 @@ class company_model extends CI_Model
 
     public function showallcompanyedit()
     {
-      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Major_ID=".$_SESSION['stdmajorid']." AND company_position.Position_id NOT IN (SELECT Position_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." AND status_student_company_id = 1) ORDER BY company_id";
+      $sql = "SELECT Position_name,company_position.Position_id,company.* FROM company_position,company WHERE company.company_id = company_position.company_id AND company_type = '".$_SESSION['std_type']."' AND Fac_ID=(SELECT Fac_ID from major where Major_ID = ".$_SESSION['stdmajorid'].") AND company_position.Position_id NOT IN (SELECT Position_id FROM student_company WHERE STD_ID =". $_SESSION['stdid']." AND status_student_company_id = 1) ORDER BY company_id";
 
       $query = $this->db->query($sql);
       $row = $query->result();
@@ -55,6 +55,19 @@ class company_model extends CI_Model
        $this->db->where('company_id', $id);
        $this->db->delete('company');
      }
+
+     public function viewcom($id)
+     {
+       $this->db->select('*');
+       $this->db->from('company');
+       $this->db->where('company_id='.$id);
+       $query = $this->db->get();
+       $query= $query->result_array();
+      
+       //print_r($return);
+       return $query;
+     }
+
      public function view($id,$posid)
      {
        $this->db->select('*');
