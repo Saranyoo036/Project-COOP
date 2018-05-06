@@ -146,9 +146,10 @@
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
 						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php 
+						if($coop0202_1){
 							if($mystatus[2][0]['note']){
     							echo '<font color="red">หมายเหตุ : '.$mystatus[2][0]['note'].'</font>';
-    						}
+    						}}
 						?>
 						</center></td>
 						<?php

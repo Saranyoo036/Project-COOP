@@ -82,6 +82,7 @@ class student_model extends CI_Model
 
 		 public function addsecondcompany($data)
 		 {
+		 	print_r($data);
 			 $date = date('Y-m-d H:i:s');
 			 $this->STD_ID = $_SESSION['stdid'];
 			 $this->company_id = $data['companyid'];
@@ -146,7 +147,8 @@ class student_model extends CI_Model
 		 				'certificate'=>$data['certificate'],
 		 				'certificate_time'=>$data['time'],
 		 				'start_cer'=>$data['start_cer'],
-		 				'end_cer'=>$data['end_cer']);
+		 				'end_cer'=>$data['end_cer'],
+		 				'Note'=>'');
 		 	$this->db->where("STD_ID = $_SESSION[stdid] AND Position_id = $data[old_posID]");
 		 	$this->db->update('student_company',$up);
 

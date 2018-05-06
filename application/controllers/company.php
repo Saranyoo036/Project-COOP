@@ -32,7 +32,7 @@ class company extends CI_Controller {
     echo $del_id;
     //$this->load->model('company_model');
     $this->company_model->delete($del_id);
-    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_major=".$_GET['subname_major']."&type_major=".$_GET['type_major']);
+    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_major=".$_GET['subname_fac']."&type_major=".$_GET['type_major']);
 		header('Location:'.$back);
 
     // Produces:
@@ -43,7 +43,7 @@ class company extends CI_Controller {
   public function viewcompany()
   {
     //$this->load->model('company_model');
-    $responsedata['responsedata'] =  $this->company_model->view($_GET['company_viewid']);
+    $responsedata['responsedata'] =  $this->company_model->viewcom($_GET['company_viewid']);
     //print_r($responsedata);
     $this->load->view('top-bar');
     $this->load->view('sidebar-admin');
