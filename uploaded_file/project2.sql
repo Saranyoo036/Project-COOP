@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 09:53 AM
+-- Generation Time: May 03, 2018 at 07:47 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -30,13 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `company` (
   `company_id` int(11) NOT NULL,
-  `Major_ID` int(11) NOT NULL,
   `address` varchar(200) CHARACTER SET utf8 NOT NULL,
   `provice` varchar(60) CHARACTER SET utf8 NOT NULL,
   `contract` varchar(60) CHARACTER SET utf8 NOT NULL,
   `Tel` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Note` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `company_type` varchar(20) NOT NULL,
   `company_name` varchar(100) CHARACTER SET utf8 NOT NULL,
   `company_contract_name` varchar(50) CHARACTER SET utf8 NOT NULL,
   `company_contract_sname` varchar(50) CHARACTER SET utf8 NOT NULL
@@ -46,10 +44,11 @@ CREATE TABLE `company` (
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`company_id`, `Major_ID`, `address`, `provice`, `contract`, `Tel`, `Note`, `company_type`, `company_name`, `company_contract_name`, `company_contract_sname`) VALUES
-(39, 3, '6 115/51 ต.กะทู้, อ. กะทู้  ภูเก็ต 83120', 'ภูเก็ต', '0954138706,asdasdasd@asndjad.com', '0954138706', 'พัฒนาระบบของทางบริษัท โดยใช้ \r\n ภาษา javascript php ', 'COOP', 'testconpany.co.ltd;', 'babysisitername', 'babysisitersurname'),
-(40, 3, 'asd', 'asd', 'asd,hello@gmail.com', 'asd', 'asd', 'COOP', 'asdasd', 'asdasd', 'asdasd'),
-(41, 3, '111/11', 'ภูเก็ต', '032115,asdbabsd@gmail.com', '032115', '', 'COOP', 'hello', 'world', 'wild');
+INSERT INTO `company` (`company_id`, `address`, `provice`, `contract`, `Tel`, `Note`, `company_name`, `company_contract_name`, `company_contract_sname`) VALUES
+(39, '6 115/51 ต.กะทู้, อ. กะทู้  ภูเก็ต 83120', 'ภูเก็ต', '0954138706,asdasdasd@asndjad.com', '0954138706', 'พัฒนาระบบของทางบริษัท โดยใช้ \r\n ภาษา javascript php ', 'testconpany.co.ltd;', 'babysisitername', 'babysisitersurname'),
+(40, 'asd', 'asd', 'asd,hello@gmail.com', 'asd', 'asd', 'asdasd', 'asdasd', 'asdasd'),
+(41, '111/11', 'ภูเก็ต', '032115,asdbabsd@gmail.com', '032115', '', 'hello', 'world', 'wild'),
+(42, '118/108', 'phuket', 'ratthakit,hello@mail.com', '022000', 'hello', 'talad.com', 'saranyoo', 'promsangrat');
 
 -- --------------------------------------------------------
 
@@ -60,24 +59,27 @@ INSERT INTO `company` (`company_id`, `Major_ID`, `address`, `provice`, `contract
 CREATE TABLE `company_position` (
   `Position_id` int(11) NOT NULL,
   `company_id` int(11) NOT NULL,
+  `major_id` int(11) NOT NULL,
   `Position_name` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Position_skill` varchar(100) CHARACTER SET utf8 NOT NULL,
   `Position_desc` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `Position_num` int(11) NOT NULL
+  `Position_num` int(11) NOT NULL,
+  `company_type` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `company_position`
 --
 
-INSERT INTO `company_position` (`Position_id`, `company_id`, `Position_name`, `Position_skill`, `Position_desc`, `Position_num`) VALUES
-(2, 40, 'asdasd', 'asdasd', 'asdasd', 3),
-(3, 39, 'test', 'test', 'test', 5),
-(4, 41, 'Graphic design', 'design', 'ออกแบบ', 2),
-(5, 39, 'SA', 'analyze', 'วิเคราะ', 1),
-(6, 40, 'Java-Dev', 'java', 'dev java sql', 2),
-(7, 41, 'front-end', 'sql', 'query', 1),
-(8, 41, 'back-end', 'node-js', 'js', 1);
+INSERT INTO `company_position` (`Position_id`, `company_id`, `major_id`, `Position_name`, `Position_skill`, `Position_desc`, `Position_num`, `company_type`) VALUES
+(2, 40, 3, 'asdasd', 'asdasd', 'asdasd', 3, 'COOP'),
+(3, 39, 3, 'test', 'test', 'test', 5, 'COOP'),
+(4, 41, 3, 'Graphic design', 'design', 'ออกแบบ', 2, 'COOP'),
+(5, 39, 3, 'SA', 'analyze', 'วิเคราะ', 1, 'COOP'),
+(6, 40, 3, 'Java-Dev', 'java', 'dev java sql', 2, 'COOP'),
+(7, 41, 3, 'front-end', 'sql', 'query', 1, 'COOP'),
+(8, 41, 3, 'back-end', 'node-js', 'js', 1, 'COOP'),
+(9, 42, 3, 'Web-dev', 'php', 'dev web', 2, 'COOP');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,6 @@ CREATE TABLE `major_setting` (
   `status_id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `personnelID` int(11) DEFAULT NULL,
   `personnelID_monitor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -154,19 +155,39 @@ CREATE TABLE `major_setting` (
 -- Dumping data for table `major_setting`
 --
 
-INSERT INTO `major_setting` (`major_id`, `major_type`, `status_id`, `start_date`, `end_date`, `personnelID`, `personnelID_monitor`) VALUES
-(1, 'internship', 1, '2018-04-02', '2018-04-29', NULL, NULL),
-(1, 'internship', 2, '2018-04-26', '2018-04-29', NULL, NULL),
-(1, 'internship', 5, '2018-04-29', '2019-04-12', NULL, NULL),
-(3, 'COOP', 1, '2018-03-31', '2018-03-31', NULL, NULL),
-(3, 'COOP', 2, '2018-03-31', '2018-03-31', NULL, NULL),
-(3, 'COOP', 3, NULL, NULL, 996, 996),
-(3, 'COOP', 5, '2018-03-31', '2018-03-31', NULL, NULL),
-(3, 'internship', 1, '2018-04-21', '2018-04-22', NULL, NULL),
-(3, 'internship', 2, '2018-04-21', '2018-04-22', NULL, NULL),
-(3, 'internship', 3, NULL, NULL, 996, NULL),
-(3, 'internship', 5, '2018-04-21', '2018-04-29', NULL, NULL),
-(4, 'internship', 3, NULL, NULL, 996, NULL);
+INSERT INTO `major_setting` (`major_id`, `major_type`, `status_id`, `start_date`, `end_date`, `personnelID_monitor`) VALUES
+(3, 'COOP', 1, '2018-05-02', '2018-05-03', NULL),
+(3, 'COOP', 2, '2018-05-02', '2018-05-03', NULL),
+(3, 'COOP', 5, '2018-05-01', '2018-05-06', NULL),
+(3, 'internship', 1, '2018-05-02', '2018-05-03', NULL),
+(3, 'internship', 2, '2018-05-02', '2018-05-04', NULL),
+(3, 'internship', 5, '2018-05-04', '2018-05-06', NULL),
+(4, 'internship', 1, '2018-05-01', '2018-05-03', NULL),
+(4, 'internship', 2, '2018-05-02', '2018-05-04', NULL),
+(4, 'internship', 5, '2018-05-05', '2018-05-06', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `major_setting_personnel`
+--
+
+CREATE TABLE `major_setting_personnel` (
+  `major_setting_personal_id` int(11) NOT NULL,
+  `personnel_id` int(11) NOT NULL,
+  `major_id` int(11) NOT NULL,
+  `major_type` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `major_setting_personnel`
+--
+
+INSERT INTO `major_setting_personnel` (`major_setting_personal_id`, `personnel_id`, `major_id`, `major_type`) VALUES
+(15, 996, 3, 'COOP'),
+(16, 999, 3, 'COOP'),
+(17, 1000, 3, 'COOP'),
+(24, 999, 3, 'internship');
 
 -- --------------------------------------------------------
 
@@ -211,7 +232,8 @@ CREATE TABLE `personnel` (
 INSERT INTO `personnel` (`personnelID`, `personnelName`, `personnelSName`, `Position`, `Fac_ID`, `title`, `password`) VALUES
 (996, 'ratthakit', 'thanasakkulsiri', 'lecture', 4, 'MR.', '123'),
 (998, 'world', 'hello', 'admin', 4, 'MR.', '321'),
-(999, 'hello', 'world', 'lecture', 4, 'MR.', '123');
+(999, 'hello', 'world', 'lecture', 4, 'MR.', '123'),
+(1000, 'world', 'hello', 'lecture', 4, 'MR.', '123');
 
 -- --------------------------------------------------------
 
@@ -305,11 +327,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`STD_ID`, `major_id`, `std_name`, `std_sname`, `password`, `permission`, `std_type`, `std_tel`, `std_email`) VALUES
-(1001, 3, 'hello', 'world', '321', 0, '', '', ''),
-(1002, 3, 'max', 'za555', '123', 0, 'Internship', '123', 'SSDAD@gmail.com'),
-(1003, 4, 'ส้มโอ', 'อร่อยดี', '123', 0, 'COOP', '1544', '4545'),
-(1004, 3, 'asdasd', 'asdasd', 'asdasd', 0, 'Internship', '151', 'asmdasd@naksjnd.com'),
-(1005, 3, 'asdasd', 'asdasd', 'asdasd', 0, 'COOP', 'asdasd', 'asdasd');
+(570213028, 3, 'รัฐกิตติ์', 'ธนาศักดิ์กุลศิริ', '123', 0, 'COOP', '095444444', '1233@asd.com'),
+(573021302, 3, 'รัฐกิตติ์(2)', 'ธนาศักดิ์กุุลศิริ(2)', '123', 0, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -322,19 +341,23 @@ CREATE TABLE `student_company` (
   `company_id` int(11) NOT NULL,
   `Time_select` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status_student_company_id` int(11) NOT NULL DEFAULT '0',
-  `Position_id` int(11) NOT NULL
+  `Position_id` int(11) NOT NULL,
+  `subject_code` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `subject_year` varchar(8) NOT NULL,
+  `subject_result` varchar(5) NOT NULL,
+  `certificate` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `certificate_time` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
+  `start_cer` date DEFAULT NULL,
+  `end_cer` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_company`
 --
 
-INSERT INTO `student_company` (`STD_ID`, `company_id`, `Time_select`, `status_student_company_id`, `Position_id`) VALUES
-(1003, 39, '2018-04-26 13:57:33', 0, 3),
-(1003, 40, '2018-04-26 13:56:30', 0, 2),
-(1004, 39, '2018-04-26 13:56:43', 1, 3),
-(1005, 39, '2018-04-26 13:57:54', 2, 2),
-(1005, 40, '2018-04-26 13:57:10', 2, 2);
+INSERT INTO `student_company` (`STD_ID`, `company_id`, `Time_select`, `status_student_company_id`, `Position_id`, `subject_code`, `subject_year`, `subject_result`, `certificate`, `certificate_time`, `start_cer`, `end_cer`) VALUES
+(570213028, 40, '2018-05-03 16:31:35', 2, 6, '', '', '', '', '', '0000-00-00', '0000-00-00'),
+(570213028, 41, '2018-05-03 16:12:23', 0, 8, '', '', '', '', '', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -452,9 +475,20 @@ CREATE TABLE `student_form_103` (
 --
 
 INSERT INTO `student_form_103` (`Name_of_advisor`, `Semester_GPA`, `Cumulative_GPA`, `Iden_cardNo`, `Issued_at`, `Issued_date`, `Expiry_date`, `Race`, `Nationality`, `Religion`, `Date_of_birth`, `Place_of_birth`, `sex`, `Height`, `Weight`, `Chronical_disease`, `Address_now`, `Address`, `Emergency_name`, `Emergency_Sname`, `Emergency_relation`, `Emergency_Occupation`, `Emergency_Placework`, `Emergency_Address`, `Emergency_Tel`, `Emergency_E-mail`, `Father_name`, `Father_sname`, `Father_age`, `Father_occupation`, `Father_Address`, `Father_Zipcode`, `Father_Tel`, `Father_Email`, `mother_name`, `mother_sname`, `mother_age`, `mother_occupation`, `mother_address`, `mother_Zipcode`, `mother_Tel`, `mother_Email`, `Parent_name`, `Parent_sname`, `Parent_age`, `Parent_occupation`, `Parent_Address`, `Parent_Zipcode`, `Parent_Tel`, `Parent_Email`, `num_of_relative`, `num_are_you`, `Edu_pri_school`, `Edu_pri_Provice`, `Edu_pri_YearAttend`, `Edu_pri_YearGraduate`, `Edu_pri_major`, `Edu_sec_school`, `Edu_sec_Provice`, `Edu_sec_YearAttend`, `Edu_sec_YearGraduated`, `Edu_sec_major`, `Edu_high_school`, `Edu_high_Provice`, `Edu_high_YearAttend`, `Edu_high_YearGraduated`, `Edu_high_major`, `Edu_uni`, `Edu_uni_Provice`, `Edu_uni_YearAttend`, `Edu_uni_Graduated`, `Edu_uni_major`, `Pre_trained_YearFrom`, `Pre_trained_Yearto`, `Pre_trained_Position`, `Pre_trained_Provice`, `Pre_trained_Organization`, `Career_objective1`, `Career_objective2`, `Career_objective3`, `Career_objective4`, `std_activity_1`, `std_activity_2`, `std_activity_3`, `Language_Eng_lis`, `Language_Eng_speak`, `Language_Eng_read`, `Language_Eng_writing`, `Language_CN_lis`, `Language_CN_speak`, `Language_CN_read`, `Language_CN_writing`, `Specail_ability_1`, `Specail_ability_2`, `Specail_ability_3`, `Other_skill_computer`, `Other_skill_sport`, `Other_skill_Hobbies`, `Drive_license_car`, `Drive_license_motorCycle`, `Explain_yourself`, `std_form_103_id`) VALUES
-('asdasd', 'asdas', 'dasda', 'asda', 'vgg', '2018-04-26', '2018-04-12', 'gv', 'gv', 'gv', '2018-04-12', 'gv', 'gv', 'gv', 'g', 'gv', 'gvg', 'v', 'gv', 'gv', 'gv', 'g', 'vgv', 'gv', 'g', 'vg', 'vg', 'vg', 45, 'vg', 'vg', 'v', 'gv', 'gv', 'gv', 'g', 4545, 'vg', 'vg', 'vg', 'v', 'gv', 'gv', 'gv', 4545, 'g', 'vg', 'vg', 'vg', 'v', 45, 45, 'g', 'vg', 'vg', 'v', 'gv', 'g', 'vg', 'vg', 'v', 'gv', 'g', 'vg', 'vg', 'vg', 'v', 'gv', 'gv', 'gv', 'gv', 'g', 'vg', 'vg', 'vg', 'v', 'g', 'vg', 'v', 'gv', 'gv', 'g', 'vg', 'vg', 'vg', 'v', 'g', 'vg', 'vg', 'v', 'gv', 'gv', 'g', 'vg', 'vg', 'vg', 'v', 'gv', 45, 14, 'vg', 1002),
-('asdas', 'dasda', 'knl', 'bhjb', 'hbjbn', '2018-04-19', '2018-04-17', 'hjb', 'hb', 'jhb', '2018-04-05', 'hjb', 'hjbhj', 'bhj', 'b', 'jhb', 'jhb', 'jhb', '', 'bjhb', 'hjb', 'jhb', 'jhb', 'hjb', 'hjb', 'bj', 'hb', 'jhb', 45, 'jhb', 'jhbj', 'hbj', 'hb', 'jhb', 'jh', 'bhj', 45, 'bjh', 'bhj', 'bjh', 'bhj', 'bhj', 'bhj', 'bjh', 45, 'hjb', 'jhb', 'jhbj', 'hb', 'hjb', 45, 45, 'jhb', 'jh', 'bjhb', 'jh', 'bjh', 'bhj', 'b', 'jb', 'hjbj', 'bjh', 'bjh', 'b', 'hjbjh', 'b', 'jhb', 'jhb', 'jhb', 'hjb', 'jh', 'bhj', 'bjh', 'bj', 'hb', 'hj', 'jhb', 'jh', 'bjh', 'bjhb', 'jhb', 'jhb', 'hjb', 'jh', 'bjh', 'bhj', 'b', 'hjb', 'jhb', 'jhb', 'jh', 'bhj', 'bjh', 'bj', 'hb', 'jb', 'jhb', 'jhb', 45, 45, 'bhj', 1003),
-('ฟหกฟหกฟหก', '11', '3.97', '??????', 'ฟหกฟหกฟหกฟหกฟหก', '2018-04-24', '2018-04-29', 'ฟหกฟห', 'กฟหก', 'ฟหกฟหก', '2018-04-24', 'ฟหกฟหก', 'm', '????', '???', 'ฟหกฟหก', 'ฟหกฟหก', 'ฟหกฟหก', 'asbdhbh', '', 'habshdb', 'bahsbdh', 'habshdxbahs', 'hbhbdahdb', 'hbdahbsdb', '', 'mkjkgvih ', 'ฟหกฟหกฟหกฟหกฟหก', 185, 'fdkl', '45', '83120', '894564', 'muihrjft@gmail.com', 'kofjg', 'ฟหกฟหกฟหกฟหกฟหก', 48, 'jidfjtgyrt', '118/108 ต.กะทู้', '83120', '-', '-', 'mkjkgvih ', 'ฟหกฟหกฟหกฟหกฟหก', 185, 'fdkl', '45', '83120', '894564', 'muihrjft@gmail.com', 1, 1, 'hjiuyi', 'ภูเก็ต', '2009', '2010', 'fghrtfyh', 'fyhtrfuj', 'ภูเก็ต', '2010', '2014', 'rtdytry', 'ftyrturt', 'ภูเก็ต', '2014', '2017', 'tuytu', 'tyutuj', 'ภูเก็ต', '2018', '2020', 'tyut6i ', '2018', '2018', 'ftytiu67y', 'ภูเก็ต', 'hjyikytu', 'ytiyuiky', 'uhjliul', 'uyolfy', 'hiolugyuj', 'ฟหกฟหกฟหกฟหกฟหก', 'ฟหกฟหกฟหกฟหกฟหก', 'ฟหกฟหกฟหกฟหกฟหก', 'Good', 'Good', 'Good', 'Good', 'Good', 'Good', 'Good', 'Good', 'สวย', 'สวย', 'สวย', 'ดะเถภั', 'ดพะั้ะพ', 'เย', 0, 0, 'สวย รวย เก่ง ฉลาด นมโต', 1005);
+('ฟหกฟหก', '2.5', '2.36', '1234515', 'ปะเหลียน', '2017-05-02', '2019-05-02', 'ไทย', 'ไทย', 'พุทธ', '2016-05-02', 'หาดใหญ่', 'm', '178', '56', '-', '71/1 ต.กะทู้', '111/12 paris franch', 'ป้า', '', 'ป้า', 'ครู', 'โรงเรียน', '111/12 ต.กะทู้', '08154787', '', 'พ่อ', 'ปะเหลียน', 50, 'ขายของ', '1212', '83120', '0821544', 'papa@mail.com', 'แม่', 'ปะเหลียน', 48, 'ขายของ', '1212', '83120', '08985654', 'mama@mail.com', 'พ่อ', 'ปะเหลียน', 50, 'ขายของ', '1212', '83120', '0821544', 'papa@mail.com', 1, 1, 'โรงเรียนหมีน้ออย', 'ภูเก็ต', '2550', '2551', '-', 'โรงเรียนหมีใหญ่', 'ภูเก็ต', '2551', '2552', '-', 'โรงเรียนหมีวัยรุ่น', 'ภูเก็ต', '2553', '2554', 'วิทย์-คณิต', 'มหาลัยหมีโต', 'ภูเก็ต', '2555', '2559', 'วิศกรรม', '', '', '-', 'ภูเก็ต', '-', 'web design', 'system analyze', 'programmer', 'DB analyze', 'ปะเหลียน', 'ปะเหลียน', 'ปะเหลียน', 'Fair', 'Fair', 'Fair', 'Fair', 'Poor', 'Poor', 'Poor', 'Poor', 'ดำน้ำนาน 24 ชม', 'นอนนาน 24 ชม', 'ทำงานน้อย ', 'ประกอบคอมได้', 'บาส', 'เล่นเกม', 112, 127, 'เก่งมากครับ', 570213028);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_register`
+--
+
+CREATE TABLE `student_register` (
+  `STD_ID` int(11) NOT NULL,
+  `subject_ID` int(11) NOT NULL,
+  `semester` varchar(6) NOT NULL,
+  `Grade` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -472,10 +506,21 @@ CREATE TABLE `student_status` (
 --
 
 INSERT INTO `student_status` (`status`, `STD_ID`) VALUES
-('Choosing', 1002),
-('Approving', 1003),
-('Waiting', 1004),
-('Rechoosing', 1005);
+('Approving', 570213028),
+('Request', 573021302);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject`
+--
+
+CREATE TABLE `subject` (
+  `subject_id` int(11) NOT NULL,
+  `subject_name_en` varchar(50) NOT NULL,
+  `subject_name_th` varchar(50) NOT NULL,
+  `subject_credit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -485,15 +530,15 @@ INSERT INTO `student_status` (`status`, `STD_ID`) VALUES
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
-  ADD PRIMARY KEY (`company_id`),
-  ADD KEY `Major_ID` (`Major_ID`);
+  ADD PRIMARY KEY (`company_id`);
 
 --
 -- Indexes for table `company_position`
 --
 ALTER TABLE `company_position`
   ADD PRIMARY KEY (`Position_id`,`company_id`),
-  ADD KEY `FK_company_postion` (`company_id`);
+  ADD KEY `FK_company_postion` (`company_id`),
+  ADD KEY `company_postion_ibfk_1` (`major_id`);
 
 --
 -- Indexes for table `faculty`
@@ -514,8 +559,15 @@ ALTER TABLE `major`
 ALTER TABLE `major_setting`
   ADD PRIMARY KEY (`major_id`,`major_type`,`status_id`),
   ADD KEY `FK_status` (`status_id`),
-  ADD KEY `FK_personnelID` (`personnelID`),
   ADD KEY `FK_personnelID_monitor` (`personnelID_monitor`);
+
+--
+-- Indexes for table `major_setting_personnel`
+--
+ALTER TABLE `major_setting_personnel`
+  ADD PRIMARY KEY (`major_setting_personal_id`),
+  ADD UNIQUE KEY `UC_major_setting_personnel` (`major_id`,`major_type`,`personnel_id`) USING BTREE,
+  ADD KEY `major_setting_personnel_ibfk_1` (`personnel_id`);
 
 --
 -- Indexes for table `news`
@@ -584,6 +636,12 @@ ALTER TABLE `student_status`
   ADD KEY `STD_ID` (`STD_ID`);
 
 --
+-- Indexes for table `subject`
+--
+ALTER TABLE `subject`
+  ADD PRIMARY KEY (`subject_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -591,13 +649,13 @@ ALTER TABLE `student_status`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `company_position`
 --
 ALTER TABLE `company_position`
-  MODIFY `Position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -612,6 +670,12 @@ ALTER TABLE `major`
   MODIFY `Major_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `major_setting_personnel`
+--
+ALTER TABLE `major_setting_personnel`
+  MODIFY `major_setting_personal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
@@ -621,7 +685,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `personnel`
 --
 ALTER TABLE `personnel`
-  MODIFY `personnelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `personnelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -633,7 +697,13 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `STD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+  MODIFY `STD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=573021303;
+
+--
+-- AUTO_INCREMENT for table `subject`
+--
+ALTER TABLE `subject`
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -643,7 +713,8 @@ ALTER TABLE `student`
 -- Constraints for table `company_position`
 --
 ALTER TABLE `company_position`
-  ADD CONSTRAINT `FK_company_postion` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`);
+  ADD CONSTRAINT `FK_company_postion` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `company_postion_ibfk_1` FOREIGN KEY (`major_id`) REFERENCES `major` (`Major_ID`);
 
 --
 -- Constraints for table `major`
@@ -656,9 +727,15 @@ ALTER TABLE `major`
 --
 ALTER TABLE `major_setting`
   ADD CONSTRAINT `FK_major` FOREIGN KEY (`major_id`) REFERENCES `major` (`Major_ID`),
-  ADD CONSTRAINT `FK_personnelID` FOREIGN KEY (`personnelID`) REFERENCES `personnel` (`personnelID`),
   ADD CONSTRAINT `FK_personnelID_monitor` FOREIGN KEY (`personnelID_monitor`) REFERENCES `personnel` (`personnelID`),
   ADD CONSTRAINT `FK_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`);
+
+--
+-- Constraints for table `major_setting_personnel`
+--
+ALTER TABLE `major_setting_personnel`
+  ADD CONSTRAINT `major_setting_personnel_ibfk_1` FOREIGN KEY (`personnel_id`) REFERENCES `personnel` (`personnelID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `major_setting_personnel_ibfk_2` FOREIGN KEY (`major_id`) REFERENCES `major` (`Major_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `personnel`

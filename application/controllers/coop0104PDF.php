@@ -33,7 +33,7 @@ public function test()
 public function view0104($stdid)
 {
 
-	$data['data'] = $this->student_model->mystatus();
+	$data['data'] = $this->student_model->mystatus($stdid);
 	array_push($data['data'],$this->student_model->view0104company($stdid));
 	echo '<pre>';
 	print_r($data['data']);
