@@ -45,8 +45,8 @@
 		}
 		public function view($id)
 		{
-			$data['data'] = $this->student_model->checkform();
-			array_push($data['data'],$this->student_model->mystatus());
+			$data['data'] = $this->student_model->checkform($id);
+			array_push($data['data'],$this->student_model->mystatus($id));
 			$this->load->view('top-bar-std');
 			$this->load->view('std-page/rightsidebar-std');
 			$this->load->view('std-page/view103form',$data);

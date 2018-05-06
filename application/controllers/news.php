@@ -7,8 +7,7 @@ class news extends CI_Controller {
 
 		//$this->load->helper(array('form', 'url'));
 		date_default_timezone_set("Asia/Bangkok");
-    $this->load->model('News_model');
-
+    	$this->load->model('News_model');
   	}
 
 		public function toaddform()
@@ -21,7 +20,7 @@ class news extends CI_Controller {
 		public function addnews()
 		{
 			//echo getcwd().'/uploaded_file/';
-			//print_r($_POST);
+			print_r($_POST);
 			//print_r($_FILES);
 			$filename;
 			$date = date('Y-m-d H:i:s');
@@ -36,7 +35,38 @@ class news extends CI_Controller {
 		}
 			$this->News_model->addnews($_POST,$filename,$date);
 			$this->session->set_flashdata('compelte', 'ระบบได้ทำการอัปโหลดไฟล์ของท่านเสร็จเรียบร้อยแล้ว');
-			redirect(base_url("Project-COOP/news/toaddform"));
+			redirect(base_url("Project-COOP/news/show_news"));
+		}
+
+		public function editnewsform($newsid)
+		{
+
+			$data['data'] =  $this->News_model->shownewsdetail($newsid);
+		//	print_r($data);
+
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('edit_news_form',$data);
+			$this->load->view('script');
+
+		}
+
+		public function edit()
+		{
+			$data['data'] =  $this->News_model->shownewsdetail($_POST['newsid']);
+
+			$targetPath = getcwd().'/uploaded_file/';
+			$changefrom = $data['data'][0]['file_name'];
+			$changeto = $_FILES['edit']['name'];
+			$tempFile = $_FILES['edit']['tmp_name'];
+			$targetFile =  $targetPath.$changeto;
+
+			unlink($targetPath.$changefrom);
+			move_uploaded_file($tempFile,$targetFile);
+
+			$this->News_model->updatenews($data,$changeto);
+			redirect(base_url("Project-COOP/Fun_sidebar_admin/show_news"));
+
 		}
 
 }

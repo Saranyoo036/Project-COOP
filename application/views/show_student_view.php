@@ -89,8 +89,18 @@
                 }else if($num_STD==2){
             echo '<td><i class="material-icons">check</i></td>';
             echo '<td><i class="material-icons">check</i></td>';
-                }
-              }else if($type=="internship"){
+                } ?>
+                  <td><div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0104PDF/view0104/$STD_ID") ?>>COOP 0104</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/39/3") ?>>COOP 0202</a></li>
+                                        <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
+                                    </ul>
+                                </div>
+            </td>
+              <?php }else if($type=="internship"){
                 $sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
                 $num_STD = 0;
                 $re =$this->db->query($sql);
@@ -101,21 +111,23 @@
             echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==1){
             echo '<td><i class="material-icons">check</i></td>';
-                }
-              }
-            ///////form202//////
-
-           ?>
-           <td><div class="btn-group" role="group">
+                } ?>
+                <td><div class="btn-group" role="group">
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
                                     <ul class="dropdown-menu">
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
-                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0104PDF/view0104/$STD_ID") ?>>COOP 0104</a></li>
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/39/3") ?>>COOP 0202</a></li>
                                         <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
                                     </ul>
                                 </div>
             </td>
+
+              <?php }
+            ///////form202//////
+
+           ?>
+             
+         
             <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
             <?php
             echo "</tr>";

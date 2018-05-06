@@ -12,8 +12,8 @@
 		public function status_page()
 		{
 			$this->load->model('home_model');
-			$checkform['checkform'] =$this->student_model->checkform();
-			$data['mystatus'] =  $this->student_model->mystatus();
+			$checkform['checkform'] =$this->student_model->checkform($_SESSION['stdid']);
+			$data['mystatus'] =  $this->student_model->mystatus($_SESSION['stdid']);
 			$checkcompany['company'] = $this->student_model->checkinterncompany();
 			$checktime = $this->home_model->checktimestat($data['mystatus'][0]['status'],$data['mystatus'][0]['major'],$_SESSION['std_type']);
 			array_push($data['mystatus'],$checkform['checkform'],$checkcompany['company'],$checktime);

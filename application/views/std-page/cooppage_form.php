@@ -1613,36 +1613,36 @@
                                         <td> อังกฤษ (English)</td>
                                         <td>
 
-                                            <input name="listen-eng" type="radio" id="listen-eng1" class="radio-col-red "  value="Good">
+                                            <input name="listen-eng" type="radio" id="listen-eng1" class="radio-col-red "  value="g">
                                             <label for="listen-eng1">Good</label>
-                                            <input name="listen-eng" type="radio" id="listen-eng2" class="radio-col-pink " value="Fair">
+                                            <input name="listen-eng" type="radio" id="listen-eng2" class="radio-col-pink " value="f">
                                             <label for="listen-eng2">Fair</label>
-                                            <input name="listen-eng" type="radio" id="listen-eng3" class="radio-col-purple " value="Poor">
+                                            <input name="listen-eng" type="radio" id="listen-eng3" class="radio-col-purple " value="p">
                                             <label for="listen-eng3">Poor</label>
 
                                         </td>
                                         <td>
-                                          <input name="speak-eng" type="radio" id="speak-eng1" class="radio-col-red " value="Good" >
+                                          <input name="speak-eng" type="radio" id="speak-eng1" class="radio-col-red " value="g" >
                                           <label for="speak-eng1">G</label>
-                                          <input name="speak-eng" type="radio" id="speak-eng2" class="radio-col-pink " value="Fair">
+                                          <input name="speak-eng" type="radio" id="speak-eng2" class="radio-col-pink " value="f">
                                           <label for="speak-eng2">F</label>
-                                          <input name="speak-eng" type="radio" id="speak-eng3" class="radio-col-purple "value="Poor">
+                                          <input name="speak-eng" type="radio" id="speak-eng3" class="radio-col-purple "value="p">
                                           <label for="speak-eng3">P</label>
                                         </td>
                                         <td>
-                                          <input name="read-eng" type="radio" id="read-eng1" class="radio-col-red " value="Good" >
+                                          <input name="read-eng" type="radio" id="read-eng1" class="radio-col-red " value="g" >
                                           <label for="read-eng1">G</label>
-                                          <input name="read-eng" type="radio" id="read-eng2" class="radio-col-pink " value="Fair">
+                                          <input name="read-eng" type="radio" id="read-eng2" class="radio-col-pink " value="f">
                                           <label for="read-eng2">F</label>
-                                          <input name="read-eng" type="radio" id="read-eng3" class="radio-col-purple " value="Poor">
+                                          <input name="read-eng" type="radio" id="read-eng3" class="radio-col-purple " value="p">
                                           <label for="read-eng3">P</label>
                                         </td>
                                         <td>
-                                          <input name="write-eng" type="radio" id="write-eng1" class="radio-col-red " value="Good" >
+                                          <input name="write-eng" type="radio" id="write-eng1" class="radio-col-red " value="g" >
                                           <label for="write-eng1">G</label>
-                                          <input name="write-eng" type="radio" id="write-eng2" class="radio-col-pink " value="Fair">
+                                          <input name="write-eng" type="radio" id="write-eng2" class="radio-col-pink " value="f">
                                           <label for="write-eng2">F</label>
-                                          <input name="write-eng" type="radio" id="write-eng3" class="radio-col-purple " value="Poor">
+                                          <input name="write-eng" type="radio" id="write-eng3" class="radio-col-purple " value="p">
                                           <label for="write-eng3">P</label>
                                         </td>
                                     </tr>
@@ -1650,36 +1650,36 @@
                                         <td>  จีน (Chinese)</td>
                                         <td>
 
-                                            <input name="listen-ch" type="radio" id="listen-ch1" class="radio-col-red " value="Good">
+                                            <input name="listen-ch" type="radio" id="listen-ch1" class="radio-col-red " value="g">
                                             <label for="listen-ch1">Good</label>
-                                            <input name="listen-ch" type="radio" id="listen-ch2" class="radio-col-pink " value="Fair">
+                                            <input name="listen-ch" type="radio" id="listen-ch2" class="radio-col-pink " value="f">
                                             <label for="listen-ch2">Fair</label>
-                                            <input name="listen-ch" type="radio" id="listen-ch3" class="radio-col-purple " value="Poor">
+                                            <input name="listen-ch" type="radio" id="listen-ch3" class="radio-col-purple " value="p">
                                             <label for="listen-ch3">Poor</label>
 
                                         </td>
                                         <td>
-                                          <input name="speak-ch" type="radio" id="speak-ch1" class="radio-col-red " value="Good" >
+                                          <input name="speak-ch" type="radio" id="speak-ch1" class="radio-col-red " value="g" >
                                           <label for="speak-ch1">G</label>
-                                          <input name="speak-ch" type="radio" id="speak-ch2" class="radio-col-pink " value="Fair">
+                                          <input name="speak-ch" type="radio" id="speak-ch2" class="radio-col-pink " value="f">
                                           <label for="speak-ch2">F</label>
-                                          <input name="speak-ch" type="radio" id="speak-ch3" class="radio-col-purple " value="Poor">
+                                          <input name="speak-ch" type="radio" id="speak-ch3" class="radio-col-purple " value="p">
                                           <label for="speak-ch3">P</label>
                                         </td>
                                         <td>
-                                          <input name="read-ch" type="radio" id="read-ch1" class="radio-col-red " value="Good">
+                                          <input name="read-ch" type="radio" id="read-ch1" class="radio-col-red " value="g">
                                           <label for="read-ch1">G</label>
-                                          <input name="read-ch" type="radio" id="read-ch2" class="radio-col-pink " value="Fair">
+                                          <input name="read-ch" type="radio" id="read-ch2" class="radio-col-pink " value="f">
                                           <label for="read-ch2">F</label>
-                                          <input name="read-ch" type="radio" id="read-ch3" class="radio-col-purple " value="Poor">
+                                          <input name="read-ch" type="radio" id="read-ch3" class="radio-col-purple " value="p">
                                           <label for="read-ch3">P</label>
                                         </td>
                                         <td>
-                                          <input name="write-ch" type="radio" id="write-ch1" class="radio-col-red " value="Good" >
+                                          <input name="write-ch" type="radio" id="write-ch1" class="radio-col-red " value="g" >
                                           <label for="write-ch1">G</label>
-                                          <input name="write-ch" type="radio" id="write-ch2" class="radio-col-pink " value="Fair">
+                                          <input name="write-ch" type="radio" id="write-ch2" class="radio-col-pink " value="f">
                                           <label for="write-ch2">F</label>
-                                          <input name="write-ch" type="radio" id="write-ch3" class="radio-col-purple " value="Poor">
+                                          <input name="write-ch" type="radio" id="write-ch3" class="radio-col-purple " value="p">
                                           <label for="write-ch3">P</label>
                                         </td>
                                     </tr>

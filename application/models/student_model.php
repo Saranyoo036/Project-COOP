@@ -28,13 +28,13 @@ class student_model extends CI_Model
 				));
         return true;
      }
-		 public function mystatus()
+		 public function mystatus($stdid)
 		 {
 		 	$query = $this->db->query("SELECT student.STD_ID,std_name,std_sname,status,student.std_email,student.std_tel,
-				(SELECT faculty.Faculty_name FROM faculty WHERE faculty.Fac_ID = (SELECT major.Fac_ID FROM major WHERE major.Major_ID = (SELECT major_id FROM student WHERE STD_ID = $_SESSION[stdid]))) AS faculty ,
-				(SELECT major.Major_name FROM major WHERE major.Major_ID = (SELECT student.major_id FROM student WHERE student.STD_ID = $_SESSION[stdid])) AS major
+				(SELECT faculty.Faculty_name FROM faculty WHERE faculty.Fac_ID = (SELECT major.Fac_ID FROM major WHERE major.Major_ID = (SELECT major_id FROM student WHERE STD_ID = $stdid))) AS faculty ,
+				(SELECT major.Major_name FROM major WHERE major.Major_ID = (SELECT student.major_id FROM student WHERE student.STD_ID = $stdid)) AS major
 				FROM`student`
-				INNER JOIN student_status ON student_status.STD_ID = student.STD_ID WHERE student.STD_ID = $_SESSION[stdid]");
+				INNER JOIN student_status ON student_status.STD_ID = student.STD_ID WHERE student.STD_ID = $stdid");
 			$row = $query->result_array();
 
 			return $row;
@@ -82,7 +82,6 @@ class student_model extends CI_Model
 
 		 public function addsecondcompany($data)
 		 {
-		 	print_r($data);
 			 $date = date('Y-m-d H:i:s');
 			 $this->STD_ID = $_SESSION['stdid'];
 			 $this->company_id = $data['companyid'];
@@ -147,16 +146,16 @@ class student_model extends CI_Model
 		 				'certificate'=>$data['certificate'],
 		 				'certificate_time'=>$data['time'],
 		 				'start_cer'=>$data['start_cer'],
-		 				'end_cer'=>$data['end_cer'],
-		 				'Note'=>'');
+		 				'end_cer'=>$data['end_cer']);
 		 	$this->db->where("STD_ID = $_SESSION[stdid] AND Position_id = $data[old_posID]");
 		 	$this->db->update('student_company',$up);
 
 		 }
 
-		 public function checkform()
+		 public function checkform($stdid)
 		 {
-		 	$query = $this->db->query("SELECT * FROM student_form_103 WHERE std_form_103_id = $_SESSION[stdid]");
+			
+		 	$query = $this->db->query("SELECT * FROM student_form_103 WHERE std_form_103_id = $stdid");
 			$row = $query->result_array();
 			return $row;
 		 }
