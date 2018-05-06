@@ -80,9 +80,7 @@ var id
           for (var i = 0; i < document.getElementsByTagName('textarea').length; i++) {
             document.getElementsByTagName('textarea')[i].disabled =''
           }
-
-
-
+          
           let editfile = document.createElement("INPUT")
           editfile.type = 'file'
           editfile.name = 'edit'

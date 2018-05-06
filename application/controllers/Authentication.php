@@ -24,7 +24,7 @@ class Authentication extends CI_Controller{
 			if ($result) {
 				foreach ($result as $arr ) {
 					 	$position = $arr->Position;
-						echo $position;
+						//echo $position;
 					}
 					switch ($position) { //check position and redirect
 						case 'admin':

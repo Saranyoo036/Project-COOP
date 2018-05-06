@@ -2,15 +2,20 @@
 
 class  News_model extends CI_Model
 	{
-		public function addnews($data,$filename,$date,$facid)
+		public function addnews($data,$filename,$date,$facid,$name)
 		{
+			$query = $this->db->query("SELECT * FROM personnel WHERE personnelID = $name");
+			$row = $query->result_array();
+			// print_r($row);
+
 			$this->new_id = '';
 			$this->Topic = $data['name'];
 			$this->description = $data['about'];
 			$this->start_date = $date;
 			$this->file_name = $filename;
 			$this->Fac_ID = $facid;
-			//echo $this->address;
+			$this->add_by = $row[0]['personnelName'].' '.$row[0]['personnelSName'];
+
 			$this->db->insert('news', $this);
 		}
 		public function shownews()
