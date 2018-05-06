@@ -1,6 +1,6 @@
 <section class="content">
 
-<?php print_r($data); ?>
+<!-- <?php print_r($data); ?> -->
     <div class="container-fluid">
       <form id='editform' action="<?php echo base_url("Project-COOP/news/edit") ?>" method="post" enctype="multipart/form-data">
         <div class="block-header">

@@ -2,14 +2,14 @@
 
 class  News_model extends CI_Model
 	{
-		public function addnews($data,$filename,$date)
+		public function addnews($data,$filename,$date,$facid)
 		{
 			$this->new_id = '';
 			$this->Topic = $data['name'];
 			$this->description = $data['about'];
 			$this->start_date = $date;
 			$this->file_name = $filename;
-			$this->Fac_ID = 4;
+			$this->Fac_ID = $facid;
 			//echo $this->address;
 			$this->db->insert('news', $this);
 		}

@@ -60,9 +60,6 @@ class Authentication extends CI_Controller{
 						$_SESSION['stdmajorid'] = $result[0]['major_id'];
 						$_SESSION['std_type'] = $result[0]['std_type'];
 
-						
-
-
 						//echo $_SESSION['std_status'];
 						// print_r($row);
 						 //print_r($result);
@@ -100,9 +97,6 @@ class Authentication extends CI_Controller{
 	);
 	$this->session->set_userdata('logged_in',$session_data);
 	redirect(base_url("Project-COOP/Teacher_con/homeTeacher"));
-
-	
-
 
 }}
 

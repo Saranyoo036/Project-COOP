@@ -1,7 +1,9 @@
 <section class="content">
 
+  <?php echo $fac ?>
+
     <div class="container-fluid">
-      <form  action="<?php echo base_url("Project-COOP/news/addnews") ?>" method="post" enctype="multipart/form-data">
+      <form  action=<?php echo base_url("Project-COOP/news/addnews/").$fac; ?> method="post" enctype="multipart/form-data">
         <div class="block-header">
             <h2>Basic Form Elements</h2>
             <ul class="breadcrumb">

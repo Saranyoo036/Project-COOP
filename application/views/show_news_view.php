@@ -17,9 +17,10 @@
 
 
 				<?php
-				$que = " SELECT * FROM `news`;";
- 
-
+				$queryfacid = "SELECT Fac_ID FROM faculty WHERE NameFac_sub = '".$data['nameFac']."'";
+				$result = $this->db->query($queryfacid);
+				$result = $result->result_array();
+				$que = " SELECT * FROM `news` WHERE Fac_ID = ".$result[0]['Fac_ID'];
 
 				$num = 0;
 					$res = $this->db->query($que);
@@ -35,7 +36,7 @@
 				<?php	}
 				?>
 			</table>
-			<a href=<?php echo base_url("Project-COOP/news/toaddform"); ?> class="btn  btn-raised btn-info waves-effect">Add news</a>
+			<a href=<?php echo base_url("Project-COOP/news/toaddform/").$result[0]['Fac_ID']; ?> class="btn  btn-raised btn-info waves-effect">Add news</a>
 			</ul>
 		</div>
 

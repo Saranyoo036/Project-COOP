@@ -49,10 +49,11 @@ class Fun_sidebar_admin extends CI_Controller {
 	}
 	public function show_news()
 	{
-		$data = array(
+		$data['data'] = array(
 			'nameFac'=> $this->input->get('namefac_sub')
-			
+
 		);
+		//print_r($data);
 			$this->load->view('top-bar');
 			$this->load->view('sidebar-admin');
 			$this->load->view('show_news_view',$data);
@@ -82,7 +83,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	{
 
 		//print_r($_GET);
-		
+
 		 $this->load->model('Teacher_model');
 		 $this->Teacher_model->assignteacher($this->input->get('id'),$this->input->get('type'),$this->input->get('major'));
 
@@ -96,7 +97,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	{
 
 		//print_r($_GET);
-		
+
 		 $this->load->model('Teacher_model');
 		 $this->Teacher_model->delassignteacher($this->input->get('id'),$this->input->get('type'),$this->input->get('major'));
 
