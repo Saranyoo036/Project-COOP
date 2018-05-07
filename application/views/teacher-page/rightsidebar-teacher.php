@@ -15,7 +15,7 @@
                 <!-- #User Info --> 
             </li>
             <li class="header">เมนูหลัก</li>
-            <li ><a href="#"><i class="zmdi zmdi-home"></i><span>NEWS</span> </a></li>
+            <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/homeTeacher"><i class="zmdi zmdi-home"></i><span>NEWS</span> </a></li>
             <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/appCOOP"><i class="zmdi zmdi-home"></i><span>Approve-COOP</span> </a></li>
             <li ><a href="<?php echo base_url(); ?>Project-COOP/Teacher_con/appintern"><i class="zmdi zmdi-home"></i><span>Approve-Internship</span> </a></li>
  
