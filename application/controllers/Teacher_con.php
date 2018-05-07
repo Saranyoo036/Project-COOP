@@ -4,9 +4,13 @@ class Teacher_con extends CI_Controller {
 
 	public function homeTeacher()
 	{
+		$this->load->model('News_model');
+		$news['news'] = $this->News_model->shownews();
+		// print_r($info);
+		$this->load->view('css');
 		$this->load->view('top-bar-teacher');
 		$this->load->view('teacher-page/rightsidebar-teacher');
-		
+		$this->load->view('std-page/home',$news);
 		$this->load->view('script');
 	}
 
