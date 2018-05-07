@@ -18,7 +18,7 @@ class Teacher_con extends CI_Controller {
 	{
 		$this->load->view('top-bar-teacher');
 		$this->load->view('teacher-page/rightsidebar-teacher');
-		$this->load->view('teacher-page/home-intern');
+		$this->load->view('teacher-page/home-coop');
 		$this->load->view('script');
 	}
 
@@ -26,7 +26,7 @@ class Teacher_con extends CI_Controller {
 	{
 		$this->load->view('top-bar-teacher');
 		$this->load->view('teacher-page/rightsidebar-teacher');
-		$this->load->view('teacher-page/home-coop');
+		$this->load->view('teacher-page/home-intern');
 		$this->load->view('script');
 	}
 

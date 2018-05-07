@@ -1,181 +1,143 @@
 <section class="content">
-  <?php
-  $responsedata = $responsedata[0];
-  $contact = explode(",",$responsedata['contract']);
-  $address = explode(" ",$responsedata['address']);
-  //print_r($contact);
-
-   ?>
-
     <div class="container-fluid">
-      <form name='editform' id="editform" class="" action="<?php echo base_url("project-coop/index.php/company/editcompanyinfo") ?>" method="post">
-        <div class="block-header">
-            <h2>Basic Form Elements</h2>
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href=<?php echo base_url("project-coop/htdocs/") ?>>Home</a></li>
-                <li class="breadcrumb-item active">Add Company Form </li>
-            </ul>
-        </div>
-        <!-- Input -->
+      <?php
+      $responsedata = $responsedata[0];
+      $contact = explode(",",$responsedata['contract']);
+       
+       ?>
+
+        <!-- Basic Example | Horizontal Layout -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
+                    <div class="header">
+                        <!-- <h2>BASIC EXAMPLE - HORIZONTAL LAYOUT</h2> -->
 
-                    <div class="body">
-                        <h2 class="card-inside-title">Company information</h2>
-                          <div class="form-group form-float form-group-lg">
-                              <div class="form-line">
-                                  <input id="name" name="name" type="text" class="form-control" placeholder="ชื่อบริษัท" value= <?php echo $responsedata['company_name'] ?> placeholder="ชื่อบริษัท" disabled />
-
-                              </div>
-                          </div>
-                          <h2 class="card-inside-title">Address</h2>
-                          <div class="row clearfix">
-                            <div class="col-sm-6">
-                                <div class=" form-float form-group">
-                                    <div class="form-line">
-                                        <input name="num" type="text" class="form-control" placeholder="เลขที่อยู่" value=<?php echo $address[0]; ?>  disabled />
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-float form-group ">
-                                    <div class="form-line">
-                                        <input name="street" type="text" class="form-control" placeholder="ถนน/ตรอก/ซอย" value=<?php echo $address[1]; ?> disabled />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-3">
-                                <div class="form-float form-group">
-                                    <div class="form-line">
-                                        <input name="tumbol" type="text" class="form-control"  placeholder="แขวง/ตำบล" value= <?php echo $address[2]; ?> disabled/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-float form-group">
-                                    <div class="form-line">
-                                        <input name="aumpure" type="text" class="form-control" placeholder="เขต/อำเภอ" value= <?php echo $address[3]; ?> disabled />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-float form-group">
-                                    <div class="form-line">
-                                        <input name="district" type="text" class="form-control" placeholder="จังหวัด" value=<?php echo $address[4]; ?> disabled />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-float form-group">
-                                    <div class="form-line">
-                                        <input name="postcode" type="text" class="form-control" placeholder="รหัสไปรษณีย์" value=<?php echo $address[5]; ?> disabled />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-4">
-                                <div class="form-float form-group">
-                                    <div class="form-line">
-                                        <input name="tel" type="text" class="form-control" placeholder="หมายเลขโทรศัพท์" value=<?php echo $responsedata['Tel']; ?> disabled />
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-float form-group">
-                                  <div class="form-line">
-                                      <input name="fax" type="text" class="form-control" placeholder="หมายเลขโทรสาร(แฟกซ์)" value=<?php echo $contact[0]; ?> disabled />
-
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-float form-group">
-                                  <div class="form-line">
-                                      <input name="mail" type="text" class="form-control" placeholder="ที่อยู่อีเมลล์" value=<?php echo $contact[1] ?> disabled />
-
-                                  </div>
-                              </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="row clearfix">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="card">
-                                <div class="body">
-                                    <h2 class="card-inside-title">About the company </h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <textarea name="about" rows="4" class="form-control no-resize" placeholder="รายละเอียดเกี่ยวกับบริษัท" disabled> <?php echo $responsedata['Note']; ?> </textarea>
-                                                </div>
-                                            </div>
+                     
+                    <div class="body">
+                        <div id="wizard_horizontal">
+                            <h2>About Organization</h2>
+                            <section>
+
+                              <div class="col-md-6">
+                              <form name='editform' id="editform" class="" action="<?php echo base_url("project-coop/index.php/company/editcompanyinfo") ?>" method="post">   
+                                <b>Name</b>
+                                    <div class="input-group"> <span class="input-group-addon"> <i class="material-icons">computer</i> </span>
+                                        <div class="form-line">
+                                            <input class="form-control " name="name" id="name" type="text" value=<?php echo $responsedata['company_name']; ?> disabled>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6">
+                                <b>Address</b>
+                                <div class="form-group ">
+                                   <input class="form-control " type="text" name="address" value= <?php echo $responsedata['address']; ?> disabled>
+                                 
+                                  </div>
+                                  <p><b>Provice : </b>  <input class="form-control " name="Provice" type="text" value=<?php echo $responsedata['provice']; ?> disabled></p>
+                                  <p><b>Tel : </b><input class="form-control " type="text" name="Tel" value=<?php echo $responsedata['Tel']; ?> disabled>
+                                   </p>
+                                  <p><b>Email : </b><input class="form-control " type="text" name="email" value=<?php echo $contact[1]; ?> disabled> </p>
+                                  <p><b>Contract : </b><br>Name :<input class="form-control " type="text" name = "contract_name" value=<?php echo $responsedata['company_contract_name']; ?> disabled>
+                                   Surname : <input class="form-control " type="text" name = "contract_sname" value=<?php echo $responsedata['company_contract_sname']; ?> disabled></p>
+                                    <input type="hidden" name="Fac" value="<?php echo $_GET['subname_fac']; ?>">
+                                  <input type="hidden" name="type" value="<?php echo $_GET['type_major']; ?>">
+                                  <input type="hidden" name="comID" value="<?php echo $_GET['company_viewid']; ?>">
+                                   </form>
+                                  <div align = 'right' > <button id="editbtn" class="btn btn-raised btn-primary waves-effect" onclick="showprop()" >Edit</button> </div>
+                                 
+                                </div>
+
+
+                                  <table class="table">
+                                      <thead>
+                                      <tr>
+                                        <td>NO.</td>
+                                        <td>Position</td>
+                                        <td>view/edit</td>
+                                        
+                                        <td>Delete</td>
+                                        <td><div align = 'right' ><a href="<?php echo(base_url('Project-COOP/index.php/company/addPos?comID='.$responsedata['company_id'].'&subname_fac='.$_GET['subname_fac'].'&type_major='.$_GET['type_major']))?>"><i class="material-icons">add_to_queue</i></a></div</td>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      <?php
+                                        $sql = "SELECT * from company,company_position where company.company_id = company_position.company_id AND company.company_id = ".$responsedata['company_id'];
+                                        
+                                        $res = $this->db->query($sql);
+                                        $num = 0;
+                                        foreach ($res->result() as $key) {
+                                            $num++;
+                                            echo "<tr>";
+                                            echo "<td>$num</td>";
+                                            echo "<td>$key->Position_name</td>";
+                                            echo '<td><a href="'.base_url('Project-COOP/fun_sidebar_admin/viewPostion?posID='.$key->Position_id).'"><i class="material-icons">description</i></a></td>'; ?>
+
+                                            <td><a href= <?php echo base_url("Project-COOP/index.php/company/delPosition?posID=".$key->Position_id."&company_viewid=".$_GET['company_viewid']."&subname_fac=".$_GET['subname_fac']."&type_major=".$_GET['type_major']); ?> ><img src = <?php echo base_url("Project-COOP/assets/images/trash.png");?> height='25'></a></td> 
+
+                                            <?php
+                                            echo "<td></td>";
+                                            echo "</tr>";
+                                        }
+                                      ?>
+                            </tbody>
+                          </table>
+                          </section>
+                          </div>
                         </div>
+                      
+                      </div>
                     </div>
-                    <div class="demo-radio-button">
-                      <h2 class="card-inside-title">Type of company </h2>
-                            <input name="group4" type="radio" id="radio_7" value="COOP" class="radio-col-red" checked disabled>
-                            <label for="radio_7">COOP</label>
-                            <input name="group4" type="radio" value="Internship" id="radio_8" class="radio-col-green" disabled>
-                            <label for="radio_8">Internship</label>
-
-                        </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
-        <input type="hidden" name="view_id" value=<?php echo $_GET['company_viewid'] ?>>
-        </form>
-      </div>
-      <table align="center">
-        <tr>
-          <td>
-            <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
-            <!-- <input type="hidden" name="companytype" value=<?php echo $_GET['type_major']; ?>> -->
-            <!-- <a href="#" class="btn btn-raised btn-primary waves-effect"></a> -->
-            <button type="button" name="button" class="btn btn-raised btn-primary waves-effect" onclick="window.history.back()"> Back</button>
-            <button id="editbtn" class="btn btn-raised btn-primary waves-effect" type="submit" name="submit" onclick="showprop()" >Edit company </button>
-          </td>
-        </tr>
-      </table>
-</section>
-
-<script type="text/javascript">
-
-  let edit = false
-  let inp = document.getElementsByTagName('INPUT')
-  let txt = document.getElementsByTagName('TEXTAREA')
-
-  function showprop() {
-    if (edit == false) {
-      let name =  document.getElementById('name').disabled
-      //alert(edit)
-      document.getElementById('editbtn').innerHTML = 'Save'
-
-      for (var i = 0; i < inp.length; i++) {
-        inp[i].disabled = false
-      }
-      txt[0].disabled = false
-      edit = true
-    }
-    else if (edit==true) {
-      document.getElementById('editbtn').innerHTML = 'Edit company'
-      document.getElementById('editform').submit()
-      //alert(inp[1].name)
-      edit = false
-
-    }
+              </section>
 
 
-  }
-</script>
+<script type="text/javascript"> 
+ 
+  let edit = false 
+  let inp = document.getElementsByTagName('input') 
+   
+ 
+  function showprop() { 
+      //alert("hello");
+    if (edit == false) { 
+      // let name =  document.getElementById('name').disabled 
+       //alert(edit) 
+       document.getElementById('editbtn').innerHTML = 'Save' 
+ 
+      for (var i = 0; i < inp.length; i++) { 
+        inp[i].disabled = false 
+      } 
+       
+       edit = true 
+    } 
+    else if (edit==true) { 
+       document.getElementById('editbtn').innerHTML = 'Edit' 
+       document.getElementById('editform').submit() 
+       //alert(edit) 
+      // edit = false 
+ 
+    } 
+ 
+ 
+  } 
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
