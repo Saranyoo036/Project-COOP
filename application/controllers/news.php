@@ -51,7 +51,7 @@ class news extends CI_Controller {
       move_uploaded_file($tempFile,$targetFile);
 
       $this->News_model->updatenews($data,$changeto);
-      redirect(base_url("Project-COOP/Fun_sidebar_admin/show_news"));
+      redirect(base_url("Project-COOP/Fun_sidebar_admin/home"));
 
     }
     public function editnewsform($newsid)
