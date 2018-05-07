@@ -25,7 +25,7 @@
 
             <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Home</span> </a></li>
 
-           
+           <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li> 
 
 
         </ul>

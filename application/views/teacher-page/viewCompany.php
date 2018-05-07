@@ -74,12 +74,12 @@
               </td>
               <td>
                <button type="button" class="btn  btn-raised bg-green waves-effect"
-                    onclick="window.location='<?php echo base_url('Project-COOP/teacher_con/aprroveStudent?STD_ID='.$_GET['STD_ID'].'&comID='.$_GET['comID'].'&posID='.$_GET['posID']); ?>;'" 
+                    onclick="window.location='<?php echo base_url('Project-COOP/teacher_con/aprroveStudent?type='.$_GET['type'].'&STD_ID='.$_GET['STD_ID'].'&comID='.$_GET['comID'].'&posID='.$_GET['posID']); ?>;'" 
                     >Approve</button>
               </td>
               <td>
                  <button type="button" class="btn  btn-raised bg-red waves-effect"
-                    onclick="window.location='<?php echo base_url('Project-COOP/teacher_con/NoteUnApprove?STD_ID='.$_GET['STD_ID'].'&comID='.$_GET['comID'].'&posID='.$_GET['posID']); ?>'" 
+                    onclick="window.location='<?php echo base_url('Project-COOP/teacher_con/NoteUnApprove?type='.$_GET['type'].'&STD_ID='.$_GET['STD_ID'].'&comID='.$_GET['comID'].'&posID='.$_GET['posID']); ?>'" 
                     >Unapprove</button>
               </td>
             </tr>

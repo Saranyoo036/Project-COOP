@@ -56,7 +56,7 @@
                                     			 echo "<td>$key->personnelName $key->personnelSName</td>";
                                     			 echo "<td>$nameMaj</td>";
                                     			 echo "<td>$type</td>";
-                                    			 echo '<td> <center><a href="'.base_url('project-coop/index.php/Fun_sidebar_admin/delassign?id='.$key->personnel_id.'&type='.$type.'&major='.$nameMaj.'&fac='.$nameFac).'" class="btn btn-raised btn-primary waves-effect">delete</a></center></td>' ;
+                                    			 echo '<td> <center><a href="'.base_url('project-coop/index.php/Fun_sidebar_admin/delassign?id='.$key->personnel_id.'&type='.$type.'&major='.$nameMaj.'&fac='.$nameFac).'" class="btn btn-raised btn-primary waves-effect">UNAPPROVE</a></center></td>' ;
                                     			 echo "</tr>";
                                     		}
                                     	?>

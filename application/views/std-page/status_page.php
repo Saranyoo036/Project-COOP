@@ -123,19 +123,24 @@
 			<?php }else{ ?>
 				<div class="col-md-12">
 				<table class="table table-hover table-bordered  table-striped">
+					<colgroup>
+					     <col width="100">
+					     <col width="100">
+					     <col width="100">
+					     <col width="100">
+					</colgroup>
 					<tbody>
 						<td><center><h5>COOP0103</h5></center></td>
-						<?php 
-							
+						<td><?php 
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&(!$coop0103)&&($mystatus[3])){ ?>
-									<td> <center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a></center></td>
+									 <center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a></center>
 
-						<?php }
+						<?php } ?></td><td><?php
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($coop0103)&&($mystatus[3])){ ?>
-								<td><center> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit</a></center></td>
-						<?php } 
+								<center> <a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/edit103form") ?> class="btn btn-raised g-bg-blue waves-effect" >Edit</a></center>
+						<?php } ?></td><td><?php
 							if($coop0103){ ?>
-								<td><center><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+								<center><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></center>
 						<?php }
 						?>
 					</tbody>
@@ -144,6 +149,12 @@
 
 			<div class="col-md-12">
 				<table class="table table-hover table-bordered  table-striped">
+					<colgroup>
+					     <col width="100">
+					     <col width="100">
+					     <col width="100">
+					     <col width="100">
+					</colgroup>
 					<tbody>
 						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php 
 						if($coop0202_1){
@@ -151,24 +162,29 @@
     							echo '<font color="red">หมายเหตุ : '.$mystatus[2][0]['note'].'</font>';
     						}}
 						?>
-						</center></td>
+						</center></td><td>
 						<?php
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&!$coop0202_1){ ?>
-								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center></td>
-							<?php }
-							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1){ ?>
-								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][0]['company_id']."&Position_id=".$mystatus[2][0]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center></td>
-							<?php } 
+								<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center>
+							<?php } ?></td><td><?php							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1){ ?>
+								<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][0]['company_id']."&Position_id=".$mystatus[2][0]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center>
+							<?php } ?></td><td><?php
 							if($coop0202_1){ ?>
-								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+								<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
 							<?php } ?>
-							</tbody>
+							</td></tbody>
 					</table>
 				</div>
 				<?php 
 				if($_SESSION['std_type']=="COOP"){ ?>
 					<div class="col-md-12">
 						<table class="table table-hover table-bordered  table-striped">
+						<colgroup>
+						    <col width="100">
+						    <col width="100">
+						    <col width="100">
+						    <col width="100">
+						</colgroup>
 							<tbody>
 								<td><center><h5>COOP0202-2</h5><?php 
 								if($coop0202_2){
@@ -177,18 +193,18 @@
 		    						}
 		    					}
 								?>
-						</center></td>
+						</center></td><td>
 								<?php
 								if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&!$coop0202_2){?>
-									<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center></td>
-								<?php } 
+									<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center>
+								<?php } ?></td><td><?php
 								if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_2&&($mystatus[2][1]['status_student_company_id']!=1)){ ?>
-									<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][1]['company_id']."&Position_id=".$mystatus[2][1]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center></td>
-								<?php } 
+									<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][1]['company_id']."&Position_id=".$mystatus[2][1]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center>
+								<?php } ?></td><td><?php
 								if($coop0202_2){ ?>
-									<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+									<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
 								<?php } ?>
-								</tbody>
+								</td></tbody>
 					</table>
 				</div>
 				<?php }

@@ -68,14 +68,23 @@ class Teacher_con extends CI_Controller {
 		{
 			$this->load->model('Teacher_model');
 			$this->Teacher_model->approveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID']);
-			redirect(base_url('Project-COOP/Teacher_con/homeTeacher'));
+			if($_GET['type']=="COOP"){
+				redirect(base_url('Project-COOP/Teacher_con/appCOOP'));
+			}else if($_GET['type']=="Internship"){
+				redirect(base_url('Project-COOP/Teacher_con/appintern'));
+			}
+			
 		}
 
 	public function unApproveStudent()
 	{
 		$this->load->model('Teacher_model');
 		$this->Teacher_model->unApproveSTD($_GET['STD_ID'],$_GET['comID'],$_GET['posID'],$_GET['Note']);
-		redirect(base_url('Project-COOP/Teacher_con/homeTeacher'));
+		if($_GET['type']=="COOP"){
+				redirect(base_url('Project-COOP/Teacher_con/appCOOP'));
+		}else if($_GET['type']=="Internship"){
+				redirect(base_url('Project-COOP/Teacher_con/appintern'));
+		}
 	}
 
 	public function view103STD()

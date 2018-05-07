@@ -42,7 +42,7 @@
                          <form id="selectform" class="" action=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/checkcompany") ?> method="post">
           <input type="hidden" name="companyid" value=<?php echo $responsedata['query'][0]['company_id'] ?>>
           <input type="hidden" name="positionid" value=<?php echo $responsedata['row']['Position_id'] ?>>
-          <h2>Result Subject Related to Postion</h2>
+          <h2>Relevant Subject</h2>
                             <section>
                                     <p> <b>รหัสวิชา-ชื่อ : </b> <select id="selectSubject">
                                                               <option value=" ">None</option>

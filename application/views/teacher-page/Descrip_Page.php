@@ -87,7 +87,7 @@
 														<tr >
 																<th>COOP0202 (แบบเสนองาน)</th>
 																<th><button type="button" class="btn  btn-raised bg-green waves-effect"
-																		onclick="window.location='<?php echo base_url('/Project-COOP/Teacher_con/teacherview202?comID='.$key->company_id.'&posID='.$key->Position_id.'&STD_ID='.$key->STD_ID); ?>';" >View</button></th>
+																		onclick="window.location='<?php echo base_url('/Project-COOP/Teacher_con/teacherview202?type='.$_GET['type'].'&comID='.$key->company_id.'&posID='.$key->Position_id.'&STD_ID='.$key->STD_ID); ?>';" >View</button></th>
 														</tr>
 												</thead>
 										</table>

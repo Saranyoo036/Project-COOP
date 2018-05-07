@@ -16,6 +16,7 @@
                                             <input type="hidden" name="STD_ID" value="<?php echo $_GET['STD_ID']; ?>">
                                             <input type="hidden" name="comID" value="<?php echo $_GET['comID']; ?>">
                                             <input type="hidden" name="posID" value="<?php echo $_GET['posID']; ?>">
+                                            <input type="hidden" name="type" value="<?php echo $_GET['type']; ?>">
                                         </div>
                                     </div>
                                 
