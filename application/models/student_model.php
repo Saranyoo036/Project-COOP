@@ -76,8 +76,6 @@ class student_model extends CI_Model
 			 //echo $this->address;
 
 			 $this->db->insert('student_company', $this);
-
-
 		 }
 
 		 public function addsecondcompany($data)
@@ -154,7 +152,7 @@ class student_model extends CI_Model
 
 		 public function checkform($stdid)
 		 {
-			
+
 		 	$query = $this->db->query("SELECT * FROM student_form_103 WHERE std_form_103_id = $stdid");
 			$row = $query->result_array();
 			return $row;
@@ -427,6 +425,40 @@ class student_model extends CI_Model
 			//print_r($result);
 
 			return $result;
+		 }
+
+		 public function matching($major)
+		 {
+			 $result = array();
+			 $query = $this->db->query("SELECT Major_ID FROM major WHERE NameMajor_sub = '$major'");
+			 $row = $query->result_array();
+			 $majorid = $row[0]['Major_ID'];
+		 	 $query = $this->db->query("SELECT student_company.STD_ID,std_name,std_sname,company_id,Position_id,subject_code,subject_year,subject_result,certificate,certificate_time,std_tel,std_email
+				 				FROM `student_company`
+                INNER JOIN student
+                on student_company.STD_ID = student.STD_ID
+                WHERE major_id = ".$majorid."
+                 AND std_type = 'COOP'
+								 ") ;
+
+			$row = $query->result_array();
+
+			 	array_push($result,$row);
+
+			return $result[0];
+
+		 }
+
+		 public function changeidposandcompanytoname($posid,$comid)
+		 {
+			$query = $this->db->query("SELECT company.company_name,company_position.Position_name
+				FROM company
+				INNER JOIN company_position
+				ON company.company_id = company_position.company_id
+				WHERE company.company_id = $comid AND company_position.Position_id = $posid");
+
+				$row = $query->result_array();
+				return $row;
 		 }
 
 }
