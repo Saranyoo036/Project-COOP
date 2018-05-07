@@ -11,10 +11,10 @@
 	    }
 		public function cooppage_form()
 		{
-			$data = $this->student_model->checkform();
+			$data = $this->student_model->checkform($_SESSION['stdid']);
 			//print_r($data);
 			if($data == Array()){
-				$stddata['stddata'] = $this->student_model->mystatus();
+				$stddata['stddata'] = $this->student_model->mystatus($_SESSION['stdid']);
 				$this->load->view('top-bar-std');
 				$this->load->view('std-page/rightsidebar-std');
 				$this->load->view('std-page/cooppage_form',$stddata);

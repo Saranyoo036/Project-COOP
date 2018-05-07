@@ -29,7 +29,7 @@
 
 
         <?php
-        $status = array('Choosing','Approving','Waiting','Rechoosing','Repair','Accept','Cancel');
+        $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID

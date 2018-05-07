@@ -156,7 +156,7 @@
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&!$coop0202_1){ ?>
 								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/viewselect_organization"); ?>  class="btn btn-raised g-bg-blue waves-effect"> add</a></center></td>
 							<?php }
-							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1&&($mystatus[2][0]['status_student_company_id']!=1)){ ?>
+							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&$mystatus[3]&&$coop0202_1){ ?>
 								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][0]['company_id']."&Position_id=".$mystatus[2][0]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center></td>
 							<?php } 
 							if($coop0202_1){ ?>
@@ -194,7 +194,7 @@
 				<?php }
 				$have_coop0202_2 = true ; 
 				if($coop0202_2){
-					if($mystatus[2][1]['status_student_company_id']!=2){
+					if($mystatus[2][1]['status_student_company_id']==2){
 						$have_coop0202_2 = false;
 					}
 				}

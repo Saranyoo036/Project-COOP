@@ -99,7 +99,12 @@ class  home_model extends CI_Model
 							$data["Internship"] = $this->checkdateBetween($key["start_date"],$key["end_date"]);
 						}
 					}
-					return $data;
+					if(($data["COOP"]==false)&&($data["Internship"]==false)){
+						return false;
+					}else{
+						return $data;
+					}
+					
 				}else{
 					return false;
 				}

@@ -144,7 +144,8 @@ class student_model extends CI_Model
 		 				'certificate'=>$data['certificate'],
 		 				'certificate_time'=>$data['time'],
 		 				'start_cer'=>$data['start_cer'],
-		 				'end_cer'=>$data['end_cer']);
+		 				'end_cer'=>$data['end_cer'],
+		 				'note'=>'');
 		 	$this->db->where("STD_ID = $_SESSION[stdid] AND Position_id = $data[old_posID]");
 		 	$this->db->update('student_company',$up);
 
@@ -391,10 +392,7 @@ class student_model extends CI_Model
 
 	public function change_status($id,$status)
     {
-    	if(($status=="Rechoosing")||($status=="Repair")){
-    		$update2 ="UPDATE student_company SET status_student_company_id = 2 WHERE STD_ID = $id";
-    		$this->db->query($update2);
-    	}
+    	
        $updata = "UPDATE student_status SET  status='$status' where STD_ID = $id";
        $this->db->query($updata);
      }

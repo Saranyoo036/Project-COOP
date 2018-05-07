@@ -45,7 +45,9 @@
           <input type="hidden" name="old_posID" value=<?php echo $old_posID ?>>
           <h2>Result Subject Related to Postion</h2>
                             <section>
-                                    <p> <b>รหัสวิชา-ชื่อ : </b> <select id="selectSubject"><?php
+                                    <p> <b>รหัสวิชา-ชื่อ : </b> <select id="selectSubject">
+                                                            <option value=" ">None</option>
+                                                              <?php
                                                                   $query = "SELECT *  FROM subject,student_register WHERE subject.subject_id = student_register.subject_id AND STD_ID = $_SESSION[stdid]";
                                                                   $res  = $this->db->query($query);
                                                                   foreach ($res->result() as $key ) { ?>
@@ -66,7 +68,7 @@
                 <a  class="btn  g-bg-blue" onclick="window.history.back()" name="button">back</a>
               </td>
               <td>
-                <a type="button" class="btn g-bg-blue" name="button" onclick="$('#selectform').submit()">select company</a>
+                <a  class="btn g-bg-blue" name="button" onclick="$('#selectform').submit()">select company</a>
               </td>
             </tr>
           </table>
