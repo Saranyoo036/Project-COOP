@@ -154,7 +154,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	{
 		$data = array(
 			 'nameFac' => $this->input->get('subname_Fac'),
-      		'nameMaj'=> $this->input->get('subname_major'),
+      		'status'=> $this->input->get('status'),
       		'type' => $this->input->get('type_major')
 		);
 		$this->load->view('top-bar');
@@ -167,7 +167,7 @@ class Fun_sidebar_admin extends CI_Controller {
 	{
 		$data = array(
 			'nameFac' => $_POST['fac'],
-      		'nameMaj'=> $_POST['major'],
+      		'status'=> $_POST['status'],
       		'type' => $_POST['type']
       	);
 		$this->load->view('excel_format',$data);
@@ -209,6 +209,15 @@ public function adminView202()
 			$this->load->view('top-bar');
 			$this->load->view('sidebar-admin');
 			$this->load->view('admin-viewCompany',$responsedata);
+			$this->load->view('script');
+}
+public function viewPostion()
+{
+	$this->load->model('company_model');
+	$responsedata['responsedata'] = $this->company_model->viewPos($_GET['posID']);
+			$this->load->view('top-bar');
+			$this->load->view('sidebar-admin');
+			$this->load->view('admin-viewPosition',$responsedata);
 			$this->load->view('script');
 }
 }

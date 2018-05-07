@@ -54,8 +54,38 @@ class company extends CI_Controller {
   {
     //$this->load->model('company_model');
     $this->company_model->update($_POST);
-    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_major=".$_POST['major']."&type_major=".$_POST['group4']);
+    $back =  base_url("Project-COOP/index.php/company/viewcompany?company_viewid=$_POST[comID]&subname_fac=$_POST[Fac]COC&type_major=".$_POST['type']);
 		header('Location:'.$back);
+  }
+
+   public function editPositioninfo()
+  {
+    //$this->load->model('company_model');
+    $this->company_model->updatePosition($_POST);
+    $back =  base_url("Project-COOP/fun_sidebar_admin/viewPostion?posID=".$_POST['posID']);
+    header('Location:'.$back);
+  }
+
+  public function delPosition()
+  {
+    $this->company_model->deletePos($_GET['posID']);
+      $back =  base_url("Project-COOP/index.php/company/viewcompany?company_viewid=$_GET[company_viewid]&subname_fac=$_GET[subname_fac]COC&type_major=".$_GET['type_major']);
+    header('Location:'.$back);
+  }
+
+  public function addPos()
+  {
+    $this->load->view('top-bar');
+    $this->load->view('sidebar-admin');
+    $this->load->view('admin-addPosition',$_GET);
+    $this->load->view('script');
+  }
+
+  public function addPositioninfo()
+  {
+    $this->company_model->addPos($_POST);
+    $back =  base_url("Project-COOP/index.php/company/viewcompany?company_viewid=$_POST[comID]&subname_fac=$_POST[subname_fac]COC&type_major=".$_POST['type_major']);
+    header('Location:'.$back);
   }
 
 }

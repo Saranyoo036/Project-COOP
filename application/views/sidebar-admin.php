@@ -108,7 +108,9 @@
                                                 </a>
                                                 <ul class="ml-menu">
                                                     <li>
-                                                        <a href="javascript:void(0);" >
+                                                        <a href="<?php 
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&status=Printing&type_major=COOP"); 
+                                                        ?>" >
                                                             <i class="material-icons">home</i>
                                                             <span class="icon-name">
                                                                 Printing
@@ -116,7 +118,9 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0);">
+                                                        <a href="<?php 
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&status=Waiting&type_major=COOP"); 
+                                                        ?>">
                                                             <i class="material-icons">home</i>
                                                             <span class="icon-name">
                                                                 Waitng
@@ -134,7 +138,9 @@
                                                 </a>
                                                 <ul class="ml-menu">
                                                     <li>
-                                                        <a href="javascript:void(0);" >
+                                                        <a href="<?php 
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&status=printing&type_major=Internship"); 
+                                                        ?>" >
                                                             <i class="material-icons">home</i>
                                                             <span class="icon-name">
                                                                 Printing
@@ -142,10 +148,12 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0);">
+                                                        <a href="<?php 
+                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&status=Waiting&type_major=Internship"); 
+                                                        ?>">
                                                             <i class="material-icons">home</i>
                                                             <span class="icon-name">
-                                                                Waitng
+                                                                Waiting
                                                             </span>
                                                         </a>
                                                     </li>
@@ -164,20 +172,10 @@
                                             <li > <a href="javascript:void(0);" class="menu-toggle"> <i class="material-icons">home</i> <span class="icon-name">
                                                 Internship
                                              </span></a>
-                                                <ul class="ml-menu">
-                                                    <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
-                                                    ?>">Time Setting</a></li>
+                                                <ul class="ml-menu"> 
                                                     <li><a href="<?php
                                                          echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
                                                     ?>">Assign Aprove Lecturer</a></li>
-                                                    <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship");
-                                                    ?>">Organization</a></li>
-
-                                                    <li><a href="<?php 
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=internship"); 
-                                                        ?>">Export Summarize</a></li>
                                                     
                                                 </ul>
                                         </li>
@@ -187,21 +185,12 @@
                                                 <ul class="ml-menu">
 
                                                     <li><a href="<?php
-                                                        echo(base_url()."Project-COOP/time_setting/loadpage?subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
-                                                    ?>">Time Setting</a></li>
-                                                    <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Assign Aprove Lecturer</a></li>
                                                     <li><a href="<?php
                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_teacher_monitor?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
                                                     ?>">Assign Monitor Lecturer</a></li>
-                                                    <li><a href="<?php
-                                                         echo(base_url()."Project-COOP/Fun_sidebar_admin/show_company?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP");
-                                                    ?>">Organization</a></li>
-
-                                                    <li><a href="<?php 
-                                                        echo(base_url()."Project-COOP/Fun_sidebar_admin/show_export_view?subname_Fac=".$row->NameFac_sub."&subname_major=".$rowMaj->NameMajor_sub."&type_major=COOP"); 
-                                                        ?>">Export Summarize</a></li>
+                                                 
                                                     
                                                 </ul>
                                         </li>
