@@ -7,12 +7,12 @@
 
 			</ul>
 		</div>
-<?php
+<!-- <?php
 // echo '<pre>';
-//  print_r($news);
-// print_r($_SESSION);
+ print_r($news);
+//print_r($_SESSION);
 // echo '</pre>';
-?>
+?> -->
 
                   <div class="card">
                     <div class="body">
@@ -24,7 +24,7 @@
 																		for ($i=0; $i <count($news) ; $i++) { ?>
 																			<a href=<?php echo base_url("Project-COOP").'/uploaded_file/'.$news[$i]['file_name'] ?> download>
 																				<p> <?php echo $news[$i]['Topic'] ?> ( <?php echo $news[$i]['start_date']; ?> )
-																					<i class="material-icons">get_app</i>
+																					<i class="material-icons">get_app</i> <small>post by <?php echo $news[$i]['add_by'] ?></small>
 																				</p>
 																				</a>
 

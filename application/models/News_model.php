@@ -18,9 +18,9 @@ class  News_model extends CI_Model
 
 			$this->db->insert('news', $this);
 		}
-		public function shownews()
+		public function shownews($facid)
 		{
-			$query =$this->db->query('SELECT * FROM news' );
+			$query =$this->db->query("SELECT * FROM news WHERE Fac_ID = $facid ORDER BY start_date DESC" );
 			$row = $query->result_array();
 
 			return $row;

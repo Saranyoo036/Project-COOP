@@ -63,13 +63,14 @@ class company_model extends CI_Model
        $this->db->where('company_id='.$id);
        $query = $this->db->get();
        $query= $query->result_array();
-      
+
        //print_r($return);
        return $query;
      }
 
      public function view($id,$posid)
      {
+			 
        $this->db->select('*');
        $this->db->from('company');
        $this->db->where('company_id='.$id);
@@ -104,7 +105,7 @@ class company_model extends CI_Model
        $this->db->where('Position_id='.$id);
        $query = $this->db->get();
        $query= $query->result_array();
-      
+
        //print_r($return);
        return $query;
      }
