@@ -79,6 +79,7 @@ class Authentication extends CI_Controller{
 			$this->session->sess_destroy();
 			$sess_array = array('username'=>'');
 			$this->session->unset_userdata('logged_in',$sess_array);
+			$this->session->sess_destroy();
 			$data['message_display'] = 'Successfully Logout';
 			redirect(base_url("Project-COOP"));
 		}
