@@ -8,12 +8,12 @@
 			</ul>
 		</div>
  
- 
+ <div class="col-md-6">
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
-            : นักศึกษากรอกข้อมูลส่วนตัว และเลือกสถานประกอบการ
+          
         </div>
-
+</div>
                 <div class="">
             <div class="panel-heading">
                 <h3>ข้อมูลนักศึกษา (Student Information)</h3>
