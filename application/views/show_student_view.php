@@ -32,6 +32,8 @@
 
         <?php
         $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
+         $color = array('Choosing'=>'fdf88c','Approving'=>'18d1d1','Printing'=>'18d1d1','Waiting'=>'18d1d1','Rechoosing'=>'ff8a8d','Repair'=>'ff8a8d','Accept'=>'64f092','Cancel'=>'cdcdcd');
+ 
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID
@@ -41,7 +43,7 @@
           $res = $this->db->query($que);
           foreach ($res->result() as $key ) {
             $STD_ID = $key->STD_ID;
-            echo "<tr>";
+            echo '<tr style="background-color: #'.$color[$key->status].'">';
             echo "<td>$STD_ID</td>";
             echo "<td>$key->std_name</td>";
             echo "<td>$key->Faculty_name</td>";
