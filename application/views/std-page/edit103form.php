@@ -43,7 +43,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="" placeholder="รหัสนักศึกษา (Std.ID.)" value=<?php echo $_SESSION['stdid']; ?> >
+                                                    <input type="text" class="form-control" name="" placeholder="รหัสนักศึกษา (Std.ID.)" value=<?php if(isset($_SESSION['stdid'])){echo $_SESSION['stdid'];}else{ echo $_GET['STD_ID'];} ['stdid']; ?> >
                                                 </div>
                                             </div>
                                         </div>

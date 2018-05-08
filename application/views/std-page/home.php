@@ -22,7 +22,7 @@
                                   <ul>
 																		<?php
 																		for ($i=0; $i <count($news) ; $i++) { ?>
-																			<a href=<?php echo base_url("Project-COOP").'/uploaded_file/'.$news[$i]['file_name'] ?> download>
+																			<a href="<?php echo base_url("Project-COOP").'/uploaded_file/'.$news[$i]['file_name'] ?>" download>
 																				<p> <?php echo $news[$i]['Topic'] ?> ( <?php echo $news[$i]['start_date']; ?> )
 																					<i class="material-icons">get_app</i> <small>post by <?php echo $news[$i]['add_by'] ?></small>
 																				</p>
