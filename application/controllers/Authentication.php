@@ -24,6 +24,7 @@ class Authentication extends CI_Controller{
 			if ($result) {
 				foreach ($result as $arr ) {
 					 	$position = $arr->Position;
+					 	$teacher_fac = $arr->Fac_ID;
 						//echo $position;
 					}
 					switch ($position) { //check position and redirect
@@ -31,6 +32,8 @@ class Authentication extends CI_Controller{
 							$this->logedin();
 							break;
 							case 'lecture':
+							$_SESSION['Fac'] = $teacher_fac;
+							$_SESSION['teacherID'] = $data_login['username'];
 							$this->login_teacher();
 							break;
 
@@ -73,6 +76,7 @@ class Authentication extends CI_Controller{
 
 		public function log_out()
 		{
+			$this->session->sess_destroy();
 			$sess_array = array('username'=>'');
 			$this->session->unset_userdata('logged_in',$sess_array);
 			$data['message_display'] = 'Successfully Logout';

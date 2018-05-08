@@ -1,4 +1,5 @@
 <?php
+		
 		$show = '';
 		$condition = "student.STD_ID = student_form_103.std_form_103_id 
 						AND student.STD_ID = student_status.STD_ID 
@@ -12,6 +13,20 @@
 									AND student.std_type = '$type'
 									AND student_status.status = '$status'
 									AND faculty.Fac_ID = (SELECT Fac_ID from faculty WHERE NameFac_sub = '$nameFac')";
+		if($status=='Waiting'){
+			$condition = "student.STD_ID = student_form_103.std_form_103_id 
+						AND student.STD_ID = student_status.STD_ID 
+						AND student.STD_ID = student_company.STD_ID
+						AND student.major_id = major.Major_ID 
+						AND student_company.company_id = company.company_id
+						AND student_company.Position_id = company_position.Position_id
+						AND company.company_id = company_position.company_id 
+						AND student_company.status_student_company_id = 1 
+						AND major.Fac_ID = faculty.Fac_ID
+									AND student.std_type = '$type'
+									AND ((student_status.status = 'Waiting')OR(student_status.status = 'Accept'))
+									AND faculty.Fac_ID = (SELECT Fac_ID from faculty WHERE NameFac_sub = '$nameFac')";
+		}
 
 			$this->db->select('*');
 			$this->db->from('student,student_company,company,student_form_103,student_status,major,faculty,company_position');
@@ -53,6 +68,21 @@
 						AND student_status.status = '$status'
 						AND faculty.Fac_ID = (SELECT Fac_ID from faculty WHERE NameFac_sub = '$nameFac')";
 						//echo $sql;
+					if($status=='Waiting'){
+							$sql = "SELECT * from student_form_103,student_company,student_status,student,company_position,company,major,faculty 
+							WHERE student.STD_ID = student_form_103.std_form_103_id 
+							AND student.STD_ID = student_status.STD_ID 
+							AND student.STD_ID = student_company.STD_ID
+							AND student.major_id = major.Major_ID 
+							AND student_company.company_id = company.company_id
+							AND student_company.Position_id = company_position.Position_id
+							AND company.company_id = company_position.company_id 
+							AND student_company.status_student_company_id = 1 
+							AND major.Fac_ID = faculty.Fac_ID
+							AND student.std_type = '$type'
+							AND ((student_status.status = 'Waiting')OR(student_status.status = 'Accept'))
+							AND faculty.Fac_ID = (SELECT Fac_ID from faculty WHERE NameFac_sub = '$nameFac')";
+						}
 						$query=$this->db->query($sql);
 						$num = 1;
 						foreach ($query->result() as $key) {
@@ -80,7 +110,7 @@
 				$show.='</table>';
 
 			}
-		  header("Content-Disposition: attachment; filename=$nameFac-$type.xls");	
+		  header("Content-Disposition: attachment; filename=$nameFac-$type-$status.xls");	
 		  header("Content-Type: application/vnd.ms-excel");
 		
 		echo $show;

@@ -33,7 +33,7 @@
                             </section>
                             <h2>Job description</h2>
                             <section>
-                                    <p> <b>asdasd :</b> <?php echo $responsedata['row']['Position_name']?></p>
+                                    <p> <b>Position :</b> <?php echo $responsedata['row']['Position_name']?></p>
                                     <p> <b>Skill :</b> <?php echo $responsedata['row']['Position_skill']?></p>
                                     <p> <b>Position description :</b> <?php echo $responsedata['row']['Position_desc']?></p>
                                     <p> <b>Number of students :</b> <?php echo $responsedata['row']['Position_num']?></p>

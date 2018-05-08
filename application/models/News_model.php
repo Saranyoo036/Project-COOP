@@ -22,7 +22,7 @@ class  News_model extends CI_Model
 		{
 			$query =$this->db->query("SELECT * FROM news WHERE Fac_ID = $facid ORDER BY start_date DESC" );
 			$row = $query->result_array();
-
+			//print_r($row);
 			return $row;
 		}
 		public function shownewsdetail($newsid)

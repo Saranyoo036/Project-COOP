@@ -7,12 +7,12 @@
 
 			</ul>
 		</div>
-<!-- <?php
-// echo '<pre>';
- print_r($news);
-//print_r($_SESSION);
-// echo '</pre>';
-?> -->
+ <?php
+//  echo '<pre>';
+//  print_r($news);
+// print_r($_SESSION);
+//  echo '</pre>';
+?> 
 
                   <div class="card">
                     <div class="body">
