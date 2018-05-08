@@ -170,7 +170,12 @@ class Fun_sidebar_admin extends CI_Controller {
       		'status'=> $_POST['status'],
       		'type' => $_POST['type']
       	);
-		$this->load->view('excel_format',$data);
+      	if($_POST['type']=='Internship'){
+      		$this->load->view('excel_format-intern',$data);
+      	}else if($_POST['type']=='COOP'){
+      		$this->load->view('excel_format-coop',$data);
+      	}
+		
 	}
 	public function view103STD()
 {
