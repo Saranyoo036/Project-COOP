@@ -30,7 +30,6 @@
 
         <?php
         $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
-        $color = array('Choosing'=>'fdf88c','Approving'=>'18d1d1','Printing'=>'18d1d1','Waiting'=>'18d1d1','Rechoosing'=>'ff8a8d','Repair'=>'ff8a8d','Accept'=>'64f092','Cancel'=>'cdcdcd');
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID
@@ -40,7 +39,7 @@
           $res = $this->db->query($que);
           foreach ($res->result() as $key ) {
             $STD_ID = $key->STD_ID;
-            echo '<tr style="background-color: #'.$color[$key->status].'">';
+            echo "<tr>";
             echo "<td>$STD_ID</td>";
             echo "<td>$key->std_name</td>";
             echo "<td>$key->Faculty_name</td>";
@@ -96,7 +95,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0104PDF/view0104/$STD_ID") ?>>COOP 0104</a></li>
-                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/39/3") ?>>COOP 0202</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/46/21") ?>>COOP 0202</a></li>
                                         <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
                                     </ul>
                                 </div>
@@ -117,7 +116,7 @@
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
                                     <ul class="dropdown-menu">
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
-                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/39/3") ?>>COOP 0202</a></li>
+                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/46/21") ?>>COOP 0202</a></li>
                                         <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
                                     </ul>
                                 </div>

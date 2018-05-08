@@ -392,7 +392,7 @@ class student_model extends CI_Model
 
 	public function change_status($id,$status)
     {
-    	
+
        $updata = "UPDATE student_status SET  status='$status' where STD_ID = $id";
        $this->db->query($updata);
      }
@@ -431,32 +431,72 @@ class student_model extends CI_Model
 			 $query = $this->db->query("SELECT Major_ID FROM major WHERE NameMajor_sub = '$major'");
 			 $row = $query->result_array();
 			 $majorid = $row[0]['Major_ID'];
-		 	 $query = $this->db->query("SELECT student_company.STD_ID,std_name,std_sname,company_id,Position_id,subject_code,subject_year,subject_result,certificate,certificate_time,std_tel,std_email
+
+		 	 $query = $this->db->query("SELECT student_company.STD_ID
 				 				FROM `student_company`
                 INNER JOIN student
                 on student_company.STD_ID = student.STD_ID
                 WHERE major_id = ".$majorid."
                  AND std_type = 'COOP'
-								 ") ;
+								 GROUP BY STD_ID ") ;
 
 			$row = $query->result_array();
 
-			 	array_push($result,$row);
+			//print_r($row);
 
-			return $result[0];
+			for ($i=0; $i <count($row) ; $i++) {
+				$query = $this->db->query("SELECT STD_ID,std_name,std_sname,std_tel,std_email FROM student WHERE STD_ID = ".$row[$i]['STD_ID']);
+				$res = $query->result_array();
+				array_push($result,$res);
+
+				$query = $this->db->query("SELECT student_company.Position_id,student_company.company_id
+					FROM student_company
+					 WHERE student_company.STD_ID =".$result[$i][0]['STD_ID']);
+
+				$ress = $query->result_array();
+				array_push($result[$i][0],$ress[0]['Position_id']);
+				$result[$i][0][0] =$this->changeidposandcompanytoname($result[$i][0][0]);
+				array_push($result[$i][0],$ress[0]['company_id']);
+				$result[$i][0][1] =$this->companyidtocompanyname($result[$i][0][1]);
+
+				if (isset($ress[1])) {
+					array_push($result[$i][0],$ress[1]['Position_id']);
+					$result[$i][0][2] =$this->changeidposandcompanytoname($result[$i][0][2]);
+					array_push($result[$i][0],$ress[1]['company_id']);
+					$result[$i][0][3] =$this->companyidtocompanyname($result[$i][0][3]);
+				}
+
+			}
+			// echo '<pre>';
+			// print_r($result);
+			// echo '</pre>';
+
+			return $result;
 
 		 }
 
-		 public function changeidposandcompanytoname($posid,$comid)
+		 public function changeidposandcompanytoname($posid)
 		 {
-			$query = $this->db->query("SELECT company.company_name,company_position.Position_name
+			$query = $this->db->query("SELECT company_position.Position_name
 				FROM company
 				INNER JOIN company_position
 				ON company.company_id = company_position.company_id
-				WHERE company.company_id = $comid AND company_position.Position_id = $posid");
+				WHERE company_position.Position_id = $posid");
 
 				$row = $query->result_array();
+				$row = $row['0']['Position_name'];
 				return $row;
+		 }
+
+		 public function companyidtocompanyname($comid)
+		 {
+			 $query = $this->db->query("SELECT company.company_name
+ 				FROM company
+ 				WHERE company.company_id = $comid");
+
+ 				$row = $query->result_array();
+ 				$row = $row['0']['company_name'];
+ 				return $row;
 		 }
 
 }
