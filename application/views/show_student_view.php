@@ -1,4 +1,5 @@
 <!-- student function -->
+<!-- student function -->
 <section class="content home">
   <div class="container-fluid">
     <div class="block-header">
@@ -26,6 +27,7 @@
             <td>Delete</td>
           </tr>
           </thead>
+
 
 
         <?php
@@ -58,7 +60,7 @@
             }
             echo "</select>";
             echo "</td>";
-            ////status//////
+ ////status//////
              ///////form103////
               $sql = "SELECT count(std_form_103_id) as form_103 FROM `student_form_103` WHERE std_form_103_id =$STD_ID";
               $form_103 = 0;
@@ -90,7 +92,8 @@
                 }else if($num_STD==2){
             echo '<td><i class="material-icons">check</i></td>';
             echo '<td><i class="material-icons">check</i></td>';
-                } ?>
+
+                 } ?>
                   <td><div class="btn-group" role="group">
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
                                     <ul class="dropdown-menu">
@@ -128,8 +131,7 @@
               $major = $_GET['subname_major'];
            ?>
 
-
-            <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
+ <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
             <?php
             echo "</tr>";
           }
@@ -173,6 +175,3 @@ $(".status-select").change(function(){
 
 
 
-
-
-</script>
