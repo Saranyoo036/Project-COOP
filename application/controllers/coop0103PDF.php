@@ -226,10 +226,7 @@ public function view0103form($stdid)
 		'explain_about_yourself'=>$data['data'][0]['Other_skill_Hobbies'],
 	);
 
-	$where = array('select_print' => 1,'STD_ID'=>$data['data'][0]['std_form_103_id'],'company_id'=>$row[0]['company_id'],'Position_id'=>$row[0]['Position_id']);
-	$this->db->set('select_print', 0, FALSE);
-	$this->db->where($where);
-	$this->db->update('student_company');
+	
 
 	$data =array('coop0103'=>$coop);
 	$this->load->view('coop0103PDF',$data);
@@ -239,7 +236,8 @@ public function setcompanyinform($stdid,$companyid,$posid)
 
 	echo $companyid.' '.$stdid.' '.$posid ;
 	echo 'asdasdvcwwev';
-
+	$sql = "UPDATE student_company SET select_print = 0 WHERE STD_ID = $stdid";
+	$this->db->query($sql);
 	$where = array('select_print' => 0,'STD_ID'=>$stdid,'company_id'=>$companyid,'Position_id'=>$posid);
 
 	$this->db->set('select_print', 1, FALSE);

@@ -56,8 +56,7 @@ class Teacher_model extends CI_Model
 		public function approveSTD($id,$com,$pos)
 		{
 
-			$sql1 ="UPDATE `student_company` SET status_student_company_id = 1 WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
-			$this->db->query($sql1);
+			
 			//$sql2 = "UPDATE `student_company` SET status_student_company_id = 2 WHERE STD_ID=$id AND company_id != $com";
 			
 			$this->db->select('*');
@@ -77,13 +76,15 @@ class Teacher_model extends CI_Model
 				$sql3 = "UPDATE `student_status` SET status = 'Rechoosing' WHERE STD_ID = $id";
 				$this->db->query($sql3);
 			}
+
+			$sql1 ="UPDATE `student_company` SET status_student_company_id = 1 WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
+			$this->db->query($sql1);
 			
 		}
 
 		public function unApproveSTD($id,$com,$pos,$note)
 		{
-			$sql1 ="UPDATE `student_company` SET status_student_company_id = 2 ,note = '$note' WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
-			$this->db->query($sql1);
+			
 
 			$this->db->select('*');
 			$this->db->from('student_company');
@@ -93,6 +94,8 @@ class Teacher_model extends CI_Model
 				$sql3 = "UPDATE `student_status` SET status = 'Rechoosing' WHERE STD_ID = $id";
 				$this->db->query($sql3);
 			}
+			$sql1 ="UPDATE `student_company` SET status_student_company_id = 2 ,note = '$note' WHERE STD_ID=$id AND company_id = $com AND position_id= $pos";
+			$this->db->query($sql1);
 		}
 	}
 ?>

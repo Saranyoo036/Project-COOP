@@ -53,7 +53,7 @@
 			$this->load->view('script-std');
 
 		}
-		public function viewcompany($idea)
+		public function viewcompany($idea,$posid)
 		{
 			//echo $idea;
 			$this->load->model('company_model');
