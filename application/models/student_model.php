@@ -43,7 +43,7 @@ class student_model extends CI_Model
      public function allstatus($majorid)
      {
 			 $result = array();
-			 echo $majorid;
+			 //echo $majorid;
 
 		 	 $query = $this->db->query("SELECT student_company.STD_ID
 				 				FROM `student_company`
@@ -55,7 +55,7 @@ class student_model extends CI_Model
 
 			$row = $query->result_array();
 
-			print_r($row);
+			//print_r($row);
 			for ($i=0; $i <count($row) ; $i++) {
 				$query = $this->db->query("SELECT STD_ID,std_name,std_sname,std_tel,std_email FROM student WHERE STD_ID = ".$row[$i]['STD_ID']);
 				$res = $query->result_array();
@@ -79,11 +79,11 @@ class student_model extends CI_Model
 				}
 
 			}
-			echo '<pre>';
-			print_r($result);
-			echo '</pre>';
+			// echo '<pre>';
+			// print_r($result);
+			// echo '</pre>';
 
-			//return $result;
+			return $result;
 
      }
 

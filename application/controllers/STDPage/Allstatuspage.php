@@ -13,12 +13,12 @@
 		{
 			$data['data'] = $this->student_model->allstatus($majorid);
 
-			//print_r($data);
-			// $this->load->view('css');
-			// $this->load->view('top-bar-std');
-			// $this->load->view('std-page/rightsidebar-std');
-			// $this->load->view('std-page/Allstatus_page',$data);
-			// $this->load->view('script-std');
+			//print_r($data['data']);
+			$this->load->view('css');
+			$this->load->view('top-bar-std');
+			$this->load->view('std-page/rightsidebar-std');
+			$this->load->view('std-page/Allstatus_page',$data);
+			$this->load->view('script-std');
 
 		}
 
