@@ -12,9 +12,20 @@ public function view0103form($stdid)
 	//echo $stdid;
 	 $data['data'] = $this->student_model->checkform($stdid);
 	 array_push($data['data'],$this->student_model->mystatus($stdid));
+
+	 $company = $this->db->query("select company_id,Position_id from student_company where STD_ID = $stdid and select_print = 1 ");
+	 $row = $company->result_array();
 	// echo '<pre>';
-	// print_r($data['data']);
+	// print_r($row);
 	// echo'</pre>';
+	if ($row!=array()) {
+		$comname = $this->student_model->companyidtocompanyname($row[0]['company_id']);
+		$posname = $this->student_model->changeidposandcompanytoname($row[0]['Position_id']);
+	}
+	else{
+		$comname = '';
+		$posname = '';
+	}
 
 	$coop = (object) array(
 
@@ -38,8 +49,10 @@ public function view0103form($stdid)
 		'working_from_1'=>'',
 		'working_until_1'=>'',
 		'period_of_working_1_1'=>'',
+		'job_position'=>$posname,
 		'position_1_2'=>'',
-		'oraganization_name_1_2'=>'fdfsdf',
+		'organization_name' => $comname,
+		'oraganization_name_1_2'=>'',
 		'period_of_working_1_2'=>'',
 		'course_1_1'=>'',
 		'course_1_2'=>'',
@@ -211,12 +224,29 @@ public function view0103form($stdid)
 		'hobbies_4_1'=>$data['data'][0]['Explain_yourself'],
 
 		'explain_about_yourself'=>$data['data'][0]['Other_skill_Hobbies'],
-
-
 	);
+
+	$where = array('select_print' => 1,'STD_ID'=>$data['data'][0]['std_form_103_id'],'company_id'=>$row[0]['company_id'],'Position_id'=>$row[0]['Position_id']);
+	$this->db->set('select_print', 0, FALSE);
+	$this->db->where($where);
+	$this->db->update('student_company');
 
 	$data =array('coop0103'=>$coop);
 	$this->load->view('coop0103PDF',$data);
+}
+public function setcompanyinform($stdid,$companyid,$posid)
+{
+
+	echo $companyid.' '.$stdid.' '.$posid ;
+	echo 'asdasdvcwwev';
+
+	$where = array('select_print' => 0,'STD_ID'=>$stdid,'company_id'=>$companyid,'Position_id'=>$posid);
+
+	$this->db->set('select_print', 1, FALSE);
+	$this->db->where($where);
+	$this->db->update('student_company');
+
+
 }
 }
 ?>

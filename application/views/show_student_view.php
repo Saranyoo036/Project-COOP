@@ -15,6 +15,8 @@
             <td>Status</td>
             <td>COOP 0103</td>
             <?php
+
+            $j =0;
               if($type=="COOP"){
                 echo "<td>COOP 0202-01</td>";
                 echo "<td>COOP 0202-02</td>";
@@ -33,7 +35,7 @@
         <?php
         $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
          $color = array('Choosing'=>'fdf88c','Approving'=>'18d1d1','Printing'=>'18d1d1','Waiting'=>'18d1d1','Rechoosing'=>'ff8a8d','Repair'=>'ff8a8d','Accept'=>'64f092','Cancel'=>'cdcdcd');
- 
+
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id
             AND major.Fac_ID = faculty.Fac_ID
@@ -42,6 +44,7 @@
             AND student.std_type = '$type';";
           $res = $this->db->query($que);
           foreach ($res->result() as $key ) {
+
             $STD_ID = $key->STD_ID;
             echo '<tr style="background-color: #'.$color[$key->status].'">';
             echo "<td>$STD_ID</td>";
@@ -88,11 +91,25 @@
             echo '<td><i class="material-icons">close</i></td>';
             echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==1){
-            echo '<td><i class="material-icons">check</i></td>';
-            echo '<td><i class="material-icons">close</i></td>';
+                  $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
+                  $row = $query->result_array();
+                  print_r($row);
+                  echo "<td>
+                  <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
+                  <label for=".$STD_ID.$j.">".$row[0]['company_id']."</label>
+
+                  </td>";
                 }else if($num_STD==2){
-            echo '<td><i class="material-icons">check</i></td>';
-            echo '<td><i class="material-icons">check</i></td>';
+                  $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
+                  $row = $query->result_array();
+                  echo "<td>
+                  <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
+                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
+
+                  </td>";
+            //echo '<td><i class="material-icons">check</i></td>';
+            echo "<td><input name='group4' id=".$STD_ID.($j+1)." class='radio-col-deep-purple' type='radio'value=".$row[1]['company_id']." onclick = 'test($STD_ID,this.value,".$row[1]['Position_id'].")'>
+            <label for=".$STD_ID.($j+1).">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label></td>";
 
                  } ?>
                   <td><div class="btn-group" role="group">
@@ -115,7 +132,17 @@
                 if($num_STD==0){
             echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==1){
-            echo '<td><i class="material-icons">check</i></td>';
+                  $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
+                  $row = $query->result_array();
+                  echo '<pre>';
+                  print_r($row);
+                  echo '</pre>';
+                  echo "<td>
+                  <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
+                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
+
+                  </td>";
+            //echo '<td><i class="material-icons">check</i></td>';
                 } ?>
                 <td><div class="btn-group" role="group">
                                     <button type="button" class="btn btn-default waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">print</i><span class="caret"></span> </button>
@@ -135,6 +162,7 @@
  <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
             <?php
             echo "</tr>";
+            $j++;
           }
         ?>
       </table>
@@ -148,6 +176,18 @@
 <script type="text/javascript">
 
 var table;
+
+
+function test(stdid,comid,posid) {
+  alert(stdid +' '+comid)
+  jQuery.ajax({
+            url: "<?php echo base_url("Project-COOP/coop0103PDF/setcompanyinform/")?>"+stdid+'/'+comid+'/'+posid,
+            type: 'GET'
+          }).done(function(){
+            alert('เซ็ทข้อมูลสำหรับแบบฟอร์ม coop0103 เสร็จสิ้น')
+          });
+}
+
 $(document).ready(function() {
   table = $('#example').DataTable({
 
@@ -175,4 +215,3 @@ $(".status-select").change(function(){
 })
 
 </script>
-

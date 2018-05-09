@@ -129,6 +129,7 @@ class matching extends CI_Controller {
                       $objPHPExcel->getActiveSheet()->getColumnDimension($col)->setAutoSize(true);
 
                     }
+                    
                     foreach($data as $row)
                     {
                       for ($i=0; $i <count($row) ; $i++) {

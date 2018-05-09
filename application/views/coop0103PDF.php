@@ -91,8 +91,8 @@ $phone_number_1 = $coop0103->phone_number_1;
 $semester_gpa_1 = FilterShowNumber($coop0103->semester_gpa_1);
 $cumulative_gpa_1 = FilterShowNumber($coop0103->cumulative_gpa_1);
 $email_1 = $coop0103->email_1;
-$position_1_1 = "asdasd";  //$coop0202->job_position;
-$oraganization_name_1_1 = "dfsdfsdf";//$coop0202->organization_name;
+$position_1_1 = $coop0103->job_position;  //$coop0202->job_position;
+$oraganization_name_1_1 = $coop0103->organization_name;//$coop0202->organization_name;
 
 function DateThai($strDate, $lang) {
 	$strYear = date("Y",strtotime($strDate));
