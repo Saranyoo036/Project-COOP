@@ -96,9 +96,10 @@
                   print_r($row);
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
-                  <label for=".$STD_ID.$j.">".$row[0]['company_id']."</label>
+                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
 
                   </td>";
+                  echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==2){
                   $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
                   $row = $query->result_array();
@@ -134,9 +135,9 @@
                 }else if($num_STD==1){
                   $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
                   $row = $query->result_array();
-                  echo '<pre>';
-                  print_r($row);
-                  echo '</pre>';
+                  // echo '<pre>';
+                  // print_r($row);
+                  // echo '</pre>';
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
                   <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
