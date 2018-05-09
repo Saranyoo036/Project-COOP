@@ -157,7 +157,7 @@
 
               <?php }
 
-              $major = $_GET['subname_major'];
+              //$major = $_GET['subname_major'];
            ?>
 
  <td><a href="<?php echo base_url('Project-COOP/fun_sidebar_admin/deleteSTD?STD_ID='.$STD_ID.'&major='.$nameMaj.'&type='.$type); ?>" onclick="return confirm('Are you sure you want to delete?')"><i class="material-icons">delete</i></a></td>
@@ -168,7 +168,7 @@
         ?>
       </table>
       </ul>
-      <a href=<?php echo base_url("Project-COOP/matching/matching/").$major; ?> class="btn btn-raised btn-primary waves-effect">matching</a>
+      <a href=<?php echo base_url("Project-COOP/matching/matching/").$nameMaj; ?> class="btn btn-raised btn-primary waves-effect">matching</a>
     </div>
      </div>
 
