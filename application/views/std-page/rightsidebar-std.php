@@ -14,7 +14,7 @@
                     <div class="admin-action-info"> <span><?php echo $_SESSION['stdid'] ?></span>
                         <h3><?php echo $_SESSION['std_name'].' '.$_SESSION['std_sname']?> </h3>
                         <ul>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
 
             <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/statuspage/status_page"><i class="material-icons">highlight</i> <span class="icon-name">Status</span> </a></li>
 
-           <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li> 
+           <li ><a href="<?php echo base_url(); ?>Project-COOP/STDPage/Allstatuspage/Allstatus_page/<?php echo $_SESSION['stdmajorid']; ?>"><i class="material-icons">contact_phone</i> <span class="icon-name">All Status</span> </a></li> 
 
 
         </ul>

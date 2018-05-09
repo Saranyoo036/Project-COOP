@@ -9,14 +9,16 @@
 	        $this->load->model('student_model');
 
 	    }
-		public function Allstatus_page()
+		public function Allstatus_page($majorid)
 		{
-			$data['data'] = $this->student_model->allstatus();
-			$this->load->view('css');
-			$this->load->view('top-bar-std');
-			$this->load->view('std-page/rightsidebar-std');
-			$this->load->view('std-page/Allstatus_page',$data);
-			$this->load->view('script-std');
+			$data['data'] = $this->student_model->allstatus($majorid);
+
+			//print_r($data);
+			// $this->load->view('css');
+			// $this->load->view('top-bar-std');
+			// $this->load->view('std-page/rightsidebar-std');
+			// $this->load->view('std-page/Allstatus_page',$data);
+			// $this->load->view('script-std');
 
 		}
 

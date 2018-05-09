@@ -40,23 +40,51 @@ class student_model extends CI_Model
 			return $row;
 		 }
 
-     public function allstatus()
+     public function allstatus($majorid)
      {
-       $query = $this->db->query("SELECT student.STD_ID, student.std_name,student.std_sname,
-				 (SELECT NameMajor_sub FROM major WHERE Major_ID = (SELECT major_id FROM student WHERE STD_ID = $_SESSION[stdid])) AS major,
-				 (SELECT company_name FROM company WHERE company_id =(SELECT company_id FROM student_company WHERE STD_ID = 1000 )) AS company,
-				 student.std_type,student_status.status FROM student
-				 INNER JOIN student_status ON student.STD_ID=student_status.STD_ID
-			 ");
-       $row = $query->result();
-       //print_r($row);
+			 $result = array();
+			 echo $majorid;
 
-       // $query2 = $this->db->query('SELECT * FROM student');
-       // $row2 = $query2->result_array();
-       // echo '<pre>';
-       // print_r($row);
-       // echo '</pre>';
-       return $row;
+		 	 $query = $this->db->query("SELECT student_company.STD_ID
+				 				FROM `student_company`
+                INNER JOIN student
+                on student_company.STD_ID = student.STD_ID
+                WHERE major_id = ".$majorid."
+                 AND std_type = 'COOP'
+								 GROUP BY STD_ID ") ;
+
+			$row = $query->result_array();
+
+			print_r($row);
+			for ($i=0; $i <count($row) ; $i++) {
+				$query = $this->db->query("SELECT STD_ID,std_name,std_sname,std_tel,std_email FROM student WHERE STD_ID = ".$row[$i]['STD_ID']);
+				$res = $query->result_array();
+				array_push($result,$res);
+
+				$query = $this->db->query("SELECT student_company.Position_id,student_company.company_id
+					FROM student_company
+					 WHERE student_company.STD_ID =".$result[$i][0]['STD_ID']);
+
+				$ress = $query->result_array();
+				array_push($result[$i][0],$ress[0]['Position_id']);
+				$result[$i][0][0] =$this->changeidposandcompanytoname($result[$i][0][0]);
+				array_push($result[$i][0],$ress[0]['company_id']);
+				$result[$i][0][1] =$this->companyidtocompanyname($result[$i][0][1]);
+
+				if (isset($ress[1])) {
+					array_push($result[$i][0],$ress[1]['Position_id']);
+					$result[$i][0][2] =$this->changeidposandcompanytoname($result[$i][0][2]);
+					array_push($result[$i][0],$ress[1]['company_id']);
+					$result[$i][0][3] =$this->companyidtocompanyname($result[$i][0][3]);
+				}
+
+			}
+			echo '<pre>';
+			print_r($result);
+			echo '</pre>';
+
+			//return $result;
+
      }
 
 		 public function addfirstcompany($data)
@@ -443,7 +471,6 @@ class student_model extends CI_Model
 			$row = $query->result_array();
 
 			//print_r($row);
-
 			for ($i=0; $i <count($row) ; $i++) {
 				$query = $this->db->query("SELECT STD_ID,std_name,std_sname,std_tel,std_email FROM student WHERE STD_ID = ".$row[$i]['STD_ID']);
 				$res = $query->result_array();

@@ -53,11 +53,12 @@
 			$this->load->view('script-std');
 
 		}
-		public function viewcompany($idea)
+		public function viewcompany($idea,$posid)
 		{
 			//echo $idea;
 			$this->load->model('company_model');
 			$responsedata['responsedata'] = $this->company_model->view($idea,$posid);
+
 			echo '<pre>';
 			print_r($responsedata['responsedata']);
 			echo '</pre>';
@@ -70,10 +71,10 @@
 				'sub_dristrict'=>'asd',
 				'district'=>'asd',
 				'province'=>$responsedata['responsedata']['query'][0]['provice'],
-				'zip_code'=>'asd',
+				'zip_code'=>'83000',
 				'tel'=>$responsedata['responsedata']['query'][0]['Tel'],
-				'fax'=>'asd',
-				'website'=>'asd',
+				'fax'=>'',
+				'website'=>'',
 				'name'=>$responsedata['responsedata']['query'][0]['company_contract_name'],
 				'surname'=>$responsedata['responsedata']['query'][0]['company_contract_sname'],
 				'position'=>'asd',

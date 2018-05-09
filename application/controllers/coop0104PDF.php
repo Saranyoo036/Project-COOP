@@ -39,6 +39,17 @@ public function view0104($stdid)
 	print_r($data['data']);
 	echo '</pre>';
 
+	if (isset($data['data'][1][0][1]['company_name'])) {
+		$company2 = $data['data'][1][0][1]['company_name'];
+		$province2 = $data['data'][1][0][1]['provice'];
+		$position2 = $data['data'][1][0][1]['Position_name'];
+	}
+	else{
+		$company2 ='';
+		$province2 = '';
+		$position2 = '';
+	}
+
 	$coop = (object) array(
 
 		'faculty_id'=>'1',
@@ -58,9 +69,9 @@ public function view0104($stdid)
 		'organization_name_1'=>$data['data'][1][0][0]['company_name'],
 		'organization_1_province'=>$data['data'][1][0][0]['provice'],
 		'organization_1_position'=>$data['data'][1][0][0]['Position_name'],
-		'organization_name_2'=>$data['data'][1][0][1]['company_name'],
-		'organization_2_province'=>$data['data'][1][0][1]['provice'],
-		'organization_2_position'=>$data['data'][1][0][1]['Position_name']
+		'organization_name_2'=>$company2,
+		'organization_2_province'=>$province2,
+		'organization_2_position'=>$position2
 
 	);
 
