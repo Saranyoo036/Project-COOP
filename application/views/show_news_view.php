@@ -9,7 +9,6 @@
 					<tr>
 						<td>NO.</td>
 						<td>Topics</td>
-						<td>view</td>
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
@@ -34,11 +33,10 @@
 						echo "<tr>";
 						 echo "<td>$num</td>";
  						echo "<td>$key->Topic</td>"; ?>
- 						<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">view <?php echo $key->new_id; ?></a></td>
 						<td><a href=<?php echo base_url("Project-COOP/news/editnewsform/$key->new_id") ?> class="btn btn-raised g-bg-blue waves-effect">edit</a></td>
-						<td><a href="#" class="btn btn-raised g-bg-blue waves-effect">delete</a></td>
-						</tr>
-				<?php	}
+						<?php echo " <td><a href='#' class='btn btn-raised g-bg-blue waves-effect' onclick='deletenews($key->new_id)'>delete</a></td>";
+						echo '</tr>';
+					}
 				?>
 			</table>
 			<a href=<?php echo base_url("Project-COOP/news/toaddform/").$result[0]['Fac_ID']; ?> class="btn  btn-raised btn-info waves-effect">Add news</a>
@@ -49,6 +47,18 @@
 
 </section>
 <script type="text/javascript">
+
+function deletenews(newsid) {
+	var result = confirm("Want to delete?");
+if (result) {
+	jQuery.ajax({
+						url: "<?php echo base_url("Project-COOP/news/deletenews/")?>"+newsid,
+						type: 'GET'
+					}).done(function(){
+						alert('ลบข่าวนี้เสร็จสิ้น')
+					});
+}
+}
 
 var teacher =[];
 var table;

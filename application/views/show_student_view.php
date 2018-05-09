@@ -167,7 +167,7 @@
         ?>
       </table>
       </ul>
-      <a href=<?php echo base_url("Project-COOP/matching/matching/").$major; ?> class="btn">matching</a>
+      <a href=<?php echo base_url("Project-COOP/matching/matching/").$major; ?> class="btn btn-raised btn-primary waves-effect">matching</a>
     </div>
      </div>
 
@@ -179,7 +179,7 @@ var table;
 
 
 function test(stdid,comid,posid) {
-  alert(stdid +' '+comid)
+
   jQuery.ajax({
             url: "<?php echo base_url("Project-COOP/coop0103PDF/setcompanyinform/")?>"+stdid+'/'+comid+'/'+posid,
             type: 'GET'

@@ -28,16 +28,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card">
                                 <div class="body">
-                                    <h2 class="card-inside-title">Faculty </h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <textarea name="about" rows="4" class="form-control no-resize" placeholder="คณะ" disabled><?php echo $data[0]['Fac_ID'] ?></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     <div class="body">
                                         <h2 class="card-inside-title">Old News File</h2>
                                         <div class="form-group form-float form-group-lg">
@@ -60,8 +51,8 @@
         <table align="center">
           <tr>
             <td>
-              <a href="#" class="btn " onclick="window.history.back()">back</a>
-              <a href="#" class="btn" value='uneditable' id ='uneditable' onclick='edit(this.id)'>edit</a>
+              <a href="#" class="btn btn-raised btn-primary waves-effect " onclick="window.history.back()">back</a>
+              <a href="#" class="btn btn-raised btn-primary waves-effect" value='uneditable' id ='uneditable' onclick='edit(this.id)'>edit</a>
 
               <!-- <input class="btn btn-raised btn-primary waves-effect" type="submit" name="submit" value="Add news"> -->
             </td>
@@ -80,7 +71,7 @@ var id
           for (var i = 0; i < document.getElementsByTagName('textarea').length; i++) {
             document.getElementsByTagName('textarea')[i].disabled =''
           }
-          
+
           let editfile = document.createElement("INPUT")
           editfile.type = 'file'
           editfile.name = 'edit'

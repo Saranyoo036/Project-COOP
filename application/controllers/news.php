@@ -63,5 +63,10 @@ class news extends CI_Controller {
       $this->load->view('script');
 
     }
+    public function deletenews($newsid)
+    {
+      $this->db->where('new_id', $newsid);
+      $this->db->delete('news');
+    }
   }
   ?>
