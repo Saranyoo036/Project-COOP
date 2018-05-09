@@ -163,7 +163,7 @@
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
 						<td><center><h5>COOP0202-1</h5></center></td>
-								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id'].'/'.$mystatus[2][0]['Position_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
 						</tbody>
 				</table>
 			</div>
@@ -174,7 +174,7 @@
 						<table class="table table-hover table-bordered  table-striped">
 							<tbody>
 								<td><center><h5>COOP0202-2</h5></center></td>
-								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
+								<td><center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id'].'/'.$mystatus[2][1]['Position_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
 							</tbody>
 						</table>
 					</div>
@@ -231,7 +231,7 @@
 								<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][0]['company_id']."&Position_id=".$mystatus[2][0]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center>
 							<?php } ?></td><td><?php
 							if($coop0202_1){ ?>
-								<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
+								<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][0]['company_id'].'/'.$mystatus[2][0]['Position_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
 							<?php } ?>
 							</td></tbody>
 					</table>
@@ -263,7 +263,7 @@
 									<center><a href=<?php echo base_url("Project-COOP/STDPage/viewselectorganization/editselect_organization?company_id=".$mystatus[2][1]['company_id']."&Position_id=".$mystatus[2][1]['Position_id']); ?>  class="btn btn-raised g-bg-blue waves-effect"  class="btn">Edit</a></center>
 								<?php } ?></td><td><?php
 								if($coop0202_2){ ?>
-									<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
+									<center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/").$mystatus[2][1]['company_id'].'/'.$mystatus[2][1]['Position_id']; ?> class="btn btn-raised g-bg-blue waves-effect">view</a></center>
 								<?php } ?>
 								</td></tbody>
 					</table>
