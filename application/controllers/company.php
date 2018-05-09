@@ -12,17 +12,20 @@ class company extends CI_Controller {
 
   public function addcompany()
   {
-
+    $data = array(
+      'nameFac' => $this->input->get('subname_Fac'),
+      'type' => $this->input->get('type_major')
+    );
     $this->load->view('top-bar');
     $this->load->view('sidebar-admin');
-    $this->load->view('add_company_view');
+    $this->load->view('add_company_view',$data);
     $this->load->view('script');
   }
   public function insertcompany()
   {
     //$this->load->model('company_model');
     $this->company_model->addnewcompany($_POST);
-    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_major=".$_POST['major']."&type_major=".$_POST['group4']);
+    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_Fac=".$_POST['fac']."&type_major=".$_POST['group4']);
 		header('Location:'.$back);
 
   }
@@ -32,7 +35,7 @@ class company extends CI_Controller {
     echo $del_id;
     //$this->load->model('company_model');
     $this->company_model->delete($del_id);
-    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_major=".$_GET['subname_fac']."&type_major=".$_GET['type_major']);
+    $back =  base_url("project-coop/index.php/Fun_sidebar_admin/show_company?subname_Fac=".$_GET['subname_fac']."&type_major=".$_GET['type_major']);
 		header('Location:'.$back);
 
     // Produces:

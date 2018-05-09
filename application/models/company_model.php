@@ -34,11 +34,11 @@ class company_model extends CI_Model
 		 public function addnewcompany($data)
      {
 
-       	$major = $data['major'];
-      	$query2 = $this->db->query("SELECT * FROM major WHERE `NameMajor_sub`= '".$major."'");
+       	$major = $data['fac'];
+      	$query2 = $this->db->query("SELECT * FROM faculty WHERE `NameFac_sub`= '".$major."'");
       	$row = $query2->result_array()[0];
        	$this->company_id = '';
-       	$this->Major_ID = $row['Major_ID'];
+       	$this->Fac_ID = $row['Fac_ID'];
        	$this->address = $data['num']." ".$data['street']." ".$data['tumbol']." ".$data['aumpure']." ".$data['district']." ".$data['postcode'];
        	$this->provice = $data['district'];
        	$this->contract = $data['fax'].','.$data['mail'];

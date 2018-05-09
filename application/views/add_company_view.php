@@ -144,7 +144,7 @@
         <table align="center">
           <tr>
             <td>
-              <input type="hidden" name="major" value=<?php echo $_GET['subname_major']; ?>>
+              -- <input type="hidden" name="fac" value=<?php echo $_GET['subname_fac']; ?>> 
               <!-- <input type="hidden" name="companytype" value=<?php echo $_GET['type_major']; ?>> -->
               <!-- <a href="#" class="btn btn-raised btn-primary waves-effect"></a> -->
               <input class="btn btn-raised btn-primary waves-effect" type="submit" name="submit" value="Add company">
