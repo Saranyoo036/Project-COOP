@@ -38,6 +38,7 @@
                                             <tbody>
                                               <tr>
                                             <?php
+                                            
                                             for ($i=0; $i <count($data[0]) ; $i++) {
                                               echo "<td>".$data[0][$i]['STD_ID']." </td>";
                                               echo "<td>".$data[0][$i]['std_name'].' '.$data[0][$i]['std_sname']." </td>";
