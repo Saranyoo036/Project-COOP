@@ -39,7 +39,10 @@ class company_model extends CI_Model
       	$row = $query2->result_array()[0];
        	$this->company_id = '';
        	$this->Fac_ID = $row['Fac_ID'];
-       	$this->address = $data['num']." ".$data['street']." ".$data['tumbol']." ".$data['aumpure']." ".$data['district']." ".$data['postcode'];
+       	$this->address = $data['num']." ".$data['street'];
+        $this->Sub_district = $data['tumbol'];
+        $this->District = $data['aumpure'];
+        $this->postcode = $data['postcode'];
        	$this->provice = $data['district'];
        	$this->contract = $data['fax'].','.$data['mail'];
        	$this->Tel = $data['tel'];
@@ -88,6 +91,9 @@ class company_model extends CI_Model
 
 			 $this->db->where('company_id', $data['comID']);
      	 $this->db->update('company', array('address' => $data['address']
+       ,'Sub_district'=>$data['subdistrict']
+       ,'District'=>$data['District']
+       ,'postcode'=> $data['postcode']
 		 	 ,'provice'=>$data['Provice']
 	 		 ,'contract'=>','.$data['email']
 		 	 ,'Tel'=>$data['Tel']
