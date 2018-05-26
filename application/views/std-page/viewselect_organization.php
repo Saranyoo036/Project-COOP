@@ -48,7 +48,7 @@
 														echo "<td>$no</td>";
 														echo "<td>$company->Position_name</td>";
 														echo "<td>$company->company_name</td>";
-														echo "<td>$company->address</td>";
+														echo "<td>$company->address $company->Sub_district $company->District</td>";
 														echo "<td>$company->provice</td>";
 														echo "<td>$company->contract $company->Tel</td>";
 														 ?>

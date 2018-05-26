@@ -24,11 +24,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                  <p> <b>Address :</b> <?php echo $responsedata['query'][0]['address']; ?></p>
+                                  <p> <b>Address :</b> <?php echo $responsedata['query'][0]['address'].' '.$responsedata['query'][0]['Sub_district'].' '.$responsedata['query'][0]['District']; ?></p>
                                   <p> <b>province :</b> <?php echo $responsedata['query'][0]['provice']; ?></p>
                                   <p> <b>Contact Name :</b> <?php echo $responsedata['query'][0]['company_contract_name'].' '. $responsedata['query'][0]['company_contract_sname'];  ?></p>
                                   <p><b>Tel : </b> <?php echo $responsedata['query'][0]['Tel']; ?></p>
                                   <p><b>Email : </b> <?php echo $contact[1]; ?></p>
+                                  <p> <b>Post code :</b> <?php echo $responsedata['query'][0]['postcode']; ?></p>
                                   <!-- <?php echo $responsedata[0]['address']; ?> -->
                             </section>
                             <h2>Job description</h2>

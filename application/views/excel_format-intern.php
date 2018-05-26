@@ -40,7 +40,10 @@
 							<td>ชื่อผู้ติดต่อ</td>
 							<td>สถานที่ขอฝึกงาน</td>
 							<td>ที่อยู่</td>
+							<td>ตำบล</td>
+							<td>อำเภอ</td>
 							<td>จังหวัด</td>
+							<td>รหัสไปรษณีย์</td>
 							<td>โทรศัพท์</td>
 							<td>รหัสนักศึกษา</td>
 							<td>ชื่อ</td>
@@ -91,7 +94,10 @@
 								<td>'.$key->company_contract_name.'</td>
 								<td>'.$key->company_name.'</td>
 								<td>'.$key->address.'</td>
+								<td>'.$key->Sub_district.'</td>
+								<td>'.$key->District.'</td>
 								<td>'.$key->provice.'</td>
+								<td>'.$key->postcode.'</td>
 								<td>'.$key->Tel.'</td>
 								<td>'.$key->STD_ID.'</td>
 								<td>'.$key->std_name.'</td>

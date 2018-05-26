@@ -35,10 +35,13 @@
                                    <input class="form-control " type="text" name="address" value= <?php echo $responsedata['address']; ?> disabled>
                                  
                                   </div>
+                                  <p><b>Sub-District : </b>  <input class="form-control " name="subdistrict" type="text" value=<?php echo $responsedata['Sub_district']; ?> disabled></p>
+                                  <p><b>District : </b>  <input class="form-control " name="District" type="text" value=<?php echo $responsedata['District']; ?> disabled></p>
                                   <p><b>Provice : </b>  <input class="form-control " name="Provice" type="text" value=<?php echo $responsedata['provice']; ?> disabled></p>
                                   <p><b>Tel : </b><input class="form-control " type="text" name="Tel" value=<?php echo $responsedata['Tel']; ?> disabled>
                                    </p>
                                   <p><b>Email : </b><input class="form-control " type="text" name="email" value=<?php echo $contact[1]; ?> disabled> </p>
+                                  <p><b>Post code : </b><input class="form-control " type="text" name="postcode" value=<?php echo $responsedata['postcode']; ?> disabled> </p>
                                   <p><b>Contract : </b><br>Name :<input class="form-control " type="text" name = "contract_name" value=<?php echo $responsedata['company_contract_name']; ?> disabled>
                                    Surname : <input class="form-control " type="text" name = "contract_sname" value=<?php echo $responsedata['company_contract_sname']; ?> disabled></p>
                                     <input type="hidden" name="Fac" value="<?php echo $_GET['subname_fac']; ?>">

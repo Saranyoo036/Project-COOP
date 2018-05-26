@@ -33,7 +33,7 @@
 						echo "<tr>";
 						echo "<td>$no</td>";
 						echo "<td>$key->company_name</td>";
-						echo "<td>$key->address</td>";
+						echo "<td>$key->address $key->Sub_district $key->District</td>";
 						echo "<td>$key->provice</td>";
 						echo "<td>$key->contract $key->Tel</td>";
 						echo "<td>$key->Note</td>";
