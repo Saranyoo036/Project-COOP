@@ -50,7 +50,7 @@ class student_model extends CI_Model
                 INNER JOIN student
                 on student_company.STD_ID = student.STD_ID
                 WHERE major_id = ".$majorid."
-                 AND std_type = 'COOP'
+                 AND std_type = '$_SESSION[std_type]'
 								 GROUP BY STD_ID ") ;
 
 			$row = $query->result_array();
