@@ -73,7 +73,7 @@ class company_model extends CI_Model
 
      public function view($id,$posid)
      {
-			 
+
        $this->db->select('*');
        $this->db->from('company');
        $this->db->where('company_id='.$id);
@@ -100,7 +100,8 @@ class company_model extends CI_Model
 		 	 ,'company_contract_name'=>$data['contract_name']
        ,'company_contract_sname'=>$data['contract_sname']
 		 	 ,'company_type'=>$data['type']
-		 	 ,'company_name'=>$data['name']));
+		 	 ,'company_name'=>$data['name']
+			 ,'contacter_position' => $data['contacter_position']));
      	 return true;
 		 }
 
@@ -123,6 +124,8 @@ class company_model extends CI_Model
                                                 ,'Position_desc'=>$data['desc']
                                                 ,'Position_num'=>$data['num']
                                                 ,'Position_name'=>$data['name']
+																								,'responsibility'=>$data['responsibility']
+																								,'candidatereq'=>$data['candidatereq']
                           ));
        return true;
      }
@@ -135,7 +138,7 @@ class company_model extends CI_Model
 
      public function addPos($data)
      {
-       $insert=array('company_id'=>$data['comID'],'Position_name'=>$data['name'],'Position_skill'=>$data['skill'],'Position_desc'=>$data['desc'],'Position_num'=>$data['num']);
+       $insert=array('company_id'=>$data['comID'],'Position_name'=>$data['name'],'Position_skill'=>$data['skill'],'Position_desc'=>$data['desc'],'Position_num'=>$data['num'],'responsibility'=>$data['responsibility'],'candidatereq'=>$data['candidatereq']);
        $this->db->insert('company_position',$insert);
      }
 

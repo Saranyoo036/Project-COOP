@@ -5,7 +5,6 @@ class student_view_con extends CI_Controller{
 		parent::__construct();
 		$this->load->model('student_model');
 
-
 	}
 
 	public function change_status()

@@ -30,8 +30,8 @@
 		}
 		public function edit103form()
 		{
-			$data['data'] = $this->student_model->checkform();
-			array_push($data['data'],$this->student_model->mystatus());
+			$data['data'] = $this->student_model->checkform($_SESSION['stdid']);
+			array_push($data['data'],$this->student_model->mystatus($_SESSION['stdid']));
 			$this->load->view('top-bar-std');
 			$this->load->view('std-page/rightsidebar-std');
 			$this->load->view('std-page/edit103form',$data);
@@ -56,36 +56,40 @@
 		public function viewcompany($idea,$posid)
 		{
 			//echo $idea;
+
+
 			$this->load->model('company_model');
 			$responsedata['responsedata'] = $this->company_model->view($idea,$posid);
+			$email = explode(',',$responsedata['responsedata']['query'][0]['contract']);
 
-			echo '<pre>';
-			print_r($responsedata['responsedata']);
-			echo '</pre>';
+			// echo '<pre>';
+			// print_r($responsedata['responsedata']);
+			// print_r($email);
+			// echo '</pre>';
 			$coop = (object) array(
 				'organization_name'=>$responsedata['responsedata']['query'][0]['company_name'],
 				'address'=>$responsedata['responsedata']['query'][0]['address'],
-				'moo'=>'a',
-				'soi'=>'a',
-				'street'=>'b',
-				'sub_dristrict'=>'asd',
-				'district'=>'asd',
+				'moo'=>'',
+				'soi'=>'',
+				'street'=>'',
+				'sub_dristrict'=>$responsedata['responsedata']['query'][0]['Sub_district'],
+				'district'=>$responsedata['responsedata']['query'][0]['District'],
 				'province'=>$responsedata['responsedata']['query'][0]['provice'],
-				'zip_code'=>'83000',
+				'zip_code'=>$responsedata['responsedata']['query'][0]['postcode'],
 				'tel'=>$responsedata['responsedata']['query'][0]['Tel'],
-				'fax'=>'',
+				'fax'=>$email[0],
 				'website'=>'',
 				'name'=>$responsedata['responsedata']['query'][0]['company_contract_name'],
 				'surname'=>$responsedata['responsedata']['query'][0]['company_contract_sname'],
-				'position'=>'asd',
-				'phone'=>'asd',
-				'email'=>'asd',
-				'job_position'=>'asd',
+				'position'=>$responsedata['responsedata']['query'][0]['contacter_position'],
+				'phone'=>$responsedata['responsedata']['query'][0]['Tel'],
+				'email'=>$email[1],
+				'job_position'=>$responsedata['responsedata']['row']['Position_name'],
 				'skill'=>$responsedata['responsedata']['row']['Position_skill'],
 				'number_of_student'=>$responsedata['responsedata']['row']['Position_num'],
 				'job_description'=>$responsedata['responsedata']['row']['Position_desc'],
-				'responsibilities'=>'asd',
-				'candidate_requirements'=>'asd',
+				'responsibilities'=>$responsedata['responsedata']['row']['responsibility'],
+				'candidate_requirements'=>$responsedata['responsedata']['row']['candidatereq'],
 				'allowance'=>'',
 				'transportation'=>'',
 				'accommodation'=>'',

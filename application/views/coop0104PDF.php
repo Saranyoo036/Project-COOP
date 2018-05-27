@@ -79,31 +79,31 @@ $training_date_end = "31-12-2559";
 $student_id = $coop0104->student_id_1;
 
 $phone_number_1 = $coop0104->phone_number_1;
-$semester_gpa_1 = $coop0104->semester_gpa_1;
-$cumulative_gpa_1 = $coop0104->cumulative_gpa_1;
+$semester_gpa_1 = $coop0104->semester_1;
+$cumulative_gpa_1 = $coop0104->grade_1;
 
 $position_1 = $coop0104->organization_1_position;
 $oraganization_name_1 = $coop0104->organization_name_1;
 $oraganization_province_1 = $coop0104->organization_1_province;
-$subject_id_name_1 = 'asdasd';//$related_1->course;
-$study_semester_1 = 'werwe';//$related_1->semester;
-$gpa_1 = '2.2';//$related_1->grade;
-$certificate_1 = 'cert';//$related_1->cert;
-$training_time_1 = 'duration';//$related_1->duration;
-$start_date_1 = 'start';//$related_1->start;
-$end_date_1 = 'end';//$related_1->end;
+$subject_id_name_1 = $coop0104->subject_code_1;//$related_1->course;
+$study_semester_1 = $coop0104->semester_1;//$related_1->semester;
+$gpa_1 = $coop0104->grade_1;//$related_1->grade;
+$certificate_1 = $coop0104->certificate_1;//$related_1->cert;
+$training_time_1 = $coop0104->certificate_time_1;//$related_1->duration;
+$start_date_1 = $coop0104->certificate_start_1;//$related_1->start;
+$end_date_1 = $coop0104->certificate_end_1;//$related_1->end;
 
 $position_2 = $coop0104->organization_2_position;
 $oraganization_name_2 = $coop0104->organization_name_2;
 $oraganization_province_2 =$coop0104->organization_2_province;
-if(isset($related_2)) {
-	$subject_id_name_2 = $related_2->course;
-	$study_semester_2 = $related_2->semester;
-	$gpa_2 = $related_2->grade;
-	$certificate_2 = $related_2->cert;
-	$training_time_2 = $related_2->duration;
-	$start_date_2 = $related_2->start;
-	$end_date_2 = $related_2->end;
+if(isset($coop0104->subject_code_2)) {
+	$subject_id_name_2 = $coop0104->subject_code_2;
+	$study_semester_2 = $coop0104->semester_2;
+	$gpa_2 = $coop0104->grade_2;
+	$certificate_2 = $coop0104->certificate_2;
+	$training_time_2 = $coop0104->certificate_time_2;
+	$start_date_2 = $coop0104->certificate_start_2;
+	$end_date_2 = $coop0104->certificate_end_2;
 } else {
 	$subject_id_name_2 = '-';
 	$study_semester_2 = '-';
@@ -118,12 +118,6 @@ $copy = "5";
 // end variables
 
 $pdf->setMargins(15.4, 15.2, 10);
-
-
-
-
-
-
 
 $pdf->setMargins(15.4, 15.2, 10);
 $pdf->AddPage();

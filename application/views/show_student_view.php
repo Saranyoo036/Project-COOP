@@ -48,7 +48,7 @@
             $STD_ID = $key->STD_ID;
             echo '<tr style="background-color: #'.$color[$key->status].'">';
             echo "<td>$STD_ID</td>";
-            echo "<td>$key->std_name</td>";
+            echo "<td>$key->std_name $key->std_sname </td>";
             echo "<td>$key->Faculty_name</td>";
             echo "<td>$key->Major_name</td>";
             /////status//////
@@ -94,11 +94,11 @@
                   $query = $this->db->query("SELECT company_id,Position_id,select_print from student_company where STD_ID = $STD_ID");
                   $row = $query->result_array();
                   $check = "";
-                  print_r($row);
+
                   if($row[0]['select_print']==1){$check="checked";};
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple'  type='radio' ".$check." value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
-                  <label for=".$STD_ID.$j.">".$row[0]['company_id']."</label>
+                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
 
                   </td>";
                   echo '<td><i class="material-icons">close</i></td>';
@@ -115,8 +115,8 @@
 
                   </td>";
             //echo '<td><i class="material-icons">check</i></td>';
-            echo "<td><input name='group4' id=".$STD_ID.($j+1)." class='radio-col-deep-purple' ".$check2." type='radio'value=".$row[1]['company_id']." onclick = 'test($STD_ID,this.value,".$row[1]['Position_id'].")'>
-            <label for=".$STD_ID.($j+1).">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label></td>";
+                  echo "<td><input name='group4' id=".$STD_ID.($j+1)." class='radio-col-deep-purple' ".$check2." type='radio'value=".$row[1]['company_id']." onclick = 'test($STD_ID,this.value,".$row[1]['Position_id'].")'>
+                  <label for=".$STD_ID.($j+1).">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label></td>";
 
                  } ?>
                   <td><div class="btn-group" role="group">
@@ -124,11 +124,12 @@
                                     <ul class="dropdown-menu">
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0103PDF/view0103form/$STD_ID") ?>>COOP 0103</a></li>
                                         <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0104PDF/view0104/$STD_ID") ?>>COOP 0104</a></li>
-                                        <li><a target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/46/21") ?>>COOP 0202</a></li>
+                                        <li><a id ="0202" target="_blank" href=<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/46/21") ?>>COOP 0202</a></li>
                                         <!-- <li><a target="_blank" href=<?php echo base_url("Project-COOP/coop0102PDF/test") ?>><?php echo $STD_ID ?></a></li> -->
                                     </ul>
                                 </div>
             </td>
+
               <?php }else if($type=="internship"){
                 $sql = "SELECT count(STD_ID) as num_STD from student_company where STD_ID = $STD_ID";
                 $num_STD = 0;
@@ -141,9 +142,6 @@
                 }else if($num_STD==1){
                   $query = $this->db->query("SELECT company_id,Position_id from student_company where STD_ID = $STD_ID");
                   $row = $query->result_array();
-                  // echo '<pre>';
-                  // print_r($row);
-                  // echo '</pre>';
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
                   <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
@@ -174,7 +172,10 @@
         ?>
       </table>
       </ul>
-      <a href=<?php echo base_url("Project-COOP/matching/matching/").$nameMaj; ?> class="btn btn-raised btn-primary waves-effect">matching</a>
+      <?php if ($_GET['type_major']== 'COOP') { ?>
+        <a href=<?php echo base_url("Project-COOP/matching/matching/").$nameMaj; ?> class="btn btn-raised btn-primary waves-effect">matching</a>
+    <?php  } ?>
+
     </div>
      </div>
 
@@ -186,12 +187,13 @@ var table;
 
 
 function test(stdid,comid,posid) {
-
   jQuery.ajax({
             url: "<?php echo base_url("Project-COOP/coop0103PDF/setcompanyinform/")?>"+stdid+'/'+comid+'/'+posid,
             type: 'GET'
           }).done(function(){
             alert('เซ็ทข้อมูลสำหรับแบบฟอร์ม coop0103 เสร็จสิ้น')
+            document.getElementById('0202').href = "<?php echo base_url("Project-COOP/STDPage/cooppageform/viewcompany/")?>"+comid+'/'+posid
+
           });
 }
 

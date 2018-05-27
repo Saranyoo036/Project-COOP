@@ -57,6 +57,7 @@ class company extends CI_Controller {
   {
     //$this->load->model('company_model');
     $this->company_model->update($_POST);
+    print_r($_POST);
     $back =  base_url("Project-COOP/index.php/company/viewcompany?company_viewid=$_POST[comID]&subname_fac=$_POST[Fac]COC&type_major=".$_POST['type']);
 		header('Location:'.$back);
   }

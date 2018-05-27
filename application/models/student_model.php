@@ -526,5 +526,19 @@ class student_model extends CI_Model
  				return $row;
 		 }
 
+		 public function getteachermail($majorid,$type)
+		 {
+
+			 $query = $this->db->query("SELECT personnel_id
+				 FROM major_setting_personnel
+				 WHERE major_id = $majorid
+				 AND major_type = '$type'");
+			$row = $query->result_array();
+			$query = $this->db->query("SELECT email FROM personnel WHERE personnelID = ".$row[0]['personnel_id']);
+			$row = $query->result_array();
+
+			return $row;
+		 }
+
 }
 ?>

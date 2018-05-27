@@ -7,10 +7,7 @@
 
             </ul>
         </div>
-
-
                   <div class="card">
-                      <!-- <?php echo count($data[0]); ?> -->
 
                         <div class="header">
                             <h2 align="center">รายชื่อนักศึกษา คณะเทคโนโลยีและสิ่งแวดล้อมที่ขอปฏิบัติงานสหกิจศึกษา ชั้นปีที่ 3-8</h2>
@@ -38,17 +35,21 @@
                                             <tbody>
                                               <tr>
                                             <?php
-                                            
-                                            for ($i=0; $i <count($data[0]) ; $i++) {
-                                              echo "<td>".$data[0][$i]['STD_ID']." </td>";
-                                              echo "<td>".$data[0][$i]['std_name'].' '.$data[0][$i]['std_sname']." </td>";
-                                              echo "<td>".$data[0][$i][1]." </td>";
-                                              echo "<td>".''." </td>";
-                                              echo "<td>".$data[0][$i][3]." </td>";
-                                              echo "<td>".''." </td>";
-                                              echo "<td>".''." </td>";
-                                            }
 
+                                            if ($data == array()) {
+                                              // code...
+                                            }
+                                            else{
+                                              for ($i=0; $i <count($data[0]) ; $i++) {
+                                                echo "<td>".$data[0][$i]['STD_ID']." </td>";
+                                                echo "<td>".$data[0][$i]['std_name'].' '.$data[0][$i]['std_sname']." </td>";
+                                                echo "<td>".$data[0][$i][1]." </td>";
+                                                echo "<td>".''." </td>";
+                                                echo "<td>".$data[0][$i][3]." </td>";
+                                                echo "<td>".''." </td>";
+                                                echo "<td>".''." </td>";
+                                              }
+                                            }
                                             ?>
                                             </tr>
                                             </tbody>

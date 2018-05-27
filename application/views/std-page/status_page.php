@@ -19,22 +19,22 @@
                                     <table class="table table-hover" style="margin-bottom: 0px;">
                                         <tbody>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #5bc0de;">Choosing</span></td>   
+                                                <td><span class="label label-default label-status" style="background-color: #5bc0de;">Choosing</span></td>
                                                 <td class="status-info">นักศึกษากรอกข้อมูลส่วนตัว และเลือกสถานประกอบการ</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #f0ad4e;">Waiting</span></td>    
+                                                <td><span class="label label-default label-status" style="background-color: #f0ad4e;">Waiting</span></td>
                                                 <td class="status-info">รอสถานประกอบการตอบรับ</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #a53ce6;">Rechoosing</span></td> 
+                                                <td><span class="label label-default label-status" style="background-color: #a53ce6;">Rechoosing</span></td>
                                                 <td class="status-info">อาจารย์ปฏิเสธ ให้เลือกสถานประกอบการใหม่</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #5bc0de;">Printing</span></td> 
+                                                <td><span class="label label-default label-status" style="background-color: #5bc0de;">Printing</span></td>
                                                 <td class="status-info">กำลังดำเนินงานจัดการเรื่องเอกสาร</td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -44,19 +44,19 @@
                                     <table class="table table-hover" style="margin-bottom: 0px;">
                                         <tbody>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #d1de10;">Approving</span></td>  
+                                                <td><span class="label label-default label-status" style="background-color: #d1de10;">Approving</span></td>
                                                 <td class="status-info">รออาจารย์พิจารณาอนุมัติ</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #5cb85c;">Accept</span></td>     
+                                                <td><span class="label label-default label-status" style="background-color: #5cb85c;">Accept</span></td>
                                                 <td class="status-info">สถานประกอบการตอบรับแล้ว</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #b36623;">Repair</span></td>     
+                                                <td><span class="label label-default label-status" style="background-color: #b36623;">Repair</span></td>
                                                 <td class="status-info">สถานประกอบการปฏิเสธ ให้เลือกสถานประกอบการใหม่</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #777777;">Cancel</span></td>     
+                                                <td><span class="label label-default label-status" style="background-color: #777777;">Cancel</span></td>
                                                 <td class="status-info">ยกเลิก</td>
                                             </tr>
                                         </tbody>
@@ -67,12 +67,12 @@
                     </div>
 
                 </div><br><br>
-                
- 
+
+
  <div class="col-md-12">
                   <div class="alert alert-info" role="alert">
             <strong>สถานะ <?php echo $mystatus[0]['status'] ?> </strong>
-          
+
         </div>
 </div>
                 <div class="">
@@ -116,12 +116,12 @@
     </div>
     <div class="container">
     		<?php
-    			$coop0103 =true ; 
+    			$coop0103 =true ;
     			if($mystatus[1]==Array()){
     				$coop0103 = false;
     			}
     			$coop0202_1 =true ;
-    			$coop0202_2 =true ; 
+    			$coop0202_2 =true ;
     			if($mystatus[2]==Array()){
     				$coop0202_1 =false;
     			}
@@ -129,12 +129,12 @@
     				$coop0202_2 = true;
     			}else{
     				$coop0202_2 = false;
-    			} 
-    				
+    			}
+
     		?>
 
-    		
-						
+
+
 			<?php
 				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&(!$mystatus[3])){ ?>
 				<div class="alert alert-danger">
@@ -144,15 +144,15 @@
 								กรุณาเข้าสู่ระบบอีกครั้งเมื่อถึงเวลา
 					</center>
         		</div>
-        		<?php  
+        		<?php
 							if($coop0103){ ?>
         		<div class="col-md-12">
 				<table class="table table-hover table-bordered  table-striped">
 					<tbody>
 						<td><center><h5>COOP0103</h5></center></td>
-						
+
 								<td><center><a  href=<?php echo base_url("Project-COOP/STDPage/cooppageform/view/").$_SESSION['stdid']; ?>  class="btn btn-raised g-bg-blue waves-effect">view</a></center></td>
-						
+
 
 					</tbody>
 				</table>
@@ -168,7 +168,7 @@
 				</table>
 			</div>
 			<?php } ?>
-			<?php if($_SESSION['std_type']=="COOP"){ 
+			<?php if($_SESSION['std_type']=="COOP"){
 								if($coop0202_2){ ?>
 					<div class="col-md-12">
 						<table class="table table-hover table-bordered  table-striped">
@@ -192,7 +192,7 @@
 					</colgroup>
 					<tbody>
 						<td><center><h5>COOP0103</h5></center></td>
-						<td><?php 
+						<td><?php
 							if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&(!$coop0103)&&($mystatus[3])){ ?>
 									 <center><a href=<?php echo base_url("Project-COOP/STDPage/cooppageform/cooppage_form"); ?>  class="btn btn-raised g-bg-blue waves-effect"> Add</a></center>
 
@@ -217,7 +217,7 @@
 					     <col width="100">
 					</colgroup>
 					<tbody>
-						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php 
+						<td><center><h5>COOP0202<?php if($_SESSION['std_type']=="COOP"){echo "-1";} ?></h5><?php
 						if($coop0202_1){
 							if($mystatus[2][0]['note']){
     							echo '<font color="red">*หมายเหตุ : '.$mystatus[2][0]['note'].'</font>';
@@ -236,7 +236,7 @@
 							</td></tbody>
 					</table>
 				</div>
-				<?php 
+				<?php
 				if($_SESSION['std_type']=="COOP"){ ?>
 					<div class="col-md-12">
 						<table class="table table-hover table-bordered  table-striped">
@@ -247,7 +247,7 @@
 						    <col width="100">
 						</colgroup>
 							<tbody>
-								<td><center><h5>COOP0202-2</h5><?php 
+								<td><center><h5>COOP0202-2</h5><?php
 								if($coop0202_2){
 									if($mystatus[2][1]['note']){
 		    							echo '<font color="red">*หมายเหตุ : '.$mystatus[2][1]['note'].'</font>';
@@ -269,7 +269,7 @@
 					</table>
 				</div>
 				<?php }
-				$have_coop0202_2 = true ; 
+				$have_coop0202_2 = true ;
 				if($coop0202_2){
 					if($mystatus[2][1]['status_student_company_id']==2){
 						$have_coop0202_2 = false;
@@ -283,7 +283,7 @@
 								</tbody>
 							</table>
 						</div>
-				<?php } 
+				<?php }
 				if((($mystatus[0]['status']=="Repair")||($mystatus[0]['status']=="Rechoosing")||($mystatus[0]['status']=="Choosing"))&&($_SESSION['std_type']=="Internship")&&$coop0202_1&&$coop0103&&($mystatus[2][0]['status_student_company_id']!=2)){ ?>
 						<div class="col-md-12">
 							<table class="table table-hover table-bordered  table-striped">
