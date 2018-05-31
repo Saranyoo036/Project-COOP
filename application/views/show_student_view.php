@@ -91,19 +91,23 @@
             echo '<td><i class="material-icons">close</i></td>';
             echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==1){
-                  $query = $this->db->query("SELECT company_id,Position_id,select_print from student_company where STD_ID = $STD_ID");
+                  $query = $this->db->query("SELECT student_company.company_id,Position_id,select_print,company.company_name from student_company,company where student_company.company_id = company.company_id
+                    AND STD_ID = $STD_ID");
                   $row = $query->result_array();
                   $check = "";
+                  
 
                   if($row[0]['select_print']==1){$check="checked";};
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple'  type='radio' ".$check." value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
-                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
+                  <label for=".$STD_ID.$j.">".$row[0]["company_name"]."</label>
 
                   </td>";
                   echo '<td><i class="material-icons">close</i></td>';
                 }else if($num_STD==2){
-                  $query = $this->db->query("SELECT company_id,Position_id,select_print from student_company where STD_ID = $STD_ID");
+                  $query = $this->db->query("SELECT student_company.company_id,Position_id,select_print,company.company_name from student_company,company 
+                    where student_company.company_id = company.company_id
+                    AND STD_ID = $STD_ID");
                   $row = $query->result_array();
                   $check1 = "";
                   $check2 = "";
@@ -111,12 +115,12 @@
                   if($row[1]['select_print']==1){$check2="checked";};
                   echo "<td>
                   <input name='group4' id=".$STD_ID.$j." class='radio-col-deep-purple' type='radio' ".$check1." value=".$row[0]['company_id']." onclick = 'test($STD_ID,this.value,".$row[0]['Position_id'].")'>
-                  <label for=".$STD_ID.$j.">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label>
+                  <label for=".$STD_ID.$j.">".$row[0]["company_name"]."</label>
 
                   </td>";
             //echo '<td><i class="material-icons">check</i></td>';
                   echo "<td><input name='group4' id=".$STD_ID.($j+1)." class='radio-col-deep-purple' ".$check2." type='radio'value=".$row[1]['company_id']." onclick = 'test($STD_ID,this.value,".$row[1]['Position_id'].")'>
-                  <label for=".$STD_ID.($j+1).">ใช้ข้อมูลของสถานประกอบการนี้ในแบบฟอร์ม</label></td>";
+                  <label for=".$STD_ID.($j+1).">".$row[1]["company_name"]."</label></td>";
 
                  } ?>
                   <td><div class="btn-group" role="group">
