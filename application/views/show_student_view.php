@@ -34,7 +34,7 @@
 
         <?php
         $status = array('Choosing','Approving','Printing','Waiting','Rechoosing','Repair','Accept','Cancel');
-         $color = array('Choosing'=>'A4D3EE','Approving'=>'18d1d1','Printing'=>'7CCD7C','Waiting'=>'BA55D3','Rechoosing'=>'ff8a8d','Repair'=>'ff8a8d','Accept'=>'64f092','Cancel'=>'cdcdcd');
+         $color = array('Choosing'=>'5bc0de','Approving'=>'d1de10','Printing'=>'FF66FF','Waiting'=>'f0ad4e','Rechoosing'=>'a53ce6','Repair'=>'b36623','Accept'=>'5cb85c','Cancel'=>'777777');
 
         $que = "SELECT * FROM `student`,`major`,`faculty`,`student_status`
             WHERE major.Major_ID = student.major_id

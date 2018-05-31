@@ -31,7 +31,7 @@
                                                 <td class="status-info">อาจารย์ปฏิเสธ ให้เลือกสถานประกอบการใหม่</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="label label-default label-status" style="background-color: #5bc0de;">Printing</span></td>
+                                                <td><span class="label label-default label-status" style="background-color: #FF66FF;">Printing</span></td>
                                                 <td class="status-info">กำลังดำเนินงานจัดการเรื่องเอกสาร</td>
                                             </tr>
 
